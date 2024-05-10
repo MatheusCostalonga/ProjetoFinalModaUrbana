@@ -110,6 +110,8 @@ public class ProdutosController extends HttpServlet {
         System.out.println(request.getParameter("categorias"));
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("categorias"))); 
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
+        newProduto.setDescricao(request.getParameter("descricao"));
+        newProduto.setTamanho(request.getParameter("tamanho"));
         Part filePart = request.getPart("imagem");
         InputStream istream = filePart.getInputStream();
         ByteArrayOutputStream byteA = new ByteArrayOutputStream();

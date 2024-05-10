@@ -103,8 +103,9 @@
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
-                
+                      <p class="card-text">${produto.descricao}</p>
                       <p class="card-text">${produto.imagem}</p>
+                      <p class="card-text">${produto.tamanho}</p>
                       <p class="card-text">${produto.valor}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
                     </div>

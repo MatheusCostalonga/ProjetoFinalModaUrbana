@@ -18,17 +18,21 @@ public class ProdutoDTO {
     private byte[] imagem;
     private Blob imgBlob;
     private float valor;
+    private String descricao;
+    private String tamanho;
     private int categoriaId;
-
+    
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome, byte[] imagem, Blob imgBlob, float valor, int categoriaId) {
+    public ProdutoDTO(int idProduto, String nome, byte[] imagem, Blob imgBlob, float valor, String descricao, String tamanho, int categoriaId) {
         this.idProduto = idProduto;
         this.nome = nome;
         this.imagem = imagem;
         this.imgBlob = imgBlob;
         this.valor = valor;
+        this.descricao = descricao;
+        this.tamanho = tamanho;
         this.categoriaId = categoriaId;
     }
 
@@ -72,6 +76,22 @@ public class ProdutoDTO {
         this.valor = valor;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
     public int getCategoriaId() {
         return categoriaId;
     }
@@ -79,6 +99,8 @@ public class ProdutoDTO {
     public void setCategoriaId(int categoriaId) {
         this.categoriaId = categoriaId;
     }
+
+   
     
     
     

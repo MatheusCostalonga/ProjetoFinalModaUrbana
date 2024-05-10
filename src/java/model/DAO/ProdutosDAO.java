@@ -34,7 +34,9 @@ public class ProdutosDAO {
                 objProduto.setIdProduto(rs.getInt("id_produto"));
                 objProduto.setNome(rs.getString("nome"));
                 objProduto.setValor(rs.getFloat("valor"));
+                objProduto.setDescricao(rs.getString("descricao"));
                 objProduto.setCategoriaId(rs.getInt("categoria_id"));
+                objProduto.setTamanho(rs.getString("tamanho"));
                 objProduto.setImgBlob(rs.getBlob("imagem"));
                 Blob blob = rs.getBlob("imagem");
                 int blobLength = (int) blob.length();
@@ -56,11 +58,13 @@ public class ProdutosDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             
-            stmt = conexao.prepareStatement("INSERT INTO produtos (categoria_id, nome, valor, imagem) VALUES (?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO produtos (categoria_id, nome, valor, imagem, descricao, tamanho) VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, p.getCategoriaId());
             stmt.setString(2, p.getNome());
             stmt.setFloat(3, p.getValor());
             stmt.setBytes(4, p.getImagem());
+            stmt.setString(5, p.getDescricao());
+            stmt.setString(6, p.getTamanho());
             
             stmt.executeUpdate();
             stmt.close();
@@ -86,6 +90,8 @@ public class ProdutosDAO {
                 produto.setIdProduto(rs.getInt("id_produto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoriaId(rs.getInt("categoria_id"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setTamanho(rs.getString("tamanho"));
                 produto.setValor(rs.getFloat("valor"));
                 produto.setImagem(rs.getBytes("imagem"));
                 produtos.add(produto);
@@ -119,6 +125,8 @@ public class ProdutosDAO {
              prod.setIdProduto(rs.getInt("id_produto"));
              prod.setNome(rs.getString("nome"));
              prod.setCategoriaId(rs.getInt("categoria_id"));
+             prod.setDescricao(rs.getString("descricao"));
+             prod.setTamanho(rs.getString("tamanho"));
              prod.setImagem(rs.getBytes("imagem"));
              prod.setValor(rs.getFloat("valor"));
              resultadoBusca.add(prod);           
@@ -147,6 +155,8 @@ public class ProdutosDAO {
              prod.setIdProduto(rs.getInt("id_produto"));
              prod.setCategoriaId(rs.getInt("categoria_id"));
              prod.setImagem(rs.getBytes("imagem"));
+             prod.setDescricao(rs.getString("descricao"));
+             prod.setTamanho(rs.getString("tamanho"));
              prod.setValor(rs.getFloat("valor"));
              resultadoBusca.add(prod);           
              }
