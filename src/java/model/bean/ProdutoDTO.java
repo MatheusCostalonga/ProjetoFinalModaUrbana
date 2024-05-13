@@ -15,8 +15,7 @@ public class ProdutoDTO {
     
      private int idProduto;
     private String nome;
-    private byte[] imagem;
-    private Blob imgBlob;
+    private String imagem;
     private float valor;
     private String descricao;
     private String tamanho;
@@ -25,11 +24,10 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome, byte[] imagem, Blob imgBlob, float valor, String descricao, String tamanho, int categoriaId) {
+    public ProdutoDTO(int idProduto, String nome, String imagem, String imgBlob, float valor, String descricao, String tamanho, int categoriaId) {
         this.idProduto = idProduto;
         this.nome = nome;
         this.imagem = imagem;
-        this.imgBlob = imgBlob;
         this.valor = valor;
         this.descricao = descricao;
         this.tamanho = tamanho;
@@ -52,20 +50,12 @@ public class ProdutoDTO {
         this.nome = nome;
     }
 
-    public byte[] getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public Blob getImgBlob() {
-        return imgBlob;
-    }
-
-    public void setImgBlob(Blob imgBlob) {
-        this.imgBlob = imgBlob;
     }
 
     public float getValor() {
@@ -100,8 +90,6 @@ public class ProdutoDTO {
         this.categoriaId = categoriaId;
     }
 
-   
-    
-    
-    
+  
+ 
 }

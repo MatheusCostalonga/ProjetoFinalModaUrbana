@@ -37,12 +37,7 @@ public class ProdutosDAO {
                 objProduto.setDescricao(rs.getString("descricao"));
                 objProduto.setCategoriaId(rs.getInt("categoria_id"));
                 objProduto.setTamanho(rs.getString("tamanho"));
-                objProduto.setImgBlob(rs.getBlob("imagem"));
-                Blob blob = rs.getBlob("imagem");
-                int blobLength = (int) blob.length();
-                byte[] imagemBytes = blob.getBytes(1, blobLength);
-                blob.free();
-                objProduto.setImagem(imagemBytes);
+                objProduto.setImagem(rs.getString("imagem"));
                 produtos.add(objProduto);
             }
             rs.close();
@@ -62,7 +57,7 @@ public class ProdutosDAO {
             stmt.setInt(1, p.getCategoriaId());
             stmt.setString(2, p.getNome());
             stmt.setFloat(3, p.getValor());
-            stmt.setBytes(4, p.getImagem());
+            stmt.setString(4, p.getImagem());
             stmt.setString(5, p.getDescricao());
             stmt.setString(6, p.getTamanho());
             
@@ -93,7 +88,7 @@ public class ProdutosDAO {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setTamanho(rs.getString("tamanho"));
                 produto.setValor(rs.getFloat("valor"));
-                produto.setImagem(rs.getBytes("imagem"));
+                produto.setImagem(rs.getString("imagem"));
                 produtos.add(produto);
             }
             
@@ -127,7 +122,7 @@ public class ProdutosDAO {
              prod.setCategoriaId(rs.getInt("categoria_id"));
              prod.setDescricao(rs.getString("descricao"));
              prod.setTamanho(rs.getString("tamanho"));
-             prod.setImagem(rs.getBytes("imagem"));
+             prod.setImagem(rs.getString("imagem"));
              prod.setValor(rs.getFloat("valor"));
              resultadoBusca.add(prod);           
              }
@@ -154,7 +149,7 @@ public class ProdutosDAO {
              ProdutoDTO  prod = new ProdutoDTO();
              prod.setIdProduto(rs.getInt("id_produto"));
              prod.setCategoriaId(rs.getInt("categoria_id"));
-             prod.setImagem(rs.getBytes("imagem"));
+             prod.setImagem(rs.getString("imagem"));
              prod.setDescricao(rs.getString("descricao"));
              prod.setTamanho(rs.getString("tamanho"));
              prod.setValor(rs.getFloat("valor"));

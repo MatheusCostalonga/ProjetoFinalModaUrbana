@@ -6,9 +6,13 @@
 package controller;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -112,16 +116,28 @@ public class ProdutosController extends HttpServlet {
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setTamanho(request.getParameter("tamanho"));
-        Part filePart = request.getPart("imagem");
-        InputStream istream = filePart.getInputStream();
-        ByteArrayOutputStream byteA = new ByteArrayOutputStream();
-        byte[] img = new byte[4096];
-        int byteRead = -1;
-        while((byteRead = istream.read(img)) != -1 ) {
-            byteA.write(img, 0, byteRead);
+Part filePart = request.getPart("imagem");
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        if (fileName != null && !fileName.isEmpty()) {
+        String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
+        File uploads = new File(basePath);
+        if (!uploads.exists()) {
+            uploads.mkdirs(); // Cria o diretório se não existir
         }
-        byte[] imgBytes = byteA.toByteArray();
-        newProduto.setImagem(imgBytes);
+        File file = new File(uploads, fileName);
+
+        try (InputStream input = filePart.getInputStream()) {
+            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            e.printStackTrace(); // Trate as exceções de forma adequada
+        }
+
+        // Configurando apenas o caminho relativo da imagem no banco de dados
+        newProduto.setImagem("assets/" + fileName);
+    } else {
+        newProduto.setImagem(null);
+    }
+       
         ProdutosDAO produtosD = new ProdutosDAO();
         produtosD.cadastrarProduto(newProduto);
         response.sendRedirect("./menu");

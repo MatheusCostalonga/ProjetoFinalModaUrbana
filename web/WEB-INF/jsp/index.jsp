@@ -35,6 +35,7 @@
         <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
       <li><a class="dropdown-item" href="./loginCliente">Login</a></li>
       <li><a class="dropdown-item" href="./CadastroClienteController"><i class="fa-solid fa-user-plus"></i>Cadastrar</a></li>
+      <li><a class="dropdown-item" href="./cadastrar-produto"><i class="fa-solid fa-user-plus"></i>ProdutoCAD</a></li>
     </ul>
   </div>
         <div id="campoPesquisa">
@@ -50,10 +51,20 @@
             <div class="offcanvas-menu">
                 <button   class="close-btn" href="#"><i class="fa-solid fa-xmark"></i></button>
                 <ul>
-                    <li><a href="#">Login</a></li>//jaqueta
-                    <li><a href="./cadastrar-produto">Cadastro Produtos</a></li>//Camisetas
-                    <li><a href="./produtoSelecionado">Produto</a></li>//Camisas
-                    <li><a href="./menu">Produtos Categorias</a></li>//Calçass
+                    <li><c:forEach items="${carrinhos}" var="carrinho">
+                <div id="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
+                      <p class="card-text">${carrinho.valorCarrinho}</p>
+                      <p class="card-text">${carrinho.imagemCarrinho}</p>
+                      <p class="card-text">${carrinho.descricaoCarrinho}</p>
+                      <p class="card-text">${carrinho.quantidadeCarrinho}</p>
+                      <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                  </div>
+            </c:forEach></li>
+
                    </ul>
             </div>
         </div> 
@@ -100,11 +111,10 @@
         </div>
         <c:forEach items="${produtos}" var="produto">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="${produto.imagem}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
                       <p class="card-text">${produto.descricao}</p>
-                      <p class="card-text">${produto.imagem}</p>
                       <p class="card-text">${produto.tamanho}</p>
                       <p class="card-text">${produto.valor}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
