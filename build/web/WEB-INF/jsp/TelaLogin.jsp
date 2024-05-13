@@ -19,20 +19,21 @@
 </head>
 <body>
     <main>
-    <img class="imagem" src="./assets/ModaUrbanaDourada.png"alt="">
-    <div class="linha"></div>
+    <img class="imagem" src="./assets/ModaUrbanaLogoLogin.png" alt="Logo da loja na tela de login">
+    
     <div id="fundo">
         <form action="logado" name="frmLogin">
         <h1>LOGIN</h1>
-        <span class="usuario">Usuario</span>
-        <i id="usuarioIcone" class="fa-solid fa-user"></i><input name="usuario"  type="text" id="usuario" placeholder="  Digite seu usuario">
+        <span class="usuario">Usuario:</span>
+        <!-- placeholder="  Digite seu usuario" -->
+        <i id="usuarioIcone" class="fa-solid fa-user"></i><input name="usuario"  type="text" id="usuario" >
 
-        <span class="senha">Senha</span>
+        <span class="senha">Senha:</span>
 
-            <i id="cadeadoIcone" class="fa-solid fa-lock"></i> <input name="senha" type="password" id="senha" placeholder="  Digite sua senha">
+            <i id="cadeadoIcone" class="fa-solid fa-lock"></i> <input name="senha" type="password" id="senha">
        <!--   <button type="submit" id="button">Logar</button>-->
-              <input id="button" type="button"  value="Logar" onclick="validacao()">
-
+              <input id="button" type="button"  value="PROSSEGUIR" onclick="validacao()">
+            <a id="linkCadastro" href="./CadastroClienteController">Não tem conta? Cadastre-se aqui!!</a>
         </form>
     </div>
 

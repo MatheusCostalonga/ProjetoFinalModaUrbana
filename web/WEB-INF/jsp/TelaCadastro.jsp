@@ -15,43 +15,39 @@
     </head>
     <body>
         <main>
-                <img class="imagem" src="./assets/ModaUrbanaDourada.png"alt="logo da moda urbana">
-                      <div id="fundo">   
+          <img class="imagem" src="./assets/ModaUrbanaLogoLogin.png" alt="Logo da loja na tela de cadastro">
+          <div id="fundo">   
                 <h1>CADASTRO</h1>
                 <form name="frmRegister" action="inserir">
                     <div class ="CampoTextCadastro">
                 <div class="mb-3">
-              <span for="inputNome" class="form-label"><i class="fa-solid fa-circle-user"></i> Nome:</span>
-              <input type="text" id="nome" placeholder="Digite seu nome" name="nome" required>
+              <span for="inputNome" class="form-label"> Nome:</span>
+              <i class="nomeIcone" class="fa-solid fa-circle-user"></i><input type="text" id="nome" name="nome" required>
             </div>
             <div class="mb-3">
-              <span for="inputUsuario" class="form-label"><i class="fa-solid fa-user"></i> Usuario:</span>
-              <input type="text"  id="usuario" placeholder="Digite seu usuario" name="usuario" required>
+              <span for="inputUsuario" class="form-label"> Usuario:</span>
+              <i class="usuarioIcone" class="fa-solid fa-user"></i><input type="text"  id="usuario"  name="usuario" required>
             </div>
               <div class="mb-3">
-              <span for="inputSenha" class="form-label"><i class="fa-solid fa-lock"></i> Senha:</span>
-              <input type="password"  id="senha" placeholder="Digite sua senha" name="senha" required>
+              <span for="inputSenha" class="form-label"> Senha:</span>
+              <i class="senhaIcone" class="fa-solid fa-lock"></i><input type="password"  id="senha"  name="senha" required>
           </div>
             <div class="mb-3">
               <div id="campos_juntos">
-              
-              <span for="inputCpf" class="form-label"><i class="fa-solid fa-address-card"></i> CPF:</span>
-              <input type="text"  id="cpf" placeholder="Digite seu CPF" name="cpf" maxlength="14" 
+              <span for="inputCpf" class="form-label"> CPF:</span>
+              <i class="cpfIcone" class="fa-solid fa-address-card"></i><input type="text"  id="cpf"  name="cpf" maxlength="14" 
                 onkeyup="handleCpf(event)" required>
-
-                <span for="inputTelefone" id="text_telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</span>
-              <input type="tel"  id="telefone" placeholder="Digite o Telefone" name="telefone" maxlength="15"
+                <span for="inputTelefone" id="text_telefone" class="form-label"> Telefone:</span>
+              <i class="telefoneIcone" class="fa-solid fa-phone"></i><input type="tel"  id="telefone"  name="telefone" maxlength="15"
                 onkeyup="handlePhone(event)" required>
-
               </div>
-            
                 <div id="campo_data_nascimento">
-              <span for="inputDate"><i class="fa-regular fa-calendar-days"></i> Data do Nascimento:</span>
-              <input type="date"  id="data_nascimento" name="data_nascimento" required>
+              <span for="inputDate"> Data do Nascimento:</span>
+              <i class="dataNascimentoIcone" class="fa-regular fa-calendar-days"></i><input type="date"  id="data_nascimento" name="data_nascimento" required>
             </div>
              </div>
             <div>
-                <input id="botaoCadastrar" type="button" value="Cadastrar" onclick="cadastro()">
+                <input id="botaoCadastrar" type="button" value="PROSSEGUIR" onclick="cadastro()">
         </div>    
         </form>
         </main> 
