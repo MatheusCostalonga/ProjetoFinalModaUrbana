@@ -12,14 +12,25 @@ package model.bean;
 public class CarrinhoDTO {
     private int id_carrinho;
     private String nomeCarrinho;
-    private Float valorCarrinho;
-    private byte[] imagemCarrinho ;
+    private float valorCarrinho;
+    private String imagemCarrinho ;
     private String descricaoCarrinho;
     private int quantidadeCarrinho;
     private int produtoId3;
     private int usuarioId3;
 
     public CarrinhoDTO() {
+    }
+
+    public CarrinhoDTO(int id_carrinho, String nomeCarrinho, float valorCarrinho, String imagemCarrinho, String descricaoCarrinho, int quantidadeCarrinho, int produtoId3, int usuarioId3) {
+        this.id_carrinho = id_carrinho;
+        this.nomeCarrinho = nomeCarrinho;
+        this.valorCarrinho = valorCarrinho;
+        this.imagemCarrinho = imagemCarrinho;
+        this.descricaoCarrinho = descricaoCarrinho;
+        this.quantidadeCarrinho = quantidadeCarrinho;
+        this.produtoId3 = produtoId3;
+        this.usuarioId3 = usuarioId3;
     }
 
     public int getId_carrinho() {
@@ -38,19 +49,19 @@ public class CarrinhoDTO {
         this.nomeCarrinho = nomeCarrinho;
     }
 
-    public Float getValorCarrinho() {
+    public float getValorCarrinho() {
         return valorCarrinho;
     }
 
-    public void setValorCarrinho(Float valorCarrinho) {
+    public void setValorCarrinho(float valorCarrinho) {
         this.valorCarrinho = valorCarrinho;
     }
 
-    public byte[] getImagemCarrinho() {
+    public String getImagemCarrinho() {
         return imagemCarrinho;
     }
 
-    public void setImagemCarrinho(byte[] imagemCarrinho) {
+    public void setImagemCarrinho(String imagemCarrinho) {
         this.imagemCarrinho = imagemCarrinho;
     }
 
@@ -85,6 +96,7 @@ public class CarrinhoDTO {
     public void setUsuarioId3(int usuarioId3) {
         this.usuarioId3 = usuarioId3;
     }
-    
+
+
     
 }

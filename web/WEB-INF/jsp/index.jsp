@@ -28,8 +28,7 @@
         </div>
          <div class="btn-group" role="group">
              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"  aria-expanded="false">
-      <span class="material-symbols-outlined">account_circle</span> 
-     <span id="textPerfil">Perfil</span>
+      <i class="fa-solid fa-circle-user"></i><span id="textPerfil">Perfil</span>
     </button>
     <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
@@ -115,9 +114,10 @@
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
                       <p class="card-text">${produto.descricao}</p>
+                      <p class="card-text">${produto.categoriaId}</p>
                       <p class="card-text">${produto.tamanho}</p>
                       <p class="card-text">${produto.valor}</p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
+                  <a href="./produtoSelecionado?id_produto=${produto.idProduto}"><input type="submit" value="comprar"></a>
                     </div>
                   </div>
             </c:forEach>
@@ -135,5 +135,5 @@
     </footer>
 
 </body>
-<script src="./js/carrinho.js"></script>
+<script src="./js/menu.js"></script>
 </html>

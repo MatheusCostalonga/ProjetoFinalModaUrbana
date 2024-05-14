@@ -133,6 +133,35 @@ public class ProdutosDAO {
             
             return resultadoBusca;
         }
+        public List<ProdutoDTO> buscarProduto(int id_produto){
+            List<ProdutoDTO> produto = new ArrayList<>();
+            try{
+                Connection conexao = Conexao.conectar();
+                PreparedStatement stmt = null;
+                ResultSet rs = null;
+                
+                stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE id_produto = ?");
+                stmt.setInt(1, id_produto);
+                rs = stmt.executeQuery();
+                while (rs.next()){
+                    ProdutoDTO produtos = new ProdutoDTO();
+                    produtos.setIdProduto(rs.getInt("id_produto"));
+                    produtos.setCategoriaId(rs.getInt("categoria_id"));
+                    produtos.setNome(rs.getString("nome"));
+                    produtos.setImagem(rs.getString("imagem"));
+                    produtos.setDescricao(rs.getString("descricao"));
+                    produtos.setTamanho(rs.getString("tamanho"));
+                    produtos.setValor(rs.getFloat("valor"));
+                    produto.add(produtos);
+                }
+                rs.close();
+                stmt.close();
+                conexao.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            return produto;
+        }
         
                 public List<ProdutoDTO> buscarCategoria(int categoria){
                 List<ProdutoDTO> resultadoBusca = new ArrayList();

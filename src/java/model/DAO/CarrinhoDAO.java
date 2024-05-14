@@ -33,7 +33,7 @@ public class CarrinhoDAO {
              objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
              objCarrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
              objCarrinho.setValorCarrinho(rs.getFloat("valor_produto_carrinho"));
-             objCarrinho.setImagemCarrinho(rs.getBytes("imagem_produto_carrinho"));
+             objCarrinho.setImagemCarrinho(rs.getString("imagem_produto_carrinho"));
              objCarrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
              objCarrinho.setQuantidadeCarrinho(rs.getInt("quantidade_carrinho"));
              objCarrinho.setProdutoId3(rs.getInt("produto_id3"));
@@ -52,7 +52,7 @@ public class CarrinhoDAO {
             stmt = conexao.prepareStatement("INSRT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho, produto_id3)VALUES(?,?,?,?,?,?)");
             stmt.setString(1, c.getNomeCarrinho());
             stmt.setFloat(2, c.getValorCarrinho());
-            stmt.setBytes(3, c.getImagemCarrinho());
+            stmt.setString(3, c.getNomeCarrinho());
             stmt.setInt(4, c.getQuantidadeCarrinho());
             stmt.setInt(5, c.getProdutoId3());
             stmt.executeUpdate();

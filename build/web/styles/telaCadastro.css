@@ -50,10 +50,11 @@ body img{
     border-radius: 2px;
  }
  
-.nomeIcone, .usuarioIcone, .senhaIcone, .cpfIcone, .telefoneIcone, .dataNascimentoIcone{
-font-size: 35px;
-left: 0px;
+main .mb-3 i{
+    left: -3px;
+    color: white;
 }
+
  .mb-3 #campo_data_nascimento{
      margin-top: 1vh;
      border: none;

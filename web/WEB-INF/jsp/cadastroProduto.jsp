@@ -3,7 +3,7 @@
     Created on : 01/05/2024, 10:49:52
     Author     : Iago
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +21,32 @@
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
             <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" required>
+            </div>            
+            <div class="form-group">
                 <label for="categoria">Categoria:</label>
                 <select class="form-control" id="categorias" name="categorias">
-                    <option value="1">Placas-mãe</option>
-                    <option value="2">Processadores</option>
-                    <option value="3">Memórias RAM</option>
-                    <option value="4">Placas de Vídeo</option>
-                    <option value="5">Fontes de Alimentação</option>
+                    <option value="1">Camiseta</option>
+                    <option value="2">Camisa</option>
+                    <option value="3">Calça</option>
+                    <option value="4">Jaqueta</option>
+                    <option value="5">Bermuda</option>
                 </select>
-      
+            </div>
+                        <div class="form-group">
+                <label for="tamanho">Tamanho:</label>
+                <select class="form-control" id="categorias" name="Tamanho">
+                    <option value="1">GG</option>
+                    <option value="2">G</option>
+                    <option value="3">M</option>
+                    <option value="4">P</option>
+                </select>
+            </div>
+
+                        <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" step="1" class="form-control" id="quantidade" name="quantidade" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor:</label>
