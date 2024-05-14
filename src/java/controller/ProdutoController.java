@@ -40,7 +40,7 @@ public class ProdutoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 ProdutosDAO produtosDAO = new ProdutosDAO();
-                int id_produto = Integer.parseInt(request.getParameter("id_produto"));
+                int id_produto = Integer.parseInt(request.getParameter("id"));
 
         List<ProdutoDTO> produtos = produtosDAO.buscarProduto(id_produto);
         request.setAttribute("produtos", produtos);
@@ -82,7 +82,6 @@ public class ProdutoController extends HttpServlet {
         }else {
             processRequest(request, response);
         }
-        processRequest(request, response);
     }
     
     protected void produto(HttpServletRequest request, HttpServletResponse response)
@@ -99,10 +98,10 @@ public class ProdutoController extends HttpServlet {
         carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
         carrinhos.cadastrarCarrinho(carrinho);
         out.println("<script type=\"text/javascript\">");
-        out.println("alert('Comprafeita com sucesso.');");
+        out.println("alert('Compra feita com sucesso.');");
         out.println("window.location.href = './pages/produto.jsp';");
         out.println("</script>");
-        response.sendRedirect("./home");
+        response.sendRedirect("./menu");
 
     }
     /**                ProdutoDTO newProduto = new ProdutoDTO();

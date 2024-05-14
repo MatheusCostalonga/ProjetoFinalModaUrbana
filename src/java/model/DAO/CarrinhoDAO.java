@@ -37,7 +37,7 @@ public class CarrinhoDAO {
              objCarrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
              objCarrinho.setQuantidadeCarrinho(rs.getInt("quantidade_carrinho"));
              objCarrinho.setProdutoId3(rs.getInt("produto_id3"));
-             objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
+      //       objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
              Carrinho.add(objCarrinho);
          }
      }catch(SQLException e){
@@ -49,13 +49,17 @@ public class CarrinhoDAO {
         try{
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-            stmt = conexao.prepareStatement("INSRT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho, produto_id3)VALUES(?,?,?,?,?,?)");
+         //            stmt = conexao.prepareStatement("INSERT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho, produto_id3, usuario_id3) VALUES (?,?,?,?,?,?,?)");   
+            stmt = conexao.prepareStatement("INSERT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho, produto_id3) VALUES (?,?,?,?,?,?)");
             stmt.setString(1, c.getNomeCarrinho());
             stmt.setFloat(2, c.getValorCarrinho());
-            stmt.setString(3, c.getNomeCarrinho());
-            stmt.setInt(4, c.getQuantidadeCarrinho());
-            stmt.setInt(5, c.getProdutoId3());
+            stmt.setString(3, c.getImagemCarrinho());
+            stmt.setString(4, c.getDescricaoCarrinho());
+            stmt.setInt(5, c.getQuantidadeCarrinho());
+            stmt.setInt(6, c.getProdutoId3());
+          //  stmt.setInt(7, c.getUsuarioId3());
             stmt.executeUpdate();
+            
             stmt.close();
             conexao.close();
         }catch(SQLException e){

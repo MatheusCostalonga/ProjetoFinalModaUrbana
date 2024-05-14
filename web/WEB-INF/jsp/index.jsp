@@ -50,8 +50,9 @@
             <div class="offcanvas-menu">
                 <button   class="close-btn" href="#"><i class="fa-solid fa-xmark"></i></button>
                 <ul>
-                    <li><c:forEach items="${carrinhos}" var="carrinho">
+                    <li>
                 <div id="card">
+                    <c:forEach items="${carrinhos}" var="carrinho">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
@@ -60,31 +61,22 @@
                       <p class="card-text">${carrinho.descricaoCarrinho}</p>
                       <p class="card-text">${carrinho.quantidadeCarrinho}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
+                                  </c:forEach>
                     </div>
                   </div>
-            </c:forEach></li>
+</li>
 
                    </ul>
             </div>
         </div> 
 
-        <nav class="categorias">
-<div>
-            <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
-        </div>
-            
-            <div>
-
-        
+                            <div class="container container-categorias">
+                <c:forEach items="${categoria}" var="categorias" >
+                    <div class="categoria">
+                        <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome}</a>
+                    </div>
+                </c:forEach>
             </div>
-            <div>
-                <b> <a href="">Novidades</a></b>
-            </div>
-            <div>
-                <b> <a href="">Mais Vendidos</a></b>
-            </div>
-
-        </nav> 
     </header>
     <main>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -117,17 +109,11 @@
                       <p class="card-text">${produto.categoriaId}</p>
                       <p class="card-text">${produto.tamanho}</p>
                       <p class="card-text">${produto.valor}</p>
-                  <a href="./produtoSelecionado?id_produto=${produto.idProduto}"><input type="submit" value="comprar"></a>
+                  <a href="./produtoSelecionado?id=${produto.idProduto}"><input type="submit" value="comprar"></a>
                     </div>
                   </div>
             </c:forEach>
-                    <div class="container container-categorias">
-                <c:forEach items="${categoria}" var="categorias" >
-                    <div class="categoria">
-                        <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome}</a>
-                    </div>
-                </c:forEach>
-            </div>
+
         
     </main>
     <footer>

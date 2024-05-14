@@ -17,7 +17,7 @@ public class CarrinhoDTO {
     private String descricaoCarrinho;
     private int quantidadeCarrinho;
     private int produtoId3;
-    private int usuarioId3;
+ //   private int usuarioId3;
 
     public CarrinhoDTO() {
     }
@@ -30,7 +30,7 @@ public class CarrinhoDTO {
         this.descricaoCarrinho = descricaoCarrinho;
         this.quantidadeCarrinho = quantidadeCarrinho;
         this.produtoId3 = produtoId3;
-        this.usuarioId3 = usuarioId3;
+     //   this.usuarioId3 = usuarioId3;
     }
 
     public int getId_carrinho() {
@@ -89,13 +89,13 @@ public class CarrinhoDTO {
         this.produtoId3 = produtoId3;
     }
 
-    public int getUsuarioId3() {
+ /*   public int getUsuarioId3() {
         return usuarioId3;
     }
 
     public void setUsuarioId3(int usuarioId3) {
         this.usuarioId3 = usuarioId3;
-    }
+    }*/
 
 
     

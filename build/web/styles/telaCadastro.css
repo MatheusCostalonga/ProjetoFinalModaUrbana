@@ -50,41 +50,14 @@ body img{
     border-radius: 2px;
  }
  
-main .mb-3 i{
-    left: -3px;
-    color: white;
+main .mb-3{
+display: flex;
+
 }
-
- .mb-3 #campo_data_nascimento{
-     margin-top: 1vh;
-     border: none;
- }
- 
- .mb-3 #campo_data_nascimento #data_nascimento{
-     width: 150px;
-     color: rgb(0, 0, 0);
-     font-size:15px; 
-
-     border: none;
- }
- .mb-3  #cpf{
-     width: 114px;
-     font-size:15px; 
-
- }
- 
- .mb-3  #telefone{
-     width: 120px;
-     font-size:15px; 
-
-   
- }
- .mb-3 #campos_juntos{
-     display: flex;
-     margin-top: 0vh;
-     place-items: center;
-  
- }
+main .camposJuntos{
+    display: flex;
+    text-align: center;
+}
 
 #botaoCadastrar{
     background-color: #303247;

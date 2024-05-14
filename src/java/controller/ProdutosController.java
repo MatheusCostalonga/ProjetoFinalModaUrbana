@@ -21,8 +21,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import model.DAO.CarrinhoDAO;
 import model.DAO.CategoriasDAO;
 import model.DAO.ProdutosDAO;
+import model.bean.CarrinhoDTO;
 import model.bean.CategoriaDTO;
 import model.bean.ProdutoDTO;
 
@@ -56,7 +58,9 @@ public class ProdutosController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){
-
+        CarrinhoDAO carrinho = new CarrinhoDAO();
+        List<CarrinhoDTO> carrinhos = carrinho.leia();
+        request.setAttribute("carrinhos", carrinhos);
             List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/index.jsp";
@@ -64,11 +68,8 @@ public class ProdutosController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
             String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
-            System.out.println("aqui:");
-            System.out.println(busca);
             if(busca.equals("")) {
                 String categoria = request.getParameter("cat");
-                System.out.println("aqui**");
                 List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             } else {
@@ -111,7 +112,6 @@ public class ProdutosController extends HttpServlet {
             throws ServletException, IOException {
                 ProdutoDTO newProduto = new ProdutoDTO();
         newProduto.setNome(request.getParameter("nome"));
-        System.out.println(request.getParameter("categorias"));
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("categorias"))); 
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
         newProduto.setDescricao(request.getParameter("descricao"));

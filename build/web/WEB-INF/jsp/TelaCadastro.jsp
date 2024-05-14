@@ -18,38 +18,44 @@
           <div id="fundo">   
                 <h1>CADASTRO</h1>
                 <form name="frmRegister" action="inserir">
-                    <div class ="CampoTextCadastro">
+
+                     <span for="inputNome" class="form-label"> Nome:</span>
                 <div class="mb-3">
-              <span for="inputNome" class="form-label"> Nome:</span><i class="fa-solid fa-user"></i>
-              <i class="nomeIcone" class="fa-solid fa-circle-user"></i><input type="text" id="nome" name="nome" required>
+             <i class="fa-solid fa-user"></i>
+                <input type="text" id="nome" name="nome" required>
             </div>
+            <span for="inputUsuario" class="form-label"> Usuario:</span>
             <div class="mb-3">
-              <span for="inputUsuario" class="form-label"> Usuario:</span>
+              
               <i class="fa-solid fa-circle-user"></i>
               <input type="text"  id="usuario"  name="usuario" required>
             </div>
-              <div class="mb-3">
-              <span for="inputSenha" class="form-label"> Senha:</span>
-              <i class="fa-solid fa-lock"></i>
+            <span for="inputSenha" class="form-label"> Senha:</span>
+              <div class="mb-3">             
+               <i class="fa-solid fa-lock"></i>
               <input type="password"  id="senha"  name="senha" required>
           </div>
-            <div class="mb-3">
-              <div id="campos_juntos">
-                <i class="fa-solid fa-address-card"></i>
+            <div class="camposJuntos">
               <span for="inputCpf" class="form-label"> CPF:</span>
+            <div class="mb-3">  
+              <i class="fa-solid fa-address-card"></i>            
               <input type="text"  id="cpf"  name="cpf" maxlength="14" 
                 onkeyup="handleCpf(event)" required>
+            </div>
+            <span for="inputTelefone" id="text_telefone" class="form-label"> Telefone:</span>
+            <div class="mb-3">
                 <i class="fa-solid fa-phone"></i>
-                <span for="inputTelefone" id="text_telefone" class="form-label"> Telefone:</span>
                 <input type="tel"  id="telefone"  name="telefone" maxlength="15"
                 onkeyup="handlePhone(event)" required>
+                </div>
               </div>
-                <div id="campo_data_nascimento">
+                <span for="inputDate"> Data do Nascimento:</span>
+                <div class="mb-3">
                   <i class="fa-regular fa-calendar-days"></i>
-              <span for="inputDate"> Data do Nascimento:</span>
-              <i class="dataNascimentoIcone" class="fa-regular fa-calendar-days"></i><input type="date"  id="data_nascimento" name="data_nascimento" required>
+              </i><input type="date"  id="data_nascimento" name="data_nascimento" required>
             </div>
              </div>
+            
             <div>
                 <input id="botaoCadastrar" type="button" value="PROSSEGUIR" onclick="cadastro()">
         </div>    
