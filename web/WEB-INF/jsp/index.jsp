@@ -21,14 +21,14 @@
     </head>
     <body>
     <header>
-        <img class="imagemLogo" src="./assets/LogoModaUrbana.png" alt="Logo da moda urbana">
+        <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana">
 
         <div class="buttonIcone">
            
         </div>
          <div class="btn-group" role="group">
              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"  aria-expanded="false">
-      <i class="fa-solid fa-circle-user"></i><span id="textPerfil">Perfil</span>
+                <i class="fa-solid fa-circle-user"></i><span id="textPerfil">Perfil</span>
     </button>
     <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
@@ -48,10 +48,14 @@
 
             <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
             <div class="offcanvas-menu">
-                <button   class="close-btn" href="#"><i class="fa-solid fa-xmark"></i></button>
-                <ul>
-                    <li>
+                <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
+
                 <div id="card">
+                    <div id="HeaderCarrinho">
+
+                    </div>
+                    <div id="MainCarrinho">
+                    <div id="ProdutoMainCarrinho">
                     <c:forEach items="${carrinhos}" var="carrinho">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -60,13 +64,16 @@
                       <p class="card-text">${carrinho.imagemCarrinho}</p>
                       <p class="card-text">${carrinho.descricaoCarrinho}</p>
                       <p class="card-text">${carrinho.quantidadeCarrinho}</p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
+                      </div>
                                   </c:forEach>
-                    </div>
+                                </div>
+                                </div>
+                                <div id="FooterCarrinho">
+                                    <button>Comprar</button>
+                                </div>
+                                </div>
                   </div>
-</li>
 
-                   </ul>
             </div>
         </div> 
 

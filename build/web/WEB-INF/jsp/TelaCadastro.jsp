@@ -19,40 +19,41 @@
                 <h1>CADASTRO</h1>
                 <form name="frmRegister" action="inserir">
 
-                     <span for="inputNome" class="form-label"> Nome:</span>
+                     <span for="inputNome" ="form-label"> Nome:</span>
                 <div class="mb-3">
              <i class="fa-solid fa-user"></i>
                 <input type="text" id="nome" name="nome" required>
             </div>
-            <span for="inputUsuario" class="form-label"> Usuario:</span>
+            <span for="inputUsuario" class="form-label">Usuario:</span>
             <div class="mb-3">
               
               <i class="fa-solid fa-circle-user"></i>
               <input type="text"  id="usuario"  name="usuario" required>
             </div>
-            <span for="inputSenha" class="form-label"> Senha:</span>
+            <span for="inputSenha" class="form-label">Senha:</span>
               <div class="mb-3">             
                <i class="fa-solid fa-lock"></i>
               <input type="password"  id="senha"  name="senha" required>
-          </div>
+          </div>  
+          <span for="inputCpf" class="cpfText">CPF:</span>
+          <span for="inputTelefone" id="text_telefone">Telefone:</span>
+
             <div class="camposJuntos">
-              <span for="inputCpf" class="form-label"> CPF:</span>
             <div class="mb-3">  
               <i class="fa-solid fa-address-card"></i>            
               <input type="text"  id="cpf"  name="cpf" maxlength="14" 
                 onkeyup="handleCpf(event)" required>
             </div>
-            <span for="inputTelefone" id="text_telefone" class="form-label"> Telefone:</span>
             <div class="mb-3">
                 <i class="fa-solid fa-phone"></i>
                 <input type="tel"  id="telefone"  name="telefone" maxlength="15"
                 onkeyup="handlePhone(event)" required>
                 </div>
               </div>
-                <span for="inputDate"> Data do Nascimento:</span>
+                <span for="inputDate">Data do Nascimento:</span>
                 <div class="mb-3">
-                  <i class="fa-regular fa-calendar-days"></i>
-              </i><input type="date"  id="data_nascimento" name="data_nascimento" required>
+                  <i id="iconeCalendario" class="fa-regular fa-calendar-days"></i>
+              <input type="date"  id="data_nascimento" name="data_nascimento" required>
             </div>
              </div>
             

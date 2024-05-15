@@ -3,27 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/ProdutoDTO.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/CarrinhoDTO.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/index.jsp</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/LoginClienteController.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/ProdutosDAO.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/TelaLogin.jsp</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/login.js</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/produto.jsp</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/telaCadastro.css</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/carrinho.js</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/CategoriasDAO.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/TelaCadastro.jsp</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CadastroClienteController.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/ProdutosController.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/menu.js</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/cadastro.js</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/redirect.jsp</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/ProdutoController.java</file>
-            <file>file:/C:/Users/Senai/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/CarrinhoDAO.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/telaCadastro.css</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/index.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/menu.css</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/redirect.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/login.js</file>
         </group>
     </open-files>
 </project-private>
