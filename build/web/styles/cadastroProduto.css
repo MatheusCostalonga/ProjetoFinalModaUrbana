@@ -7,12 +7,17 @@ body{
 header{
     background-color: rgb(0, 0, 0, 0);
     color: 303247;
-
+width: 100%;
 }
 
-main{
-
+main h2{
+    margin-top: 40px;
+justify-content: center;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 400;
 }
+
 
 form .form-group input{
     background-color: #D9D9D9;
@@ -22,12 +27,17 @@ form .form-group input{
     border-radius: 2px;
     border: none;
 
+}
+form .form-group{
+    margin-bottom: 10px;
 
 }
-.cadastroProd{
-    display: flex;
-    flex-direction: column;
-    flex-direction: row;
+
+header #IconeList{
+    position: absolute;
+    font-size: 30px;
+    margin-top: -20px;
+    margin-left: 60px;
 }
 
 form .group-cadastro{
@@ -43,6 +53,9 @@ form .form-control{
     border: none;
 
 }
+main form #descricao{
+    height: 50px;
+}
 #quantidade,
 #valor{
     background-color: #D9D9D9;
@@ -51,5 +64,38 @@ form .form-control{
     text-align: left;
     border-radius: 2px;
     border: none;
- 
+
+}
+button[type="submit"]{
+    background-color: #303247;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width:280px;
+    height: 70px;
+    position: absolute;
+    top:80vh;
+    left: 10vw;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+main form .inserirImagem{
+    background-color: #D9D9D9 !important;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif6523;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin-top: -23.5%;
+    margin-left: 50vw;
+    width: 450px;
+    height: 575px;
+    font-size: 25px;
 }

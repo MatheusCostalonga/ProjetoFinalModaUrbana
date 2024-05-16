@@ -15,18 +15,18 @@
 </head>
 <body>
         <header>
-            <i class="fa-solid fa-list"></i>
-            <h2>Cadastrar Produto</h2>
+            <i id="IconeList" class="fa-solid fa-list"></i>
         </header>
         <main>
+            <h2>Cadastrar Produto</h2>
         <form class="cadastroProd" action="cadastrarProduto" method="POST" enctype="multipart/form-data">
            <div class="group-cadastro">
-            <span for="nome">Nome:</span>
+            <span for="nome">Nome do produto:</span>
 
             <div class="form-group">
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
-            <span for="descricao">Descrição</span>
+            <span for="descricao">Descrição:</span>
             <div class="form-group">
                 <input type="text" class="form-control" id="descricao" name="descricao" required>
             </div>            
@@ -58,10 +58,11 @@
             <div class="form-group">
                 <input type="number" step="0.01" class="form-control" id="valor" name="valor" required>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
         </div>     
-        <span for="imagem">Imagem do Produto:</span>
-        <div class="form-imagem">        
+    
+        <div class="form-imagem">    
+            <label class="inserirImagem" for="imagem">Imagem Principal do produto</label>    
             <input type="file" class="form-control-file" value="Imagem principal" id="imagem" name="imagem">
         </div>
         </form>

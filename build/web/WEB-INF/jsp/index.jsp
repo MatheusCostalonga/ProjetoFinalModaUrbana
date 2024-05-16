@@ -25,17 +25,18 @@
 
         <div class="buttonIcone">
            
-        </div>
-         <div class="btn-group" role="group">
-             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"  aria-expanded="false">
-                <i class="fa-solid fa-circle-user"></i><span id="textPerfil">Perfil</span>
-    </button>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
-      <li><a class="dropdown-item" href="./loginCliente">Login</a></li>
-      <li><a class="dropdown-item" href="./CadastroClienteController"><i class="fa-solid fa-user-plus"></i>Cadastrar</a></li>
-      <li><a class="dropdown-item" href="./cadastrar-produto"><i class="fa-solid fa-user-plus"></i>ProdutoCAD</a></li>
-    </ul>
+    <li id="buttonUsuario" class="nav-item dropdown">
+        <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          perfil
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
+            <li><a class="dropdown-item" href="./loginCliente">Login</a></li>
+            <li><a class="dropdown-item" href="./CadastroClienteController"><i class="fa-solid fa-user-plus"></i>Cadastrar</a></li>
+            <li><a class="dropdown-item" href="./cadastrar-produto"><i class="fa-solid fa-user-plus"></i>ProdutoCAD</a></li>
+            </ul>
+      </li>
+
   </div>
         <div id="campoPesquisa">
         <form class="d-flex" role="search" action="buscar-produtos" method="get">
