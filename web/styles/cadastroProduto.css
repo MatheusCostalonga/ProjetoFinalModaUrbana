@@ -1,7 +1,8 @@
 body{
     background-color: #C0C1D6 !important;
     margin: 0;
-    padding: 0;    
+    padding: 0; 
+    display: flexbox;  
 }
 
 header{
@@ -42,6 +43,7 @@ header #IconeList{
 
 form .group-cadastro{
     margin-left: 5vw;
+
 }
 
 form .form-control{
@@ -56,6 +58,10 @@ form .form-control{
 main form #descricao{
     height: 50px;
 }
+main form #juntos{
+    display: flex;
+}
+
 #quantidade,
 #valor{
     background-color: #D9D9D9;
@@ -74,9 +80,8 @@ button[type="submit"]{
     cursor: pointer;
     width:280px;
     height: 70px;
-    position: absolute;
-    top:80vh;
-    left: 10vw;
+    margin-top: 2vh;
+    margin-left: 4vw;
     font-size: 24px;
     font-weight: 500;
 }
@@ -93,9 +98,8 @@ main form .inserirImagem{
     text-align: center;
     align-items: center;
     align-content: center;
-    margin-top: -23.5%;
-    margin-left: 50vw;
-    width: 450px;
-    height: 575px;
+    margin-left: 7%;
+    width: 30vw;
+    height: 80vh;
     font-size: 25px;
 }

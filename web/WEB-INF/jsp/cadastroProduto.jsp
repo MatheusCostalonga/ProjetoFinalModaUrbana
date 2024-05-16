@@ -15,12 +15,13 @@
 </head>
 <body>
         <header>
-            <i id="IconeList" class="fa-solid fa-list"></i>
+            <a href="./menu"><i id="IconeList" class="fa-solid fa-list"></i></a>
         </header>
         <main>
             <h2>Cadastrar Produto</h2>
         <form class="cadastroProd" action="cadastrarProduto" method="POST" enctype="multipart/form-data">
-           <div class="group-cadastro">
+           <div id="juntos">
+            <div class="group-cadastro">
             <span for="nome">Nome do produto:</span>
 
             <div class="form-group">
@@ -60,10 +61,10 @@
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
         </div>     
-    
         <div class="form-imagem">    
             <label class="inserirImagem" for="imagem">Imagem Principal do produto</label>    
             <input type="file" class="form-control-file" value="Imagem principal" id="imagem" name="imagem">
+        </div>
         </div>
         </form>
     </div>

@@ -21,13 +21,22 @@
     </head>
     <body>
     <header>
+        <div id="gridHeader">
         <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana">
+        <div id="campoPesquisa">
+        <form class="d-flex" role="search" action="buscar-produtos" method="get">
+           <div id="Juntos">
+            <input id="pesquisa" name="busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" maxlength="255">
+        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>  
+    </form>
+            </div>
 
-        <div class="buttonIcone">
-           
+        <div class="buttonIcone">   
     <li id="buttonUsuario" class="nav-item dropdown">
-        <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          perfil
+        <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-circle-user"></i>
+             perfil
         </a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
@@ -36,17 +45,8 @@
             <li><a class="dropdown-item" href="./cadastrar-produto"><i class="fa-solid fa-user-plus"></i>ProdutoCAD</a></li>
             </ul>
       </li>
-
   </div>
-        <div id="campoPesquisa">
-        <form class="d-flex" role="search" action="buscar-produtos" method="get">
-            <input id="pesquisa" name="busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" maxlength="255">
-        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-            </div>
-
         <div class="main-menu">
-
             <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
             <div class="offcanvas-menu">
                 <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
@@ -81,15 +81,33 @@
 
             </div>
         </div> 
+        <nav class="categorias">
+            <div>
+                        <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
+                    </div>
+                    <b> <a href="">Jaqueta</a></b>
+                        <div>
+                            <b> <a href="">Camisa</a></b>
+                        </div>
+                        <div>
+                            <b> <a href="">Camiseta</a></b>
+                        </div>
+                        <div>
+                            <b> <a href="">Calça </a></b>
+                        </div>
+                        <div>
+                            <b> <a href="">Bermuda </a></b>
+                        </div>
+                    </nav> 
+    </header>
 
-                            <div class="container container-categorias">
+             <!-- <div class="container-categorias">
                 <c:forEach items="${categoria}" var="categorias" >
                     <div class="categoria">
                         <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome}</a>
                     </div>
                 </c:forEach>
-            </div>
-    </header>
+            </div> -->
     <main>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
