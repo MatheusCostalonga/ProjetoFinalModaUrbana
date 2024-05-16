@@ -52,7 +52,7 @@
 
                 <div id="card">
                     <div id="HeaderCarrinho">
-
+                        <h1>Carrinho</h1>
                     </div>
                     <div id="MainCarrinho">
                     <div id="ProdutoMainCarrinho">
