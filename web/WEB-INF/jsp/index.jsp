@@ -67,6 +67,10 @@
                       </div>
                                   </c:forEach>
                                 </div>
+                                <div id="TotalCarrinho">
+                                <span>Preço Total:</span>
+                                <span>R$00,00</span>
+                            </div>
                                 </div>
                                 <div id="FooterCarrinho">
                                     <button>Comprar</button>

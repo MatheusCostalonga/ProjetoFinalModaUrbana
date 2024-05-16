@@ -9,23 +9,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Produto</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/cadastroProduto.css">
+    <title>Cadastrar Produto</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Cadastro de Produto</h2>
-        <form action="cadastrarProduto" method="POST" enctype="multipart/form-data">
+        <header>
+            <i class="fa-solid fa-list"></i>
+            <h2>Cadastrar Produto</h2>
+        </header>
+        <main>
+        <form class="cadastroProd" action="cadastrarProduto" method="POST" enctype="multipart/form-data">
+           <div class="group-cadastro">
+            <span for="nome">Nome:</span>
+
             <div class="form-group">
-                <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
+            <span for="descricao">Descrição</span>
             <div class="form-group">
-                <label for="descricao">Descrição</label>
                 <input type="text" class="form-control" id="descricao" name="descricao" required>
             </div>            
+            <span for="categoria">Categoria:</span>
             <div class="form-group">
-                <label for="categoria">Categoria:</label>
                 <select class="form-control" id="categorias" name="categorias">
                     <option value="1">Camiseta</option>
                     <option value="2">Camisa</option>
@@ -34,8 +40,8 @@
                     <option value="5">Bermuda</option>
                 </select>
             </div>
+            <span for="tamanho">Tamanho:</span>
                         <div class="form-group">
-                <label for="tamanho">Tamanho:</label>
                 <select class="form-control" id="categorias" name="Tamanho">
                     <option value="1">GG</option>
                     <option value="2">G</option>
@@ -44,24 +50,26 @@
                 </select>
             </div>
 
+            <span for="quantidade">Quantidade:</span>
                         <div class="form-group">
-                <label for="quantidade">Quantidade:</label>
                 <input type="number" step="1" class="form-control" id="quantidade" name="quantidade" required>
             </div>
+            <span for="valor">Valor:</span>
             <div class="form-group">
-                <label for="valor">Valor:</label>
                 <input type="number" step="0.01" class="form-control" id="valor" name="valor" required>
             </div>
-
-            <div class="form-group">
-                <label for="imagem">Imagem do Produto:</label>
-                <input type="file" class="form-control-file" id="imagem" name="imagem">
-            </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>     
+        <span for="imagem">Imagem do Produto:</span>
+        <div class="form-imagem">        
+            <input type="file" class="form-control-file" value="Imagem principal" id="imagem" name="imagem">
+        </div>
         </form>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</main>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </html>
