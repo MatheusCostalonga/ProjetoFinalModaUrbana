@@ -68,7 +68,7 @@ header #gridHeader #Juntos{
     border: black solid 1px;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: 10%, 70%, 10%, 10%;
     padding: 0;
     margin: 0;
 }
@@ -93,7 +93,6 @@ text-align: center;
 #TotalCarrinho{
     display: grid;
     height: 10vh;
-    margin-top: 130%;
     border: black solid 1px;
     text-align: left;
 }
@@ -272,15 +271,18 @@ align-content: center !important;
     align-content: center;
 }
 
-.btn-group{
-    font-size: 10px;
-    bottom: 50%;
-    left: 70vw;
-    width: 1vw;
-}
+
 
 main #carouselExampleControls {
     padding-top: 4vh;
 }
+main .container .row{
+text-align: center;
+}
+main .container .row #button-Comprar{
+cursor: pointer !important;
+}
 
+#button-Comprar:hover{
 
+}

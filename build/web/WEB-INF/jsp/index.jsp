@@ -129,21 +129,30 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Próximo</span>
             </a>
-        </div>
-        <c:forEach items="${produtos}" var="produto">
-                <div class="card" style="width: 18rem;">
-                    <img src="${produto.imagem}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">${produto.nome}</h5>
-                      <p class="card-text">${produto.descricao}</p>
-                      <p class="card-text">${produto.categoriaId}</p>
-                      <p class="card-text">${produto.tamanho}</p>
-                      <p class="card-text">${produto.valor}</p>
-                  <a href="./produtoSelecionado?id=${produto.idProduto}"><input type="submit" value="comprar"></a>
-                    </div>
-                  </div>
-            </c:forEach>
 
+            <div class="container">
+                <h1 class="my-4">Listagem de Produtos</h1>
+                <div class="row">
+                    <c:forEach var="produto" items="${produtos}">
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-custom">
+                                <div class="card-body">
+                                    <div class="imagemProduto">
+                                        <img src="${produto.imagem}" class="card-img-top" alt="...">
+                                    </div>
+                                    <h5 class="card-title">${produto.nome}</h5>
+                                    <p class="card-text">${produto.descricao}</p>
+                                    <p class="card-text">${produto.categoriaId}</p>
+                                    <p class="card-text">${produto.tamanho}</p>
+                                    <p class="card-text">${produto.valor}</p>
+                                    <a id="button-Comprar" href="./produtoSelecionado?id=${produto.idProduto}"><input type="submit" value="comprar"></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
         
     </main>
     <footer>
