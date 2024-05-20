@@ -84,58 +84,30 @@ public class ProdutoController extends HttpServlet {
         }
     }
     
-    protected void produto(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        CarrinhoDTO carrinho = new CarrinhoDTO();
-        PrintWriter out = response.getWriter();
-        System.out.println(request.getParameter("nome_produto_carrinho"));
-        System.out.println(request.getParameter("valor_produto_carrinho"));
-        carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
-        carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
-        carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
-        carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
-        carrinho.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
-        carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
-        carrinhos.cadastrarCarrinho(carrinho);
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('Compra feita com sucesso.');");
-        out.println("window.location.href = './pages/produto.jsp';");
-        out.println("</script>");
-        response.sendRedirect("./menu");
+        protected void produto(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            CarrinhoDTO carrinho = new CarrinhoDTO();
+            PrintWriter out = response.getWriter();
+            System.out.println(request.getParameter("nome_produto_carrinho"));
+            System.out.println(request.getParameter("valor_produto_carrinho"));
+            carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
+            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
+            carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
+            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
+            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
+            carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
+            carrinhos.cadastrarCarrinho(carrinho);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Compra feita com sucesso.');");
+            out.println("window.location.href = './pages/produto.jsp';");
+            out.println("</script>");
+            response.sendRedirect("./menu");
 
     }
-    /**                ProdutoDTO newProduto = new ProdutoDTO();
-        newProduto.setNome(request.getParameter("nome"));
-        System.out.println(request.getParameter("categorias"));
-        newProduto.setCategoriaId(Integer.parseInt(request.getParameter("categorias"))); 
-        newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
-        newProduto.setDescricao(request.getParameter("descricao"));
-        newProduto.setTamanho(request.getParameter("tamanho"));
-Part filePart = request.getPart("imagem");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        if (fileName != null && !fileName.isEmpty()) {
-        String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
-        File uploads = new File(basePath);
-        if (!uploads.exists()) {
-            uploads.mkdirs(); // Cria o diretório se não existir
-        }
-        File file = new File(uploads, fileName);
-
-        try (InputStream input = filePart.getInputStream()) {
-            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace(); // Trate as exceções de forma adequada
-        }
-
-        // Configurando apenas o caminho relativo da imagem no banco de dados
-        newProduto.setImagem("assets/" + fileName);
-    } else {
-        newProduto.setImagem(null);
-    }
+   
+    /*
        
-        ProdutosDAO produtosD = new ProdutosDAO();
-        produtosD.cadastrarProduto(newProduto);
-        response.sendRedirect("./menu");
+       
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description

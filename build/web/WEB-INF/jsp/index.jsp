@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+ 
         <title>ecommerce</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -22,7 +22,8 @@
     <body>
     <header>
         <div id="gridHeader">
-        <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana">
+        <!-- <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana"> -->
+        <div id="logoHeader"></div>
         <div id="campoPesquisa">
         <form class="d-flex" role="search" action="buscar-produtos" method="get">
            <div id="Juntos">
@@ -68,11 +69,11 @@
                       </div>
                                   </c:forEach>
                                 </div>
+                                </div>
                                 <div id="TotalCarrinho">
                                 <span>Preço Total:</span>
                                 <span>R$00,00</span>
                             </div>
-                                </div>
                                 <div id="FooterCarrinho">
                                     <button>Comprar</button>
                                 </div>
@@ -81,7 +82,9 @@
 
             </div>
         </div> 
-        <nav class="categorias">
+        
+    </header>
+    <nav class="categorias">
             <div>
                         <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
                     </div>
@@ -99,7 +102,6 @@
                             <b> <a href="">Bermuda </a></b>
                         </div>
                     </nav> 
-    </header>
 
              <!-- <div class="container-categorias">
                 <c:forEach items="${categoria}" var="categorias" >
@@ -145,7 +147,7 @@
                                     <p class="card-text">${produto.categoriaId}</p>
                                     <p class="card-text">${produto.tamanho}</p>
                                     <p class="card-text">${produto.valor}</p>
-                                    <a id="button-Comprar" href="./produtoSelecionado?id=${produto.idProduto}"><input type="submit" value="comprar"></a>
+                                    <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
 
                                 </div>
                             </div>
