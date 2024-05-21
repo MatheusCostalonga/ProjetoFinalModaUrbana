@@ -1,3 +1,4 @@
+/*Victor me passou e explicou o codigo*/
 function validacao() {
     let usuario = frmLogin.usuario.value;
      let senha = frmLogin.senha.value;

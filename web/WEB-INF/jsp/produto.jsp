@@ -29,12 +29,13 @@
                     </div>
                   </div>
             </c:forEach>
+        <%-- Peguei do Luan e ele me explicou o codigo --%>
                 <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
             <input type="hidden" name="idProduto" id="idProduto">
             <input type="hidden" name="descricao" id="descricao">
             <input type="hidden" name="nome" id="nome">
             <input type="hidden" name="valor" id="valor">
-            <input type="file" name="imagem" id="imagem">
+            <input type="hidden" name="imagem" id="imagem">
             <input type="hidden" name="quantidade" id="quantidade">
             
         </form>

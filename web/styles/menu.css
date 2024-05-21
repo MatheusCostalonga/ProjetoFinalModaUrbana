@@ -18,12 +18,12 @@ header #gridHeader{
     
 }
 #logoHeader{
-    background-image: url(./../assets/ModaUrbanaLogoHome.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 8vw;
+    background-image: url(./../assets/LogoModaUrbana.png);
+     background-size: cover;
+     background-position: center;
+    background-repeat: no-repeat; 
+    height: 91px;
+    width: 150px;
     
 }
 
@@ -297,6 +297,8 @@ background-color: #D9D9D9 ;
 color: #2A2B33;
 border: none;
 border-radius: 0.5px;
+width: 5vw;
+height: 2vh;
 }
 
 main .container .row .card-body #button-Comprar:hover{

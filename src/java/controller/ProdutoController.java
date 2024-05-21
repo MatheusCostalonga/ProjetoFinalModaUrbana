@@ -88,8 +88,6 @@ public class ProdutoController extends HttpServlet {
                 throws ServletException, IOException {
             CarrinhoDTO carrinho = new CarrinhoDTO();
             PrintWriter out = response.getWriter();
-            System.out.println(request.getParameter("nome_produto_carrinho"));
-            System.out.println(request.getParameter("valor_produto_carrinho"));
             carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
             carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
             carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));

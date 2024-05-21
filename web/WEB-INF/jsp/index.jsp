@@ -59,7 +59,7 @@
                     <div id="MainCarrinho">
                     <div id="ProdutoMainCarrinho">
                     <c:forEach items="${carrinhos}" var="carrinho">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                       <p class="card-text">${carrinho.valorCarrinho}</p>
