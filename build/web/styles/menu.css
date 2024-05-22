@@ -13,8 +13,8 @@ header{
 
 header #gridHeader{
   display: grid;
-  grid-template-columns: 15% 40% 20% 25%; 
-  height: 10vh;
+  grid-template-columns: 10% 52% 10% 12.5% 10.5%; 
+  height: 10vh;             
     
 }
 #logoHeader{
@@ -55,13 +55,10 @@ header #gridHeader #Juntos{
     padding: 0;
     transform: translateX(500%);
     transition: all .4s ease;
-
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 } 
 
-  header #buttonIcone .dropdown-menu a{
-    font-size: 2px;
-  }
-
+ 
 .offcanvas-menu.active {
     transform: translateX(275%);
 
@@ -78,9 +75,8 @@ header #gridHeader #Juntos{
 
 #card{
     border: black solid 1px;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 10%, 70%, 10%, 10%;
+    max-height: 100vh;
+    
     padding: 0;
     margin: 0;
 }
@@ -97,20 +93,20 @@ text-align: center;
     text-align: center;
 }
 #MainCarrinho{
-    height: 86vh;
+    /* height: 86vh; */
     background-color: #D9D9D9;
     border: black solid 1px;
 
 }
 #TotalCarrinho{
     display: grid;
-    height: 10vh;
+    /* height: 10vh; */
     border: black solid 1px;
     text-align: left;
 }
 #FooterCarrinho{
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     background-color: #303247;   
     border: black solid 1px;
     
@@ -121,16 +117,15 @@ text-align: center;
     color: white;
     width: 100%;
     height: 100%;
-    margin-bottom: 5vh;
     border: none;
     cursor: pointer;
 }
 main .categorias a{
-    color: #303247;
+    color: #2A2B33;
 }
 main .categorias{
-    background-color: white;
-
+    background-color:#ffffff;
+    text-decoration: none;
     text-align: center;
     align-items: center;
     display: grid;
@@ -151,6 +146,8 @@ grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 #campoPesquisa{
     display:flex;
+ 
+    justify-content: center;
 }
 header #gridHeader #campoPesquisa button{
     background-color: #D9D9D9;
@@ -181,44 +178,66 @@ header #gridHeader #campoPesquisa button{
 #buttonIconeLupa{
     font-size: 150%;
 }
- main .container-categorias{ 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
-}
 main .container-categorias .categoria a{
-
+align-items: center;
+align-content: center;
 text-decoration: none;
 color: #2A2B33;
 }
-
+main .categorias{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
 
 .buttonIcone{
     display: grid !important;
 
 }
-#buttonUsuario #TextUser{
+.dropdown-menu.show {
+    display: block;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+ #TextUser{
   position: static;
 font-size: 26px;
 color: #C0C1D6 !important;
-margin-top: -5% !important;
+}
+#buttonUsuarioAdmin #TextUserAdmin{
+    position: static;
+    font-size: 26px;
+    color: #C0C1D6 !important;
 }
 
-#buttonUsuario .dropdown-menu a{
-font-size: 17px;
-justify-content: center;
-display: block;
-align-items: left;
-color: #303247 !important;
-}
-
-header .buttonIcone{
-    display: block !important;
+header #buttonUsuario .dropdown-menu a,
+header #buttonUsuarioAdmin .dropdown-menu a{
+font-size: 16px !important;
+border-radius: 1px !important;
 justify-content: center !important;
-text-align: center !important;
-align-items: center !important;
-align-content: center !important;
+display: block !important ;
+align-items: left !important;
+color: #fff !important;
+background-color: #2A2B33 !important;
+
 }
+header #buttonUsuario .dropdown-menu a:hover,
+header #buttonUsuarioAdmin .dropdown-menu a:hover{
+    font-size: 18px !important;
+    background-color: #fff !important;
+    color: #2A2B33 !important;
+}
+
+::marker {
+    unicode-bidi: none;
+    font-variant-numeric: none;
+    text-transform: none;
+    text-indent: none ;
+    text-align: none ;
+    text-align-last: none ;
+}
+
+
 .main-menu  #buttonIconeCarrinho{
         font-size: 120% ;
         border: 0;
@@ -274,6 +293,7 @@ align-content: center !important;
  main #iconeCategoria{
     font-size: 125%;
     color: #303247;
+    align-content: center;
 }
 .main-menu {
     position: relative;
@@ -285,9 +305,7 @@ align-content: center !important;
 
 
 
-main #carouselExampleControls {
-    padding-top: 4vh;
-}
+
 main .container .row{
 text-align: center;
 }

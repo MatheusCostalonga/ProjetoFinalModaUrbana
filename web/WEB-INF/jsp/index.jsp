@@ -32,21 +32,33 @@
     </div>  
     </form>
             </div>
-
-        <div class="buttonIcone">   
-    <li id="buttonUsuario" class="nav-item dropdown">
+            <div class="buttonADMIN">   
+                <li id="buttonUsuarioAdmin" class="nav-item dropdown">
+                    <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user-tie"></i>
+                         ADMIN
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar Produto</a></li>
+                        </ul>
+                  </li>
+              </div>
+              
+         <div class="buttonIcone">   
+            <li id="buttonUsuario" class="nav-item dropdown"> 
         <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-regular fa-circle-user"></i>
              perfil
-        </a>
+        </a>  
+         
+
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
             <li><a class="dropdown-item" href="./loginCliente">Login</a></li>
             <li><a class="dropdown-item" href="./CadastroClienteController"><i class="fa-solid fa-user-plus"></i>Cadastrar</a></li>
-            <li><a class="dropdown-item" href="./cadastrar-produto"><i class="fa-solid fa-user-plus"></i>ProdutoCAD</a></li>
             </ul>
       </li>
-  </div>
+  </div> 
         <div class="main-menu">
             <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
             <div class="offcanvas-menu">
@@ -84,7 +96,9 @@
         </div> 
         
     </header>
-    <nav class="categorias">
+
+    <main>
+        <div class="categorias">
             <div>
                         <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
                     </div>
@@ -101,8 +115,8 @@
                         <div>
                             <b> <a href="">Bermuda </a></b>
                         </div>
-                    </nav> 
-
+                    </div> 
+    
              <!-- <div class="container-categorias">
                 <c:forEach items="${categoria}" var="categorias" >
                     <div class="categoria">
@@ -110,7 +124,6 @@
                     </div>
                 </c:forEach>
             </div> -->
-    <main>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
