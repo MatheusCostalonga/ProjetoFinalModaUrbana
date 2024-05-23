@@ -48,14 +48,12 @@ header #gridHeader #Juntos{
     background: #303247;
     width: 27vw;
     height: 100%;
-    align-items: center;
-    display: grid;
+    align-items: center;    
     text-align: center;
     margin: 0;
     padding: 0;
     transform: translateX(500%);
     transition: all .4s ease;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
 } 
 
  
@@ -76,15 +74,22 @@ header #gridHeader #Juntos{
 #card{
     border: black solid 1px;
     max-height: 100vh;
-    
+    display: grid;
+    grid-template-rows: 1fr 12fr 2fr;
     padding: 0;
     margin: 0;
 }
+
+
 
 header #card #headerCarrrinho h1{
 font-size: 50px;
 border: black;
 text-align: center;
+}
+#FooterCarrinho{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #HeaderCarrinho{
@@ -96,29 +101,34 @@ text-align: center;
     /* height: 86vh; */
     background-color: #D9D9D9;
     border: black solid 1px;
-
+    overflow-x: auto;
 }
 #TotalCarrinho{
-    display: grid;
-    /* height: 10vh; */
-    border: black solid 1px;
-    text-align: left;
-}
-#FooterCarrinho{
-    /* width: 100%;
-    height: 100%; */
-    background-color: #303247;   
     border: black solid 1px;
     
+    text-align: left;
+    height: auto;
+    background-color: #D9D9D9;
+}
+#buttonCarrinho{
+height: 100%;
+width: 100%;
+text-align: center;
+align-content: center;
+    background-color: #303247;   
+    border: black solid 1px;
 }
 
-#FooterCarrinho button{
+#buttonCarrinho input{
+    align-content: center;
     background-color: #303247;   
+    text-align: center;
     color: white;
-    width: 100%;
-    height: 100%;
-    border: none;
+height: 100%;
+width: 100%;    
+border: none;
     cursor: pointer;
+    
 }
 main .categorias a{
     color: #2A2B33;
@@ -228,14 +238,6 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     color: #2A2B33 !important;
 }
 
-::marker {
-    unicode-bidi: none;
-    font-variant-numeric: none;
-    text-transform: none;
-    text-indent: none ;
-    text-align: none ;
-    text-align-last: none ;
-}
 
 
 .main-menu  #buttonIconeCarrinho{
@@ -302,9 +304,6 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     justify-content: center;
     align-content: center;
 }
-
-
-
 
 main .container .row{
 text-align: center;

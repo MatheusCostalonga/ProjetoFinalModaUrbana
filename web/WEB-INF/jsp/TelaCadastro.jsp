@@ -19,7 +19,7 @@
                 <h1>CADASTRO</h1>
                 <form name="frmRegister" action="inserir">
 
-                     <span for="inputNome" ="form-label"> Nome:</span>
+                     <span for="inputNome"> Nome:</span>
                 <div class="mb-3">
              <i class="fa-solid fa-user"></i>
                 <input type="text" id="nome" name="nome" required>

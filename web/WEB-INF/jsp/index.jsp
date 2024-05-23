@@ -68,6 +68,7 @@
                     <div id="HeaderCarrinho">
                         <h1>Carrinho</h1>
                     </div>
+                    
                     <div id="MainCarrinho">
                     <div id="ProdutoMainCarrinho">
                     <c:forEach items="${carrinhos}" var="carrinho">
@@ -80,15 +81,18 @@
                       <p class="card-text">${carrinho.quantidadeCarrinho}</p>
                       </div>
                                   </c:forEach>
+                    
                                 </div>
                                 </div>
+                    <div class="FooterCarrinho">
                                 <div id="TotalCarrinho">
                                 <span>Preço Total:</span>
                                 <span>R$00,00</span>
                             </div>
-                                <div id="FooterCarrinho">
-                                    <button>Comprar</button>
+                                <div id="buttonCarrinho">
+                                    <input type="button" value="Comprar">
                                 </div>
+                     </div>
                                 </div>
                   </div>
 

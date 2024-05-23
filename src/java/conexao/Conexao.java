@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class Conexao {
  
-    private static final String url ="jdbc:mysql://localhost:3306/oi?useSSL=false";
+    private static final String url ="jdbc:mysql://localhost:3306/ModaUrbana?useSSL=false";
     private static final String usuario ="root";
     private static final String senha = "";
     private static final String driver = "com.mysql.cj.jdbc.Driver";
