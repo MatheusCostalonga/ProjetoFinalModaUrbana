@@ -9,11 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>checkout</title>
+        <link rel="stylesheet" href="./styles/checkout.css">
+        <link rel="stylesheet" href="./styles/menu.css">
     </head>
     <body>
+        
         <h1>Hello World!</h1>
-         <c:forEach items="${carrinhos}" var="carrinho">
+          <c:forEach items="${carrinhos}" var="carrinho">
                     <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
@@ -22,6 +25,6 @@
                       <p class="card-text">${carrinho.descricaoCarrinho}</p>
                       <p class="card-text">${carrinho.quantidadeCarrinho}</p>
                       </div>
-                                  </c:forEach>
+                                  </c:forEach> 
     </body>
 </html>

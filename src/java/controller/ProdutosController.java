@@ -66,6 +66,14 @@ public class ProdutosController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if(url.equals("/checkout")){
+            System.out.println("aquiiii, estou chegando aqui");
+               CarrinhoDAO carrinho = new CarrinhoDAO();
+         List<CarrinhoDTO> carrinhos = carrinho.leia();
+         request.setAttribute("carrinhos", carrinhos);
+        String nextPage = "/WEB-INF/jsp/checkout.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
             String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
             if(busca.equals("")) {
@@ -143,11 +151,7 @@ Part filePart = request.getPart("imagem");
         response.sendRedirect("./menu");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+
     @Override
     public String getServletInfo() {
         return "Short description";

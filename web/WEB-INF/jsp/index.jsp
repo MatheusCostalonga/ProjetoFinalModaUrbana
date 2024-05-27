@@ -66,7 +66,7 @@
 
                 <div id="card">
                     <div id="HeaderCarrinho">
-                        <h1>Carrinho</h1>
+                        <h1 class="TextCarrinhoHeader">Carrinho</h1>
                     </div>
                     
                     <div id="MainCarrinho">
@@ -84,15 +84,17 @@
                     
                                 </div>
                                 </div>
-                    <div class="FooterCarrinho">
+                   
                                 <div id="TotalCarrinho">
                                 <span>Preço Total:</span>
                                 <span>R$00,00</span>
                             </div>
                                 <div id="buttonCarrinho">
-                                    <input type="button" value="Comprar">
-                                </div>
-                     </div>
+                             <a href="./checkout">      
+                                 <input type="button" value="Comprar">
+                             </a>
+                            </div>
+                     
                                 </div>
                   </div>
 
@@ -148,28 +150,30 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Próximo</span>
             </a>
-
+</div>
             <div class="container">
                 <h1 class="my-4">Listagem de Produtos</h1>
-                <div class="row">
+                <div class="horizontal-scroll">
+                    <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontally(-1)" style="display: flex;"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="rows"> 
                     <c:forEach var="produto" items="${produtos}">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-3">                
                             <div class="card card-custom">
-                                <div class="card-body">
+                                     <div class="card-body">                
                                     <div class="imagemProduto">
                                         <img src="${produto.imagem}" class="card-img-top" alt="...">
                                     </div>
                                     <h5 class="card-title">${produto.nome}</h5>
                                     <p class="card-text">${produto.descricao}</p>
-                                    <p class="card-text">${produto.categoriaId}</p>
-                                    <p class="card-text">${produto.tamanho}</p>
                                     <p class="card-text">${produto.valor}</p>
                                     <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
-
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </c:forEach>
+                    </div>
                 </div>
             </div>
         

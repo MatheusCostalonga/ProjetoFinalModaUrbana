@@ -75,22 +75,11 @@ header #gridHeader #Juntos{
     border: black solid 1px;
     max-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 12fr 2fr;
+    grid-template-rows: 1fr 14fr 1fr 2fr;
     padding: 0;
     margin: 0;
 }
 
-
-
-header #card #headerCarrrinho h1{
-font-size: 50px;
-border: black;
-text-align: center;
-}
-#FooterCarrinho{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 
 #HeaderCarrinho{
     background-color: #303247;
@@ -105,11 +94,12 @@ text-align: center;
 }
 #TotalCarrinho{
     border: black solid 1px;
-    
+    display: grid;
     text-align: left;
     height: auto;
     background-color: #D9D9D9;
 }
+
 #buttonCarrinho{
 height: 100%;
 width: 100%;
@@ -118,7 +108,11 @@ align-content: center;
     background-color: #303247;   
     border: black solid 1px;
 }
-
+#TotalCarrinho span{
+    font-weight: bold;
+    font-size: large;
+    
+}
 #buttonCarrinho input{
     align-content: center;
     background-color: #303247;   
@@ -127,8 +121,11 @@ align-content: center;
 height: 100%;
 width: 100%;    
 border: none;
+font-weight: bold;
+font-size: xx-large;
     cursor: pointer;
-    
+    border-color: black solid 3px;
+    -webkit-text-stroke: 1.5px #000;
 }
 main .categorias a{
     color: #2A2B33;
@@ -305,20 +302,56 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     align-content: center;
 }
 
-main .container .row{
+main .container .rows{
 text-align: center;
 }
-main .container .row .card-body #button-Comprar{
+main .container .rows .card-body #button-Comprar{
 cursor: pointer ;
 background-color: #D9D9D9 ;
 color: #2A2B33;
 border: none;
 border-radius: 0.5px;
-width: 5vw;
-height: 2vh;
+width: 30%;
+height: 20%;
 }
 
-main .container .row .card-body #button-Comprar:hover{
+main .container .rows .card-body #button-Comprar:hover{
     background-color:#2A2B33;
     color: #D9D9D9;
+}
+main .container .rows .card-body .imagemProduto img{
+    background-size: cover;
+    background-position: center;
+   background-repeat: no-repeat; 
+   width: auto;
+   height: auto;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex !important;
+    height: auto;
+}
+    .container {
+        display: grid !important;
+        margin-right: 0 !important; 
+         margin-left: 0 !important;
+    }
+    .rows {
+        display: flex !important;
+        height: auto;
+        width: 20%;
+    }
+.card-body:hover{
+    background-color:#2A2B33;
+    color: #D9D9D9;
+}
+.container .horizontal-scroll{
+     display: flex !important; 
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
 }
