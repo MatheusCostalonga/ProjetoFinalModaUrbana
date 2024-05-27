@@ -1,4 +1,5 @@
-/*Luan me passou e explicou o codigo*/
+/*Luan me passou e explicou o codigo, eu modifiquei para transportar
+imagem no formato de caminho ao enves de byte*/
 document.querySelectorAll('.btn-comprar').forEach(btn => {
     btn.addEventListener('click', function() {
         var idProduto = this.getAttribute('idProduto');

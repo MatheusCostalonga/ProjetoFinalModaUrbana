@@ -12,26 +12,26 @@ closeBtn.addEventListener('click', function (e) {
     offcanvasMenu.classList.remove('active');
 });
 
-let currentScrollPosition = 0;
-let scrollAmount = 320;
+// let currentScrollPosition = 0;
+// let scrollAmount = 320;
 
-const card = document.querySelector('.card');
-const hScroll = document.querySelector('.horizontal-scroll');
-const btnScrollLeft = document.querySelector('#btn-scroll-left');
-const btnScrollRight = document.querySelector('#btn-scroll-right');
+// const card = document.querySelector('.card');
+// const hScroll = document.querySelector('.horizontal-scroll');
+// const btnScrollLeft = document.querySelector('#btn-scroll-left');
+// const btnScrollRight = document.querySelector('#btn-scroll-right');
 
 
-let maxScroll = -card.offsetWidth + hScroll.offsetWidth;
+// let maxScroll = -card.offsetWidth + hScroll.offsetWidth;
 
-function scrollHorizontally(val){
-    currentScrollPosition += (val * scrollAmount);
+// function scrollHorizontally(val){
+//     currentScrollPosition += (val * scrollAmount);
 
-    if(currentScrollPosition > 0){
-        currentScrollPosition = 0;
-    }
-    if(currentScrollPosition < maxScroll){
-        currentScrollPosition = maxScroll;
-    }
-    card.style.left = currentScrollPosition + "px";
+//     if(currentScrollPosition > 0){
+//         currentScrollPosition = 0;
+//     }
+//     if(currentScrollPosition < maxScroll){
+//         currentScrollPosition = maxScroll;
+//     }
+//     card.style.left = currentScrollPosition + "px";
 
-}
+// }

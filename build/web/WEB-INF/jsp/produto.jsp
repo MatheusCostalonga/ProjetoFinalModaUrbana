@@ -22,8 +22,13 @@
                       <h5 class="card-title">${produto.nome}</h5>
                       <p class="card-text">${produto.descricao}</p>
                       <p class="card-text">${produto.valor}</p>
+                      
+                 <span for="quantidade">Quantidade:</span>
+                 <input type="number" step="1" class="form-control" id="quantidade" name="quantidade" required>
+           
+
                       <button type="submit" class="btn btn-comprar"  idProduto="${produto.idProduto}" imagem="${produto.imagem}" nome="${produto.nome}" descricao="${produto.descricao}"  valor="${produto.valor}" 
-                            quantidade=1 id="comprar">
+                            quantidade="quantidade" id="comprar">
                         <i class="fa-solid fa-basket-shopping"></i> Comprar
                     </button>
                     </div>

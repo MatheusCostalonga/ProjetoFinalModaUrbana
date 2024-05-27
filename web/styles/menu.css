@@ -127,6 +127,9 @@ font-size: xx-large;
     border-color: black solid 3px;
     -webkit-text-stroke: 1.5px #000;
 }
+
+
+
 main .categorias a{
     color: #2A2B33;
 }
@@ -304,6 +307,9 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
 
 main .container .rows{
 text-align: center;
+display: flex!important;
+grid-template-columns: auto;
+height: auto;
 }
 main .container .rows .card-body #button-Comprar{
 cursor: pointer ;
@@ -311,8 +317,6 @@ background-color: #D9D9D9 ;
 color: #2A2B33;
 border: none;
 border-radius: 0.5px;
-width: 30%;
-height: 20%;
 }
 
 main .container .rows .card-body #button-Comprar:hover{
@@ -331,7 +335,7 @@ main .container .rows .card-body .imagemProduto img{
     flex: 1 1 auto;
     padding: 1rem;
     cursor: pointer;
-    display: flex !important;
+    display: grid !important;
     height: auto;
 }
     .container {
@@ -339,19 +343,16 @@ main .container .rows .card-body .imagemProduto img{
         margin-right: 0 !important; 
          margin-left: 0 !important;
     }
-    .rows {
-        display: flex !important;
-        height: auto;
-        width: 20%;
-    }
+
 .card-body:hover{
     background-color:#2A2B33;
     color: #D9D9D9;
 }
-.container .horizontal-scroll{
+/* .container .horizontal-scroll{
      display: flex !important; 
     justify-content: space-between;
     flex-direction: row;
     position: relative;
     overflow: hidden;
-}
+} */
+
