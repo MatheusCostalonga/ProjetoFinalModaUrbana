@@ -57,46 +57,46 @@
             </ul>
       </li>
   </div> 
-        <div class="main-menu">
-            <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
-            <div class="offcanvas-menu">
-                <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="main-menu">
+    <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
+    <div class="offcanvas-menu">
+        <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
 
-                <div id="card">
-                    <div id="HeaderCarrinho">
-                        <h1 class="TextCarrinhoHeader">Carrinho</h1>
-                    </div>
-                    
-                    <div id="MainCarrinho">
-                    <div id="ProdutoMainCarrinho">
-                    <c:forEach items="${carrinhos}" var="carrinho">
-                    <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
-                      <p class="card-text">${carrinho.valorCarrinho}</p>
-                      <p class="card-text">${carrinho.imagemCarrinho}</p>
-                      <p class="card-text">${carrinho.descricaoCarrinho}</p>
-                      <p class="card-text">${carrinho.quantidadeCarrinho}</p>
-                      </div>
-                                  </c:forEach>
-                    
-                                </div>
-                                </div>
-                   
-                                <div id="TotalCarrinho">
-                                <span>Preço Total:</span>
-                                <span>R$00,00</span>
-                            </div>
-                                <div id="buttonCarrinho">
-                             <a href="./checkout">      
-                                 <input type="button" value="Comprar">
-                             </a>
-                            </div>
-                     
-                                </div>
-                  </div>
-
+        <div id="card">
+            <div id="HeaderCarrinho">
+                <h1 class="TextCarrinhoHeader">Carrinho</h1>
             </div>
+            
+            <div id="MainCarrinho">
+            <div id="ProdutoMainCarrinho">
+            <c:forEach items="${carrinhos}" var="carrinho">
+            <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
+            <div class="informacoesProdutosCarrinho">
+              <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
+              <p class="card-text">Quantidade: ${carrinho.quantidadeCarrinho}</p>
+              <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
+              <p class="card-text">Preço: R$${carrinho.valorCarrinho}</p>
+              <p class="card-text">Tamanho:</p>
+              </div>
+                          </c:forEach>
+            
+                        </div>
+                        </div>
+           
+                        <div id="TotalCarrinho">
+                        <span>Preço Total:</span>
+                        <span>R$00,00</span>
+                    </div>
+                        <div id="buttonCarrinho">
+                     <a href="./checkout">      
+                         <input type="button" value="Comprar">
+                     </a>
+                    </div>
+             
+                        </div>
+          </div>
+
+    </div>
         </div> 
         
     </header>

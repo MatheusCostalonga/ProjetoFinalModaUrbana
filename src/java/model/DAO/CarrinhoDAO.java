@@ -66,4 +66,40 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
+        public void deletarProdutoCarrinho(CarrinhoDTO objCarrinho){
+        try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho");
+            stmt.setString(1, Integer.toString(objCarrinho.getId_carrinho()));
+
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+    }
+        /*Terminar o sistema de valor total do carrinho, so fiz isso ate agora*/
+        public double totalValorCarrinho(CarrinhoDTO objCarrinho){
+            double sum =0;
+             try{
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            rs = stmt.executeQuery();
+
+            stmt = conexao.prepareStatement("SELECT carrinho frin valor_produto_carrinho WHERE id_carrinho=?");
+            stmt.setString(1, Integer.toString(objCarrinho.getId_carrinho())); 
+            stmt.executeUpdate();
+            
+            while(rs.next()){
+                sum +=rs.getDouble("carrinho")*objCarrinho.getQuantidadeCarrinho();
+            }
+             }catch(SQLException e){
+                e.printStackTrace();
+            }
+        return sum;
+        }
 }

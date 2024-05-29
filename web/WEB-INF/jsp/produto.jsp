@@ -72,7 +72,7 @@
                         <div id="ProdutoMainCarrinho">
                         <c:forEach items="${carrinhos}" var="carrinho">
                         <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="informacoesProdutosCarrinho">
                           <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                           <p class="card-text">${carrinho.valorCarrinho}</p>
                           <p class="card-text">${carrinho.imagemCarrinho}</p>
@@ -133,6 +133,7 @@
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
                         <input type="number" step="1" id="quantidade" name="quantidade" required>
                         <span id="TextTamanho" >Tamanho:</span>
+
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
                       
            
@@ -156,7 +157,18 @@
         </form>
         </main>
         <footer>
-
+            <div class="rodape">
+            <div class="redesSociais">
+            <span>Visite nossas redes sociais</span>
+           <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
+           <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
+        </div>
+        <div class="metodoContato">
+            <span>Nosso contato para você fazer seu pedido</span>
+            <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
+            <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
+        </div>
+    </div>
         </footer>
     </body>
     <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>

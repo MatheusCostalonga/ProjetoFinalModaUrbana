@@ -325,7 +325,7 @@ align-items: center !important;
 main .produto{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 71vh;
+    height: 76vh;
     width: 100vw;
     
 }
@@ -374,6 +374,17 @@ main .produto .imagemProduto img {
         padding-bottom: 5vh;
     }
     footer{
-        height: 15vh;
+        display: grid;
+        height: 10vh;
         background-color: #2A2B33;
+        color: white;
+    }
+    footer .rodape{
+display: grid;
+grid-template-columns: 1fr 1fr;    
+
+        width: 100%;
+    }
+    footer .rodape .redesSociais, footer .rodape .metodoContato{
+        display: grid;
     }
