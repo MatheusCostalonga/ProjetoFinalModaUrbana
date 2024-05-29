@@ -44,6 +44,10 @@
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
+            <servlet-mapping>
+        <servlet-name>ProdutosController</servlet-name>
+        <url-pattern>/produto</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/buscar-produtos</url-pattern>

@@ -1,0 +1,379 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flexbox;  
+
+}
+header{
+    width: 100%;
+      height: 100%;
+    background-color: #2A2B33;
+}
+
+header #gridHeader{
+  display: grid;
+  grid-template-columns: 10% 52% 10% 12.5% 10.5%; 
+  height: 10vh;             
+    
+}
+#logoHeader{
+    background-image: url(./../assets/LogoModaUrbana.png);
+     background-size: cover;
+     background-position: center;
+    background-repeat: no-repeat; 
+    height: 91px;
+    width: 150px;
+    
+}
+
+.nav-link {
+     padding: 0 !important;
+     text-align: center;
+     align-content: center;
+}
+
+header #gridHeader #Juntos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+ .offcanvas-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #303247;
+    width: 27vw;
+    height: 100%;
+    align-items: center;    
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transform: translateX(500%);
+    transition: all .4s ease;
+} 
+
+ 
+.offcanvas-menu.active {
+    transform: translateX(275%);
+
+}
+
+
+
+.offcanvas-menu ul li {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#card{
+    border: black solid 1px;
+    max-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 14fr 1fr 2fr;
+    padding: 0;
+    margin: 0;
+}
+
+
+#HeaderCarrinho{
+    background-color: #303247;
+    color: white;
+    text-align: center;
+}
+#MainCarrinho{
+    /* height: 86vh; */
+    background-color: #D9D9D9;
+    border: black solid 1px;
+    overflow-x: auto;
+}
+#TotalCarrinho{
+    border: black solid 1px;
+    display: grid;
+    text-align: left;
+    height: auto;
+    background-color: #D9D9D9;
+}
+
+#buttonCarrinho{
+height: 100%;
+width: 100%;
+text-align: center;
+align-content: center;
+    background-color: #303247;   
+    border: black solid 1px;
+}
+#TotalCarrinho span{
+    font-weight: bold;
+    font-size: large;
+    
+}
+#buttonCarrinho input{
+    align-content: center;
+    background-color: #303247;   
+    text-align: center;
+    color: white;
+height: 100%;
+width: 100%;    
+border: none;
+font-weight: bold;
+font-size: xx-large;
+    cursor: pointer;
+    border-color: black solid 3px;
+    -webkit-text-stroke: 1.5px #000;
+}
+
+
+
+ .categorias a{
+    color: #2A2B33;
+}
+ .categorias{
+    background-color:#ffffff;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 3vh;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+#pesquisa{
+
+    width: 35vw;
+    height: 4.5vh;
+    padding-right: 83px;
+    background-color: #D9D9D9;
+}
+#campoPesquisa{
+    display:flex;
+ 
+    justify-content: center;
+}
+header #gridHeader #campoPesquisa button{
+    background-color: #D9D9D9;
+    height: 4.5vh;
+    border: none;
+    margin-left: -5px;
+}
+
+    .d-flex button{
+        border: none;
+        color: rgb(0, 0, 0);
+        background-color: none;
+        margin-right: 0;
+
+    }
+    .d-flex button:hover{
+        background: none;
+        font-size: 24px;
+        color: black;
+    }
+    #button{  
+    background-color: rgb(0, 0, 0);
+    border: 0;
+    color: white;
+     }
+
+
+#buttonIconeLupa{
+    font-size: 150%;
+}
+
+ .container-categorias .categoria a{
+align-items: center;
+align-content: center;
+text-decoration: none;
+color: #2A2B33;
+}
+ .categorias{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.buttonIcone{
+    display: grid !important;
+
+}
+.dropdown-menu.show {
+    display: block;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+ #TextUser{
+  position: static;
+font-size: 26px;
+color: #C0C1D6 !important;
+}
+#buttonUsuarioAdmin #TextUserAdmin{
+    position: static;
+    font-size: 26px;
+    color: #C0C1D6 !important;
+}
+
+header #buttonUsuario .dropdown-menu a,
+header #buttonUsuarioAdmin .dropdown-menu a{
+font-size: 16px !important;
+border-radius: 1px !important;
+justify-content: center !important;
+display: block !important ;
+align-items: left !important;
+color: #fff !important;
+background-color: #2A2B33 !important;
+
+}
+header #buttonUsuario .dropdown-menu a:hover,
+header #buttonUsuarioAdmin .dropdown-menu a:hover{
+    font-size: 18px !important;
+    background-color: #fff !important;
+    color: #2A2B33 !important;
+}
+
+
+
+.main-menu  #buttonIconeCarrinho{
+        font-size: 120% ;
+        border: 0;
+        color: #C0C1D6;
+        background-color: rgb(0, 0, 0, 0);
+        cursor: pointer;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+        align-items: center !important;
+        align-content: center !important;
+    }
+    .main-menu  #buttonIconeCarrinho:hover{
+        text-decoration: none;
+    }
+    .main-menu #IconeCarrinho{
+        font-size: 150%;
+        bottom: 10.5vh;
+    }
+
+.buttonIcone button{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+ .open-btn{
+    border: 0;
+    color: #C0C1D6;
+    background-color: rgb(0, 0, 0, 0);
+    cursor: pointer;
+    
+}
+
+
+.close-btn{
+    position:fixed;
+    top: 49vh;
+    left: 0;
+    font-size: x-large;
+    width: 16.95px;
+    height: 40px;
+    border: 0;
+    color: #2A2B33;
+    background-color: rgba(0, 0, 0, 0);
+
+    cursor: pointer;
+} 
+  #iconeCategoria{
+    font-size: 125%;
+    color: #303247;
+    align-content: center;
+}
+.main-menu {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+/*Acima é o header*/
+/*Abaixo é o main*/
+html{
+    height: 100vh;
+    max-height: 100vh;
+}
+main{
+    height: fit-content;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+} 
+main .produto .imagemProduto{
+    display: block;
+    height: 100%;
+    text-align: center !important;
+align-content: center !important;
+align-items: center !important;
+}
+main .produto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 71vh;
+    width: 100vw;
+    
+}
+main .produto .imagemProduto img {
+     vertical-align: none !important; 
+      border-style: none !important; 
+      height: 50vh;
+      text-align: center;
+      align-content: center;
+      align-items: center !important;
+    }
+    #quantidade{
+        width: 5vw;
+
+        height: auto;
+    }
+    #TextQuantidade, #valorProduto,#TextTamanho{
+        font-weight: 700;
+        font-size: large;
+        font-family: Arial;
+    }
+    #descricaoProduto{
+        font-family: Arial;
+        font-weight: 700;
+        padding-bottom: 15vh;
+    }
+     .produto #comprar{
+        background-color: #303247;
+        color: white;
+        border-radius: 8px;
+        margin-top: 1.5vh;
+        width: 15vw;
+     }
+    main .produto .InformProduto{
+        display: grid;
+        justify-content: start;
+        align-content: center;
+        align-items: center;
+        height: auto;
+        padding-top: 0.7vh;
+    }
+    main .produto .imagemProduto #tituloProduto{
+        font-size: xx-large;
+        font-weight: 600;
+        font-family: Arial;
+        padding-bottom: 5vh;
+    }
+    footer{
+        height: 15vh;
+        background-color: #2A2B33;
+    }

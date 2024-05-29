@@ -47,6 +47,8 @@ public class ProdutosController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProdutosDAO produtosDAO = new ProdutosDAO();
+                CarrinhoDAO carrinho = new CarrinhoDAO();
+
         CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categoria", categorias);
@@ -58,7 +60,6 @@ public class ProdutosController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){
-        CarrinhoDAO carrinho = new CarrinhoDAO();
         List<CarrinhoDTO> carrinhos = carrinho.leia();
         request.setAttribute("carrinhos", carrinhos);
             List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
@@ -68,7 +69,6 @@ public class ProdutosController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if(url.equals("/checkout")){
             System.out.println("aquiiii, estou chegando aqui");
-               CarrinhoDAO carrinho = new CarrinhoDAO();
          List<CarrinhoDTO> carrinhos = carrinho.leia();
          request.setAttribute("carrinhos", carrinhos);
         String nextPage = "/WEB-INF/jsp/checkout.jsp";

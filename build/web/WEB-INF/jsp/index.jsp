@@ -54,8 +54,6 @@
 
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
-            <li><a class="dropdown-item" href="./loginCliente">Login</a></li>
-            <li><a class="dropdown-item" href="./CadastroClienteController"><i class="fa-solid fa-user-plus"></i>Cadastrar</a></li>
             </ul>
       </li>
   </div> 
@@ -184,5 +182,5 @@
     </footer>
 
 </body>
-<script src="./js/menu.js"></script>
+<script src="./js/carrinho.js"></script>
 </html>

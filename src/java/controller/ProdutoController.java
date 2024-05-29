@@ -34,8 +34,8 @@ import model.bean.ProdutoDTO;
 @MultipartConfig
 public class ProdutoController extends HttpServlet {
 
-    CarrinhoDTO carrinho = new CarrinhoDTO();
-    CarrinhoDAO carrinhos = new CarrinhoDAO();
+    CarrinhoDTO carrinhos = new CarrinhoDTO();
+    CarrinhoDAO carrinho = new CarrinhoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,6 +44,10 @@ public class ProdutoController extends HttpServlet {
 
         List<ProdutoDTO> produtos = produtosDAO.buscarProduto(id_produto);
         request.setAttribute("produtos", produtos);
+        
+        List<CarrinhoDTO> carrinhos = carrinho.leia();
+        request.setAttribute("carrinhos",carrinhos);
+        
                 String url = "/WEB-INF/jsp/produto.jsp";   
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);   
@@ -86,15 +90,15 @@ public class ProdutoController extends HttpServlet {
     
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            CarrinhoDTO carrinho = new CarrinhoDTO();
+            CarrinhoDTO carrinhos = new CarrinhoDTO();
             PrintWriter out = response.getWriter();
-            carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
-            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
-            carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
-            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
-            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
-            carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
-            carrinhos.cadastrarCarrinho(carrinho);
+            carrinhos.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
+            carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
+            carrinhos.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
+            carrinhos.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
+            carrinhos.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
+            carrinhos.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
+            carrinho.cadastrarCarrinho(carrinhos);
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Compra feita com sucesso.');");
             out.println("window.location.href = './pages/produto.jsp';");
