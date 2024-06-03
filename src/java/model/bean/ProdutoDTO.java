@@ -20,11 +20,12 @@ public class ProdutoDTO {
     private String descricao;
     private String tamanho;
     private int categoriaId;
+    private int quantidade;
     
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome, String imagem, String imgBlob, float valor, String descricao, String tamanho, int categoriaId) {
+    public ProdutoDTO(int idProduto, String nome, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade) {
         this.idProduto = idProduto;
         this.nome = nome;
         this.imagem = imagem;
@@ -32,6 +33,7 @@ public class ProdutoDTO {
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.categoriaId = categoriaId;
+        this.quantidade = quantidade;
     }
 
     public int getIdProduto() {
@@ -90,6 +92,14 @@ public class ProdutoDTO {
         this.categoriaId = categoriaId;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
   
- 
 }

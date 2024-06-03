@@ -186,9 +186,53 @@ public class ProdutosDAO {
              }
             
             } catch(SQLException e){
-                e.printStackTrace();;
+                e.printStackTrace();
             }
             
             return resultadoBusca;
                 }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        public List<ProdutoDTO> ListarCamiseta(){
+        List<ProdutoDTO> produtos = new ArrayList();
+    try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        stmt = conexao.prepareStatement("SELECT p.id_produto, p.nome AS nome_produto, p.imagem, p.descricao, p.tamanho, p.quantidade, p.valor, c.nome AS nome_categoria FROM produtos p INNER JOIN  categorias c  ON  p.categoria_id = c.id_categoria");
+
+        
+        rs = stmt.executeQuery();
+        if(rs.next()){
+            ProdutoDTO produto = new ProdutoDTO();
+            produto.setNome(rs.getString("nome"));
+            produto.setImagem(rs.getString("imagem"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setTamanho(rs.getString("tamanho"));
+            produto.setQuantidade(rs.getInt("quantidade"));
+            produto.setCategoriaId(rs.getInt("categoria_id"));
+            produto.setValor(rs.getFloat("valor"));
+            produtos.add(produto);
+            
+            
+        }
+        
+    } catch(SQLException e){
+        e.printStackTrace();
+    }
+            return produtos;
+                         
+}  
+        
 }

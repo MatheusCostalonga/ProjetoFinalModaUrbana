@@ -54,3 +54,5 @@ closeBtn.addEventListener('click', function (e) {
     e.preventDefault();
     offcanvasMenu.classList.remove('active');
 });
+
+

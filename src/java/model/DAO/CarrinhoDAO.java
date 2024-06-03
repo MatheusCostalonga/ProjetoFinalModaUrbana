@@ -37,6 +37,7 @@ public class CarrinhoDAO {
              objCarrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
              objCarrinho.setQuantidadeCarrinho(rs.getInt("quantidade_carrinho"));
              objCarrinho.setProdutoId3(rs.getInt("produto_id3"));
+             objCarrinho.setTotal(rs.getFloat("total"));
       //       objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
              Carrinho.add(objCarrinho);
          }
@@ -81,25 +82,26 @@ public class CarrinhoDAO {
         e.printStackTrace();
         }
     }
-        /*Terminar o sistema de valor total do carrinho, so fiz isso ate agora*/
-        public double totalValorCarrinho(CarrinhoDTO objCarrinho){
-            double sum =0;
-             try{
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-            rs = stmt.executeQuery();
+        //  Luan me passou e explicou o codigo 
+         public List<CarrinhoDTO> leiaTotal() {
+        List<CarrinhoDTO> Carrinho = new ArrayList<>();
+     try{
+         Connection conexao = Conexao.conectar();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         stmt = conexao.prepareStatement("SELECT SUM(p.valor * c.quantidade_carrinho) AS total FROM produtos p INNER JOIN carrinho c ON p.id_produto = c.produto_id3");
+         rs = stmt.executeQuery();
+         if(rs.next()){
+             CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             objCarrinho.setTotal(rs.getFloat("total"));
+             Carrinho.add(objCarrinho);
+         }
+     }catch(SQLException e){
+         e.printStackTrace();
+     }   
+        return Carrinho;
+    }
 
-            stmt = conexao.prepareStatement("SELECT carrinho frin valor_produto_carrinho WHERE id_carrinho=?");
-            stmt.setString(1, Integer.toString(objCarrinho.getId_carrinho())); 
-            stmt.executeUpdate();
-            
-            while(rs.next()){
-                sum +=rs.getDouble("carrinho")*objCarrinho.getQuantidadeCarrinho();
-            }
-             }catch(SQLException e){
-                e.printStackTrace();
-            }
-        return sum;
-        }
 }
+                    

@@ -53,12 +53,17 @@
          
 
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"><i id="iconeUsuario" class="fa-solid fa-user"></i>Meu Perfil</a></li>       
-            </ul>
+            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>       
+            <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
+            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>       
+
+        </ul>
       </li>
   </div> 
   <div class="main-menu">
+
     <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
+
     <div class="offcanvas-menu">
         <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
 
@@ -73,9 +78,9 @@
             <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
             <div class="informacoesProdutosCarrinho">
               <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
-              <p class="card-text">Quantidade: ${carrinho.quantidadeCarrinho}</p>
+              <p class="card-text" class="quantidade">Quantidade: ${carrinho.quantidadeCarrinho}</p>
               <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
-              <p class="card-text">Preço: R$${carrinho.valorCarrinho}</p>
+              <p class="card-text" class="preco">Preço: R$${carrinho.valorCarrinho}</p>
               <p class="card-text">Tamanho:</p>
               </div>
                           </c:forEach>
@@ -84,8 +89,13 @@
                         </div>
            
                         <div id="TotalCarrinho">
-                        <span>Preço Total:</span>
-                        <span>R$00,00</span>
+                            <!-- Luan me passou e explicou o codigo -->
+                      <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
+                    <div class="content">
+                        <h2 class="text">Preço Total:</h2>
+                        <p class="preco" id="preco">R$ ${totalCarrinhos.total}</p>
+                    </div>
+                </c:forEach>                   
                     </div>
                         <div id="buttonCarrinho">
                      <a href="./checkout">      
@@ -150,37 +160,58 @@
             </a>
 </div>
            
-             <div class="container">
-                <h1 class="my-4">Listagem de Produtos</h1>
-                <!-- <div class="horizontal-scroll">
-                    <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontally(-1)" style="display: flex;"><i class="fa-solid fa-chevron-right"></i></button>
-           -->
+            <h1 class="my-4">Camiseta</h1>
+             <div class="grade">
+                <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
+                 <div class="horizontal-scroll">
+                    
                 <div class="rows">
-                    <c:forEach var="produto" items="${produtos}">
-                        <div class="col-md-4 mb-3">
-                            <div class="card card-custom">
+                    <c:forEach var="camiseta" items="${camisetas}">
                                 <div class="card-body">
                                     <div class="imagemProduto">
                                         <img src="${produto.imagem}" class="card-img-top" alt="...">
                                     </div>
-                                    <h5 class="card-title">${produto.nome}</h5>
-                                    <p class="card-text">${produto.descricao}</p>
-                                    <p class="card-text">${produto.valor}</p>
+                                    <h5 class="card-title">${camiseta.nome}</h5>
+                                    <p class="card-text">${camiseta.descricao}</p>
+                                    <p class="card-text">${camiseta.valor}</p>
+                                    <p class="card-text">${camiseta.categoriaId}</p>
                                     <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
 
-                                </div>
                             </div>
-                        </div>
                     </c:forEach>
-                <!-- </div>  -->
                 </div>
                 </div>
+                <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button>
+
+                </div>
+                <h1>Outro produto</h1>
+                <div class="grade">
+                    <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
+                     <div class="horizontal-scroll">
+                        
+                    <div class="rows">
+                        <c:forEach var="produto" items="${produtos}">
+                                    <div class="card-body">
+                                        <div class="imagemProduto">
+                                            <img src="${produto.imagem}" class="card-img-top" alt="...">
+                                        </div>
+                                        <h5 class="card-title">${produto.nome}</h5>
+                                        <p class="card-text">${produto.descricao}</p>
+                                        <p class="card-text">${produto.valor}</p>
+                                        <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
+    
+                                </div>
+                        </c:forEach>
+                    </div>
+                    </div>
+                    <button id="scrollRight"><i class="fa-solid fa-chevron-right"></i></button>
+    
+                    </div>
     </main>
     <footer>
-
     </footer>
 
 </body>
-<script src="./js/carrinho.js"></script>
+<script src="./js/menu.js"></script>
+ <script src="./js/carrinho.js"></script> 
 </html>

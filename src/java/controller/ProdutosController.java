@@ -54,23 +54,31 @@ public class ProdutosController extends HttpServlet {
         request.setAttribute("categoria", categorias);
         String url = request.getServletPath();
         System.out.println(url);
-
+        
         if(url.equals("/cadastrar-produto")) {
             String nextPage = "/WEB-INF/jsp/cadastroProduto.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){
-        List<CarrinhoDTO> carrinhos = carrinho.leia();
+        List<CarrinhoDTO> carrinhos = carrinho.leia();       
         request.setAttribute("carrinhos", carrinhos);
-            List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
+                                    //  Luan me passou e explicou o codigo 
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
+        request.setAttribute("totalCarrinho", totalCarrinho);
+        //Eu fiz essa parte para baixo   
+        List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/index.jsp";
+            List<ProdutoDTO> camisetas = produtosDAO.ListarCamiseta();
+            request.setAttribute("camisetas", camisetas);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/checkout")){
             System.out.println("aquiiii, estou chegando aqui");
          List<CarrinhoDTO> carrinhos = carrinho.leia();
+         
          request.setAttribute("carrinhos", carrinhos);
+         
         String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

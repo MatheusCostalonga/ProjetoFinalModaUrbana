@@ -321,7 +321,6 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     border: 0;
     color: #2A2B33;
     background-color: rgba(0, 0, 0, 0);
-
     cursor: pointer;
 } 
  main #iconeCategoria{
@@ -337,13 +336,8 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     align-content: center;
 }
 
-main .container .rows{
-text-align: center;
-display: flex!important;
-grid-template-columns: auto;
-height: auto;
-}
-main .container .rows .card-body #button-Comprar{
+
+main .grade .rows .card-body #button-Comprar{
 cursor: pointer ;
 background-color: #D9D9D9 ;
 color: #2A2B33;
@@ -351,11 +345,11 @@ border: none;
 border-radius: 0.5px;
 }
 
-main .container .rows .card-body #button-Comprar:hover{
+main .grade .rows .card-body #button-Comprar:hover{
     background-color:#2A2B33;
     color: #D9D9D9;
 }
-main .container .rows .card-body .imagemProduto img{
+main .grade .rows .card-body .imagemProduto img{
     background-size: cover;
     background-position: center;
    background-repeat: no-repeat; 
@@ -365,26 +359,54 @@ main .container .rows .card-body .imagemProduto img{
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1rem;
+    padding: 5rem;
     cursor: pointer;
     display: grid !important;
     height: auto;
-}
-    .container {
-        display: grid !important;
-        margin-right: 0 !important; 
-         margin-left: 0 !important;
-    }
+    transition: 0.5s all ease-out;
 
+}
 .card-body:hover{
     background-color:#2A2B33;
     color: #D9D9D9;
 }
-/* .container .horizontal-scroll{
-     display: flex !important; 
-    justify-content: space-between;
-    flex-direction: row;
-    position: relative;
-    overflow: hidden;
-} */
+    .grade {
+        display: flex !important;
+        justify-content: center;
+        justify-items: center;
+        margin-right: 0 !important; 
+         margin-left: 0 !important;
 
+    }
+
+
+main .grade .rows{
+    text-align: center;
+    display: flex!important;
+    height: auto;
+    }
+  .grade .horizontal-scroll{
+     width:50vw;
+     max-width: 50vw;
+     height: auto;
+     background-color: #ffffff;
+     border: none;
+     display: flex;
+     justify-content: start;
+     align-items: center;
+      overflow-x: auto; 
+     scroll-behavior: smooth;
+}  
+
+main .grade .scrollLeft, main .grade .scrollRight {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    color: transparent;
+}
+main .grade .scrollLeft:hover, main .grade .scrollRight:hover{
+    color: #2A2B33;
+}
+.fa-chevron-right, .fa-chevron-left{
+    font-size: xx-large;
+}
