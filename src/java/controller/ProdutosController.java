@@ -74,6 +74,8 @@ public class ProdutosController extends HttpServlet {
             request.setAttribute("camisa", camisa);
             List<ProdutoDTO> calca = produtosDAO.ListarCalça();
             request.setAttribute("calca", calca);
+            List<ProdutoDTO> jaqueta = produtosDAO.ListarJaqueta();
+            request.setAttribute("jaqueta", jaqueta);
             List<ProdutoDTO> bermuda = produtosDAO.ListarBermuda();
             request.setAttribute("bermuda", bermuda);
             String nextPage = "/WEB-INF/jsp/index.jsp";
@@ -82,9 +84,7 @@ public class ProdutosController extends HttpServlet {
         } else if(url.equals("/checkout")){
             System.out.println("aquiiii, estou chegando aqui");
          List<CarrinhoDTO> carrinhos = carrinho.leia();
-         
          request.setAttribute("carrinhos", carrinhos);
-         
         String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -137,7 +137,8 @@ public class ProdutosController extends HttpServlet {
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("categorias"))); 
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
         newProduto.setDescricao(request.getParameter("descricao"));
-        newProduto.setTamanho(request.getParameter("tamanho"));
+        newProduto.setTamanhoId(Integer.parseInt(request.getParameter("tamanho_id")));
+        newProduto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
 Part filePart = request.getPart("imagem");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         if (fileName != null && !fileName.isEmpty()) {

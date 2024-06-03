@@ -18,7 +18,8 @@ public class ProdutoDTO {
     private String imagem;
     private float valor;
     private String descricao;
-    private String tamanho;
+    private int tamanhoId;
+    private String qual_tamanho;
     private int categoriaId;
     private int quantidade;
     private String nome_categoria;
@@ -26,13 +27,14 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade, String nome_categoria) {
+    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, int tamanhoId, String qual_tamanho, int categoriaId, int quantidade, String nome_categoria) {
         this.idProduto = idProduto;
         this.nome_produto = nome_produto;
         this.imagem = imagem;
         this.valor = valor;
         this.descricao = descricao;
-        this.tamanho = tamanho;
+        this.tamanhoId = tamanhoId;
+        this.qual_tamanho = qual_tamanho;
         this.categoriaId = categoriaId;
         this.quantidade = quantidade;
         this.nome_categoria = nome_categoria;
@@ -78,12 +80,20 @@ public class ProdutoDTO {
         this.descricao = descricao;
     }
 
-    public String getTamanho() {
-        return tamanho;
+    public int getTamanhoId() {
+        return tamanhoId;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
+    public void setTamanhoId(int tamanhoId) {
+        this.tamanhoId = tamanhoId;
+    }
+
+    public String getQual_tamanho() {
+        return qual_tamanho;
+    }
+
+    public void setQual_tamanho(String qual_tamanho) {
+        this.qual_tamanho = qual_tamanho;
     }
 
     public int getCategoriaId() {
@@ -110,4 +120,5 @@ public class ProdutoDTO {
         this.nome_categoria = nome_categoria;
     }
 
+    
 }

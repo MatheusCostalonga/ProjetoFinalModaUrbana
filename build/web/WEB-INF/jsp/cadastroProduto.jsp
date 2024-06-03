@@ -43,7 +43,7 @@
             </div>
             <span for="tamanho">Tamanho:</span>
                         <div class="form-group">
-                <select class="form-control" id="categorias" name="Tamanho">
+                <select class="form-control" id="tamanho_id" name="tamanho_id">
                     <option value="1">GG</option>
                     <option value="2">G</option>
                     <option value="3">M</option>

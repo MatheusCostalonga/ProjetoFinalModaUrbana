@@ -175,7 +175,7 @@
                                     <p class="card-text">${camiseta.descricao}</p>
                                     <p class="card-text">${camiseta.valor}</p>
                                     <p class="card-text">${camiseta.nome_categoria}</p>
-                                    <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                    <a  href="./produtoSelecionado?id=${camisetas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
                             </div>
                     </c:forEach>
@@ -193,13 +193,13 @@
                        <c:forEach var="camisas" items="${camisa}">
                                    <div class="card-body">
                                        <div class="imagemProduto">
-                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       <img src="${camisas.imagem}" class="card-img-top" alt="...">
                                        </div>
                                        <h5 class="card-title">${camisas.nome_produto}</h5>
                                        <p class="card-text">${camisas.descricao}</p>
                                        <p class="card-text">${camisas.valor}</p>
                                        <p class="card-text">${camisas.nome_categoria}</p>
-                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                       <a  href="./produtoSelecionado?id=${camisas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>
                        </c:forEach>
@@ -216,7 +216,7 @@
                        <c:forEach var="calcas" items="${calca}">
                                    <div class="card-body">
                                        <div class="imagemProduto">
-                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       <img src="${calcas.imagem}" class="card-img-top" alt="...">
                                        </div>
                                        <h5 class="card-title">${calcas.nome_produto}</h5>
                                        <p class="card-text">${calcas.descricao}</p>
@@ -237,15 +237,15 @@
                     <div class="horizontal-scroll">
                        
                    <div class="rows">
-                       <c:forEach var="camiseta" items="${camisetas}">
+                       <c:forEach var="jaquetas" items="${jaqueta}">
                                    <div class="card-body">
                                        <div class="imagemProduto">
-                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       <img src="${jaquetas.imagem}" class="card-img-top" alt="...">
                                        </div>
-                                       <h5 class="card-title">${camiseta.nome_produto}</h5>
-                                       <p class="card-text">${camiseta.descricao}</p>
-                                       <p class="card-text">${camiseta.valor}</p>
-                                       <p class="card-text">${camiseta.nome_categoria}</p>
+                                       <h5 class="card-title">${jaquetas.nome_produto}</h5>
+                                       <p class="card-text">${jaquetas.descricao}</p>
+                                       <p class="card-text">${jaquetas.valor}</p>
+                                       <p class="card-text">${jaquetas.nome_categoria}</p>
                                        <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>
@@ -264,12 +264,12 @@
                        <c:forEach var="bermudas" items="${bermuda}">
                                    <div class="card-body">
                                        <div class="imagemProduto">
-                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       <img src="${bermudas.imagem}" class="card-img-top" alt="...">
                                        </div>
-                                       <h5 class="card-title">${camiseta.nome_produto}</h5>
-                                       <p class="card-text">${camiseta.descricao}</p>
-                                       <p class="card-text">${camiseta.valor}</p>
-                                       <p class="card-text">${camiseta.nome_categoria}</p>
+                                       <h5 class="card-title">${bermudas.nome_produto}</h5>
+                                       <p class="card-text">${bermudas.descricao}</p>
+                                       <p class="card-text">${bermudas.valor}</p>
+                                       <p class="card-text">${bermudas.nome_categoria}</p>
                                        <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>

@@ -41,7 +41,8 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
                 ProdutosDAO produtosDAO = new ProdutosDAO();
                 int id_produto = Integer.parseInt(request.getParameter("id"));
-
+                System.out.println("aquiiiiiiiiii, sou o id do produto");
+        System.out.println(id_produto);
         List<ProdutoDTO> produtos = produtosDAO.buscarProduto(id_produto);
         request.setAttribute("produtos", produtos);
         

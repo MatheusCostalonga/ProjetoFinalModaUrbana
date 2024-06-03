@@ -385,7 +385,7 @@ main .grade .rows{
     display: flex!important;
     height: auto;
     }
-  .grade .horizontal-scroll{
+  .grade .horizontal-scroll .horizontal-{
      width:50vw;
      max-width: 50vw;
      height: auto;
@@ -394,7 +394,8 @@ main .grade .rows{
      display: flex;
      justify-content: start;
      align-items: center;
-      overflow-x: auto; 
+      overflow-x: auto;
+      overflow: transparent; 
      scroll-behavior: smooth;
 }  
 
