@@ -200,12 +200,13 @@ public class ProdutosDAO {
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
+
         stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '1'");
 
-        
+      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
+     
         rs = stmt.executeQuery();
-        if(rs.next()){
+        while(rs.next()){
             ProdutoDTO produto = new ProdutoDTO();
             produto.setIdProduto(rs.getInt("id_produto"));
             produto.setNome_produto(rs.getString("nome_produto"));
@@ -213,10 +214,8 @@ public class ProdutosDAO {
             produto.setDescricao(rs.getString("descricao"));
             produto.setTamanho(rs.getString("tamanho"));
             produto.setQuantidade(rs.getInt("quantidade"));
-            produto.setCategoriaId(rs.getInt("categoria_id"));
+            produto.setNome_categoria(rs.getString("nome_categoria"));
             produto.setValor(rs.getFloat("valor"));
-            System.out.println("euuuuuuuu, aquiiiiiiiii ");
-            System.out.println(rs.getString("nome_produto"));
             produtos.add(produto);
             
             
@@ -228,5 +227,136 @@ public class ProdutosDAO {
             return produtos;
                          
 }  
+             public List<ProdutoDTO> ListarCamisa(){
+        List<ProdutoDTO> produtos = new ArrayList<>();
+    try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '2'");
+
+      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
+     
+        rs = stmt.executeQuery();
+        while(rs.next()){
+            ProdutoDTO produto = new ProdutoDTO();
+            produto.setIdProduto(rs.getInt("id_produto"));
+            produto.setNome_produto(rs.getString("nome_produto"));
+            produto.setImagem(rs.getString("imagem"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setTamanho(rs.getString("tamanho"));
+            produto.setQuantidade(rs.getInt("quantidade"));
+            produto.setNome_categoria(rs.getString("nome_categoria"));
+            produto.setValor(rs.getFloat("valor"));
+            produtos.add(produto);
+            
+            
+        }
         
+    } catch(SQLException e){
+        e.printStackTrace();
+    }
+            return produtos;
+                         
+}
+                     public List<ProdutoDTO> ListarCalça(){
+        List<ProdutoDTO> produtos = new ArrayList<>();
+    try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '3'");
+
+      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
+     
+        rs = stmt.executeQuery();
+        while(rs.next()){
+            ProdutoDTO produto = new ProdutoDTO();
+            produto.setIdProduto(rs.getInt("id_produto"));
+            produto.setNome_produto(rs.getString("nome_produto"));
+            produto.setImagem(rs.getString("imagem"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setTamanho(rs.getString("tamanho"));
+            produto.setQuantidade(rs.getInt("quantidade"));
+            produto.setNome_categoria(rs.getString("nome_categoria"));
+            produto.setValor(rs.getFloat("valor"));
+            produtos.add(produto);
+            
+            
+        }
+        
+    } catch(SQLException e){
+        e.printStackTrace();
+    }
+            return produtos;
+                         
+}
+             public List<ProdutoDTO> ListarJaqueta(){
+        List<ProdutoDTO> produtos = new ArrayList<>();
+    try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '4'");
+
+      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
+     
+        rs = stmt.executeQuery();
+        while(rs.next()){
+            ProdutoDTO produto = new ProdutoDTO();
+            produto.setIdProduto(rs.getInt("id_produto"));
+            produto.setNome_produto(rs.getString("nome_produto"));
+            produto.setImagem(rs.getString("imagem"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setTamanho(rs.getString("tamanho"));
+            produto.setQuantidade(rs.getInt("quantidade"));
+            produto.setNome_categoria(rs.getString("nome_categoria"));
+            produto.setValor(rs.getFloat("valor"));
+            produtos.add(produto);
+            
+            
+        }
+        
+    } catch(SQLException e){
+        e.printStackTrace();
+    }
+            return produtos;
+                         
+}
+              public List<ProdutoDTO> ListarBermuda(){
+        List<ProdutoDTO> produtos = new ArrayList<>();
+    try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '5'");
+
+      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
+     
+        rs = stmt.executeQuery();
+        while(rs.next()){
+            ProdutoDTO produto = new ProdutoDTO();
+            produto.setIdProduto(rs.getInt("id_produto"));
+            produto.setNome_produto(rs.getString("nome_produto"));
+            produto.setImagem(rs.getString("imagem"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setTamanho(rs.getString("tamanho"));
+            produto.setQuantidade(rs.getInt("quantidade"));
+            produto.setNome_categoria(rs.getString("nome_categoria"));
+            produto.setValor(rs.getFloat("valor"));
+            produtos.add(produto);
+            
+            
+        }
+        
+    } catch(SQLException e){
+        e.printStackTrace();
+    }
+            return produtos;
+                         
+}
 }

@@ -21,11 +21,12 @@ public class ProdutoDTO {
     private String tamanho;
     private int categoriaId;
     private int quantidade;
+    private String nome_categoria;
     
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade) {
+    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade, String nome_categoria) {
         this.idProduto = idProduto;
         this.nome_produto = nome_produto;
         this.imagem = imagem;
@@ -34,6 +35,7 @@ public class ProdutoDTO {
         this.tamanho = tamanho;
         this.categoriaId = categoriaId;
         this.quantidade = quantidade;
+        this.nome_categoria = nome_categoria;
     }
 
     public int getIdProduto() {
@@ -98,6 +100,14 @@ public class ProdutoDTO {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public String getNome_categoria() {
+        return nome_categoria;
+    }
+
+    public void setNome_categoria(String nome_categoria) {
+        this.nome_categoria = nome_categoria;
     }
 
 }

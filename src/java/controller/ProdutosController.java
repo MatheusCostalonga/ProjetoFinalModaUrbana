@@ -70,6 +70,12 @@ public class ProdutosController extends HttpServlet {
             request.setAttribute("produtos", produtos);
             List<ProdutoDTO> camisetas = produtosDAO.ListarCamiseta();
             request.setAttribute("camisetas", camisetas);
+            List<ProdutoDTO> camisa = produtosDAO.ListarCamisa();
+            request.setAttribute("camisa", camisa);
+            List<ProdutoDTO> calca = produtosDAO.ListarCalça();
+            request.setAttribute("calca", calca);
+            List<ProdutoDTO> bermuda = produtosDAO.ListarBermuda();
+            request.setAttribute("bermuda", bermuda);
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

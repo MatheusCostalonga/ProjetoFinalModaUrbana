@@ -160,9 +160,9 @@
             </a>
 </div>
            
-              <h1 class="my-4">Camiseta</h1> 
-             <div class="grade">
-                <!-- <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> -->
+               <h1 class="my-4">Camiseta</h1> 
+              <div class="grade">
+                 <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
                  <div class="horizontal-scroll">
                     
                 <div class="rows">
@@ -174,17 +174,112 @@
                                     <h5 class="card-title">${camiseta.nome_produto}</h5>
                                     <p class="card-text">${camiseta.descricao}</p>
                                     <p class="card-text">${camiseta.valor}</p>
-                                    <p class="card-text">${camiseta.categoriaId}</p>
+                                    <p class="card-text">${camiseta.nome_categoria}</p>
                                     <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
                             </div>
                     </c:forEach>
                 </div>
                 </div>
-                <!-- <button id="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> -->
+                <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
 
                 </div> 
-                <h1>Outro produto</h1>
+                <h1>camisa</h1> 
+                <div class="grade">
+                    <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
+                    <div class="horizontal-scroll">
+                       
+                   <div class="rows">
+                       <c:forEach var="camisas" items="${camisa}">
+                                   <div class="card-body">
+                                       <div class="imagemProduto">
+                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       </div>
+                                       <h5 class="card-title">${camisas.nome_produto}</h5>
+                                       <p class="card-text">${camisas.descricao}</p>
+                                       <p class="card-text">${camisas.valor}</p>
+                                       <p class="card-text">${camisas.nome_categoria}</p>
+                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+   
+                               </div>
+                       </c:forEach>
+                   </div>
+                   </div>
+                   <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
+                   </div>  
+                   <h1>calca</h1>
+                   <div class="grade">
+                    <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
+                    <div class="horizontal-scroll">
+                       
+                   <div class="rows">
+                       <c:forEach var="calcas" items="${calca}">
+                                   <div class="card-body">
+                                       <div class="imagemProduto">
+                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       </div>
+                                       <h5 class="card-title">${calcas.nome_produto}</h5>
+                                       <p class="card-text">${calcas.descricao}</p>
+                                       <p class="card-text">${calcas.valor}</p>
+                                       <p class="card-text">${calcas.nome_categoria}</p>
+                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+   
+                               </div>
+                       </c:forEach>
+                   </div>
+                   </div>
+                   <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
+   
+                   </div> 
+                   <h1>Jaquetas</h1>
+                   <div class="grade">
+                    <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
+                    <div class="horizontal-scroll">
+                       
+                   <div class="rows">
+                       <c:forEach var="camiseta" items="${camisetas}">
+                                   <div class="card-body">
+                                       <div class="imagemProduto">
+                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       </div>
+                                       <h5 class="card-title">${camiseta.nome_produto}</h5>
+                                       <p class="card-text">${camiseta.descricao}</p>
+                                       <p class="card-text">${camiseta.valor}</p>
+                                       <p class="card-text">${camiseta.nome_categoria}</p>
+                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+   
+                               </div>
+                       </c:forEach>
+                   </div>
+                   </div>
+                   <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
+   
+                   </div>  
+                   <h1>Bermudas</h1>
+                   <div class="grade">
+                    <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
+                    <div class="horizontal-scroll">
+                       
+                   <div class="rows">
+                       <c:forEach var="bermudas" items="${bermuda}">
+                                   <div class="card-body">
+                                       <div class="imagemProduto">
+                                       <img src="${camiseta.imagem}" class="card-img-top" alt="...">
+                                       </div>
+                                       <h5 class="card-title">${camiseta.nome_produto}</h5>
+                                       <p class="card-text">${camiseta.descricao}</p>
+                                       <p class="card-text">${camiseta.valor}</p>
+                                       <p class="card-text">${camiseta.nome_categoria}</p>
+                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+   
+                               </div>
+                       </c:forEach>
+                   </div>
+                   </div>
+                   <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
+   
+                   </div>   
+                <!-- <h1>Outro produto</h1>
                 <div class="grade">
                     <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
                      <div class="horizontal-scroll">
@@ -206,7 +301,7 @@
                     </div>
                     <button id="scrollRight"><i class="fa-solid fa-chevron-right"></i></button>
     
-                    </div>
+                    </div> -->
     </main>
     <footer>
     </footer>
