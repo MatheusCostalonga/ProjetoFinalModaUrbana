@@ -160,30 +160,30 @@
             </a>
 </div>
            
-            <h1 class="my-4">Camiseta</h1>
+              <h1 class="my-4">Camiseta</h1> 
              <div class="grade">
-                <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
+                <!-- <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> -->
                  <div class="horizontal-scroll">
                     
                 <div class="rows">
                     <c:forEach var="camiseta" items="${camisetas}">
                                 <div class="card-body">
                                     <div class="imagemProduto">
-                                        <img src="${produto.imagem}" class="card-img-top" alt="...">
+                                    <img src="${camiseta.imagem}" class="card-img-top" alt="...">
                                     </div>
-                                    <h5 class="card-title">${camiseta.nome}</h5>
+                                    <h5 class="card-title">${camiseta.nome_produto}</h5>
                                     <p class="card-text">${camiseta.descricao}</p>
                                     <p class="card-text">${camiseta.valor}</p>
                                     <p class="card-text">${camiseta.categoriaId}</p>
-                                    <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
+                                    <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
                             </div>
                     </c:forEach>
                 </div>
                 </div>
-                <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button>
+                <!-- <button id="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> -->
 
-                </div>
+                </div> 
                 <h1>Outro produto</h1>
                 <div class="grade">
                     <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
@@ -195,7 +195,7 @@
                                         <div class="imagemProduto">
                                             <img src="${produto.imagem}" class="card-img-top" alt="...">
                                         </div>
-                                        <h5 class="card-title">${produto.nome}</h5>
+                                        <h5 class="card-title">${produto.nome_produto}</h5>
                                         <p class="card-text">${produto.descricao}</p>
                                         <p class="card-text">${produto.valor}</p>
                                         <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>

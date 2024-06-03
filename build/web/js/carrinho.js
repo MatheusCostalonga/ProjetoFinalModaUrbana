@@ -4,7 +4,7 @@ document.querySelectorAll('.btn-comprar').forEach(btn => {
     btn.addEventListener('click', function() {
         var idProduto = this.getAttribute('idProduto');
         var imagem = this.getAttribute('imagem');
-        var nome = this.getAttribute('nome');
+        var nome = this.getAttribute('nome_produto');
         var valor = this.getAttribute('valor');
         var descricao = this.getAttribute('descricao'); 
         var quantidade = this.getAttribute('quantidade');      

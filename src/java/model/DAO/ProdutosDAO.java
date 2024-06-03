@@ -32,7 +32,7 @@ public class ProdutosDAO {
             while (rs.next()) {
                 ProdutoDTO objProduto = new ProdutoDTO();
                 objProduto.setIdProduto(rs.getInt("id_produto"));
-                objProduto.setNome(rs.getString("nome"));
+                objProduto.setNome_produto(rs.getString("nome_produto"));
                 objProduto.setValor(rs.getFloat("valor"));
                 objProduto.setDescricao(rs.getString("descricao"));
                 objProduto.setCategoriaId(rs.getInt("categoria_id"));
@@ -53,13 +53,15 @@ public class ProdutosDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             
-            stmt = conexao.prepareStatement("INSERT INTO produtos (categoria_id, nome, valor, imagem, descricao, tamanho) VALUES (?, ?, ?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO produtos (categoria_id, nome_produto, valor, imagem, descricao, quantidade, tamanho) VALUES (?, ?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, p.getCategoriaId());
-            stmt.setString(2, p.getNome());
+            stmt.setString(2, p.getNome_produto());
             stmt.setFloat(3, p.getValor());
             stmt.setString(4, p.getImagem());
             stmt.setString(5, p.getDescricao());
-            stmt.setString(6, p.getTamanho());
+            stmt.setInt(6, p.getQuantidade());
+            stmt.setString(7, p.getTamanho());
+            System.out.println(p.getNome_produto());
             
             stmt.executeUpdate();
             stmt.close();
@@ -77,13 +79,13 @@ public class ProdutosDAO {
 
         try {
             conexao = Conexao.conectar();
-            stmt = conexao.prepareStatement("SELECT * FROM produtos LIMIT 10");
+            stmt = conexao.prepareStatement("SELECT * FROM produtos LIMIT 100");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("id_produto"));
-                produto.setNome(rs.getString("nome"));
+                produto.setNome_produto(rs.getString("nome_produto"));
                 produto.setCategoriaId(rs.getInt("categoria_id"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setTamanho(rs.getString("tamanho"));
@@ -109,8 +111,8 @@ public class ProdutosDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;  
             
-            //SELECT * FROM produtos WHERE nome LIKE %?% OR descricao LIKE ?
-            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome LIKE ?");
+            //SELECT * FROM produtos WHERE nome_produto LIKE %?% OR descricao LIKE ?
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome_produto LIKE ?");
             stmt.setString(1, busca);
           //  stmt.setString(2,  busca);
             
@@ -118,7 +120,7 @@ public class ProdutosDAO {
              while (rs.next()) {
              ProdutoDTO  prod = new ProdutoDTO();
              prod.setIdProduto(rs.getInt("id_produto"));
-             prod.setNome(rs.getString("nome"));
+             prod.setNome_produto(rs.getString("nome_produto"));
              prod.setCategoriaId(rs.getInt("categoria_id"));
              prod.setDescricao(rs.getString("descricao"));
              prod.setTamanho(rs.getString("tamanho"));
@@ -147,7 +149,7 @@ public class ProdutosDAO {
                     ProdutoDTO produtos = new ProdutoDTO();
                     produtos.setIdProduto(rs.getInt("id_produto"));
                     produtos.setCategoriaId(rs.getInt("categoria_id"));
-                    produtos.setNome(rs.getString("nome"));
+                    produtos.setNome_produto(rs.getString("nome_produto"));
                     produtos.setImagem(rs.getString("imagem"));
                     produtos.setDescricao(rs.getString("descricao"));
                     produtos.setTamanho(rs.getString("tamanho"));
@@ -191,38 +193,30 @@ public class ProdutosDAO {
             
             return resultadoBusca;
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
         public List<ProdutoDTO> ListarCamiseta(){
-        List<ProdutoDTO> produtos = new ArrayList();
+        List<ProdutoDTO> produtos = new ArrayList<>();
     try{
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        stmt = conexao.prepareStatement("SELECT p.id_produto, p.nome AS nome_produto, p.imagem, p.descricao, p.tamanho, p.quantidade, p.valor, c.nome AS nome_categoria FROM produtos p INNER JOIN  categorias c  ON  p.categoria_id = c.id_categoria");
+        stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '1'");
 
         
         rs = stmt.executeQuery();
         if(rs.next()){
             ProdutoDTO produto = new ProdutoDTO();
-            produto.setNome(rs.getString("nome"));
+            produto.setIdProduto(rs.getInt("id_produto"));
+            produto.setNome_produto(rs.getString("nome_produto"));
             produto.setImagem(rs.getString("imagem"));
             produto.setDescricao(rs.getString("descricao"));
             produto.setTamanho(rs.getString("tamanho"));
             produto.setQuantidade(rs.getInt("quantidade"));
             produto.setCategoriaId(rs.getInt("categoria_id"));
             produto.setValor(rs.getFloat("valor"));
+            System.out.println("euuuuuuuu, aquiiiiiiiii ");
+            System.out.println(rs.getString("nome_produto"));
             produtos.add(produto);
             
             

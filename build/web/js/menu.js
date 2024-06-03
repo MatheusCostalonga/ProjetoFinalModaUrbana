@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector(".horizontal-scroll");
-    const scrollLeftBtn = document.querySelectorAll("scrollLeft");
-    const scrollRightBtn = document.querySelectorAll("scrollRight");
+    const scrollLeftBtn = document.getElementById("scrollLeft");
+    const scrollRightBtn = document.getElementById("scrollRight");
     
     scrollLeftBtn.addEventListener("click", function() {
       container.scrollBy({

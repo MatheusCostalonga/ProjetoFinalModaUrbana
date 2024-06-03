@@ -90,7 +90,6 @@ public class ProdutoController extends HttpServlet {
     
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            CarrinhoDTO carrinhos = new CarrinhoDTO();
             PrintWriter out = response.getWriter();
             carrinhos.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
             carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));

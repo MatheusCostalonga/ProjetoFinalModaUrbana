@@ -14,7 +14,7 @@ import java.sql.Blob;
 public class ProdutoDTO {
     
      private int idProduto;
-    private String nome;
+    private String nome_produto;
     private String imagem;
     private float valor;
     private String descricao;
@@ -25,9 +25,9 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade) {
+    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, String tamanho, int categoriaId, int quantidade) {
         this.idProduto = idProduto;
-        this.nome = nome;
+        this.nome_produto = nome_produto;
         this.imagem = imagem;
         this.valor = valor;
         this.descricao = descricao;
@@ -44,12 +44,12 @@ public class ProdutoDTO {
         this.idProduto = idProduto;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_produto() {
+        return nome_produto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_produto(String nome_produto) {
+        this.nome_produto = nome_produto;
     }
 
     public String getImagem() {
@@ -99,7 +99,5 @@ public class ProdutoDTO {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
-    
-  
+
 }

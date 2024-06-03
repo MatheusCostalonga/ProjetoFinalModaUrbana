@@ -25,7 +25,7 @@
             <span for="nome">Nome do produto:</span>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="nome" name="nome" required>
+                <input type="text" class="form-control" id="nome_produto" name="nome_produto" required>
             </div>
             <span for="descricao">Descrição:</span>
             <div class="form-group">
