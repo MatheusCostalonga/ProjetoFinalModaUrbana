@@ -160,7 +160,7 @@
             </a>
 </div>
            
-               <h1 class="my-4">Camiseta</h1> 
+                <h1 class="my-4">Camiseta</h1> 
               <div class="grade">
                  <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
                  <div class="horizontal-scroll">
@@ -175,7 +175,7 @@
                                     <p class="card-text">${camiseta.descricao}</p>
                                     <p class="card-text">${camiseta.valor}</p>
                                     <p class="card-text">${camiseta.nome_categoria}</p>
-                                    <a  href="./produtoSelecionado?id=${camisetas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                    <a  href="./produtoSelecionado?id=${camiseta.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
                             </div>
                     </c:forEach>
@@ -184,12 +184,12 @@
                 <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
 
                 </div> 
-                <h1>camisa</h1> 
+               <h1>camisa</h1> 
                 <div class="grade">
                     <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
                     <div class="horizontal-scroll">
                        
-                   <div class="rows">
+                    <div class="rows">
                        <c:forEach var="camisas" items="${camisa}">
                                    <div class="card-body">
                                        <div class="imagemProduto">
@@ -222,7 +222,7 @@
                                        <p class="card-text">${calcas.descricao}</p>
                                        <p class="card-text">${calcas.valor}</p>
                                        <p class="card-text">${calcas.nome_categoria}</p>
-                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                       <a  href="./produtoSelecionado?id=${calcas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>
                        </c:forEach>
@@ -246,7 +246,7 @@
                                        <p class="card-text">${jaquetas.descricao}</p>
                                        <p class="card-text">${jaquetas.valor}</p>
                                        <p class="card-text">${jaquetas.nome_categoria}</p>
-                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                       <a  href="./produtoSelecionado?id=${jaquetas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>
                        </c:forEach>
@@ -270,7 +270,7 @@
                                        <p class="card-text">${bermudas.descricao}</p>
                                        <p class="card-text">${bermudas.valor}</p>
                                        <p class="card-text">${bermudas.nome_categoria}</p>
-                                       <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
+                                       <a  href="./produtoSelecionado?id=${bermudas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
    
                                </div>
                        </c:forEach>
@@ -278,8 +278,8 @@
                    </div>
                    <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
    
-                   </div>   
-                <!-- <h1>Outro produto</h1>
+                   </div>    
+              <!--   <h1>Outro produto</h1>
                 <div class="grade">
                     <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
                      <div class="horizontal-scroll">

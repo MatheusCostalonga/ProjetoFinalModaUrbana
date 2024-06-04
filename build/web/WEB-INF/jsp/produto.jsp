@@ -131,30 +131,29 @@
                     <div class="InformProduto">
                         <p id="descricaoProduto" >Descrição: ${produto.descricao}</p>
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
-                        <input type="number" step="1" id="quantidade" name="quantidade" required>
+                        <input type="number" id="quantidade" name="quantidade">
                         <span id="TextTamanho" >Tamanho:</span>
 
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
                       
-           
-
-                      <button type="submit" class="btn btn-comprar"  idProduto="${produto.idProduto}" imagem="${produto.imagem}" nome_produto="${produto.nome_produto}" descricao="${produto.descricao}"  valor="${produto.valor}" 
-                            quantidade=1 id="comprar">
-                        <i class="fa-solid fa-basket-shopping"></i> Adicionar ao carrinho
-                    </button>
-                    </div>
-                  </div>
-            </c:forEach>
-        <%-- Peguei do Luan e ele me explicou o codigo --%>
-                <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
+            <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
             <input type="hidden" name="idProduto" id="idProduto">
             <input type="hidden" name="descricao" id="descricao">
             <input type="hidden" name="nome_produto" id="nome_produto">
             <input type="hidden" name="valor" id="valor">
             <input type="hidden" name="imagem" id="imagem">
             <input type="hidden" name="quantidade" id="quantidade">
-            
+            <button type="submit" class="btn btn-comprar" id="comprar">
+                        <i class="fa-solid fa-basket-shopping"></i> Adicionar ao carrinho
+                    </button>
         </form>
+
+                      
+                    </div>
+                  </div>
+            </c:forEach>
+        <%-- Peguei do Luan e ele me explicou o codigo --%>
+
         </main>
         <footer>
             <div class="rodape">

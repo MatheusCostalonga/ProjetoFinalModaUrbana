@@ -302,8 +302,6 @@ public class ProdutosDAO {
         ResultSet rs = null;
 
         stmt = conexao.prepareStatement("SELECT produtos.id_produto, produtos.nome_produto, produtos.imagem, produtos.descricao, produtos.tamanho_id, produtos.quantidade, produtos.valor, categorias.nome_categoria FROM produtos INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria WHERE produtos.categoria_id = '4'");
-
-      /*  stmt = conexao.prepareStatement("SELECT * FROM produtos");*/
      
         rs = stmt.executeQuery();
         while(rs.next()){

@@ -71,9 +71,8 @@ public class UsuarioDAO {
         }
     }
      
-     
-
-    
+ 
+ 
          /*public UsuarioDTO validaUsuario(UsuarioDTO objUsuario) {
         UsuarioDTO usuarioValido = new UsuarioDTO();
         try {

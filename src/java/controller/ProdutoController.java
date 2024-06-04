@@ -83,6 +83,7 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
                 String action = request.getServletPath();
         if(action.equals("/enviarItemCarrinho")){
+            System.out.println("aqui");
                       produto(request, response);
         }else {
             processRequest(request, response);
@@ -92,6 +93,8 @@ public class ProdutoController extends HttpServlet {
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
+            System.out.println(request.getParameter("quantidade_carrinho"));
+            System.out.println(request.getParameter("nome_produto_carrinho"));
             carrinhos.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
             carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
             carrinhos.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
@@ -100,7 +103,7 @@ public class ProdutoController extends HttpServlet {
             carrinhos.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
             carrinho.cadastrarCarrinho(carrinhos);
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Compra feita com sucesso.');");
+            out.println("alert('Produto adicionado com sucesso.');");
             out.println("window.location.href = './pages/produto.jsp';");
             out.println("</script>");
             response.sendRedirect("./menu");
