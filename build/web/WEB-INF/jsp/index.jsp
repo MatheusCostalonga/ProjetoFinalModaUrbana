@@ -93,7 +93,7 @@
                       <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                     <div class="content">
                         <h2 class="text">Preço Total:</h2>
-                        <p class="preco" id="preco">R$ ${totalCarrinhos.total}</p>
+                        <p class="text" id="text">R$ ${totalCarrinhos.total}</p>
                     </div>
                 </c:forEach>                   
                     </div>
@@ -303,8 +303,20 @@
     
                     </div> -->
     </main>
-    <footer>
-    </footer>
+        <footer>
+            <div class="rodape">
+            <div class="redesSociais">
+            <span>Visite nossas redes sociais</span>
+           <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
+           <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
+        </div>
+        <div class="metodoContato">
+            <span>Nosso contato para você fazer seu pedido</span>
+            <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
+            <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
+        </div>
+    </div>
+        </footer>
 
 </body>
 <script src="./js/menu.js"></script>

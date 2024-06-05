@@ -134,11 +134,12 @@
                     <div class="InformProduto">
                         <p id="descricaoProduto" >Descrição: ${produto.descricao}</p>
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
-                        <input type="number" name="quantidade" id="quantidade">
+                        <input type="number" min="1" max="10" name="quantidade" id="quantidade">
                         <!-- <input type="number" id="quantidade" name="quantidade"> -->
                         <span id="TextTamanho" >Tamanho:</span>
 
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
+                       <%-- Adaptei o codigo do Luan e ele me explicou o codigo --%>
             <input type="hidden" name="idProduto" id="idProduto" value="${produto.idProduto}">
             <input type="hidden" name="descricao" id="descricao" value="${produto.descricao}">
             <input type="hidden" name="nome_produto" id="nome_produto" value="${produto.nome_produto}">
@@ -147,13 +148,14 @@
    <button type="submit" class="btn btn-comprar" id="comprar">
                         <i class="fa-solid fa-basket-shopping"></i> Adicionar ao carrinho
                     </button>
-        </form>
+        
    
                       
                     </div>
                   </div>
             </c:forEach>
-        <%-- Peguei do Luan e ele me explicou o codigo --%>
+    </form>
+       
 
         </main>
         <footer>

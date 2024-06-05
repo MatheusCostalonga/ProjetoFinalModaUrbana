@@ -123,6 +123,11 @@ h5 {
 p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    margin-bottom: .5rem !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    color: inherit !important;
 }
 #TotalCarrinho{
     border: black solid 1px;
@@ -145,6 +150,7 @@ align-content: center;
     font-size: large;
     
 }
+
 #buttonCarrinho input{
     align-content: center;
     background-color: #303247;   
@@ -379,7 +385,6 @@ main .grade .rows .card-body .imagemProduto img{
 
     }
 
-
 main .grade .rows{
     text-align: center;
     display: flex!important;
@@ -405,9 +410,28 @@ main .grade .scrollLeft, main .grade .scrollRight {
     height: auto;
     color: transparent;
 }
+
 main .grade .scrollLeft:hover, main .grade .scrollRight:hover{
     color: #2A2B33;
 }
 .fa-chevron-right, .fa-chevron-left{
     font-size: xx-large;
 }
+    footer{
+        display: grid;
+        height: 10vh;
+        background-color: #2A2B33;
+        color: white;
+    }
+    footer .rodape{
+display: grid;
+grid-template-columns: 1fr 1fr;    
+        width: 100%;
+    }
+        footer .rodape .redesSociais{
+        margin-left: 0.5%;
+    }
+    footer .rodape .redesSociais, footer .rodape .metodoContato{
+        display: grid;
+    }
+   

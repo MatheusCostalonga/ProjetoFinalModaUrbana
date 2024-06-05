@@ -15,12 +15,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.bean.UsuarioDTO;
 import raven.toast.Notifications;
+
 /**
  *
  * @author Senai
  */
 public class UsuarioDAO {
- public List<UsuarioDTO> ler() {
+
+    public List<UsuarioDTO> ler() {
         List<UsuarioDTO> usuarios = new ArrayList<>();
         try {
             Connection conexao = Conexao.conectar();
@@ -28,9 +30,9 @@ public class UsuarioDAO {
             ResultSet rs = null;
             stmt = conexao.prepareStatement("SELECT * FROM usuarios");
             rs = stmt.executeQuery();
-            
+
             while (rs.next()) {
-               
+
                 UsuarioDTO objUsuario = new UsuarioDTO();
                 objUsuario.setId_usuario(rs.getInt("id_usuario"));
                 objUsuario.setNome(rs.getString("nome"));
@@ -50,8 +52,8 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
-     
-     public void inserir(UsuarioDTO objUsuario) {
+
+    public void inserir(UsuarioDTO objUsuario) {
         try {
 
             Connection conexao = Conexao.conectar();
@@ -62,7 +64,7 @@ public class UsuarioDAO {
             stmt.setString(3, objUsuario.getUsuario());
             stmt.setString(4, objUsuario.getTelefone());
             stmt.setString(5, objUsuario.getData_nascimento());
-            stmt.setString(6, objUsuario.getCpf());      
+            stmt.setString(6, objUsuario.getCpf());
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
@@ -70,35 +72,61 @@ public class UsuarioDAO {
             System.out.println("Erro no insert de usuario: " + e);
         }
     }
-     
- 
- 
-         public int validaUsuario(UsuarioDTO objUsuario) {
+
+    public int validaUsuario(UsuarioDTO objUsuario) {
         int idUsuario = 0;
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            
-            stmt = conexao.prepareStatement("SELECT id_usuario FROM usuarios WHERE usuario = ? AND senha = ?");
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
             stmt.setString(1, objUsuario.getUsuario());
             stmt.setString(2, objUsuario.getSenha());
             rs = stmt.executeQuery();
             System.out.println("chegou aqui");
-            if(rs.next()) {
-                    idUsuario = rs.getInt("id_usuario");
-                    System.out.println("aqui no dao:"+ objUsuario.getId_usuario());
-              }
+            if (rs.next()) {
+              idUsuario = rs.getInt("id_usuario");
+              System.out.println("idUsuario aqui no dao:" + objUsuario.getId_usuario());
+            }
 
-            
             rs.close();
             stmt.close();
             conexao.close();
+            System.out.println("deu certo");
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
         return idUsuario;
     }
-     
+
+    public UsuarioDTO leia(int idUsuarioCookie) {
+        UsuarioDTO objUsuario = new UsuarioDTO();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE id_usuario = ?");
+            stmt.setInt(1, idUsuarioCookie);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                objUsuario.setId_usuario(rs.getInt("id_usuario"));
+                objUsuario.setNome(rs.getString("nome"));
+                objUsuario.setUsuario(rs.getString("usuario"));
+                objUsuario.setSenha(rs.getString("senha"));
+                objUsuario.setTelefone(rs.getString("telefone"));
+                objUsuario.setCpf(rs.getString("cpf"));
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return objUsuario;
+    }
 }

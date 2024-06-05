@@ -13,6 +13,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,19 +27,7 @@ import model.bean.UsuarioDTO;
 public class LoginClienteController extends HttpServlet {
             UsuarioDTO usuario = new UsuarioDTO();
             UsuarioDAO usuarios = new UsuarioDAO();
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.       
-     * <servlet-mapping>
-        <servlet-name>LoginClienteController</servlet-name>
-        <url-pattern>/logarCliente</url-pattern>
-    </servlet-mapping>
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 String url = request.getServletPath();
@@ -98,14 +87,22 @@ protected void realizarLogin(HttpServletRequest request, HttpServletResponse res
             out.println("alert('Por favor, preencha todos os campos.');");
             out.println("window.location.href = './loginCliente';");
             out.println("</script>"); 
-        }else{
-        /*    integer.parseInt(cookie.getValue())*/
+        }else{     
             int idUsuario = usuarios.validaUsuario(usuario);
-            request.setAttribute("usuario", usuario);
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('login realizado com sucesso!.');");
-            out.println("window.location.href = './menu ';");
-            out.println("</script>");
+            if(idUsuario > 0){
+                Cookie cookie = new Cookie("continuarLogin", Integer.toString(idUsuario));
+            response.addCookie(cookie);
+           if(idUsuario == 1){
+               response.sendRedirect("./cadastrar-produto");
+           } else {
+               response.sendRedirect("./menu");
+           } 
+            } else{
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('login não encontrado.');");
+                out.println("window.location.href = './loginCliente';");
+                out.println("</script>");  
+            }    
                 }
             } 
       

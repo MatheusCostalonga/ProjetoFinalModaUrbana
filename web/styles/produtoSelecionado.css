@@ -385,6 +385,9 @@ grid-template-columns: 1fr 1fr;
 
         width: 100%;
     }
+    footer .rodape .redesSociais{
+        margin-left: 0.5%;
+    }
     footer .rodape .redesSociais, footer .rodape .metodoContato{
         display: grid;
     }
