@@ -22,17 +22,17 @@
     <img class="imagem" src="./assets/ModaUrbanaLogoLogin.png" alt="Logo da loja na tela de login">
     
     <div id="fundo">
-        <form action="logado" name="frmLogin">
+        <form action="logar" method="post" enctype="multipart/form-data" >
         <h1>LOGIN</h1>
         <span class="usuario">Usuario:</span>
         <!-- placeholder="  Digite seu usuario" -->
-        <i id="usuarioIcone" class="fa-solid fa-user"></i><input name="usuario"  type="text" id="usuario" >
+        <i id="usuarioIcone" class="fa-solid fa-user"></i><input name="usuario" value="admin"  type="text" id="usuario" >
 
         <span class="senha">Senha:</span>
 
-            <i id="cadeadoIcone" class="fa-solid fa-lock"></i> <input name="senha" type="password" id="senha">
+            <i id="cadeadoIcone" class="fa-solid fa-lock"></i><input name="senha" value="admin" type="password" id="senha">
        <!--   <button type="submit" id="button">Logar</button>-->
-              <input id="button" type="button"  value="PROSSEGUIR" onclick="validacao()">
+               <button type="submit" id="button">PROSSEGUIR</button>
             <a id="linkCadastro" href="./CadastroClienteController">Não tem conta? Cadastre-se aqui!!</a>
         </form>
     </div>
@@ -41,6 +41,5 @@
 
 </body>
 
-    <script src="./js/login.js"></script>
 
 </html>

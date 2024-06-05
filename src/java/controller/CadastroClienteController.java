@@ -23,7 +23,7 @@ import model.bean.UsuarioDTO;
  *
  * @author Senai
  */
-@WebServlet(name = "CadastroClienteController", urlPatterns = {"/CadastroClienteController", "/users", "/inserir"})
+@WebServlet(urlPatterns = {"/users", "/inserir"})
 @MultipartConfig
 public class CadastroClienteController extends HttpServlet {
 UsuarioDAO usuarios = new UsuarioDAO();

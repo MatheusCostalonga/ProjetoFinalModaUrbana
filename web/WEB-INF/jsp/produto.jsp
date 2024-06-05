@@ -122,6 +122,9 @@
                             </div>
                         </div>
  <main>
+                      
+<form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">
+
                 <c:forEach items="${produtos}" var="produto">
                 <div id="${produto.idProduto}" class="produto">
                     <div class="imagemProduto">
@@ -131,23 +134,21 @@
                     <div class="InformProduto">
                         <p id="descricaoProduto" >Descrição: ${produto.descricao}</p>
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
-                        <input type="number" id="quantidade" name="quantidade">
+                        <input type="number" name="quantidade" id="quantidade">
+                        <!-- <input type="number" id="quantidade" name="quantidade"> -->
                         <span id="TextTamanho" >Tamanho:</span>
 
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
-                      
-            <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
-            <input type="hidden" name="idProduto" id="idProduto">
-            <input type="hidden" name="descricao" id="descricao">
-            <input type="hidden" name="nome_produto" id="nome_produto">
-            <input type="hidden" name="valor" id="valor">
-            <input type="hidden" name="imagem" id="imagem">
-            <input type="hidden" name="quantidade" id="quantidade">
-            <button type="submit" class="btn btn-comprar" id="comprar">
+            <input type="hidden" name="idProduto" id="idProduto" value="${produto.idProduto}">
+            <input type="hidden" name="descricao" id="descricao" value="${produto.descricao}">
+            <input type="hidden" name="nome_produto" id="nome_produto" value="${produto.nome_produto}">
+            <input type="hidden" name="valor" id="valor" value="${produto.valor}">
+            <input type="hidden" name="imagem" id="imagem" value="${produto.imagem}">
+   <button type="submit" class="btn btn-comprar" id="comprar">
                         <i class="fa-solid fa-basket-shopping"></i> Adicionar ao carrinho
                     </button>
         </form>
-
+   
                       
                     </div>
                   </div>

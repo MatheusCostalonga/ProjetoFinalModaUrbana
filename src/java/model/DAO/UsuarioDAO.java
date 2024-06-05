@@ -73,40 +73,32 @@ public class UsuarioDAO {
      
  
  
-         /*public UsuarioDTO validaUsuario(UsuarioDTO objUsuario) {
-        UsuarioDTO usuarioValido = new UsuarioDTO();
+         public int validaUsuario(UsuarioDTO objUsuario) {
+        int idUsuario = 0;
         try {
-            Connection con = Conexao.conectar();
+            Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            stmt = con.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
+            stmt = conexao.prepareStatement("SELECT id_usuario FROM usuarios WHERE usuario = ? AND senha = ?");
             stmt.setString(1, objUsuario.getUsuario());
             stmt.setString(2, objUsuario.getSenha());
             rs = stmt.executeQuery();
-            
+            System.out.println("chegou aqui");
             if(rs.next()) {
-                usuarioValido.setId_usuario(rs.getInt("id_usuario"));
-                System.out.println("DAO: " + usuarioValido.getId_usuario());
-                
-                /*usuarioValido.setId_usuario(rs.getInt("id_usuario"));
-                usuarioValido.setNome(rs.getString("nome"));
-                usuarioValido.setUsuario(rs.getString("usuario"));                
-                
-                
-            }
+                    idUsuario = rs.getInt("id_usuario");
+                    System.out.println("aqui no dao:"+ objUsuario.getId_usuario());
+              }
 
             
             rs.close();
             stmt.close();
-            con.close();
+            conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            usuarioValido.setId_usuario(0);
-            usuarioValido.setNome("");
-            usuarioValido.setUsuario("");
+
         }
-        return usuarioValido;
-    }*/
+        return idUsuario;
+    }
      
 }

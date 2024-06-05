@@ -20,6 +20,14 @@
         <servlet-name>ProdutosController</servlet-name>
         <servlet-class>controller.ProdutosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastroClienteController</servlet-name>
+        <servlet-class>controller.CadastroClienteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginClienteController</servlet-name>
+        <servlet-class>controller.LoginClienteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -40,11 +48,11 @@
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/cadastrarProduto</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
-            <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/produto</url-pattern>
     </servlet-mapping>
@@ -52,10 +60,16 @@
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/buscar-produtos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroClienteController</servlet-name>
+        <url-pattern>/CadastroClienteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginClienteController</servlet-name>
+        <url-pattern>/LoginClienteController</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>redirect.jsp</welcome-file>

@@ -41,8 +41,6 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
                 ProdutosDAO produtosDAO = new ProdutosDAO();
                 int id_produto = Integer.parseInt(request.getParameter("id"));
-                System.out.println("aquiiiiiiiiii, sou o id do produto");
-        System.out.println(id_produto);
         List<ProdutoDTO> produtos = produtosDAO.buscarProduto(id_produto);
         request.setAttribute("produtos", produtos);
         
@@ -83,7 +81,6 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
                 String action = request.getServletPath();
         if(action.equals("/enviarItemCarrinho")){
-            System.out.println("aqui");
                       produto(request, response);
         }else {
             processRequest(request, response);
@@ -93,14 +90,14 @@ public class ProdutoController extends HttpServlet {
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
-            System.out.println(request.getParameter("quantidade_carrinho"));
-            System.out.println(request.getParameter("nome_produto_carrinho"));
-            carrinhos.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
-            carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
-            carrinhos.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
-            carrinhos.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
-            carrinhos.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
-            carrinhos.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
+            
+
+            carrinhos.setNomeCarrinho(request.getParameter("nome_produto"));
+            carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
+            carrinhos.setDescricaoCarrinho(request.getParameter("descricao"));
+            carrinhos.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
+            carrinhos.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
+            carrinhos.setImagemCarrinho(request.getParameter("imagem"));
             carrinho.cadastrarCarrinho(carrinhos);
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Produto adicionado com sucesso.');");
