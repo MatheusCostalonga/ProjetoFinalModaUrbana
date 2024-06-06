@@ -137,6 +137,13 @@
                         <input type="number" min="1" max="10" name="quantidade" id="quantidade">
                         <!-- <input type="number" id="quantidade" name="quantidade"> -->
                         <span id="TextTamanho" >Tamanho:</span>
+                        <select class="form-control" name="tamanho_id" id="tamanho_id">
+                        <option selected>Selecione o tamanho</option>
+                        <option value="1">GG</option>
+                        <option value="2">G</option>
+                        <option value="3">M</option>
+                        <option value="4">P</option>
+                        </select>
 
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
                        <%-- Adaptei o codigo do Luan e ele me explicou o codigo --%>

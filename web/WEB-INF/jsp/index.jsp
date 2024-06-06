@@ -78,10 +78,9 @@
             <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
             <div class="informacoesProdutosCarrinho">
               <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
-              <p class="card-text" class="quantidade">Quantidade: ${carrinho.quantidadeCarrinho}</p>
-              <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
-              <p class="card-text" class="preco">Preço: R$${carrinho.valorCarrinho}</p>
-              <p class="card-text">Tamanho:</p>
+              <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
+              <p class="card-text" class="preco">valor unit: R$${carrinho.valorCarrinho}</p>
+              <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
               </div>
                           </c:forEach>
             
@@ -184,7 +183,7 @@
                 <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
 
                 </div> 
-               <h1>camisa</h1> 
+               <h1>Camisa</h1> 
                 <div class="grade">
                     <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
                     <div class="horizontal-scroll">
@@ -207,7 +206,7 @@
                    </div>
                    <button class="scrollRight"><i class="fa-solid fa-chevron-right"></i></button> 
                    </div>  
-                   <h1>calca</h1>
+                   <h1>Calça</h1>
                    <div class="grade">
                     <button class="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button> 
                     <div class="horizontal-scroll">

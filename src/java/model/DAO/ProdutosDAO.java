@@ -63,7 +63,6 @@ public class ProdutosDAO {
             stmt.setString(5, p.getDescricao());
             stmt.setInt(6, p.getQuantidade());
             stmt.setInt(7, p.getTamanhoId());
-            System.out.println(p.getNome_produto());
             
             stmt.executeUpdate();
             stmt.close();

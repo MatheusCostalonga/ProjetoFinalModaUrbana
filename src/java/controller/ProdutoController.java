@@ -99,6 +99,7 @@ public class ProdutoController extends HttpServlet {
             carrinhos.setNomeCarrinho(request.getParameter("nome_produto"));
             carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
             carrinhos.setDescricaoCarrinho(request.getParameter("descricao"));
+            carrinhos.setTamanhoId3(Integer.parseInt(request.getParameter("tamanho_id")));
             carrinhos.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
             carrinhos.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
             carrinhos.setImagemCarrinho(request.getParameter("imagem"));

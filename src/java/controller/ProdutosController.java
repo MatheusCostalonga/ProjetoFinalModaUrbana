@@ -60,7 +60,7 @@ public class ProdutosController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){
-        List<CarrinhoDTO> carrinhos = carrinho.leia();       
+        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         //  Luan me passou e explicou o codigo 
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
@@ -78,6 +78,7 @@ public class ProdutosController extends HttpServlet {
             request.setAttribute("jaqueta", jaqueta);
             List<ProdutoDTO> bermuda = produtosDAO.ListarBermuda();
             request.setAttribute("bermuda", bermuda);
+
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
