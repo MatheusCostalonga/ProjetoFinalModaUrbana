@@ -17,6 +17,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +25,11 @@ import javax.servlet.http.Part;
 import model.DAO.CarrinhoDAO;
 import model.DAO.CategoriasDAO;
 import model.DAO.ProdutosDAO;
+import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.CategoriaDTO;
 import model.bean.ProdutoDTO;
+import model.bean.UsuarioDTO;
 
 /**
  *
@@ -48,8 +51,19 @@ public class ProdutosController extends HttpServlet {
             throws ServletException, IOException {
         ProdutosDAO produtosDAO = new ProdutosDAO();
                 CarrinhoDAO carrinho = new CarrinhoDAO();
+                        CategoriasDAO categoriasDAO = new CategoriasDAO();
 
-        CategoriasDAO categoriasDAO = new CategoriasDAO();
+         UsuarioDTO usuario = new UsuarioDTO();
+         UsuarioDAO usuarios = new UsuarioDAO();
+        Cookie[] cookies = request.getCookies();
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("continuarLogin")){
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        } 
+        
+        
         List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categoria", categorias);
         String url = request.getServletPath();

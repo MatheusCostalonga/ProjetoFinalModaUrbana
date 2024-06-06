@@ -392,6 +392,8 @@ main .grade .rows{
     text-align: center;
     display: flex!important;
     height: auto;
+    width: 20%;
+
     }
   .grade .horizontal-scroll .horizontal-{
      width:50vw;

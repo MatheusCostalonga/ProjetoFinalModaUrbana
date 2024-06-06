@@ -1,14 +1,12 @@
-                                                                                                                               /*
+/*                                                                                                                               /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package controller;
 
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -30,12 +28,18 @@ public class LoginClienteController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                String url = request.getServletPath();
-                if(url.equals("/loginCliente")){
-                   String path = "/WEB-INF/jsp/TelaLogin.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
+                 String nextPage ="/loginCliente";
+                 Cookie[] cookies = request.getCookies();
+            for(Cookie cookie : cookies){
+            if(cookie.getName().equals("continuarLogin")){
+                
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+            }
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
-                }
+                
         
     }
     
@@ -90,7 +94,7 @@ protected void realizarLogin(HttpServletRequest request, HttpServletResponse res
         }else{     
             int idUsuario = usuarios.validaUsuario(usuario);
             if(idUsuario > 0){
-                Cookie cookie = new Cookie("continuarLogin", Integer.toString(idUsuario));
+            Cookie cookie = new Cookie("continuarLogin", Integer.toString(idUsuario));
             response.addCookie(cookie);
            if(idUsuario == 1){
                response.sendRedirect("./cadastrar-produto");

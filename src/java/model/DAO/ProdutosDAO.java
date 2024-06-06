@@ -152,8 +152,10 @@ public class ProdutosDAO {
                     produtos.setCategoriaId(rs.getInt("categoria_id"));
                     produtos.setNome_produto(rs.getString("nome_produto"));
                     produtos.setImagem(rs.getString("imagem"));
-                    produtos.setDescricao(rs.getString("descricao"));
-                    
+                    produtos.setImagem1(rs.getString("imagem1"));
+                    produtos.setImagem2(rs.getString("imagem2"));
+                    produtos.setImagem3(rs.getString("imagem3"));
+                    produtos.setDescricao(rs.getString("descricao"));               
                     produtos.setValor(rs.getFloat("valor"));
                     produto.add(produtos);
                 }
