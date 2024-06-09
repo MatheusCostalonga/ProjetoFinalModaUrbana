@@ -55,8 +55,8 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Meu Perfil</a></li>       
             <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
-            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>       
-
+            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
+            <li><a class="dropdown-item" href="./pedidoCliente">Pedidos</a></li>    
         </ul>
       </li>
   </div> 
@@ -91,7 +91,7 @@
                             <!-- Luan me passou e explicou o codigo -->
                       <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                     <div class="content">
-                        <h2 class="text">Preço Total:</h2>
+                        <h2 class="text">Valor Total:</h2>
                         <p class="text" id="text">R$ ${totalCarrinhos.total}</p>
                     </div>
                 </c:forEach>                   

@@ -427,16 +427,19 @@ main .grade .scrollLeft:hover, main .grade .scrollRight:hover{
         height: 10vh;
         background-color: #2A2B33;
         color: white;
+
     }
     footer .rodape{
 display: grid;
 grid-template-columns: 1fr 1fr;    
         width: 100%;
+
     }
         footer .rodape .redesSociais{
         margin-left: 0.5%;
     }
     footer .rodape .redesSociais, footer .rodape .metodoContato{
         display: grid;
+
     }
    

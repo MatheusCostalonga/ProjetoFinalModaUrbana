@@ -98,9 +98,15 @@ public class ProdutosController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if(url.equals("/checkout")){
             System.out.println("aquiiii, estou chegando aqui");
-         List<CarrinhoDTO> carrinhos = carrinho.leia();
-         request.setAttribute("carrinhos", carrinhos);
+        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
+        request.setAttribute("carrinhos", carrinhos);
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
+        request.setAttribute("totalCarrinho", totalCarrinho);
         String nextPage = "/WEB-INF/jsp/checkout.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if(url.equals("/pedidoCliente")){
+             String nextPage = "/WEB-INF/jsp/PedidosCliente.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
