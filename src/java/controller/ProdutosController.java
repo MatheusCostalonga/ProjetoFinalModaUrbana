@@ -5,11 +5,9 @@
  */
 package controller;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -49,31 +47,31 @@ public class ProdutosController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-                CarrinhoDAO carrinho = new CarrinhoDAO();
-                        CategoriasDAO categoriasDAO = new CategoriasDAO();
+                 UsuarioDAO usuarios = new UsuarioDAO();
+            UsuarioDTO usuario = new UsuarioDTO(); 
+            Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
 
-         UsuarioDTO usuario = new UsuarioDTO();
-         UsuarioDAO usuarios = new UsuarioDAO();
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("continuarLogin")){
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
                 request.setAttribute("usuario", usuario);
             }
-        } 
-        
-        
+        }
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+                CarrinhoDAO carrinho = new CarrinhoDAO();
+           
+                        CategoriasDAO categoriasDAO = new CategoriasDAO();        
         List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categoria", categorias);
         String url = request.getServletPath();
         System.out.println(url);
-        
+
         if(url.equals("/cadastrar-produto")) {
             String nextPage = "/WEB-INF/jsp/cadastroProduto.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if(url.equals("/menu")){
+        } else if(url.equals("/menu")){  
+ 
         List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         //  Luan me passou e explicou o codigo 
@@ -93,11 +91,12 @@ public class ProdutosController extends HttpServlet {
             List<ProdutoDTO> bermuda = produtosDAO.ListarBermuda();
             request.setAttribute("bermuda", bermuda);
 
+          
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/checkout")){
-            System.out.println("aquiiii, estou chegando aqui");
+           
         List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       

@@ -75,19 +75,39 @@ p{
     border-right: #000 solid 0.25px;
 
 }
-main #pagamento{
-    width: 35%;
+main .organizarCartao .informacaoPagamento #pagamento{
+    width: 180px;
     text-align: left;
     color: rgb(0, 0, 0);
     background-color: #D9D9D9;
     font-size: 15px;
-    background-color: #D9D9D9;
     border: none;
     border-radius: 4px;
     justify-content: start;
     align-items: start;
 }
-
+main .organizarCartao .informacaoPagamento input{
+    width: 300px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    justify-content: start;
+    align-items: start;
+}
+main .organizarCartao .informacaoPagamento #data-validade{
+    width: 180px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    justify-content: start;
+    align-items: start;
+}
 main #finalizacao{
     display: grid;
     margin-top: 1%;
@@ -112,14 +132,21 @@ main #imgCartao{
     height: 80%;
     align-items: center;
     justify-items: center;
+    margin-left: 28%;
 }
+main .informacaoPagamento{
+    display: grid;
+    margin-left: 15%;
+    width: 90%;
+}
+
 main .organizarCartao{
     display: grid;
     margin-top: 2%;
     align-items: center;
-    justify-items: center;  
+    justify-items: start;  
 }
-main .organizarCartao span{
+main .organizarCartao .informacaoPagamento span{
     justify-content: baseline;
     justify-items: baseline;
     align-items: baseline;

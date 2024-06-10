@@ -48,32 +48,37 @@
                             <input type="text" name="complemento" required>
                         </div>
                                       
-                                           <div id="finalizacao">
-                                           <button>Finalizar Compra</button>
-                                           <a href="./menu">Deseja voltar as compras? click aqui</a>
-                                       </div>
+                                          
                                         </div>
                                         <div id="FormasPagamentos">
                                             
                                                
                                           
                                             <div class="organizarCartao">
-                                                <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
-                                                <span>Numero cartao:</span>
-                                                <input type="number" name="numero_cartao" required>
-                                                <span>data de validade:</span>
-                                                <input type="date" name="data-validade" required>
-                                                <span>Codigo de segurança:</span>
-                                                <input type="number" name="codigo_seguranca" required>
-                                                <span for="pagamento">Forma de pagamento:</span>
-                                                    <select  id="pagamento" name="pagamento" required>
-                                                       <option >Seleciona uma opção</option>
-                                                        <option value="1">Pix</option>
-                                                        <option value="2">Cartão de Debito</option>
-                                                        <option value="3">Cartão de Credito</option>
-                                                    </select>
+                                   <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
+                                   <div class="informacaoPagamento">
+                                   <span>Nome do titular do cartão:</span>
+                                   <input type="text" name="titular_cartao" required>
+                                   <span>Numero cartao:</span>
+                                   <input type="number" name="numero_cartao" required>
+                                   <span>Codigo de segurança:</span>
+                                   <input type="number" name="codigo_seguranca" required>
+                                   <span>data de validade:</span>
+                                   <input type="date" id="data-validade" name="data-validade" required>
+                                   <span for="pagamento">Forma de pagamento:</span>
+                                    <select  id="pagamento" name="pagamento" required>
+                                       <option >Seleciona uma opção</option>
+                                        <option value="1">Pix</option>
+                                        <option value="2">Cartão de Debito</option>
+                                        <option value="3">Cartão de Credito</option>
+                                    </select>
                                                   </div>
-                                                
+   
+                                                </div>
+                                                <div id="finalizacao">
+                                                    <button>Finalizar Compra</button>
+                                                    <a href="./menu">Deseja voltar as compras? click aqui</a>
+                                                </div>
                                         </div>
                                         <div id="TudoSobreProdutos">
                     <h1>Produtos do carrinho</h1>

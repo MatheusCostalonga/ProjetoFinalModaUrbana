@@ -13,7 +13,7 @@ import java.sql.Date;
  */
 public class UsuarioDTO {
     private int id_usuario;
-    private static int id;
+
     private String nome;
     private String senha;
     private String usuario;
@@ -36,28 +36,12 @@ public class UsuarioDTO {
         this.cpf = cpf;
     }
 
-    public boolean isAdm() {
-        return adm;
-    }
-
-    public void setAdm(boolean adm) {
-        this.adm = adm;
-    }
-
     public int getId_usuario() {
         return id_usuario;
     }
 
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
-    }
-
-    public static int getId() {
-        return id;
-    }
-
-    public static void setId(int id) {
-        UsuarioDTO.id = id;
     }
 
     public String getNome() {
@@ -100,6 +84,14 @@ public class UsuarioDTO {
         this.data_nascimento = data_nascimento;
     }
 
+    public boolean isAdm() {
+        return adm;
+    }
+
+    public void setAdm(boolean adm) {
+        this.adm = adm;
+    }
+
     public String getCpf() {
         return cpf;
     }
@@ -107,6 +99,8 @@ public class UsuarioDTO {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+   
 
    
 }

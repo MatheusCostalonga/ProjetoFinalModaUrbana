@@ -47,10 +47,7 @@ public class ProdutoController extends HttpServlet {
         
         List<CarrinhoDTO> carrinhos = carrinho.leia();
         request.setAttribute("carrinhos",carrinhos);
-            Cookie[] cookies = request.getCookies();
-           for(Cookie cookie : cookies){
-               
-           }
+            
                 String url = "/WEB-INF/jsp/produto.jsp";   
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);   

@@ -84,16 +84,14 @@ public class UsuarioDAO {
             stmt.setString(1, objUsuario.getUsuario());
             stmt.setString(2, objUsuario.getSenha());
             rs = stmt.executeQuery();
-            System.out.println("chegou aqui");
+
             if (rs.next()) {
               idUsuario = rs.getInt("id_usuario");
-              System.out.println("idUsuario aqui no dao:" + objUsuario.getId_usuario());
             }
 
             rs.close();
             stmt.close();
             conexao.close();
-            System.out.println("deu certo");
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -103,21 +101,26 @@ public class UsuarioDAO {
 
     public UsuarioDTO leia(int idUsuarioCookie) {
         UsuarioDTO objUsuario = new UsuarioDTO();
+       int idUsuario = 0;
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE id_usuario = ?");
+            stmt = conexao.prepareStatement("SELECT * FROM usuarios WHERE id_usuario = ?");
             stmt.setInt(1, idUsuarioCookie);
             rs = stmt.executeQuery();
             if (rs.next()) {
+                System.out.println("aquii id cookie usuario");
+                System.out.println(idUsuario = rs.getInt("id_usuario"));
+
                 objUsuario.setId_usuario(rs.getInt("id_usuario"));
                 objUsuario.setNome(rs.getString("nome"));
                 objUsuario.setUsuario(rs.getString("usuario"));
                 objUsuario.setSenha(rs.getString("senha"));
                 objUsuario.setTelefone(rs.getString("telefone"));
                 objUsuario.setCpf(rs.getString("cpf"));
+
             }
 
             rs.close();

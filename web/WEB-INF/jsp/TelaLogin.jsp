@@ -31,7 +31,6 @@
         <span class="senha">Senha:</span>
 
             <i id="cadeadoIcone" class="fa-solid fa-lock"></i><input name="senha" value="admin" type="password" id="senha">
-       <!--   <button type="submit" id="button">Logar</button>-->
                <button type="submit" id="button">PROSSEGUIR</button>
             <a id="linkCadastro" href="./CadastroClienteController">Não tem conta? Cadastre-se aqui!!</a>
         </form>
