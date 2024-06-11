@@ -80,6 +80,9 @@
                                         <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                                         <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
                                         <p class="card-text" class="preco">valor unit: R$${carrinho.valorCarrinho}</p>
+                                        <c:forEach items="${somaProdutos}" var="somaProduto">
+                                            <p class="card-text">valor total: R$${somaProduto.totalProdutos}</p>
+                                           </c:forEach>
                                         <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
                                     </div>
                                 </c:forEach>
@@ -91,7 +94,7 @@
                             <!-- Luan me passou e explicou o codigo -->
                             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                                 <div class="content">
-                                    <h2 class="text">Valor Total:</h2>
+                                    <h2 class="text">Valor Total do Carrinho:</h2>
                                     <p class="text" id="text">R$ ${totalCarrinhos.total}</p>
                                 </div>
                             </c:forEach>                   
@@ -99,6 +102,7 @@
                         <div id="buttonCarrinho">
                             <a href="./checkout">      
                                 <input type="button" value="Comprar">
+
                             </a>
                         </div>
 
@@ -123,6 +127,7 @@
                 <b> <a href="">Camiseta</a></b>
             </div>
             <div>
+                <input type="text" value="${usuario.nome}">
                 <P>LOGIN ${usuario.nome}</P>
             </div>
             <div>

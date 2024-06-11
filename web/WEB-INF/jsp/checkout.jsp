@@ -29,8 +29,27 @@
 </header>
         <main>
                         <div id="TodoCheckout">
+                        
                         <div id="informacaoCliente">
-                           
+                            <h1>Informações Usuario</h1>
+                            <div class="organizar">
+                                <span>Nome:</span>
+                                <input type="text" name="nome" value="${usuario.nome}" required>
+                            </div>
+                            <div class="organizar">
+                                <span>Usuario:</span>
+                                <input type="text" name="usuario" value="${usuario.usuario}" required>
+                            </div>
+                            <div class="organizar">
+                                <span>CPF:</span>
+                                <input type="text" name="cpf" value="${usuario.cpf}" required>
+                            </div>
+                            <div class="organizar">
+                                <span>Telefone:</span>
+                                <input type="text" name="telefone" value="${usuario.telefone}" required>
+                            </div>
+                            <br><br>
+                           <h1>Informações para Entrega</h1>
                             <div class="organizar">
                                <span>Rua:</span>
                                <input type="text" name="rua" required>
@@ -55,6 +74,10 @@
                                                
                                           
                                             <div class="organizarCartao">
+                                     <div class="tituloPagamento">
+                                     
+                                    <h1>Informar pagamento</h1>
+                                    </div>
                                    <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
                                    <div class="informacaoPagamento">
                                    <span>Nome do titular do cartão:</span>
@@ -63,7 +86,7 @@
                                    <input type="number" name="numero_cartao" required>
                                    <span>Codigo de segurança:</span>
                                    <input type="number" name="codigo_seguranca" required>
-                                   <span>data de validade:</span>
+                                   <span>Data de validade:</span>
                                    <input type="date" id="data-validade" name="data-validade" required>
                                    <span for="pagamento">Forma de pagamento:</span>
                                     <select  id="pagamento" name="pagamento" required>

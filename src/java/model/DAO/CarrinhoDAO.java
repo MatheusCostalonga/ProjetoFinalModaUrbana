@@ -103,6 +103,32 @@ public class CarrinhoDAO {
      }   
         return Carrinho;
     }
+    
+        public List<CarrinhoDTO> somarProdutos( ) {
+        List<CarrinhoDTO> Carrinho = new ArrayList<>();
+     try{
+         Connection conexao = Conexao.conectar();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         stmt = conexao.prepareStatement("SELECT c.id_carrinho, c.nome_produto_carrinho, c.valor_produto_carrinho, c.quantidade_carrinho, (c.valor_produto_carrinho * c.quantidade_carrinho) AS total_produtos FROM carrinho c INNER JOIN produtos p ON c.produto_id3 = p.id_produto");
+       
+         rs = stmt.executeQuery();
+while(rs.next()){
+             CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             System.out.println(rs.getFloat("total_produtos"));
+             objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
+             objCarrinho.setTotalProdutos(rs.getFloat("total_produtos"));
+             Carrinho.add(objCarrinho);
+         }
+     }catch(SQLException e){
+         e.printStackTrace();
+     }   
+        return Carrinho;
+    }
+         
+
+         
 public List<CarrinhoDTO> MostrarTamanho(){
         List<CarrinhoDTO> carrinhos = new ArrayList<>();
     try{

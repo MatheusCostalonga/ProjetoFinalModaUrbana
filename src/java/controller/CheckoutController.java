@@ -10,12 +10,16 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
+import model.DAO.EnderecoDAO;
+import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.EnderecosDTO;
+import model.bean.UsuarioDTO;
 
 /**
  *
@@ -24,6 +28,9 @@ import model.bean.EnderecosDTO;
 public class CheckoutController extends HttpServlet {
     CarrinhoDTO carrinhosdto = new CarrinhoDTO();
     CarrinhoDAO carrinho = new CarrinhoDAO();
+    EnderecosDTO enderecosdto = new EnderecosDTO();
+    EnderecoDAO endereco = new EnderecoDAO();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,11 +42,22 @@ public class CheckoutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+                         UsuarioDAO usuarios = new UsuarioDAO();
+            UsuarioDTO usuario = new UsuarioDTO();
  List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
         request.setAttribute("totalCarrinho", totalCarrinho);
+        List<EnderecosDTO> enderecoCliente = endereco.verTabela();       
+        request.setAttribute("enderecoCliente", enderecoCliente);
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        }
         String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -69,6 +87,10 @@ public class CheckoutController extends HttpServlet {
         EnderecosDTO newEndereco = new EnderecosDTO();
         newEndereco.setRua(request.getParameter("rua"));
         newEndereco.setNumero(Integer.parseInt("numero"));
+        newEndereco.setCep(request.getParameter("cep"));
+        newEndereco.setComplemento(request.getParameter("complemento"));
+        endereco.inserir(newEndereco);
+        
     }
 
     /**

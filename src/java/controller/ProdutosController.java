@@ -71,15 +71,17 @@ public class ProdutosController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){  
- 
-        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
-        request.setAttribute("carrinhos", carrinhos);
+
         //  Luan me passou e explicou o codigo 
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
         request.setAttribute("totalCarrinho", totalCarrinho);
         //Eu fiz essa parte para baixo   
         List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
             request.setAttribute("produtos", produtos);
+               List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
+        request.setAttribute("carrinhos", carrinhos);
+        List<CarrinhoDTO> somaProdutos = carrinho.somarProdutos();       
+        request.setAttribute("somaProdutos", somaProdutos);
             List<ProdutoDTO> camisetas = produtosDAO.ListarCamiseta();
             request.setAttribute("camisetas", camisetas);
             List<ProdutoDTO> camisa = produtosDAO.ListarCamisa();

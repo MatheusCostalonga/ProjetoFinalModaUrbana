@@ -53,11 +53,12 @@ public class EnderecoDAO {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-            stmt = conexao.prepareStatement("INSERT INTO enderecos (rua, numero, cep, complemento) VALUES (?, ?, ?, ?)");
-            stmt.setString(1, objEndereco.getRua());
-            stmt.setInt(2, objEndereco.getNumero());
-            stmt.setString(3, objEndereco.getCep());
-            stmt.setString(4, objEndereco.getComplemento());
+            stmt = conexao.prepareStatement("INSERT INTO enderecos (usuario_id1, rua, numero, cep, complemento) VALUES (?, ?, ?, ?, ?)");
+            stmt.setInt(1, objEndereco.getUsuario_id1());
+            stmt.setString(2, objEndereco.getRua());
+            stmt.setInt(3, objEndereco.getNumero());
+            stmt.setString(4, objEndereco.getCep());
+            stmt.setString(5, objEndereco.getComplemento());
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
