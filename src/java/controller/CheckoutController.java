@@ -56,8 +56,11 @@ public class CheckoutController extends HttpServlet {
 
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
                 request.setAttribute("usuario", usuario);
+
             }
+            
         }
+        
         String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -84,12 +87,25 @@ public class CheckoutController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String numeroStr = request.getParameter("numero");
+
+        if (enderecosdto.getRua().isEmpty() || enderecosdto.getComplemento().isEmpty() || enderecosdto.getCep().isEmpty() || numeroStr.isEmpty()) {
+            // Ação se os campos estiverem vazios
         EnderecosDTO newEndereco = new EnderecosDTO();
         newEndereco.setRua(request.getParameter("rua"));
         newEndereco.setNumero(Integer.parseInt("numero"));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
-        endereco.inserir(newEndereco);
+        endereco.inserir(newEndereco);            
+        } else{
+                   EnderecosDTO newEndereco = new EnderecosDTO();
+        newEndereco.setRua(request.getParameter("rua"));
+        newEndereco.setNumero(Integer.parseInt("numero"));
+        newEndereco.setCep(request.getParameter("cep"));
+        newEndereco.setComplemento(request.getParameter("complemento"));
+        endereco.editarEndereco(newEndereco);
+        }
+
         
     }
 

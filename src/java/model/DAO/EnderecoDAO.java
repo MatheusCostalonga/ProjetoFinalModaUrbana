@@ -48,7 +48,6 @@ public class EnderecoDAO {
         }
         return enderecos;
     }
-    
     public void inserir(EnderecosDTO objEndereco) {
         try {
             Connection conexao = Conexao.conectar();
@@ -67,4 +66,23 @@ public class EnderecoDAO {
             erro.printStackTrace();
         }
     }
-}
+    public void editarEndereco(EnderecosDTO objEndereco) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            stmt = conexao.prepareStatement("UPDATE enderecos SET usuario_id1 = ?, rua = ?, numero = ?, cep = ?, complemento = ? WHERE id_endereco = ?");
+            stmt.setInt(1, objEndereco.getUsuario_id1());
+            stmt.setString(2, objEndereco.getRua());
+            stmt.setInt(3, objEndereco.getNumero());
+            stmt.setString(4, objEndereco.getCep());
+            stmt.setString(5, objEndereco.getComplemento());
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+            Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.TOP_CENTER, "USUARIO CADASTRADO COM SUCESSO!");
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+        }
+    }
+          }
+
