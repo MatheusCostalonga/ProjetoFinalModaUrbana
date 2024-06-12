@@ -13,7 +13,6 @@ import java.sql.Date;
  */
 public class UsuarioDTO {
     private int id_usuario;
-
     private String nome;
     private String senha;
     private String usuario;

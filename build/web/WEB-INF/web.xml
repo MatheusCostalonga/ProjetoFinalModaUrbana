@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>ProdutosController</servlet-name>
-        <servlet-class>controller.ProdutosController</servlet-class>
+        <servlet-class>controller.CentralController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroClienteController</servlet-name>
@@ -55,10 +55,6 @@
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/cadastrarProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProdutosController</servlet-name>
-        <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>

@@ -15,8 +15,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./styles/produtoSelecionado.css">
-        <!-- <link rel="stylesheet" href="./styles/menu.css"> -->
-
+            <script src="sweetalert2.min.js"></script>
+            <link rel="stylesheet" href="sweetalert2.min.css">
     </head>
     <body>
         <header>
@@ -180,6 +180,9 @@
     </div>
         </footer>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>
     <script src="./js/carrinho.js"></script>
+    <script src="./js/notificacoes.js"></script> 
+
     </html>

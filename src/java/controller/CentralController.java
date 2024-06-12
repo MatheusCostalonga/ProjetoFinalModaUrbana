@@ -34,7 +34,7 @@ import model.bean.UsuarioDTO;
  * @author Senai
  */
 @MultipartConfig
-public class ProdutosController extends HttpServlet {
+public class CentralController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -95,15 +95,6 @@ public class ProdutosController extends HttpServlet {
 
           
             String nextPage = "/WEB-INF/jsp/index.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else if(url.equals("/checkout")){
-           
-        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
-        request.setAttribute("carrinhos", carrinhos);
-        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
-        request.setAttribute("totalCarrinho", totalCarrinho);
-        String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/pedidoCliente")){

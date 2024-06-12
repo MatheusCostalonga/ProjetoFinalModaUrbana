@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ import model.bean.UsuarioDTO;
  *
  * @author Leandro
  */
+@MultipartConfig
 public class CheckoutController extends HttpServlet {
     CarrinhoDTO carrinhosdto = new CarrinhoDTO();
     CarrinhoDAO carrinho = new CarrinhoDAO();
@@ -44,26 +46,39 @@ public class CheckoutController extends HttpServlet {
             throws ServletException, IOException {
                          UsuarioDAO usuarios = new UsuarioDAO();
             UsuarioDTO usuario = new UsuarioDTO();
- List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
+
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
+                
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+               /* int idUsuario = Integer.parseInt(cookie.getValue());*/
+               
+                     List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
         request.setAttribute("totalCarrinho", totalCarrinho);
         List<EnderecosDTO> enderecoCliente = endereco.verTabela();       
         request.setAttribute("enderecoCliente", enderecoCliente);
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("continuarLogin")) {
-
-                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
-                request.setAttribute("usuario", usuario);
-
-            }
-            
-        }
-        
-        String nextPage = "/WEB-INF/jsp/checkout.jsp";
+                 String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+                
+                }
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Faça o login para poder entrar no checkout');");
+            out.println("window.location.href = './loginCliente';");
+            out.println("</script>");
+            
+            
+        }
+                            
+
+       
+    }
         
     }
 
