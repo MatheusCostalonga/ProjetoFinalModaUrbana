@@ -66,6 +66,7 @@ public class EnderecoDAO {
             erro.printStackTrace();
         }
     }
+
     public void editarEndereco(EnderecosDTO objEndereco) {
         try {
             Connection conexao = Conexao.conectar();
@@ -83,6 +84,34 @@ public class EnderecoDAO {
         } catch (SQLException erro) {
             erro.printStackTrace();
         }
+    }
+        public List<EnderecosDTO> EndercoUsuarios(int id_usuarioEndereco) {
+        List<EnderecosDTO> enderecos = new ArrayList<>();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            stmt = conexao.prepareStatement("SELECT u.id_usuario, u.nome, u.senha, u.usuario, u.telefone, u.data_nascimento, u.cpf, e.id_endereco, e.usuario_id1, e.rua, e.numero, e.cep, e.complemento FROM usuarios u INNER JOIN  enderecos e ON u.id_usuario = e.usuario_id1;");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                System.out.println("cheguei aqui, no endereco usuarios");
+                EnderecosDTO objEndereco = new EnderecosDTO();
+                objEndereco.setId_endereco(rs.getInt("id_endereco"));
+                objEndereco.setUsuario_id1(rs.getInt("usuario_id1"));
+                objEndereco.setRua(rs.getString("rua"));
+                objEndereco.setNumero(rs.getInt("numero"));
+                objEndereco.setCep(rs.getString("cep"));
+                objEndereco.setComplemento(rs.getString("complemento"));
+                enderecos.add(objEndereco);
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+        }
+        return enderecos;
     }
           }
 

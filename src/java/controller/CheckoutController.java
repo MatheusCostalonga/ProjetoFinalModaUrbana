@@ -54,18 +54,18 @@ public class CheckoutController extends HttpServlet {
                 
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
                 request.setAttribute("usuario", usuario);
-               /* int idUsuario = Integer.parseInt(cookie.getValue());*/
+                int idUsuario = Integer.parseInt(cookie.getValue());
                
                      List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
         request.setAttribute("carrinhos", carrinhos);
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
         request.setAttribute("totalCarrinho", totalCarrinho);
-        List<EnderecosDTO> enderecoCliente = endereco.verTabela();       
-        request.setAttribute("enderecoCliente", enderecoCliente);
+            List<EnderecosDTO> enderecoCliente = endereco.EndercoUsuarios(idUsuario);
+                request.setAttribute("enderecoCliente", enderecoCliente);
                  String nextPage = "/WEB-INF/jsp/checkout.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-                
+               
                 }
             PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");
@@ -103,32 +103,42 @@ public class CheckoutController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         String numeroStr = request.getParameter("numero");
+        String url = request.getServletPath();
+        Cookie[] cookies = request.getCookies();
+        if(url.equals("/editarEndereco")){
+       for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
 
-        if (enderecosdto.getRua().isEmpty() || enderecosdto.getComplemento().isEmpty() || enderecosdto.getCep().isEmpty() || numeroStr.isEmpty()) {
-            // Ação se os campos estiverem vazios
+                int idUsuario = Integer.parseInt(cookie.getValue());
+                List<EnderecosDTO> enderecoExistente = endereco.EndercoUsuarios(idUsuario);
+                if(enderecoExistente == null){
+            // Ação se o usuario não estiver endereço cadastro no banco de dados
         EnderecosDTO newEndereco = new EnderecosDTO();
         newEndereco.setRua(request.getParameter("rua"));
         newEndereco.setNumero(Integer.parseInt("numero"));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
-        endereco.inserir(newEndereco);            
-        } else{
-                   EnderecosDTO newEndereco = new EnderecosDTO();
+        endereco.inserir(newEndereco);
+                }else{
+        EnderecosDTO newEndereco = new EnderecosDTO();
+        newEndereco.setId_endereco(Integer.parseInt("id_endereco"));
         newEndereco.setRua(request.getParameter("rua"));
+        newEndereco.setUsuario_id1(Integer.parseInt("id_usuario"));
         newEndereco.setNumero(Integer.parseInt("numero"));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
         endereco.editarEndereco(newEndereco);
-        }
-
-        
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+                }
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Coloque todas as informações que estão sendo solicitadas');");
+            out.println("</script>");
+               }                      
+          }
+      }   
+  }
+          
+    
     @Override
     public String getServletInfo() {
         return "Short description";

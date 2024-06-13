@@ -24,6 +24,7 @@
             <!-- <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana"> -->
             <div id="logoHeader"></div>
             <div id="campoPesquisa">
+      <!--Tenho que arrumar -->
             <form class="d-flex" role="search" action="buscar-produtos" method="get">
                <div id="Juntos">
                 <input id="pesquisa" name="busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" maxlength="255">

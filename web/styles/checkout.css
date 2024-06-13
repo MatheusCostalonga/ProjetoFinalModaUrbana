@@ -108,6 +108,7 @@ main .organizarCartao .informacaoPagamento input{
     justify-content: start;
     align-items: start;
 }
+
 main .organizarCartao .informacaoPagamento #data-validade{
     width: 180px;
     text-align: left;

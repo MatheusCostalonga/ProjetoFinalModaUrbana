@@ -29,10 +29,11 @@
 </header>
         <main>
                         <div id="TodoCheckout">
-                        
-                        <div id="informacaoCliente">
+                       
+           <form action="editarEndereco" method="post" enctype="multipart/form-data">
+               <div id="informacaoCliente">
                             <h1>Informações Usuario</h1>
-                            <div class="organizar">
+                            <div  id="${usuario.id_usuario}" class="organizar">
                                 <span>Nome:</span>
                                 <input type="text" name="nome" value="${usuario.nome}" required>
                             </div>
@@ -48,61 +49,78 @@
                                 <span>Telefone:</span>
                                 <input type="text" name="telefone" value="${usuario.telefone}" required>
                             </div>
+                            
                             <br><br>
-                           <h1>Informações para Entrega</h1>
+                                    <c:forEach var="enderecosCliente" items="${enderecoCliente}">
+
+                            <h1 id="$enderecosCliente.id_endereco">Informações para Entrega</h1>
+                            
                             <div class="organizar">
-                               <span>Rua:</span>
-                               <input type="text" name="rua" required>
-                           </div>
-                           <div class="organizar">
-                            <span>Número:</span>
-                            <input type="number" name="numero" required>
+                                <span>Rua:</span>
+                            <input type="text" name="rua" id="rua" value="${enderecosCliente.rua}" >
                         </div>
-                        <div class="organizar">
-                            <span>CEP:</span>
-                            <input type="text" name="cep" required>
-                        </div>
-                        <div class="organizar">
-                            <span>Complemento:</span>
-                            <input type="text" name="complemento" required>
-                        </div>
-                                      
-                                          
-                                        </div>
+                    <div class="organizar">
+                        <span>Número:</span>
+                    <input type="number" name="numero" id="numero" value="${enderecosCliente.numero}">
+                </div>
+            <div class="organizar">
+                <span>CEP:</span>
+                <input type="text" name="cep" id="cep" value="${enderecosCliente.cep}">
+        </div>
+    <div class="organizar">
+        <span>Complemento:</span>
+    <input type="text" name="complemento" id="complemento" value="${enderecosCliente.complemento}">
+</div>
+    <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
+    <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosCliente.id_endereco}">
+    <input type="hidden" name="rua" id="rua" >
+    <input type="hidden" name="numero" id="numero" >
+    <input type="hidden" name="cep" id="cep" >
+    <input type="hidden" name="complemento" id="complemento" >
+    <button type="submit" >Editar Endereço</button>
+</div>
+     
+
+</c:forEach>
+           </form>
                                         <div id="FormasPagamentos">
                                             
                                                
-                                          
-                                            <div class="organizarCartao">
-                                     <div class="tituloPagamento">
-                                     
-                                    <h1>Informar pagamento</h1>
-                                    </div>
-                                   <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
-                                   <div class="informacaoPagamento">
-                                   <span>Nome do titular do cartão:</span>
-                                   <input type="text" name="titular_cartao" required>
-                                   <span>Numero cartao:</span>
-                                   <input type="number" name="numero_cartao" required>
-                                   <span>Codigo de segurança:</span>
-                                   <input type="number" name="codigo_seguranca" required>
-                                   <span>Data de validade:</span>
-                                   <input type="date" id="data-validade" name="data-validade" required>
-                                   <span for="pagamento">Forma de pagamento:</span>
-                                    <select  id="pagamento" name="pagamento" required>
-                                       <option >Seleciona uma opção</option>
-                                        <option value="1">Pix</option>
-                                        <option value="2">Cartão de Debito</option>
-                                        <option value="3">Cartão de Credito</option>
-                                    </select>
-                                                  </div>
-   
-                                                </div>
-                                                <div id="finalizacao">
-                                                    <button>Finalizar Compra</button>
-                                                    <a href="./menu">Deseja voltar as compras? click aqui</a>
-                                                </div>
-                                        </div>
+
+            <div class="organizarCartao">
+                <div class="tituloPagamento">
+                    
+
+
+                    <h1>Informar pagamento</h1>
+                </div>
+            <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
+        <div class="informacaoPagamento">
+            <span>Nome do titular do cartão:</span>
+        <input type="text" name="titular_cartao" >
+    <span>Numero cartao:</span>
+<input type="number" name="numero_cartao" >
+<span>Codigo de segurança:</span>
+<input type="number" name="codigo_seguranca" >
+<span>Data de validade:</span>
+<input type="date" id="data-validade" name="data-validade" >
+<span for="pagamento">Forma de pagamento:</span>
+<select  id="pagamento" name="pagamento" >
+    <option >Seleciona uma opção</option>
+<option value="1">Pix</option>
+<option value="2">Cartão de Debito</option>
+<option value="3">Cartão de Credito</option>
+</select>
+</div>
+
+</div>
+<div id="finalizacao">
+    <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
+    <button type="submit">Finalizar Compra</button>
+<a href="./menu">Deseja voltar as compras? click aqui</a>
+</div>
+                           
+</div>
                                         <div id="TudoSobreProdutos">
                     <h1>Produtos do carrinho</h1>
             <section class="ProdutosCarrinhoCheckout">
