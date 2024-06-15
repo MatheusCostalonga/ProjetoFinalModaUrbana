@@ -30,7 +30,7 @@
         <main>
                         <div id="TodoCheckout">
                        
-           <form id="editarEndereco" action="modificarEndereco" method="post" enctype="multipart/form-data" onsubmit="VerificacaoEndereco()">
+                            <form action="modificarEndereco" method="post" enctype="multipart/form-data" >
                <div id="informacaoCliente">
                             <h1>Informações Usuario</h1>
                             <div  id="${usuario.id_usuario}" class="organizar">
@@ -57,18 +57,17 @@
                             <h1 id="enderecosExistente.id_endereco">Informações para Entrega</h1>
                             <span>usuario: ${enderecosExistente.usuario_id1}</span>
                             <span>enderecos: ${enderecosExistente.id_endereco}</span>
-                                <input type="hidden" name="action" id="action" value="">
                             <div class="organizar">
                                 <span>Rua:</span>
                             <input type="text" name="rua" id="rua" value="${enderecosExistente.rua != null ? enderecosExistente.rua : ''}" >
                         </div>
                     <div class="organizar">
                         <span>Número:</span>
-                    <input type="text" name="numero" id="numero" value="${enderecosExistente.numero != null ? enderecosExistente.numero : ''}">
+                    <input type="number" name="numero" id="numero" value="${enderecosExistente.numero != null ? enderecosExistente.numero : ''}">
                 </div>
             <div class="organizar">
                 <span>CEP:</span>
-                <input type="text" name="cep" id="cep" value="${enderecosExistente.cep != null ? enderecosExistente.cep : ''}">
+                <input onkeyup="CepInput(event)" maxlength="9" type="text" name="cep" id="cep" value="${enderecosExistente.cep != null ? enderecosExistente.cep : ''}">
         </div>
     <div class="organizar">
         <span>Complemento:</span>
@@ -77,10 +76,12 @@
     <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
     <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">
     <input type="hidden" name="rua" id="rua" >
-    <input type="hidden" name="numero" id="numero" >
+    <input type="hidden" name="numero" id="numero">
     <input type="hidden" name="cep" id="cep" >
     <input type="hidden" name="complemento" id="complemento" >
-    <button type="submit" >Salvar Endereço</button>
+    <div class="organizar">
+        <button type="submit">Salvar Endereço</button>
+    </div>
 </div>
      
 
@@ -92,29 +93,55 @@
 
             <div class="organizarCartao">
                 <div class="tituloPagamento">
-                    
-
-
                     <h1>Informar pagamento</h1>
                 </div>
-            <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito">
-        <div class="informacaoPagamento">
+            <!-- <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito"> -->
+            <form id="formPagamento">
+                <input type="radio" id="PagamentoPix" name="pagamento" value="pix">
+                <label for="pagamentoPix">PIX</label><br>
+                
+                <input type="radio" id="PagamentoCartaoCredito" name="pagamento" value="cartao_credito">
+                <label for="pagamentoCartaoCredito">Cartão de Crédito</label><br>
+                
+                <input type="radio" id="PagamentoCartaoDebito" name="pagamento" value="cartao_debito">
+                <label for="pagamentoCartaoDebito">Cartão de Débito</label><br>
+                
+                <button type="submit">Forma de pagamento</button>
+            </form>
+
+            <div id="InformPix" style="display: none;">
+                <div id="imgpix">
+                    <span>Imagem do pix</span>
+                </div>
+            </div>
+
+            <div id="InformCartaoCredito" style="display: none;">
             <span>Nome do titular do cartão:</span>
         <input type="text" name="titular_cartao" >
     <span>Numero cartao:</span>
-<input type="number" name="numero_cartao" >
-<span>Codigo de segurança:</span>
-<input type="number" name="codigo_seguranca" >
-<span>Data de validade:</span>
-<input type="date" id="data-validade" name="data-validade" >
-<span for="pagamento">Forma de pagamento:</span>
-<select  id="pagamento" name="pagamento" >
-    <option >Seleciona uma opção</option>
-<option value="1">Pix</option>
-<option value="2">Cartão de Debito</option>
-<option value="3">Cartão de Credito</option>
-</select>
-</div>
+    <input type="number" name="numero_cartao" >
+    <span>Codigo de segurança:</span>
+    <input type="number" name="codigo_seguranca" >
+    <span>Data de validade:</span>
+    <input type="date" id="data-validade" name="data-validade" >
+    </div>
+
+    <div id="InformCartaoDebito" style="display: none;">
+        <span>Número do Cartão de Débito:</span>
+        <input type="text" name="numeroCartaoDebito">
+        <span>Data de Validade:</span>
+        <input type="text" name="data-validade-debito">
+        <span>Código de Segurança (CVV):</span>
+        <input type="text" name="codigoSegurancaDebito">
+        <span>Nome do Titular do Cartão:</span>
+        <input type="text" name="nomeTitularCartaoDebito">
+        <span>CPF do Titular do Cartão:</span>
+        <input type="text" name="cpfTitularCartaoDebito">
+        <span>Endereço de Cobrança:</span>
+        <input type="text" name="enderecoCobrancaDebito">
+        <span>Senha do Cartão:</span>
+        <input type="text" name="senhaCobrancaCartao">
+    </div>
 
 </div>
 <div id="finalizacao">
@@ -175,6 +202,6 @@
     </div>
         </footer>                                    
     </body>
-    <script src="./js/checkout.js"></script> 
+   <script src="./js/checkout.js"></script> 
 
 </html>

@@ -22,7 +22,6 @@ import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
 
 /**
  *

@@ -113,52 +113,73 @@ public class CheckoutController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         String url = request.getServletPath();
-              PrintWriter out = response.getWriter();      
-             String action = request.getParameter("action");
-             System.out.println("chegou aqui no checkout");
-                if ("InserirEndereco".equals("action")) {
-                         System.out.println("inserirEndereço");
-   inserirEndereco(request, response);
-    } else if ("EditarEndereco".equals("action")) {
-                    System.out.println("EditarEndereco");
-        editarEndereco(request, response);
-    } else {
-        processRequest(request, response);
-         out.println("<script type=\"text/javascript\">");
-            out.println("alert('Coloque todas as informações que estão sendo solicitadas');");
-            out.println("</script>");
-    }    
+              PrintWriter out = response.getWriter(); 
+               Cookie[] cookies = request.getCookies();
+               if(url.equals("/modificarEndereco")){
+        if(cookies != null){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
+           int idUsuario = Integer.parseInt(cookie.getValue());
+           
+              List<EnderecosDTO> enderecoExistente = endereco.EndercoUsuarios(idUsuario);
+            String cep = request.getParameter("cep");
+                 if (enderecoExistente == null || enderecoExistente.isEmpty()) {
+                     if (cep.length() == 9) {
+                     inserirEndereco(request, response);     
+                     }else{
+               out.println("<script type=\"text/javascript\">");
+            out.println("alert('O cep deve conter 9 caracteres');");
+            out.println("window.location.href = './checkout';");
+            out.println("</script>"); 
+                     }
+                }else{
+               if (cep.length() == 9) {
+                   editarEndereco(request, response);       
+                     }else{
+               out.println("<script type=\"text/javascript\">");
+            out.println("alert('O cep deve conter 9 caracteres');");
+            out.println("window.location.href = './checkout';");
+            out.println("</script>"); 
+                     }  
+                 }
   }
+        }
+        }
+               }
+    }
           protected void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         PrintWriter out = response.getWriter();      
         EnderecosDTO newEndereco = new EnderecosDTO();
+
         newEndereco.setRua(request.getParameter("rua"));
-        newEndereco.setNumero(Integer.parseInt("numero"));
-        newEndereco.setUsuario_id1(Integer.parseInt("id_usuario"));
+        newEndereco.setNumero(Integer.parseInt(request.getParameter("numero")));
+        newEndereco.setUsuario_id1(Integer.parseInt(request.getParameter("id_usuario")));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
         endereco.inserir(newEndereco);
                     out.println("<script type=\"text/javascript\">");
             out.println("alert('Informações adicionadas com sucesso');");
             out.println("window.location.href = './checkout';");
-            out.println("</script>");}
+            out.println("</script>");
+          }
           
         protected void editarEndereco(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         PrintWriter out = response.getWriter();      
         EnderecosDTO newEndereco = new EnderecosDTO();
-        newEndereco.setId_endereco(Integer.parseInt("id_endereco"));
+        newEndereco.setId_endereco(Integer.parseInt(request.getParameter("id_endereco")));
         newEndereco.setRua(request.getParameter("rua"));
-        newEndereco.setNumero(Integer.parseInt("numero"));
+        newEndereco.setUsuario_id1(Integer.parseInt(request.getParameter("id_usuario")));
+        newEndereco.setNumero(Integer.parseInt(request.getParameter("numero")));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
         endereco.editarEndereco(newEndereco);
-            out.println("<script type=\"text/javascript\">");
+        out.println("<script type=\"text/javascript\">");
             out.println("alert('Informações alteradas com sucesso');");
             out.println("window.location.href = './checkout';");
             out.println("</script>");
-}
+        }
     
     @Override
     public String getServletInfo() {
