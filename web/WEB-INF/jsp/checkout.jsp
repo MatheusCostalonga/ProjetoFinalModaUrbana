@@ -30,10 +30,11 @@
         <main>
                         <div id="TodoCheckout">
                        
-           <form action="editarEndereco" method="post" enctype="multipart/form-data">
+           <form id="editarEndereco" action="modificarEndereco" method="post" enctype="multipart/form-data" onsubmit="VerificacaoEndereco()">
                <div id="informacaoCliente">
                             <h1>Informações Usuario</h1>
                             <div  id="${usuario.id_usuario}" class="organizar">
+                                <span>usuario id: ${usuario.id_usuario}</span>
                                 <span>Nome:</span>
                                 <input type="text" name="nome" value="${usuario.nome}" required>
                             </div>
@@ -51,33 +52,35 @@
                             </div>
                             
                             <br><br>
-                                    <c:forEach var="enderecosCliente" items="${enderecoCliente}">
+                                    <c:forEach var="enderecosExistente" items="${enderecoExistente}">
 
-                            <h1 id="$enderecosCliente.id_endereco">Informações para Entrega</h1>
-                            
+                            <h1 id="enderecosExistente.id_endereco">Informações para Entrega</h1>
+                            <span>usuario: ${enderecosExistente.usuario_id1}</span>
+                            <span>enderecos: ${enderecosExistente.id_endereco}</span>
+                                <input type="hidden" name="action" id="action" value="">
                             <div class="organizar">
                                 <span>Rua:</span>
-                            <input type="text" name="rua" id="rua" value="${enderecosCliente.rua}" >
+                            <input type="text" name="rua" id="rua" value="${enderecosExistente.rua != null ? enderecosExistente.rua : ''}" >
                         </div>
                     <div class="organizar">
                         <span>Número:</span>
-                    <input type="number" name="numero" id="numero" value="${enderecosCliente.numero}">
+                    <input type="text" name="numero" id="numero" value="${enderecosExistente.numero != null ? enderecosExistente.numero : ''}">
                 </div>
             <div class="organizar">
                 <span>CEP:</span>
-                <input type="text" name="cep" id="cep" value="${enderecosCliente.cep}">
+                <input type="text" name="cep" id="cep" value="${enderecosExistente.cep != null ? enderecosExistente.cep : ''}">
         </div>
     <div class="organizar">
         <span>Complemento:</span>
-    <input type="text" name="complemento" id="complemento" value="${enderecosCliente.complemento}">
+    <input type="text" name="complemento" id="complemento" value="${enderecosExistente.complemento != null ? enderecosExistente.complemento : ''}">
 </div>
     <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
-    <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosCliente.id_endereco}">
+    <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">
     <input type="hidden" name="rua" id="rua" >
     <input type="hidden" name="numero" id="numero" >
     <input type="hidden" name="cep" id="cep" >
     <input type="hidden" name="complemento" id="complemento" >
-    <button type="submit" >Editar Endereço</button>
+    <button type="submit" >Salvar Endereço</button>
 </div>
      
 
@@ -172,4 +175,6 @@
     </div>
         </footer>                                    
     </body>
+    <script src="./js/checkout.js"></script> 
+
 </html>

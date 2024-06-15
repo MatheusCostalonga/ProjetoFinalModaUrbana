@@ -61,7 +61,6 @@ public class EnderecoDAO {
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
-            Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.TOP_CENTER, "USUARIO CADASTRADO COM SUCESSO!");
         } catch (SQLException erro) {
             erro.printStackTrace();
         }
@@ -80,7 +79,6 @@ public class EnderecoDAO {
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
-            Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.TOP_CENTER, "USUARIO CADASTRADO COM SUCESSO!");
         } catch (SQLException erro) {
             erro.printStackTrace();
         }
@@ -91,10 +89,17 @@ public class EnderecoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            stmt = conexao.prepareStatement("SELECT u.id_usuario, u.nome, u.senha, u.usuario, u.telefone, u.data_nascimento, u.cpf, e.id_endereco, e.usuario_id1, e.rua, e.numero, e.cep, e.complemento FROM usuarios u INNER JOIN  enderecos e ON u.id_usuario = e.usuario_id1;");
+           /* stmt = conexao.prepareStatement("SELECT u.id_usuario, u.nome, u.senha, u.usuario, u.telefone, u.data_nascimento, u.cpf, e.id_endereco, e.usuario_id1, e.rua, e.numero, e.cep, e.complemento FROM usuarios u INNER JOIN  enderecos e ON u.id_usuario = e.usuario_id1;");
+           */
+              stmt = conexao.prepareStatement("SELECT * FROM enderecos WHERE usuario_id1 = ?");
+
+           stmt.setInt(1, id_usuarioEndereco);
+
             rs = stmt.executeQuery();
             while (rs.next()) {
                 System.out.println("cheguei aqui, no endereco usuarios");
+                System.out.println(id_usuarioEndereco);
+                
                 EnderecosDTO objEndereco = new EnderecosDTO();
                 objEndereco.setId_endereco(rs.getInt("id_endereco"));
                 objEndereco.setUsuario_id1(rs.getInt("usuario_id1"));
