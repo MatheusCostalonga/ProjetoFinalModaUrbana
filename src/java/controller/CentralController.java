@@ -49,37 +49,50 @@ public class CentralController extends HttpServlet {
             throws ServletException, IOException {
                  UsuarioDAO usuarios = new UsuarioDAO();
             UsuarioDTO usuario = new UsuarioDTO(); 
+                            CarrinhoDAO carrinho = new CarrinhoDAO();
+
             Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarLogin")) {
 
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
                 request.setAttribute("usuario", usuario);
+                
+
             }
         }
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-                CarrinhoDAO carrinho = new CarrinhoDAO();
-           
+        ProdutosDAO produtosDAO = new ProdutosDAO();        
                         CategoriasDAO categoriasDAO = new CategoriasDAO();        
         List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categoria", categorias);
         String url = request.getServletPath();
         System.out.println(url);
-
         if(url.equals("/cadastrar-produto")) {
             String nextPage = "/WEB-INF/jsp/cadastroProduto.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/menu")){  
 
-        //  Luan me passou e explicou o codigo 
-        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
-        request.setAttribute("totalCarrinho", totalCarrinho);
-        //Eu fiz essa parte para baixo   
         List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
             request.setAttribute("produtos", produtos);
-               List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
-        request.setAttribute("carrinhos", carrinhos);
+            for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+                                int idUsuario = Integer.parseInt(cookie.getValue());
+                                        //  Luan me passou e explicou o codigo 
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
+        request.setAttribute("totalCarrinho", totalCarrinho);
+                //Eu fiz essa parte para baixo   
+         List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho(idUsuario);       
+        request.setAttribute("carrinhos", carrinhos);  
+        System.out.println("infor car"+carrinhos);
+           
+            }
+        }
+
+  
         List<CarrinhoDTO> somaProdutos = carrinho.somarProdutos();       
         request.setAttribute("somaProdutos", somaProdutos);
             List<ProdutoDTO> camisetas = produtosDAO.ListarCamiseta();

@@ -18,12 +18,13 @@ public class CarrinhoDTO {
     private String nomeCategoria;
     private String tamanho;
     private int tamanhoId3;
- //   private int usuarioId3;
+    private int categoriaId3;
+    private int usuarioId3;
 
     public CarrinhoDTO() {
     }
 
-    public CarrinhoDTO(int id_carrinho, String nomeCarrinho, float valorCarrinho, String imagemCarrinho, String descricaoCarrinho, int quantidadeCarrinho, int produtoId3, float total, float totalProdutos, String nomeCategoria, String tamanho, int tamanhoId3) {
+    public CarrinhoDTO(int id_carrinho, String nomeCarrinho, float valorCarrinho, String imagemCarrinho, String descricaoCarrinho, int quantidadeCarrinho, int produtoId3, float total, float totalProdutos, String nomeCategoria, String tamanho, int tamanhoId3, int categoriaId3, int usuarioId3) {
         this.id_carrinho = id_carrinho;
         this.nomeCarrinho = nomeCarrinho;
         this.valorCarrinho = valorCarrinho;
@@ -36,8 +37,10 @@ public class CarrinhoDTO {
         this.nomeCategoria = nomeCategoria;
         this.tamanho = tamanho;
         this.tamanhoId3 = tamanhoId3;
+        this.categoriaId3 = categoriaId3;
+        this.usuarioId3 = usuarioId3;
     }
-    
+
     public int getId_carrinho() {
         return id_carrinho;
     }
@@ -134,6 +137,21 @@ public class CarrinhoDTO {
         this.tamanhoId3 = tamanhoId3;
     }
 
+    public int getCategoriaId3() {
+        return categoriaId3;
+    }
 
+    public void setCategoriaId3(int categoriaId3) {
+        this.categoriaId3 = categoriaId3;
+    }
+
+    public int getUsuarioId3() {
+        return usuarioId3;
+    }
+
+    public void setUsuarioId3(int usuarioId3) {
+        this.usuarioId3 = usuarioId3;
+    }
+    
 
 }

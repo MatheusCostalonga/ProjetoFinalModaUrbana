@@ -16,23 +16,25 @@ public class PedidosDTO {
     
     private int id_pedido;
     private int usuario_id2;
-    private int usuario_id;
+    private int pedidos_produtos_id;
+    private int endereco_id;
     private String status_pagamento;
     private String metodo_Pagamento;
-    private float valorTotal;
-    private Date data_hora;
-
+    private Date data_pedido;
+    private Date data_prevista;
+    
     public PedidosDTO() {
     }
 
-   public PedidosDTO(int id_pedido, int usuario_id2, int usuario_id, String status_pagamento, String metodo_Pagamento, float valorTotal, Date data_hora) {
+    public PedidosDTO(int id_pedido, int usuario_id2, int pedidos_produtos_id, int endereco_id, String status_pagamento, String metodo_Pagamento, Date data_pedido, Date data_prevista) {
         this.id_pedido = id_pedido;
         this.usuario_id2 = usuario_id2;
-        this.usuario_id = usuario_id;
+        this.pedidos_produtos_id = pedidos_produtos_id;
+        this.endereco_id = endereco_id;
         this.status_pagamento = status_pagamento;
         this.metodo_Pagamento = metodo_Pagamento;
-        this.valorTotal = valorTotal;
-        this.data_hora = data_hora;
+        this.data_pedido = data_pedido;
+        this.data_prevista = data_prevista;
     }
 
     public int getId_pedido() {
@@ -51,12 +53,20 @@ public class PedidosDTO {
         this.usuario_id2 = usuario_id2;
     }
 
-    public int getUsuario_id() {
-        return usuario_id;
+    public int getPedidos_produtos_id() {
+        return pedidos_produtos_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setPedidos_produtos_id(int pedidos_produtos_id) {
+        this.pedidos_produtos_id = pedidos_produtos_id;
+    }
+
+    public int getEndereco_id() {
+        return endereco_id;
+    }
+
+    public void setEndereco_id(int endereco_id) {
+        this.endereco_id = endereco_id;
     }
 
     public String getStatus_pagamento() {
@@ -75,22 +85,21 @@ public class PedidosDTO {
         this.metodo_Pagamento = metodo_Pagamento;
     }
 
-    public float getValorTotal() {
-        return valorTotal;
+    public Date getData_pedido() {
+        return data_pedido;
     }
 
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setData_pedido(Date data_pedido) {
+        this.data_pedido = data_pedido;
     }
 
-    public Date getData_hora() {
-        return data_hora;
+    public Date getData_prevista() {
+        return data_prevista;
     }
 
-    public void setData_hora(Date data_hora) {
-        this.data_hora = data_hora;
+    public void setData_prevista(Date data_prevista) {
+        this.data_prevista = data_prevista;
     }
-
-   
+    
     
 }

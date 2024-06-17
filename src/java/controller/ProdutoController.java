@@ -40,8 +40,13 @@ public class ProdutoController extends HttpServlet {
 
             UsuarioDAO usuarios = new UsuarioDAO();
             UsuarioDTO usuario = new UsuarioDTO();
-
- 
+Cookie[] cookies = request.getCookies();
+                    for (Cookie cookie : cookies) {   
+                      if (cookie.getName().equals("continuarLogin")) {
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+                      }
+                    } 
     int id_produto = Integer.parseInt(request.getParameter("id"));
         List<ProdutoDTO> produtos = produtosDAO.buscarProduto(id_produto);
         request.setAttribute("produtos", produtos);
@@ -88,18 +93,17 @@ public class ProdutoController extends HttpServlet {
                       if(cookies != null){   
                     for (Cookie cookie : cookies) {
                       if (cookie.getName().equals("continuarLogin")) {
+              int idUsuario = Integer.parseInt(cookie.getValue());
+
         if(action.equals("/enviarItemCarrinho")){
                       produto(request, response);
                }
-            }            
-          out.println("<script type=\"text/javascript\">");
-            out.println("alert('Faça o login para poder adicionar produtos ao carrinho');");
+        
+            }
+        } out.println("<script type=\"text/javascript\">");
+            out.println("alert('Faça o login para poder adicionar produtos ao carrinho3');");
             out.println("window.location.href = './loginCliente';");
-            out.println("</script>");
- 
-        }
- 
-            
+            out.println("</script>");             
         }else {
             processRequest(request, response);
         } 
@@ -108,6 +112,8 @@ public class ProdutoController extends HttpServlet {
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
+                 System.out.println("usuario id: "+carrinhos.getUsuarioId3());
+                 System.out.println("categoria id: "+carrinhos.getCategoriaId3());
             carrinhos.setNomeCarrinho(request.getParameter("nome_produto"));
             carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
             carrinhos.setDescricaoCarrinho(request.getParameter("descricao"));
@@ -115,6 +121,8 @@ public class ProdutoController extends HttpServlet {
             carrinhos.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
             carrinhos.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
             carrinhos.setImagemCarrinho(request.getParameter("imagem"));
+            carrinhos.setCategoriaId3(Integer.parseInt(request.getParameter("categoriaId")));
+            carrinhos.setUsuarioId3(Integer.parseInt(request.getParameter("id_usuario")));
             carrinho.cadastrarCarrinho(carrinhos);
           out.println("<script type=\"text/javascript\">");
             out.println("alert('Produto adicionado ao carrinho com sucesso');");

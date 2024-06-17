@@ -111,8 +111,6 @@ public class UsuarioDAO {
             stmt.setInt(1, idUsuarioCookie);
             rs = stmt.executeQuery();
             if (rs.next()) {
-                System.out.println("aquii id cookie usuario");
-                System.out.println(idUsuario = rs.getInt("id_usuario"));
 
                 objUsuario.setId_usuario(rs.getInt("id_usuario"));
                 objUsuario.setNome(rs.getString("nome"));

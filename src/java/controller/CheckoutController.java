@@ -19,23 +19,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
 import model.DAO.EnderecoDAO;
+import model.DAO.PedidosProdutosDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.EnderecosDTO;
+import model.bean.PedidosProdutosDTO;
 import model.bean.UsuarioDTO;
 
 /**
  *
  * @author Leandro
  */
-@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco"})
+@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco","/AdicionarItemProdutosPedidos"})
 @MultipartConfig
 public class CheckoutController extends HttpServlet {
     CarrinhoDTO carrinhosdto = new CarrinhoDTO();
     CarrinhoDAO carrinho = new CarrinhoDAO();
     EnderecosDTO enderecosdto = new EnderecosDTO();
     EnderecoDAO endereco = new EnderecoDAO();
-    
+    PedidosProdutosDAO pedidosProdutosDao = new PedidosProdutosDAO();
+    PedidosProdutosDTO pedidosProdutosDto = new PedidosProdutosDTO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -59,9 +62,9 @@ public class CheckoutController extends HttpServlet {
                 request.setAttribute("usuario", usuario);
                 int idUsuario = Integer.parseInt(cookie.getValue());
                
-                     List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho();       
+        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho(idUsuario);       
         request.setAttribute("carrinhos", carrinhos);
-        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();       
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
                 List<EnderecosDTO> enderecoExistente = endereco.EndercoUsuarios(idUsuario);
                 request.setAttribute("enderecoExistente", enderecoExistente);
@@ -142,11 +145,46 @@ public class CheckoutController extends HttpServlet {
             out.println("</script>"); 
                      }  
                  }
-  }
+  
+            }
         }
+        }  
+               }/*Aqui para cima é somente para o cep, daquip para baixo é para adicionar os produtos aos pedidos*/
+       if(url.equals("/AdicionarItemProdutosPedidos")){
+          if(cookies != null){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarLogin")) {
+           int idUsuario = Integer.parseInt(cookie.getValue());
+                System.out.println("cheguei ");
+           produtoPedidos(request, response);     
+
+            }
         }
-               }
+          }          
+         }        
     }
+            protected void produtoPedidos(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            PrintWriter out = response.getWriter();
+                System.out.println("Nome produtos produto pedidos "+request.getParameter("nome_produto"));
+                System.out.println("numero categoria id: "+ Integer.parseInt(request.getParameter("categoria")));
+            pedidosProdutosDto.setNome_produtos_pedidos(request.getParameter("nomeCarrinho"));
+            pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(request.getParameter("valor")));
+            pedidosProdutosDto.setDescricao_pedidos_produtos(request.getParameter("descricao"));
+            pedidosProdutosDto.setTamanho_id4(Integer.parseInt(request.getParameter("tamanho")));
+            pedidosProdutosDto.setQuantidade_pedidos_produtos(Integer.parseInt(request.getParameter("quantidade")));
+            pedidosProdutosDto.setProduto_id4(Integer.parseInt(request.getParameter("produtoId")));
+            pedidosProdutosDto.setImagem_pedidos_produtos(request.getParameter("imagem"));
+ //           pedidosProdutosDto.setCategoria_id4(Integer.parseInt(request.getParameter("categoria")));
+            pedidosProdutosDto.setUsuario_id4(Integer.parseInt(request.getParameter("id_usuario")));
+            pedidosProdutosDao.cadastrarPedidosProdutos(pedidosProdutosDto);
+          out.println("<script type=\"text/javascript\">");
+            out.println("alert('Produtos adicionado aos pedidos com sucesso');");
+            out.println("window.location.href = './menu';");
+            out.println("</script>");
+
+    }
+    
           protected void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         PrintWriter out = response.getWriter();      

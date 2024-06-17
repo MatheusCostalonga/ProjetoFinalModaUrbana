@@ -134,6 +134,7 @@
                 </div>
                     <div class="InformProduto">
                         <p id="descricaoProduto" >Descrição: ${produto.descricao}</p>
+                         <span>usuario id: ${usuario.id_usuario}</span>
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
                         <input type="number" min="1" max="10" name="quantidade" id="quantidade">
                         <!-- <input type="number" id="quantidade" name="quantidade"> -->
@@ -149,10 +150,13 @@
                       <span id="valorProduto" >Preço: R$${produto.valor}</span>
                        <%-- Adaptei o codigo do Luan e ele me explicou o codigo --%>
             <input type="hidden" name="idProduto" id="idProduto" value="${produto.idProduto}">
+            <input type="hidden" name="categoriaId" id="categoriaId" value="${produto.categoriaId}">
             <input type="hidden" name="descricao" id="descricao" value="${produto.descricao}">
             <input type="hidden" name="nome_produto" id="nome_produto" value="${produto.nome_produto}">
             <input type="hidden" name="valor" id="valor" value="${produto.valor}">
             <input type="hidden" name="imagem" id="imagem" value="${produto.imagem}">
+            <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
+            
    <button type="submit" class="btn btn-comprar" id="comprar">
                         <i class="fa-solid fa-basket-shopping"></i> Adicionar ao carrinho
                     </button>

@@ -46,7 +46,6 @@ public class ProdutosDAO {
             stmt.close();
             conexao.close();
         } catch (SQLException e) {
-            System.out.println("Leitura de produtos: " + e);
         }
         return produtos;
     }

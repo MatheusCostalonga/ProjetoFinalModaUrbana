@@ -10,53 +10,122 @@ package model.bean;
  * @author Senai
  */
 public class PedidosProdutosDTO {
-    
-    private int id_pedido_produto;
-    private int pedido_id;
-    private int produto_id;
-    private float preco_unitario;
+   private int id_pedidosProdutos;
+   private String nome_produtos_pedidos;
+   private float valor_pedidos_produtos;
+   private String imagem_pedidos_produtos;
+   private String descricao_pedidos_produtos;
+   private int quantidade_pedidos_produtos;
+   private int tamanho_id4;
+   private int produto_id4;
+   private int usuario_id4;
+   private int categoria_id4;
+   private String nome_categoria;
 
     public PedidosProdutosDTO() {
     }
 
-    public PedidosProdutosDTO(int id_pedido_produto, int pedido_id, int produto_id, float preco_unitario) {
-        this.id_pedido_produto = id_pedido_produto;
-        this.pedido_id = pedido_id;
-        this.produto_id = produto_id;
-        this.preco_unitario = preco_unitario;
+    public PedidosProdutosDTO(int id_pedidosProdutos, String nome_produtos_pedidos, float valor_pedidos_produtos, String imagem_pedidos_produtos, String descricao_pedidos_produtos, int quantidade_pedidos_produtos, int tamanho_id4, int produto_id4, int usuario_id4, int categoria_id4, String nome_categoria) {
+        this.id_pedidosProdutos = id_pedidosProdutos;
+        this.nome_produtos_pedidos = nome_produtos_pedidos;
+        this.valor_pedidos_produtos = valor_pedidos_produtos;
+        this.imagem_pedidos_produtos = imagem_pedidos_produtos;
+        this.descricao_pedidos_produtos = descricao_pedidos_produtos;
+        this.quantidade_pedidos_produtos = quantidade_pedidos_produtos;
+        this.tamanho_id4 = tamanho_id4;
+        this.produto_id4 = produto_id4;
+        this.usuario_id4 = usuario_id4;
+        this.categoria_id4 = categoria_id4;
+        this.nome_categoria = nome_categoria;
     }
 
-    public int getId_pedido_produto() {
-        return id_pedido_produto;
+    public int getId_pedidosProdutos() {
+        return id_pedidosProdutos;
     }
 
-    public void setId_pedido_produto(int id_pedido_produto) {
-        this.id_pedido_produto = id_pedido_produto;
+    public void setId_pedidosProdutos(int id_pedidosProdutos) {
+        this.id_pedidosProdutos = id_pedidosProdutos;
     }
 
-    public int getPedido_id() {
-        return pedido_id;
+    public String getNome_produtos_pedidos() {
+        return nome_produtos_pedidos;
     }
 
-    public void setPedido_id(int pedido_id) {
-        this.pedido_id = pedido_id;
+    public void setNome_produtos_pedidos(String nome_produtos_pedidos) {
+        this.nome_produtos_pedidos = nome_produtos_pedidos;
     }
 
-    public int getProduto_id() {
-        return produto_id;
+    public float getValor_pedidos_produtos() {
+        return valor_pedidos_produtos;
     }
 
-    public void setProduto_id(int produto_id) {
-        this.produto_id = produto_id;
+    public void setValor_pedidos_produtos(float valor_pedidos_produtos) {
+        this.valor_pedidos_produtos = valor_pedidos_produtos;
     }
 
-    public float getPreco_unitario() {
-        return preco_unitario;
+    public String getImagem_pedidos_produtos() {
+        return imagem_pedidos_produtos;
     }
 
-    public void setPreco_unitario(float preco_unitario) {
-        this.preco_unitario = preco_unitario;
+    public void setImagem_pedidos_produtos(String imagem_pedidos_produtos) {
+        this.imagem_pedidos_produtos = imagem_pedidos_produtos;
     }
-    
-    
+
+    public String getDescricao_pedidos_produtos() {
+        return descricao_pedidos_produtos;
+    }
+
+    public void setDescricao_pedidos_produtos(String descricao_pedidos_produtos) {
+        this.descricao_pedidos_produtos = descricao_pedidos_produtos;
+    }
+
+    public int getQuantidade_pedidos_produtos() {
+        return quantidade_pedidos_produtos;
+    }
+
+    public void setQuantidade_pedidos_produtos(int quantidade_pedidos_produtos) {
+        this.quantidade_pedidos_produtos = quantidade_pedidos_produtos;
+    }
+
+    public int getTamanho_id4() {
+        return tamanho_id4;
+    }
+
+    public void setTamanho_id4(int tamanho_id4) {
+        this.tamanho_id4 = tamanho_id4;
+    }
+
+    public int getProduto_id4() {
+        return produto_id4;
+    }
+
+    public void setProduto_id4(int produto_id4) {
+        this.produto_id4 = produto_id4;
+    }
+
+    public int getUsuario_id4() {
+        return usuario_id4;
+    }
+
+    public void setUsuario_id4(int usuario_id4) {
+        this.usuario_id4 = usuario_id4;
+    }
+
+    public int getCategoria_id4() {
+        return categoria_id4;
+    }
+
+    public void setCategoria_id4(int categoria_id4) {
+        this.categoria_id4 = categoria_id4;
+    }
+
+    public String getNome_categoria() {
+        return nome_categoria;
+    }
+
+    public void setNome_categoria(String nome_categoria) {
+        this.nome_categoria = nome_categoria;
+    }
+
+   
 }
