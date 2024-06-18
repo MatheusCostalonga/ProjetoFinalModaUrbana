@@ -1,0 +1,117 @@
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #C0C1D6;
+}
+main{
+    display: flex;
+}
+body img{
+    width: 50%;
+    height: 100vh;
+    background-color: #C0C1D6;  
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+    
+#fundo{
+    width: 100vw;
+    height: 100vh;
+    background-color: #C0C1D6;
+    display:flexbox;   
+    align-content: center;
+    justify-content: center;
+    position: relative; 
+}
+#fundo h1{
+    position: absolute; 
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    font-weight: 400;
+    top: 20vh;
+    left: 185px; 
+    /* box-shadow: 50px, 20px, 10px rgb(0, 0, 0); */
+}
+#usuario, #senha{
+    border: none;
+    width: 450px;
+    height: 35px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    left: 45px;
+    border-radius: 2px;
+}
+#usuario{
+
+    font-size: 15px;
+
+    position: absolute;
+    top: 32vh;
+    
+}
+#senha{
+    margin-top: 0px;
+    font-size: 15px;
+
+    position: absolute; 
+    top: 43vh;
+    
+}
+
+.usuario, .senha{
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    font-family: Segoe UI;
+    left: 35px;
+}
+ .usuario{
+    position: absolute;
+    top: 28vh;
+
+}
+.senha{
+    position: absolute;
+    top: 39vh;
+    left: 36px;
+} 
+#button{
+    background-color: #303247;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 180px;
+    height: 45px;
+    position: absolute;
+    top: 50vh;
+    left: 180px;
+    font-size: 26px;
+}
+#usuarioIcone{
+    color: #000000;
+    position: absolute;
+    top: 32.3vh;
+    left: 10px;
+    font-size: 32.5px;
+}
+#cadeadoIcone{
+    color: #000000;
+    position: absolute;
+    top: 43.3vh;
+    left: 10px   ;
+    font-size: 32.5px;
+}
+
+#linkCadastro{
+    color: #0119F5;
+    position: absolute;
+    top: 55vh;
+    left: 172px;
+    font-size: 13px;
+    text-decoration: none;
+}
