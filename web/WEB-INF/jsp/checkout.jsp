@@ -167,10 +167,11 @@
                             <div class="infProd">
                                 <!-- Formulário separado para excluir o item do carrinho -->
                                 <form action="ExcluirItemCarrinho" method="post">
-                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho})">
+                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho})">
                                     <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
                                 </button>
                                     <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
+                                    <input type="hidden" name="quantidadeCarrinho" value="${carrinho.quantidadeCarrinho}">
                                 </form>
                                 <p class="card-text">Categoria ID: R$${carrinho.categoriaId3}</p>
                                 <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>

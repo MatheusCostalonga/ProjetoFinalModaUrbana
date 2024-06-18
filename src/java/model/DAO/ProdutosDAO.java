@@ -386,6 +386,42 @@ public int consultarQuantidadeProduto(int produtoId) {
     
     return quantidade;
 }
-
+public int diminuirQuantidadeProduto(int quantidadeDesejada, int produtoId){
+    
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+    
+    if(rs.next()){
+        int quantidadeAtual = rs.getInt("quantidade");
+        System.out.println("quantidadeDesejada "+quantidadeDesejada);
+        System.out.println("quantidadeAtual "+quantidadeAtual);
+        if(quantidadeAtual >= quantidadeDesejada){
+            
+            int novaQuantidade = quantidadeAtual - quantidadeDesejada;
+            System.out.println("chego aqui no deletarProdutoQuantidade "+ novaQuantidade);
+        stmt = conexao.prepareStatement("UPDATE produtos SET quantidade = ? WHERE id_produto = ?");
+        stmt.setInt(1, novaQuantidade);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+        
+        conexao.commit();
+        rs.close();
+        stmt.close();
+        conexao.close();      
+        }
+        
+    }
+    
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+return 0;
+} 
 
 }

@@ -101,7 +101,10 @@ Cookie[] cookies = request.getCookies();
        int produtoId = Integer.parseInt(request.getParameter("idProduto"));
        int quantEstoque = produtosDAO.consultarQuantidadeProduto(produtoId);
                     if (quantEstoque >= quantDesejada) {
-                      produto(request, response);
+                        System.out.println("diminuirquantidadeDesejada "+quantDesejada);
+                        System.out.println("diminuirProdutoId "+produtoId);
+                      produtosDAO.diminuirQuantidadeProduto(quantDesejada, produtoId);  
+                      produto(request, response);        
                     } else{
                         out.println("<script type=\"text/javascript\">");
             out.println("alert('Não temos tudo isso no estoque, sinto muito');");

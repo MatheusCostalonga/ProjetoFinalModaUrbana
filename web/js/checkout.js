@@ -38,7 +38,8 @@ const CepMascara = (value) => {
         fetch('ExcluirItemCarrinho', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `idCarrinho=${idCarrinho}`
+            body: `idCarrinho=${idCarrinho}`,
+            body: `quantidadeCarrinho=${quantidadeCarrinho}`
         })
         .then(response => {
             if (response.ok) {

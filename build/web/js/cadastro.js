@@ -20,7 +20,7 @@ if (nome.trim() === "") {
         warningToast(text = 'Preencha o campo CPF corretamente!');
         frmRegister.cpf.focus();
         return false;
-    } else /*CPF*/if (users && users.some(item => item.cpf === cpf)) {
+    } else if (users && users.some(item => item.cpf === cpf)) {
         errorToast(text = 'Cpf de usuário já possui um cadastro!');
         frmRegister.cpf.focus();
         return false;
@@ -32,7 +32,7 @@ if (nome.trim() === "") {
         warningToast(text = 'Preencha o campo Telefone corretamente!');
         frmRegister.telefone.focus();
         return false;
-    } else /*Telefone*/ if (users && users.some(item => item.telefone === telefone)) {
+    } else if (users && users.some(item => item.telefone === telefone)) {
         errorToast(text = 'Esse numero de telefone ja possui um cadastro!');
         frmRegister.telefone.focus();
         return false;
@@ -48,7 +48,7 @@ if (nome.trim() === "") {
         warningToast(text = 'Preencha o campo Nome de Usuario!');
         frmRegister.usuario.focus();
         return false;
-    } else  /*usuario*/ if (users && users.some(item => item.usuario === usuario)) {
+    } else if (users && users.some(item => item.usuario === usuario)) {
         errorToast(text = 'Esse nome de usuario ja possui um cadastro!');
         frmRegister.usuario.focus();
         return false;

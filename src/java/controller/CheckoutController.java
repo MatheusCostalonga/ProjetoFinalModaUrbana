@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
 import model.DAO.EnderecoDAO;
 import model.DAO.PedidosProdutosDAO;
+import model.DAO.ProdutosDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.EnderecosDTO;
@@ -39,6 +40,8 @@ public class CheckoutController extends HttpServlet {
     EnderecoDAO endereco = new EnderecoDAO();
     PedidosProdutosDAO pedidosProdutosDao = new PedidosProdutosDAO();
     PedidosProdutosDTO pedidosProdutosDto = new PedidosProdutosDTO();
+    ProdutosDAO produtosDao = new ProdutosDAO();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -162,6 +165,7 @@ public class CheckoutController extends HttpServlet {
          } else if(url.equals("/ExcluirItemCarrinho")){
            int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));
            carrinho.deletarProdutoCarrinho(idCarrinho);
+    //       produtosDao.aumentarQuantidadeProduto(idProduto, quantidadeCarrinho);
        }
     }
             protected void produtoPedidos(HttpServletRequest request, HttpServletResponse response)
@@ -180,7 +184,6 @@ public class CheckoutController extends HttpServlet {
                 int usuarioId = Integer.parseInt(request.getParameter("id_usuario"));
             
                 for (int i = 0; i < nomeCarrinho.length; i++) {
-
     // Defini o valor dos atributos do PedidosProdutosDto com os valores correspondentes de cada item
     pedidosProdutosDto.setNome_produtos_pedidos(nomeCarrinho[i]);
     pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(valor[i]));
