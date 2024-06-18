@@ -50,7 +50,7 @@ public class CarrinhoDAO {
         try{
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-                                 stmt = conexao.prepareStatement("INSERT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho,tamanho_id3, produto_id3, usuario_id3, categoria_id3) VALUES (?,?,?,?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho,tamanho_id3, produto_id3, usuario_id3, categoria_id3) VALUES (?,?,?,?,?,?,?,?,?)");
 
            //                      stmt = conexao.prepareStatement("INSERT INTO carrinho (nome_produto_carrinho, valor_produto_carrinho, imagem_produto_carrinho, descricao_produto_carrinho, quantidade_carrinho,tamanho_id3, produto_id3, usuario_id3) VALUES (?,?,?,?,?,?,?,?)");
             stmt.setString(1, c.getNomeCarrinho());
@@ -70,14 +70,30 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
-        public void deletarProdutoCarrinho(CarrinhoDTO objCarrinho){
+    
+ public void deletarCarrinho(){
         try{
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho");
-            stmt.setString(1, Integer.toString(objCarrinho.getId_carrinho()));
+            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho > 0");
 
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+    }
+    
+        public void deletarProdutoCarrinho(int idCarrinho){
+        try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+            System.out.println("idCarrinhoDAO: "+idCarrinho);
+            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho = ?");
+            stmt.setInt(1, idCarrinho);
+            
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
@@ -141,8 +157,7 @@ public List<CarrinhoDTO> MostrarTamanho(int idUsuario){
         ResultSet rs = null;
         
      // sem categoria id 3   stmt = conexao.prepareStatement("SELECT carrinho.id_carrinho, carrinho.nome_produto_carrinho, carrinho.valor_produto_carrinho, carrinho.imagem_produto_carrinho, carrinho.descricao_produto_carrinho, carrinho.quantidade_carrinho, carrinho.total, categorias.nome_categoria, carrinho.usuario_id3, tamanho.tamanho_produto FROM carrinho INNER JOIN produtos ON carrinho.produto_id3 = produtos.id_produto INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria INNER JOIN tamanho ON carrinho.tamanho_id3 = tamanho.id_tamanho WHERE carrinho.usuario_id3 = ?");
-        stmt = conexao.prepareStatement("SELECT carrinho.id_carrinho, carrinho.nome_produto_carrinho, carrinho.valor_produto_carrinho, carrinho.imagem_produto_carrinho, carrinho.descricao_produto_carrinho, carrinho.quantidade_carrinho, carrinho.total, categorias.nome_categoria, carrinho.usuario_id3,carrinho.categoria_id3, tamanho.tamanho_produto FROM carrinho INNER JOIN produtos ON carrinho.produto_id3 = produtos.id_produto INNER JOIN categorias ON carrinho.categoria_id3 = categorias.id_categoria INNER JOIN tamanho ON carrinho.tamanho_id3 = tamanho.id_tamanho WHERE carrinho.usuario_id3 = ?");
-
+        stmt = conexao.prepareStatement("SELECT carrinho.id_carrinho, carrinho.nome_produto_carrinho, carrinho.valor_produto_carrinho, carrinho.imagem_produto_carrinho, carrinho.descricao_produto_carrinho, carrinho.quantidade_carrinho, carrinho.total, categorias.nome_categoria, carrinho.usuario_id3, carrinho.tamanho_id3, carrinho.produto_id3, carrinho.categoria_id3, tamanho.tamanho_produto FROM carrinho INNER JOIN produtos ON carrinho.produto_id3 = produtos.id_produto INNER JOIN categorias ON carrinho.categoria_id3 = categorias.id_categoria INNER JOIN tamanho ON carrinho.tamanho_id3 = tamanho.id_tamanho WHERE carrinho.usuario_id3 = ?");
        stmt.setInt(1, idUsuario);
 
       
@@ -159,6 +174,8 @@ public List<CarrinhoDTO> MostrarTamanho(int idUsuario){
             carrinho.setTamanho(rs.getString("tamanho_produto"));
             carrinho.setNomeCategoria(rs.getString("nome_categoria"));
             carrinho.setCategoriaId3(rs.getInt("categoria_id3"));       
+            carrinho.setTamanhoId3(rs.getInt("tamanho_id3"));
+            carrinho.setProdutoId3(rs.getInt("produto_id3"));
             carrinhos.add(carrinho);
              
             

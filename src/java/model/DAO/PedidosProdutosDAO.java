@@ -58,6 +58,7 @@ public class PedidosProdutosDAO {
             stmt.setInt(9, p.getCategoria_id4());
             System.out.println("nome produtos pedidos dao: "+p.getNome_produtos_pedidos());
             System.out.println("categoria produtos pedidos dao: "+p.getCategoria_id4());
+            System.out.println("tamanho produtos pedidos dao "+p.getTamanho_id4());
             
             stmt.executeUpdate();
             stmt.close();

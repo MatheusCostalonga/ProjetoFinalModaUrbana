@@ -30,7 +30,7 @@ import model.bean.UsuarioDTO;
  *
  * @author Leandro
  */
-@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco","/AdicionarItemProdutosPedidos"})
+@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco","/AdicionarItemProdutosPedidos","/ExcluirItemCarrinho"})
 @MultipartConfig
 public class CheckoutController extends HttpServlet {
     CarrinhoDTO carrinhosdto = new CarrinhoDTO();
@@ -150,38 +150,54 @@ public class CheckoutController extends HttpServlet {
         }
         }  
                }/*Aqui para cima é somente para o cep, daquip para baixo é para adicionar os produtos aos pedidos*/
-       if(url.equals("/AdicionarItemProdutosPedidos")){
+      else if(url.equals("/AdicionarItemProdutosPedidos")){
           if(cookies != null){
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarLogin")) {
            int idUsuario = Integer.parseInt(cookie.getValue());
-                System.out.println("cheguei ");
            produtoPedidos(request, response);     
-
-            }
+            }              
         }
-          }          
-         }        
+          }        
+         } else if(url.equals("/ExcluirItemCarrinho")){
+           int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));
+           carrinho.deletarProdutoCarrinho(idCarrinho);
+       }
     }
             protected void produtoPedidos(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
-                System.out.println("Nome produtos produto pedidos "+request.getParameter("nome_produto"));
-                System.out.println("numero categoria id: "+ Integer.parseInt(request.getParameter("categoria")));
-            pedidosProdutosDto.setNome_produtos_pedidos(request.getParameter("nomeCarrinho"));
-            pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(request.getParameter("valor")));
-            pedidosProdutosDto.setDescricao_pedidos_produtos(request.getParameter("descricao"));
-            pedidosProdutosDto.setTamanho_id4(Integer.parseInt(request.getParameter("tamanho")));
-            pedidosProdutosDto.setQuantidade_pedidos_produtos(Integer.parseInt(request.getParameter("quantidade")));
-            pedidosProdutosDto.setProduto_id4(Integer.parseInt(request.getParameter("produtoId")));
-            pedidosProdutosDto.setImagem_pedidos_produtos(request.getParameter("imagem"));
- //           pedidosProdutosDto.setCategoria_id4(Integer.parseInt(request.getParameter("categoria")));
-            pedidosProdutosDto.setUsuario_id4(Integer.parseInt(request.getParameter("id_usuario")));
-            pedidosProdutosDao.cadastrarPedidosProdutos(pedidosProdutosDto);
-          out.println("<script type=\"text/javascript\">");
-            out.println("alert('Produtos adicionado aos pedidos com sucesso');");
-            out.println("window.location.href = './menu';");
-            out.println("</script>");
+            
+                // Obtém os valores dos parâmetros do jsp como arrays
+                String[] nomeCarrinho = request.getParameterValues("nomeCarrinho");
+                String[] valor = request.getParameterValues("valor");
+                String[] descricao = request.getParameterValues("descricao");
+                String[] tamanho = request.getParameterValues("tamanho");
+                String[] quantidade = request.getParameterValues("quantidade");
+                String[] produtoId = request.getParameterValues("produtoId");
+                String[] categoria = request.getParameterValues("categoria");
+                String[] imagem = request.getParameterValues("imagem");
+                int usuarioId = Integer.parseInt(request.getParameter("id_usuario"));
+            
+                for (int i = 0; i < nomeCarrinho.length; i++) {
+
+    // Defini o valor dos atributos do PedidosProdutosDto com os valores correspondentes de cada item
+    pedidosProdutosDto.setNome_produtos_pedidos(nomeCarrinho[i]);
+    pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(valor[i]));
+    pedidosProdutosDto.setDescricao_pedidos_produtos(descricao[i]);
+    pedidosProdutosDto.setTamanho_id4(Integer.parseInt(tamanho[i]));
+    pedidosProdutosDto.setQuantidade_pedidos_produtos(Integer.parseInt(quantidade[i]));
+    pedidosProdutosDto.setProduto_id4(Integer.parseInt(produtoId[i]));
+    pedidosProdutosDto.setCategoria_id4(Integer.parseInt(categoria[i]));
+    pedidosProdutosDto.setImagem_pedidos_produtos(imagem[i]);
+    pedidosProdutosDto.setUsuario_id4(usuarioId);
+
+    // Chama o método do DAO para cadastrar o pedido de produto
+    pedidosProdutosDao.cadastrarPedidosProdutos(pedidosProdutosDto);
+
+} 
+    carrinho.deletarCarrinho();
+
 
     }
     
