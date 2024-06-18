@@ -90,7 +90,6 @@ public class CarrinhoDAO {
         try{
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
-            System.out.println("idCarrinhoDAO: "+idCarrinho);
             stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho = ?");
             stmt.setInt(1, idCarrinho);
             
@@ -123,7 +122,7 @@ public class CarrinhoDAO {
         return Carrinho;
     }
     
-        public List<CarrinhoDTO> somarProdutos( ) {
+        public List<CarrinhoDTO> somarProdutos() {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{
          Connection conexao = Conexao.conectar();
@@ -148,7 +147,7 @@ while(rs.next()){
          
 
          
-public List<CarrinhoDTO> MostrarTamanho(int idUsuario){
+public List<CarrinhoDTO> MostrarTudo(int idUsuario){
         List<CarrinhoDTO> carrinhos = new ArrayList<>();
         System.out.println("id DAO Usuario"+idUsuario);
     try{

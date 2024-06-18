@@ -85,7 +85,7 @@ public class CentralController extends HttpServlet {
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
                 //Eu fiz essa parte para baixo   
-         List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho(idUsuario);       
+         List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
         request.setAttribute("carrinhos", carrinhos);  
         System.out.println("infor car"+carrinhos);
            

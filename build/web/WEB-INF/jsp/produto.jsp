@@ -136,7 +136,7 @@
                         <p id="descricaoProduto" >Descrição: ${produto.descricao}</p>
                          <span>usuario id: ${usuario.id_usuario}</span>
                         <span id="TextQuantidade" for="quantidade">Quantidade:</span>
-                        <input type="number" min="1" max="10" name="quantidade" id="quantidade">
+                        <input type="number" min="1" name="quantidade" id="quantidade">
                         <!-- <input type="number" id="quantidade" name="quantidade"> -->
                         <span id="TextTamanho" >Tamanho:</span>
                         <select class="form-control" name="tamanho_id" id="tamanho_id">

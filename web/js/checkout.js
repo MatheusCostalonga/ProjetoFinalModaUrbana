@@ -1,11 +1,7 @@
-
-
 const CepInput = (event) => {
     let input = event.target; // Pega o que esta no input em que está o onkeyup="CepMascara(event)"
     input.value = CepMascara(input.value); // Aplica a CepMascara ao valor do campo de entrada
 }
-
-
 
 const CepMascara = (value) => {
     if (!value) return ""; // Retorna uma string vazia se o valor for nulo ou indefinido
@@ -36,3 +32,23 @@ const CepMascara = (value) => {
             document.getElementById("InformCartaoDebito").style.display = "grid";
         }
     });
+    
+    function excluirItemCarrinho(idCarrinho) {
+    if (confirm("Tem certeza que deseja excluir este item do carrinho?")) {
+        fetch('ExcluirItemCarrinho', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `idCarrinho=${idCarrinho}`
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                alert("Falha ao excluir o item do carrinho");
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao excluir o item do carrinho:", error);
+        });
+    }
+}

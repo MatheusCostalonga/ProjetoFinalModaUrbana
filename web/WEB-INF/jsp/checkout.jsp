@@ -145,70 +145,68 @@
 
    </div>                        
 </div>
-            <form action="AdicionarItemProdutosPedidos" method="post" enctype="multipart/form-data">
+<form action="AdicionarItemProdutosPedidos" method="post" enctype="multipart/form-data">
+    <div id="TudoSobreProdutos">
+        <h1>Produtos do carrinho</h1>
 
-                                        <div id="TudoSobreProdutos">
-
-                    <h1>Produtos do carrinho</h1>
-
-            <section class="ProdutosCarrinhoCheckout">
-        <div id="ProdutosCheckout">
-            <div id="ProdutoMainCarrinho">
-             <c:forEach items="${carrinhos}" var="carrinho">
-                <div class="informacoesProdutosCheckout">
-            <img src="${carrinho.imagemCarrinho}" alt="...">
-          <div class="infProd">
-                <p class="card-title">${carrinho.nomeCarrinho}</p>
-            <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
-            </div>
-            <div class="infProd">
-            <p class="card-text">Tamanho id: ${carrinho.tamanhoId3}</p>                
-            <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
-              <p class="card-text">Categorias: ${carrinho.nomeCategoria}</p>
-            </div>
-              <div class="infProd">
+        <section class="ProdutosCarrinhoCheckout">
+            <div id="ProdutosCheckout">
+                <div id="ProdutoMainCarrinho">
+                    <c:forEach items="${carrinhos}" var="carrinho">
+                        <div class="informacoesProdutosCheckout">
+                            <img src="${carrinho.imagemCarrinho}" alt="...">
+                            <div class="infProd">
+                                <p class="card-title">${carrinho.nomeCarrinho}</p>
+                                <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
+                            </div>
+                            <div class="infProd">
+                                <p class="card-text">Tamanho id: ${carrinho.tamanhoId3}</p>
+                                <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
+                                <p class="card-text">Categorias: ${carrinho.nomeCategoria}</p>
+                            </div>
+                            <div class="infProd">
+                                <!-- Formulário separado para excluir o item do carrinho -->
                                 <form action="ExcluirItemCarrinho" method="post">
-                                    <button class="button" type="submit">
-                                        <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
-                                    </button>
+                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho})">
+                                    <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
+                                </button>
                                     <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
                                 </form>
-
-              <p class="card-text">produto id: R$${carrinho.id_carrinho}</p>
-              <p class="card-text">categoria id: R$${carrinho.categoriaId3}</p>
-              <p  class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
-              <p class="card-text">Valor Unidade: R$${carrinho.valorCarrinho}</p>
-              
+                                <p class="card-text">Categoria ID: R$${carrinho.categoriaId3}</p>
+                                <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
+                                <p class="card-text">Valor Unidade: R$${carrinho.valorCarrinho}</p>
+                            </div>
+                        </div>
+                        <!-- Campos escondidos para adicionar produtos aos pedidos -->
+                        <input type="hidden" name="produtoId" value="${carrinho.produtoId3}">
+                        <input type="hidden" name="descricao" value="${carrinho.descricaoCarrinho}">
+                        <input type="hidden" name="nomeCarrinho" value="${carrinho.nomeCarrinho}">
+                        <input type="hidden" name="valor" value="${carrinho.valorCarrinho}">
+                        <input type="hidden" name="quantidade" value="${carrinho.quantidadeCarrinho}">
+                        <input type="hidden" name="tamanho" value="${carrinho.tamanhoId3}">
+                        <input type="hidden" name="categoria" value="${carrinho.categoriaId3}">
+                        <input type="hidden" name="imagem" value="${carrinho.imagemCarrinho}">
+                    </c:forEach>
+                    <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
+                </div>
             </div>
-</div>
-            <input type="hidden" name="produtoId" id="produtoId" value="${carrinho.produtoId3}">
-            <input type="hidden" name="descricao" id="descricao" value="${carrinho.descricaoCarrinho}">
-            <input type="hidden" name="nomeCarrinho" id="nomeCarrinho" value="${carrinho.nomeCarrinho}">
-            <input type="hidden" name="valor" id="valor" value="${carrinho.valorCarrinho}">
-            <input type="hidden" name="quantidade" id="quantidade" value="${carrinho.quantidadeCarrinho}">
-            <input type="hidden" name="tamanho" id="tamanho" value="${carrinho.tamanhoId3}">
-            <input type="hidden" name="categoria" id="categoria" value="${carrinho.categoriaId3}">
-            <input type="hidden" name="imagem" id="imagem" value="${carrinho.imagemCarrinho}">
-            <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}"> 
-                          </c:forEach>
-</div>
-</div>
-</section>
+        </section>
 
-<div class="totalProdutosCheckout">
-    <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
-        <div class="valorTotal">
-            <span class="text"> Valor Total: R$ ${totalCarrinhos.total}</span>
+        <div class="totalProdutosCheckout">
+            <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
+                <div class="valorTotal">
+                    <span class="text"> Valor Total: R$ ${totalCarrinhos.total}</span>
+                </div>
+            </c:forEach>
         </div>
-    </c:forEach>   
-</div>
 
-                    <div id="finalizacao">
-    <button type="submit">Finalizar Compra</button>
-<a href="./menu">Deseja voltar as compras? click aqui</a>
-</div>
-</div>
-        </form>
+        <div id="finalizacao">
+            <button type="submit">Finalizar Compra</button>
+            <a href="./menu">Deseja voltar às compras? Clique aqui</a>
+        </div>
+    </div>
+</form>
+
 </div>
                     </main>
 <footer>

@@ -62,7 +62,7 @@ public class CheckoutController extends HttpServlet {
                 request.setAttribute("usuario", usuario);
                 int idUsuario = Integer.parseInt(cookie.getValue());
                
-        List<CarrinhoDTO> carrinhos = carrinho.MostrarTamanho(idUsuario);       
+        List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
         request.setAttribute("carrinhos", carrinhos);
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);

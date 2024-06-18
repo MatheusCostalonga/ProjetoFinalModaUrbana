@@ -33,10 +33,10 @@ public class ProdutoController extends HttpServlet {
 
     CarrinhoDTO carrinhos = new CarrinhoDTO();
     CarrinhoDAO carrinho = new CarrinhoDAO();
+   ProdutosDAO produtosDAO = new ProdutosDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                ProdutosDAO produtosDAO = new ProdutosDAO();
 
             UsuarioDAO usuarios = new UsuarioDAO();
             UsuarioDTO usuario = new UsuarioDTO();
@@ -95,13 +95,24 @@ Cookie[] cookies = request.getCookies();
                       if (cookie.getName().equals("continuarLogin")) {
               int idUsuario = Integer.parseInt(cookie.getValue());
 
+              
         if(action.equals("/enviarItemCarrinho")){
+       int quantDesejada = Integer.parseInt(request.getParameter("quantidade"));
+       int produtoId = Integer.parseInt(request.getParameter("idProduto"));
+       int quantEstoque = produtosDAO.consultarQuantidadeProduto(produtoId);
+                    if (quantEstoque >= quantDesejada) {
                       produto(request, response);
+                    } else{
+                        out.println("<script type=\"text/javascript\">");
+            out.println("alert('Não temos tudo isso no estoque, sinto muito');");
+            out.println("window.location.href = './menu';");
+            out.println("</script>"); 
+                    }
                }
         
             }
         } out.println("<script type=\"text/javascript\">");
-            out.println("alert('Faça o login para poder adicionar produtos ao carrinho3');");
+            out.println("alert('Faça o login para poder adicionar produtos ao carrinho');");
             out.println("window.location.href = './loginCliente';");
             out.println("</script>");             
         }else {

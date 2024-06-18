@@ -358,4 +358,34 @@ public class ProdutosDAO {
             return produtos;
                          
 }
+              
+public int consultarQuantidadeProduto(int produtoId) {
+    System.out.println("id Produto dao: " + produtoId); // Verificação para o console
+    int quantidade = 0;
+    try {
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
+        stmt.setInt(1, produtoId);
+
+        rs = stmt.executeQuery();
+        if (rs.next()) {
+            ProdutoDTO objProduto = new ProdutoDTO();
+            quantidade = rs.getInt("quantidade");
+        }
+        
+        rs.close();
+        stmt.close();
+        conexao.close();
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return quantidade;
+}
+
+
 }
