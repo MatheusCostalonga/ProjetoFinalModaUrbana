@@ -1,0 +1,299 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+main{
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    height: 82vh;
+    width: 99vw;
+}
+*, ::after, ::before{
+    box-sizing: content-box !important;    
+}
+#TodoCheckout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100vw !important;
+}
+#ProdutosCheckout{
+    /* height: 86vh; */
+    background-color: #D9D9D9;
+    border: black solid 1px;
+    overflow-x: auto;
+    display: grid;
+    /* max-width: 70vw; */
+    height: 60vh;
+    width: 40vw;
+}
+.ProdutosCarrinhoCheckout{
+display: grid;
+justify-content: end;
+width: 45vw;
+justify-items: start;
+margin-right: 1vw;
+}
+.ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho{
+    width: 100%;
+}
+
+.ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout img, 
+.ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout{
+    max-height: 12.72vh;
+    border-bottom: #000 solid 0.25px;
+
+}
+.ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout{
+    text-align: start;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 3fr ;
+    width: 99.8%;
+    border: #000 solid 0.25px;
+
+}
+.ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout
+ .infProd{
+    display: grid;
+    height: auto;
+    max-height: 12.72vh;
+}
+main #informacaoCliente{
+display: block;
+margin-left: 5%;
+
+}
+
+
+main #TodoCheckout #FormasPagamentos .organizarCartao .tituloPagamento{
+    display: grid;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5%;
+}
+h1, h2, h4, h5, h6 {
+    margin-top: 0 !important;
+    border-right: none !important ;
+     margin-bottom: 0 !important; 
+     text-align: center;
+}
+p{
+    border-right: #000 solid 0.25px;
+
+}
+
+main .organizarCartao #InformCartaoCredito input{
+    width: 300px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    justify-content: start;
+    align-items: start;
+}
+
+main .organizarCartao #InformCartaoDebito input{
+    width: 300px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    justify-content: start;
+    align-items: start;
+}
+
+main .organizarCartao #InformCartaoCredito #data-validade{
+    width: 180px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    justify-content: start;
+    align-items: start;
+}
+main #finalizacao{
+    display: grid;
+    margin-top: 1%;
+     justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center; 
+}
+#finalizacao button{
+    width: 175px;
+    font-size: 17px;
+    height: 45px;
+    background-color: #303247;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 3%;
+}
+/* main #imgCartao{
+    width: 70%;
+    height: 80%;
+    align-items: center;
+    justify-items: center;
+    margin-left: 21%;
+} */
+main #InformPix{
+    display: grid;
+    margin-top: 10%;
+    margin-left: 15%;
+    width: 100%;
+    height: 100%;
+}
+main #InformCartaoCredito{
+    display: grid;
+    margin-left: 15%;
+    width: 90%;
+}
+main #InformCartaoDebito{
+    display: grid;
+    margin-left: 15%;
+    width: 90%;
+}
+
+main .organizarCartao{
+    display: grid;
+    margin-top: 2%;
+    align-items: center;
+    justify-items: start;  
+}
+main .organizarCartao #InformCartaoCredito span{
+    justify-content: baseline;
+    justify-items: baseline;
+    align-items: baseline;
+}
+main .organizarCartao #InformCartaoDebito span{
+    justify-content: baseline;
+    justify-items: baseline;
+    align-items: baseline;
+}
+main .organizar{
+    display: grid;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+#informacaoCliente input{
+    width: 443px;
+    /* height: 35px; */
+    font-size: 15px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 4px;
+
+}
+
+main .totalProdutosCheckout{
+    width: 100%;
+    font-size: large;
+    font-weight: 600;
+    display: grid;
+    justify-content: end;
+    justify-items: end;
+    align-items: end;
+
+}
+main .totalProdutosCheckout .valorTotal{
+width: 40vw;
+height: 3vh;
+background-color: #D9D9D9;
+border: #000 solid 0.25px ;
+margin-right: 1vw;
+} 
+
+main #TodoCheckout #informacaoCliente button[type="submit"]{
+    width: 175px;
+    font-size: 17px;
+    height: 45px;
+    background-color: #303247;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 3%;
+
+}
+.button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
+.svgIcon  {
+  fill: white;
+  color: white;
+}
+
+.button:hover {
+
+  border-radius: 50px;
+  transition-duration: .3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+
+
+main #FormasPagamentos .organizarCartao #InformPix #imgpix{
+    background-color: rgb(19, 18, 18);
+    color: white;
+    width: 15vw;
+    height: 25vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    display: grid;
+}
+ footer{
+    margin-top: 2.26%;
+    display: grid;
+    height: 8vh;
+    background-color: #2A2B33;
+    color: white;
+}
+footer .rodape{
+display: grid;
+grid-template-columns: 1fr 1fr;    
+    width: 100%;
+}
+    footer .rodape .redesSociais{
+    margin-left: 0.5%;
+}
+footer .rodape .redesSociais, footer .rodape .metodoContato{
+    display: grid;
+} 
