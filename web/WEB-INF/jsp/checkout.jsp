@@ -157,6 +157,7 @@
                             <img src="${carrinho.imagemCarrinho}" alt="...">
                             <div class="infProd">
                                 <p class="card-title">${carrinho.nomeCarrinho}</p>
+                                <p class="card-title">idProduto: ${carrinho.produtoId3}</p>
                                 <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
                             </div>
                             <div class="infProd">
@@ -167,10 +168,11 @@
                             <div class="infProd">
                                 <!-- Formulário separado para excluir o item do carrinho -->
                                 <form action="ExcluirItemCarrinho" method="post">
-                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho})">
+                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho},${carrinho.produtoId3})">
                                     <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
                                 </button>
                                     <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
+                                    <input type="hidden" name="idProduto" value="${carrinho.produtoId3}">                                    
                                     <input type="hidden" name="quantidadeCarrinho" value="${carrinho.quantidadeCarrinho}">
                                 </form>
                                 <p class="card-text">Categoria ID: R$${carrinho.categoriaId3}</p>

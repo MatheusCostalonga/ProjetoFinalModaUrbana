@@ -164,8 +164,11 @@ public class CheckoutController extends HttpServlet {
           }        
          } else if(url.equals("/ExcluirItemCarrinho")){
            int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));
+           int quantidadeCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
+           int idProduto = Integer.parseInt(request.getParameter("idProduto"));
            carrinho.deletarProdutoCarrinho(idCarrinho);
-    //       produtosDao.aumentarQuantidadeProduto(idProduto, quantidadeCarrinho);
+                   System.out.println("fiz os 2");
+           produtosDao.aumentarQuantidadeProduto(idProduto, quantidadeCarrinho);
        }
     }
             protected void produtoPedidos(HttpServletRequest request, HttpServletResponse response)
