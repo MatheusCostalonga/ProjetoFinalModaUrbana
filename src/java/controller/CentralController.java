@@ -82,7 +82,7 @@ public class CentralController extends HttpServlet {
                 request.setAttribute("usuario", usuario);
                                 int idUsuario = Integer.parseInt(cookie.getValue());
                                         //  Luan me passou e explicou o codigo 
-        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
                 //Eu fiz essa parte para baixo   
          List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
@@ -108,10 +108,6 @@ public class CentralController extends HttpServlet {
 
           
             String nextPage = "/WEB-INF/jsp/index.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else if(url.equals("/pedidoCliente")){
-             String nextPage = "/WEB-INF/jsp/PedidosCliente.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {

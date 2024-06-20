@@ -32,7 +32,7 @@ const CepMascara = (value) => {
             document.getElementById("InformCartaoDebito").style.display = "grid";
         }
     });
-    
+            var metodoPagamento = document.querySelector('input[name="pagamento"]:checked').value;
     function excluirItemCarrinho(idCarrinho, quantidadeCarrinho, produtoId3) {
     if (confirm("Tem certeza que deseja excluir este item do carrinho?")) {
         fetch('ExcluirItemCarrinho', {
@@ -40,15 +40,5 @@ const CepMascara = (value) => {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `idCarrinho=${idCarrinho}&quantidadeCarrinho=${quantidadeCarrinho}&idProduto=${produtoId3}`
         })
-        .then(response => {
-            if (response.ok) {
-                window.location.reload();
-            } else {
-                alert("Falha ao excluir o item do carrinho");
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao excluir o item do carrinho:", error);
-        });
     }
 }

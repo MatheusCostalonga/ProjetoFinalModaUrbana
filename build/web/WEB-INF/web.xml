@@ -32,6 +32,14 @@
         <servlet-name>CheckoutController</servlet-name>
         <servlet-class>controller.CheckoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pedidosClienteController</servlet-name>
+        <servlet-class>controller.pedidosClienteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidosAdmController</servlet-name>
+        <servlet-class>controller.PedidosAdmController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -47,10 +55,6 @@
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/menu</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProdutosController</servlet-name>
-        <url-pattern>/pedidoCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/checkoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosAdmController</servlet-name>
+        <url-pattern>/pedidosAdm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

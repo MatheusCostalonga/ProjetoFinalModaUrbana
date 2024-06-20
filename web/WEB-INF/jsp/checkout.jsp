@@ -135,7 +135,7 @@
         <span>Nome do Titular do Cartão:</span>
         <input type="text" name="nomeTitularCartaoDebito">
         <span>CPF do Titular do Cartão:</span>
-        <input type="text" name="cpfTitularCartaoDebito">
+        <input type="text" value="${usuario.cpf}" name="cpfTitularCartaoDebito">
         <span>Endereço de Cobrança:</span>
         <input type="text" name="enderecoCobrancaDebito">
         <span>Senha do Cartão:</span>
@@ -193,8 +193,7 @@
                     <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
                 </div>
             </div>
-        </section>
-
+        </section>          
         <div class="totalProdutosCheckout">
             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                 <div class="valorTotal">
@@ -202,7 +201,10 @@
                 </div>
             </c:forEach>
         </div>
-
+<c:forEach var="enderecosExistente" items="${enderecoExistente}">
+    <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
+    <input type="text" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">  
+</c:forEach>
         <div id="finalizacao">
             <button type="submit">Finalizar Compra</button>
             <a href="./menu">Deseja voltar às compras? Clique aqui</a>

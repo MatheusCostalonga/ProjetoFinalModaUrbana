@@ -19,11 +19,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
 import model.DAO.EnderecoDAO;
+import model.DAO.PedidosAdmDAO;
 import model.DAO.PedidosProdutosDAO;
 import model.DAO.ProdutosDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.EnderecosDTO;
+import model.bean.PedidosAdmDTO;
 import model.bean.PedidosProdutosDTO;
 import model.bean.UsuarioDTO;
 
@@ -31,7 +33,7 @@ import model.bean.UsuarioDTO;
  *
  * @author Leandro
  */
-@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco","/AdicionarItemProdutosPedidos","/ExcluirItemCarrinho"})
+@WebServlet(urlPatterns = {"/checkout", "/modificarEndereco","/AdicionarItemProdutosPedidos","/ExcluirItemCarrinho",})
 @MultipartConfig
 public class CheckoutController extends HttpServlet {
     CarrinhoDTO carrinhosdto = new CarrinhoDTO();
@@ -41,16 +43,9 @@ public class CheckoutController extends HttpServlet {
     PedidosProdutosDAO pedidosProdutosDao = new PedidosProdutosDAO();
     PedidosProdutosDTO pedidosProdutosDto = new PedidosProdutosDTO();
     ProdutosDAO produtosDao = new ProdutosDAO();
+    PedidosAdmDAO pedidosDao = new PedidosAdmDAO();
+    PedidosAdmDTO pedidosDto = new PedidosAdmDTO();
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                          UsuarioDAO usuarios = new UsuarioDAO();
@@ -67,9 +62,9 @@ public class CheckoutController extends HttpServlet {
                
         List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
         request.setAttribute("carrinhos", carrinhos);
-        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal(idUsuario);       
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
-                List<EnderecosDTO> enderecoExistente = endereco.EndercoUsuarios(idUsuario);
+                List<EnderecosDTO> enderecoExistente = endereco.enderecoUsuarios(idUsuario);
                 request.setAttribute("enderecoExistente", enderecoExistente);
                                if (enderecoExistente == null || enderecoExistente.isEmpty()) {
                     enderecoExistente = new ArrayList<>();
@@ -127,7 +122,7 @@ public class CheckoutController extends HttpServlet {
             if (cookie.getName().equals("continuarLogin")) {
            int idUsuario = Integer.parseInt(cookie.getValue());
            
-              List<EnderecosDTO> enderecoExistente = endereco.EndercoUsuarios(idUsuario);
+              List<EnderecosDTO> enderecoExistente = endereco.enderecoUsuarios(idUsuario);
             String cep = request.getParameter("cep");
                  if (enderecoExistente == null || enderecoExistente.isEmpty()) {
                      if (cep.length() == 9) {
@@ -158,7 +153,10 @@ public class CheckoutController extends HttpServlet {
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarLogin")) {
            int idUsuario = Integer.parseInt(cookie.getValue());
-           produtoPedidos(request, response);     
+
+           
+           produtoPedidos(request, response);
+           
             }              
         }
           }        
@@ -167,7 +165,6 @@ public class CheckoutController extends HttpServlet {
            int quantidadeCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
            int idProduto = Integer.parseInt(request.getParameter("idProduto"));
            carrinho.deletarProdutoCarrinho(idCarrinho);
-                   System.out.println("fiz os 2");
            produtosDao.aumentarQuantidadeProduto(idProduto, quantidadeCarrinho);
        }
     }
@@ -185,7 +182,7 @@ public class CheckoutController extends HttpServlet {
                 String[] categoria = request.getParameterValues("categoria");
                 String[] imagem = request.getParameterValues("imagem");
                 int usuarioId = Integer.parseInt(request.getParameter("id_usuario"));
-            
+                
                 for (int i = 0; i < nomeCarrinho.length; i++) {
     // Defini o valor dos atributos do PedidosProdutosDto com os valores correspondentes de cada item
     pedidosProdutosDto.setNome_produtos_pedidos(nomeCarrinho[i]);
@@ -203,8 +200,10 @@ public class CheckoutController extends HttpServlet {
 
 } 
     carrinho.deletarCarrinho();
-
-
+           int idEndereco = Integer.parseInt(request.getParameter("id_endereco"));
+                System.out.println("id_endereco");
+           String metodoPagamento = request.getParameter("metodoPagamento");
+      pedidosDao.cadastrarInformPedidos(usuarioId, idEndereco);
     }
     
           protected void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
@@ -217,7 +216,7 @@ public class CheckoutController extends HttpServlet {
         newEndereco.setUsuario_id1(Integer.parseInt(request.getParameter("id_usuario")));
         newEndereco.setCep(request.getParameter("cep"));
         newEndereco.setComplemento(request.getParameter("complemento"));
-        endereco.inserir(newEndereco);
+        endereco.inserirEndereco(newEndereco);
                     out.println("<script type=\"text/javascript\">");
             out.println("alert('Informações adicionadas com sucesso');");
             out.println("window.location.href = './checkout';");

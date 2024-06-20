@@ -1,6 +1,6 @@
 <%-- 
-    Document   : checkout
-    Created on : 21/05/2024, 21:39:24
+    Document   : PedidosAdm
+    Created on : 20/06/2024, 01:13:15
     Author     : Leandro
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,23 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./styles/checkout.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <link rel="stylesheet" href="./styles/checkout.css">
         <link rel="stylesheet" href="./styles/header.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
-        <title>ecommerce</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>
+        <title>JSP Page</title>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     </head>
     <body>
-        <header>
+ <header>
             <div id="gridHeader">
             <!-- <img class="imagemLogo" src="./assets/ModaUrbanaLogoHome.png" alt="Logo da moda urbana"> -->
             <div id="logoHeader"></div>
@@ -113,66 +105,31 @@
             </div> 
             
         </header>
-    
         <main>
-            <div class="categorias">
-                <div>
-                            <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
-                        </div>
-                        <b> <a href="">Jaqueta</a></b>
-                            <div>
-                                <b> <a href="">Camisa</a></b>
-                            </div>
-                            <div>
-                                <b> <a href="">Camiseta</a></b>
-                            </div>
-                            <div>
-                               <input type="text" value="${usuario.nome}">
-                               <P>LOGIN ${usuario.nome}</P>
-                            </div>
-                            <div>
-                                <b> <a href="">Bermuda </a></b>
-                            </div>
-                        </div> 
-             
-                    <h1 id="TituloProdutoCarrinho">Pedidos:</h1>
+                            <h1 id="TituloProdutoCarrinho">Pedidos:</h1>
             <section class="ProdutosCarrinhoCheckout">
         <div id="ProdutosCheckout">
             <div id="ProdutoMainCarrinho">
-            <c:forEach items="${pedidosCliente}" var="pedidosCliente">
+            <c:forEach items="${pedidosClientesAdm}" var="pedidosClientesAdm">
                 <div class="informacoesProdutosCheckout">
-            <img src="${pedidosCliente.imagem_pedidos_produtos}" alt="...">
+            <img src="${pedidosClientesAdm.imagem_pedidos_produtos}" alt="...">
           <div class="infProd">
-                <h5 class="card-title">${pedidosCliente.nome_produtos_pedidos}</h5>
-            <p class="card-text">Descrição: ${pedidosCliente.descricao_pedidos_produtos}</p>
+                <h5 class="card-title">${pedidosClientesAdm.nome_produtos_pedidos}</h5>
+            <p class="card-text">Descrição: ${pedidosClientesAdm.descricao_pedidos_produtos}</p>
             </div>
             <div class="infProd">
-            <p class="card-text">Tamanho: ${pedidosCliente.nome_tamanho}</p>
-              <p class="card-text">Categorias: ${pedidosCliente.nome_categoria}</p>
+            <p class="card-text">Tamanho: ${pedidosClientesAdm.nome_tamanho}</p>
+              <p class="card-text">Categorias: ${pedidosClientesAdm.nome_categoria}</p>
             </div>
               <div class="infProd">
-              <p  class="card-text">Quantidade: ${pedidosCliente.quantidade_pedidos_produtos}</p>
-              <p class="card-text">Preço: R$${pedidosCliente.valor_pedidos_produtos}</p>
+              <p  class="card-text">Quantidade: ${pedidosClientesAdm.quantidade_pedidos_produtos}</p>
+              <p class="card-text">Preço: R$${pedidosClientesAdm.valor_pedidos_produtos}</p>
             </div>
 </div>
                           </c:forEach>
 </div>
 </div>
 </section>
-                    </main>
-<footer>
-            <div class="rodape">
-            <div class="redesSociais">
-            <span>Visite nossas redes sociais</span>
-           <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
-           <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
-        </div>
-        <div class="metodoContato">
-            <span>Nosso contato para você fazer seu pedido</span>
-            <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
-            <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
-        </div>
-    </div>
-        </footer>                                    
+                            </main>
     </body>
 </html>

@@ -41,12 +41,12 @@ public class PedidosProdutosDAO {
      }   
         return PedidosProdutos;
     }
-      public void cadastrarPedidosProdutos(PedidosProdutosDTO p) {
+      public void cadastrarPedidosProdutos(PedidosProdutosDTO p){
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             
-            stmt = conexao.prepareStatement("INSERT INTO pedidos_produtos (nome_produtos_pedidos, valor_pedidos_produtos, imagem_pedidos_produtos, descricao_pedidos_produtos, quantidade_pedidos_produtos, tamanho_id4, produto_id4, usuario_id4, categoria_id4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO pedidos_cliente (nome_produtos_pedidos, valor_pedidos_produtos, imagem_pedidos_produtos, descricao_pedidos_produtos, quantidade_pedidos_produtos, tamanho_id4, produto_id4, usuario_id4, categoria_id4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, p.getNome_produtos_pedidos());
             stmt.setFloat(2, p.getValor_pedidos_produtos());
             stmt.setString(3, p.getImagem_pedidos_produtos());
@@ -56,11 +56,9 @@ public class PedidosProdutosDAO {
             stmt.setInt(7, p.getProduto_id4());
             stmt.setInt(8, p.getUsuario_id4());
             stmt.setInt(9, p.getCategoria_id4());
-            System.out.println("nome produtos pedidos dao: "+p.getNome_produtos_pedidos());
-            System.out.println("categoria produtos pedidos dao: "+p.getCategoria_id4());
-            System.out.println("tamanho produtos pedidos dao "+p.getTamanho_id4());
-            
             stmt.executeUpdate();
+            
+            
             stmt.close();
             conexao.close();
         } catch(SQLException e) {

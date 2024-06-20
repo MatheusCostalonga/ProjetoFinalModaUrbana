@@ -41,6 +41,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar Produto</a></li>
+                        <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos Clientes</a></li> 
                     </ul>
                 </li>
             </div>
@@ -56,7 +57,7 @@
                         <li><a class="dropdown-item" href="#">Meu Perfil</a></li>       
                         <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
                         <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
-                        <li><a class="dropdown-item" href="./pedidoCliente">Pedidos</a></li> 
+                        <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
   
                     </ul>
                 </li>
