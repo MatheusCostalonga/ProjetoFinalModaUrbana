@@ -85,8 +85,6 @@ public class LoginClienteController extends HttpServlet {
         usuario.setUsuario(request.getParameter("usuario"));
         usuario.setSenha(request.getParameter("senha"));
         PrintWriter out = response.getWriter();
-        System.out.println(usuario.getUsuario());
-        System.out.println(usuario.getSenha());
         int idUsuario = usuarios.validaUsuario(usuario);
         if (usuario.getUsuario().trim().equals("") || usuario.getSenha().trim().equals("")) {
             out.println("<script type=\"text/javascript\">");
@@ -96,7 +94,6 @@ public class LoginClienteController extends HttpServlet {
         } else {
 
             if (idUsuario > 0) {
-                                System.out.println("primeiro:"+idUsuario);
                 Cookie cookie = new Cookie("continuarLogin", Integer.toString(idUsuario));
                 response.addCookie(cookie);
                 if (idUsuario == 1) {

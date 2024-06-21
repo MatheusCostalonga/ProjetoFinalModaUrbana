@@ -203,7 +203,7 @@
         </div>
 <c:forEach var="enderecosExistente" items="${enderecoExistente}">
     <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
-    <input type="text" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">  
+    <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">  
 </c:forEach>
         <div id="finalizacao">
             <button type="submit">Finalizar Compra</button>

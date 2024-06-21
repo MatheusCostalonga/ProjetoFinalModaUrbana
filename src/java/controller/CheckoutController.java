@@ -20,13 +20,13 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
 import model.DAO.EnderecoDAO;
 import model.DAO.PedidosAdmDAO;
-import model.DAO.PedidosProdutosDAO;
+import model.DAO.PedidosClienteDAO;
 import model.DAO.ProdutosDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
 import model.bean.EnderecosDTO;
 import model.bean.PedidosAdmDTO;
-import model.bean.PedidosProdutosDTO;
+import model.bean.PedidosClienteDTO;
 import model.bean.UsuarioDTO;
 
 /**
@@ -40,8 +40,8 @@ public class CheckoutController extends HttpServlet {
     CarrinhoDAO carrinho = new CarrinhoDAO();
     EnderecosDTO enderecosdto = new EnderecosDTO();
     EnderecoDAO endereco = new EnderecoDAO();
-    PedidosProdutosDAO pedidosProdutosDao = new PedidosProdutosDAO();
-    PedidosProdutosDTO pedidosProdutosDto = new PedidosProdutosDTO();
+    PedidosClienteDAO pedidosClientesDao = new PedidosClienteDAO();
+    PedidosClienteDTO pedidosClientesDto = new PedidosClienteDTO();
     ProdutosDAO produtosDao = new ProdutosDAO();
     PedidosAdmDAO pedidosDao = new PedidosAdmDAO();
     PedidosAdmDTO pedidosDto = new PedidosAdmDTO();
@@ -185,18 +185,18 @@ public class CheckoutController extends HttpServlet {
                 
                 for (int i = 0; i < nomeCarrinho.length; i++) {
     // Defini o valor dos atributos do PedidosProdutosDto com os valores correspondentes de cada item
-    pedidosProdutosDto.setNome_produtos_pedidos(nomeCarrinho[i]);
-    pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(valor[i]));
-    pedidosProdutosDto.setDescricao_pedidos_produtos(descricao[i]);
-    pedidosProdutosDto.setTamanho_id4(Integer.parseInt(tamanho[i]));
-    pedidosProdutosDto.setQuantidade_pedidos_produtos(Integer.parseInt(quantidade[i]));
-    pedidosProdutosDto.setProduto_id4(Integer.parseInt(produtoId[i]));
-    pedidosProdutosDto.setCategoria_id4(Integer.parseInt(categoria[i]));
-    pedidosProdutosDto.setImagem_pedidos_produtos(imagem[i]);
-    pedidosProdutosDto.setUsuario_id4(usuarioId);
+    pedidosClientesDto.setNome_produtos_pedidos(nomeCarrinho[i]);
+    pedidosClientesDto.setValor_pedidos_produtos(Float.parseFloat(valor[i]));
+    pedidosClientesDto.setDescricao_pedidos_produtos(descricao[i]);
+    pedidosClientesDto.setTamanho_id4(Integer.parseInt(tamanho[i]));
+    pedidosClientesDto.setQuantidade_pedidos_produtos(Integer.parseInt(quantidade[i]));
+    pedidosClientesDto.setProduto_id4(Integer.parseInt(produtoId[i]));
+    pedidosClientesDto.setCategoria_id4(Integer.parseInt(categoria[i]));
+    pedidosClientesDto.setImagem_pedidos_produtos(imagem[i]);
+    pedidosClientesDto.setUsuario_id4(usuarioId);
 
     // Chama o método do DAO para cadastrar o pedido de produto
-    pedidosProdutosDao.cadastrarPedidosProdutos(pedidosProdutosDto);
+    pedidosClientesDao.cadastrarPedidosProdutos(pedidosClientesDto);
 
 } 
     carrinho.deletarCarrinho();

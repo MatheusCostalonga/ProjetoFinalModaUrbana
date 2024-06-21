@@ -15,7 +15,7 @@
 </head>
 <body>
         <header>
-            <a href="./menu"><i id="IconeList" class="fa-solid fa-list"></i></a>
+            <a href="./menu"><i class="fa-sharp fa-solid fa-house"></i></a>
         </header>
         <main>
             <h2>Cadastrar Produto</h2>

@@ -252,15 +252,13 @@ main #TodoCheckout #informacaoCliente button[type="submit"]{
 .svgIcon {
   width: 12px;
   transition-duration: .3s;
-}
-
-.svgIcon  {
   fill: white;
   color: white;
 }
 
-.button:hover {
 
+
+.button:hover {
   border-radius: 50px;
   transition-duration: .3s;
   background-color: rgb(255, 69, 69);

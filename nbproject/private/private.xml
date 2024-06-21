@@ -5,7 +5,7 @@
             <url>web/WEB-INF/jsp/index.jsp</url>
             <bookmark id="1">
                 <name/>
-                <line>177</line>
+                <line>178</line>
                 <key/>
             </bookmark>
         </file>
@@ -14,27 +14,30 @@
         <group>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/ProdutoController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/CarrinhoDAO.java</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/ProdutoDTO.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/UsuarioDTO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/PedidosAdmDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/checkout.js</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/produto.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/EnderecoDAO.java</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/checkout.jsp</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CheckoutController.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/UsuarioDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/PedidosClienteDTO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/LoginClienteController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/PedidosCliente.jsp</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CentralController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/PedidosClienteDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CadastroClienteController.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/PedidosAdmController.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/PedidosAdm.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/Produtos.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/checkout.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CheckoutController.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CentralController.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/Pedidos.css</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/PedidosAdmDTO.java</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/Produtos.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/ProdutosDAO.java</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/PedidosProdutosDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/PedidosClienteController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/checkout.css</file>
-            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/CarrinhoDTO.java</file>
         </group>
     </open-files>
 </project-private>

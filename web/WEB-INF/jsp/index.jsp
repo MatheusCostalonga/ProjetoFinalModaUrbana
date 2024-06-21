@@ -33,6 +33,9 @@
                     </div>  
                 </form>
             </div>
+            <c:set var="admin" value="${usuario.id_usuario}"/>
+            <c:choose>
+                <c:when test="${admin == 1}">
             <div class="buttonADMIN">   
                 <li id="buttonUsuarioAdmin" class="nav-item dropdown">
                     <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,6 +48,11 @@
                     </ul>
                 </li>
             </div>
+        </c:when>
+        <c:otherwise>
+
+        </c:otherwise> 
+                </c:choose>
 
             <div class="buttonIcone">   
                 <li id="buttonUsuario" class="nav-item dropdown"> 

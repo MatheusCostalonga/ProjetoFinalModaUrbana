@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import model.bean.PedidosAdmDTO;
 
 /**
@@ -28,18 +26,27 @@ public class PedidosAdmDAO {
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        stmt = conexao.prepareStatement("SELECT pa.id_pedido, pc.nome_produtos_pedidos, pc.valor_pedidos_produtos, pc.imagem_pedidos_produtos, pc.descricao_pedidos_produtos, pc.quantidade_pedidos_produtos, pc.data_pedido, pa.usuario_id2, t.tamanho_produto AS nome_tamanho, c.nome_categoria FROM pedidos_adm pa INNER JOIN pedidos_cliente pc ON pa.pedidos_clientes_id = pc.id_pedidosCliente INNER JOIN tamanho t ON pc.tamanho_id4 = t.id_tamanho INNER JOIN categorias c ON pc.categoria_id4 = c.id_categoria");
+        stmt = conexao.prepareStatement("SELECT pa.id_pedido, pc.nome_produtos_pedidos AS nomeProdutos, pc.valor_pedidos_produtos AS valorProduto, pc.imagem_pedidos_produtos AS imagem, pc.descricao_pedidos_produtos AS descricao, pc.quantidade_pedidos_produtos AS quantidade, pc.data_pedido, pa.usuario_id2, u.nome, u.telefone, e.rua, e.cep, e.numero, e.complemento, t.tamanho_produto AS nome_tamanho, c.nome_categoria FROM pedidos_adm pa INNER JOIN pedidos_cliente pc ON pa.pedidos_clientes_id = pc.id_pedidosCliente INNER JOIN tamanho t ON pc.tamanho_id4 = t.id_tamanho INNER JOIN categorias c ON pc.categoria_id4 = c.id_categoria INNER JOIN usuarios u ON pa.usuario_id2 = u.id_usuario INNER JOIN enderecos e ON pa.endereco_id = e.id_endereco");
         rs = stmt.executeQuery();
 
 
         while(rs.next()){
             PedidosAdmDTO objPedidos = new PedidosAdmDTO();
-        objPedidos.setId_pedido(rs.getInt("id_pedidos"));
+        objPedidos.setId_pedido(rs.getInt("id_pedido"));
+        objPedidos.setNomeProdutos(rs.getString("nomeProdutos"));
+        objPedidos.setValorProduto(rs.getFloat("valorProduto"));
+        objPedidos.setImagem(rs.getString("imagem"));
+        objPedidos.setDescricao(rs.getString("descricao"));
+        objPedidos.setQuantidade(rs.getInt("quantidade"));
         objPedidos.setUsuario_id2(rs.getInt("usuario_id2"));
-        objPedidos.setEndereco_id(rs.getInt("endereco_id"));
-        objPedidos.setPedidos_produtos_id(rs.getInt("pedidos_produtos_id"));
-        objPedidos.setStatus_pagamento(rs.getString("status_entrega"));
-        objPedidos.setMetodo_Pagamento(rs.getString("metodo_pagamento"));
+        objPedidos.setNomeUsuario(rs.getString("nome"));
+        objPedidos.setTelefone(rs.getString("telefone"));
+        objPedidos.setRuaEndereco(rs.getString("rua"));
+        objPedidos.setCep(rs.getString("cep"));
+        objPedidos.setNumeroEndereco(rs.getInt("numero"));
+        objPedidos.setComplemento(rs.getString("complemento"));
+        objPedidos.setNomeTamanho(rs.getString("nome_tamanho"));
+        objPedidos.setNomeCategoria(rs.getString("nome_categoria"));
         pedidos.add(objPedidos);
         }  
         rs.close();
@@ -60,11 +67,11 @@ public class PedidosAdmDAO {
             stmt = conexao.prepareStatement("SELECT id_pedidosCliente FROM pedidos_cliente");
             
            rs = stmt.executeQuery();
-            System.out.println("idUsuario: "+idUsuario);
+            System.out.println("cadastrar Inform Pedidos idUsuario: "+idUsuario);
             System.out.println("idEndereco"+ idEndereco);
             while(rs.next()){
                 int idPedidoCliente = rs.getInt("id_pedidosCliente");
-                System.out.println("idPedidoCliente"+idPedidoCliente);
+                System.out.println("idPedidoCliente "+idPedidoCliente);
             stmt = conexao.prepareStatement("INSERT INTO pedidos_adm (usuario_id2, endereco_id, pedidos_clientes_id) VALUES (?,?,?)");
             stmt.setInt(1, idUsuario);
             stmt.setInt(2, idEndereco);
@@ -77,39 +84,5 @@ public class PedidosAdmDAO {
             e.printStackTrace();
         }
     }
-            public int aumentarQuantidadeProduto(int produtoId, int quantidadeCarrinho){
-    try{    
-    Connection conexao = Conexao.conectar();
-    PreparedStatement stmt = null;
-    ResultSet rs = null;
-
-    stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
-    stmt.setInt(1, produtoId);
-    rs = stmt.executeQuery();
-    
-    if(rs.next()){
-        int quantidadeAtual = rs.getInt("quantidade");
-        
-            int novaQuantidade = quantidadeAtual + quantidadeCarrinho;
-
-        stmt = conexao.prepareStatement("UPDATE produtos SET quantidade = ? WHERE id_produto = ?");
-
-
-        stmt.setInt(1, novaQuantidade);
-        stmt.setInt(2, produtoId);
-        stmt.executeUpdate();
-       
-        rs.close();
-        stmt.close();
-        conexao.close();      
-        quantidadeAtual = 0;
-        quantidadeCarrinho = 0;
-        novaQuantidade = 0;
-    }
-    
-    } catch (SQLException e){
-        e.printStackTrace();
-    }
-return 0;
-} 
+  
 }
