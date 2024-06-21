@@ -395,7 +395,7 @@ main .grade .rows{
     width: 20%;
 
     }
-  .grade .horizontal-scroll .horizontal-{
+  .grade .horizontal-scroll{
      width:50vw;
      max-width: 50vw;
      height: auto;
@@ -406,7 +406,9 @@ main .grade .rows{
      align-items: center;
       overflow-x: auto;
       overflow: transparent; 
+      -ms-overflow-style: none;
      scroll-behavior: smooth;
+     scroolbar-width: none;
 }  
 
 main .grade .scrollLeft, main .grade .scrollRight {
