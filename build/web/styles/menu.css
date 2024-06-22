@@ -370,8 +370,7 @@ main .grade .rows .card-body .imagemProduto img{
     flex: 1 1 auto;
     padding: 5rem;
     cursor: pointer;
-    display: grid !important;
-    height: 5vh;
+    display: grid !important;;
     transition: 0.5s all ease-out;
 
 }

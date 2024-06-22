@@ -183,6 +183,19 @@ public class CheckoutController extends HttpServlet {
                 String[] imagem = request.getParameterValues("imagem");
                 int usuarioId = Integer.parseInt(request.getParameter("id_usuario"));
                 
+                    System.out.println("Dados Recebidos: ");
+    for (int i = 0; i < nomeCarrinho.length; i++) {
+        System.out.println("Produto " + i + ":");
+        System.out.println("Nome: " + nomeCarrinho[i]);
+        System.out.println("Valor: " + valor[i]);
+        System.out.println("Descrição: " + descricao[i]);
+        System.out.println("Tamanho: " + tamanho[i]);
+        System.out.println("Quantidade: " + quantidade[i]);
+        System.out.println("ProdutoId: " + produtoId[i]);
+        System.out.println("Categoria: " + categoria[i]);
+        System.out.println("Imagem: " + imagem[i]);
+    }
+                
                 for (int i = 0; i < nomeCarrinho.length; i++) {
     // Defini o valor dos atributos do PedidosProdutosDto com os valores correspondentes de cada item
     pedidosClientesDto.setNome_produtos_pedidos(nomeCarrinho[i]);
@@ -195,13 +208,14 @@ public class CheckoutController extends HttpServlet {
     pedidosClientesDto.setImagem_pedidos_produtos(imagem[i]);
     pedidosClientesDto.setUsuario_id4(usuarioId);
 
+            System.out.println("Inserindo Produto " + i + ": " + pedidosClientesDto);
+
     // Chama o método do DAO para cadastrar o pedido de produto
     pedidosClientesDao.cadastrarPedidosProdutos(pedidosClientesDto);
 
 } 
     carrinho.deletarCarrinho();
            int idEndereco = Integer.parseInt(request.getParameter("id_endereco"));
-                System.out.println("id_endereco");
            String metodoPagamento = request.getParameter("metodoPagamento");
       pedidosDao.cadastrarInformPedidos(usuarioId, idEndereco);
     }

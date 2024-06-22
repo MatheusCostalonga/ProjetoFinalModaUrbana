@@ -134,7 +134,6 @@ public class CarrinhoDAO {
          rs = stmt.executeQuery();
 while(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();
-             System.out.println(rs.getFloat("total_produtos"));
              objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
              objCarrinho.setTotalProdutos(rs.getFloat("total_produtos"));
              Carrinho.add(objCarrinho);
@@ -162,7 +161,6 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
         rs = stmt.executeQuery();
         while(rs.next()){
             CarrinhoDTO carrinho = new CarrinhoDTO();
-                        System.out.println(rs.getString("nome_produto_carrinho"));
             carrinho.setId_carrinho(rs.getInt("id_carrinho"));
             carrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
             carrinho.setValorCarrinho(rs.getFloat("valor_produto_carrinho"));

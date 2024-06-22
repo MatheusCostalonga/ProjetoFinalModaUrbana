@@ -67,11 +67,8 @@ public class PedidosAdmDAO {
             stmt = conexao.prepareStatement("SELECT id_pedidosCliente FROM pedidos_cliente");
             
            rs = stmt.executeQuery();
-            System.out.println("cadastrar Inform Pedidos idUsuario: "+idUsuario);
-            System.out.println("idEndereco"+ idEndereco);
             while(rs.next()){
                 int idPedidoCliente = rs.getInt("id_pedidosCliente");
-                System.out.println("idPedidoCliente "+idPedidoCliente);
             stmt = conexao.prepareStatement("INSERT INTO pedidos_adm (usuario_id2, endereco_id, pedidos_clientes_id) VALUES (?,?,?)");
             stmt.setInt(1, idUsuario);
             stmt.setInt(2, idEndereco);
