@@ -371,7 +371,7 @@ main .grade .rows .card-body .imagemProduto img{
     padding: 5rem;
     cursor: pointer;
     display: grid !important;
-    height: auto;
+    height: 5vh;
     transition: 0.5s all ease-out;
 
 }
@@ -395,7 +395,7 @@ main .grade .rows{
     width: 20%;
 
     }
-  .grade .horizontal-scroll .horizontal-{
+ main .grade .horizontal-scroll{
      width:50vw;
      max-width: 50vw;
      height: auto;
@@ -405,19 +405,19 @@ main .grade .rows{
      justify-content: start;
      align-items: center;
       overflow-x: auto;
-      overflow: transparent; 
      scroll-behavior: smooth;
 }  
 
-main .grade .scrollLeft, main .grade .scrollRight {
+main .grade .mexerEsquerda, main .grade .mexerDireita {
     background-color: transparent;
     border: none;
     height: auto;
-    color: transparent;
+    color: black;
 }
 
-main .grade .scrollLeft:hover, main .grade .scrollRight:hover{
+main .grade .mexerEsquerda:hover, main .grade .mexerDireita:hover{
     color: #2A2B33;
+    cursor: pointer;
 }
 .fa-chevron-right, .fa-chevron-left{
     font-size: xx-large;
