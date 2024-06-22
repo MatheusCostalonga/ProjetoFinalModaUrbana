@@ -100,7 +100,6 @@ public class CarrinhoDAO {
         e.printStackTrace();
         }
     }
-        //  Luan me passou e explicou o codigo 
          public List<CarrinhoDTO> leiaTotalCarrinho(int idUsuario) {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{

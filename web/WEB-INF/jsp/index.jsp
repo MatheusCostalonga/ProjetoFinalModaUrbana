@@ -101,7 +101,6 @@
                         </div>
 
                         <div id="TotalCarrinho">
-                            <!-- Luan me passou e explicou o codigo -->
                             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                                 <div class="content">
                                     <h2 class="text">Valor Total do Carrinho:</h2>

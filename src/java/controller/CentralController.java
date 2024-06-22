@@ -81,10 +81,8 @@ public class CentralController extends HttpServlet {
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
                 request.setAttribute("usuario", usuario);
                                 int idUsuario = Integer.parseInt(cookie.getValue());
-                                        //  Luan me passou e explicou o codigo 
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
-                //Eu fiz essa parte para baixo   
          List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
         request.setAttribute("carrinhos", carrinhos);  
         System.out.println("infor car"+carrinhos);
