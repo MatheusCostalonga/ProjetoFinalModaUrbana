@@ -1,15 +1,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Importa biblioteca para utilizar na pagina jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Definir a moeda atraves da localização -->
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
         <link rel="stylesheet" href="./styles/menu.css">
+        <link rel="stylesheet" href="./styles/header.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
         <title>ecommerce</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -58,11 +62,10 @@
                 <li id="buttonUsuario" class="nav-item dropdown"> 
                     <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-circle-user"></i>
-                        perfil
+                        Bem Vindo <br> ${usuario.nome}
                     </a>  
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Meu Perfil</a></li>       
                         <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
                         <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
                         <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
@@ -87,9 +90,10 @@
                                 <c:forEach items="${carrinhos}" var="carrinho">
                                     <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
                                     <div class="informacoesProdutosCarrinho">
+                                        <input type="text" name="idCarrinho" value="${carrinho.id_carrinho}" style="display: none;">
                                         <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                                         <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
-                                        <p class="card-text" class="preco">valor unit: R$${carrinho.valorCarrinho}</p>
+                                        <p class="card-text" class="preco">Valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                                         <c:forEach items="${somaProdutos}" var="somaProduto">
                                       <!--      <p class="card-text">valor total: R$${somaProduto.totalProdutos}</p>-->
                                            </c:forEach>
@@ -101,11 +105,10 @@
                         </div>
 
                         <div id="TotalCarrinho">
-                            <!-- Luan me passou e explicou o codigo -->
+                            <h2 class="text">Valor Total do Carrinho:</h2>
                             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                                 <div class="content">
-                                    <h2 class="text">Valor Total do Carrinho:</h2>
-                                    <p class="text" id="text">R$ ${totalCarrinhos.total}</p>
+                                    <p class="text" id="text"><fmt:formatNumber value="${totalCarrinhos.total}" type="currency"/></p>
                                 </div>
                             </c:forEach>                   
                         </div>
@@ -127,7 +130,7 @@
     <main>
         <div class="categorias">
             <div>
-                <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
+                <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
             </div>
             <b> <a href="">Jaqueta</a></b>
             <div>
@@ -142,7 +145,7 @@
             <div>
                 <b> <a href="">Bermuda </a></b>
             </div>
-        </div> 
+        </div>        
 
         <!-- <div class="container-categorias">
         <c:forEach items="${categoria}" var="categorias" >
@@ -186,7 +189,7 @@
                             </div>
                             <h5 class="card-title">${camiseta.nome_produto}</h5>
                             <p class="card-text">${camiseta.descricao}</p>
-                            <p class="card-text">${camiseta.valor}</p>
+                            <p><fmt:formatNumber value="${camiseta.valor}" type="currency"/></p>
                             <p class="card-text">${camiseta.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${camiseta.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
@@ -210,7 +213,7 @@
                             </div>
                             <h5 class="card-title">${camisas.nome_produto}</h5>
                             <p class="card-text">${camisas.descricao}</p>
-                            <p class="card-text">${camisas.valor}</p>
+                            <p><fmt:formatNumber value="${camisas.valor}" type="currency"/></p>
                             <p class="card-text">${camisas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${camisas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
@@ -233,7 +236,7 @@
                             </div>
                             <h5 class="card-title">${calcas.nome_produto}</h5>
                             <p class="card-text">${calcas.descricao}</p>
-                            <p class="card-text">${calcas.valor}</p>
+                            <p><fmt:formatNumber value="${calcas.valor}" type="currency"/></p>
                             <p class="card-text">${calcas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${calcas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
@@ -257,7 +260,7 @@
                             </div>
                             <h5 class="card-title">${jaquetas.nome_produto}</h5>
                             <p class="card-text">${jaquetas.descricao}</p>
-                            <p class="card-text">${jaquetas.valor}</p>
+                            <p><fmt:formatNumber value="${jaquetas.valor}" type="currency"/></p>
                             <p class="card-text">${jaquetas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${jaquetas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
@@ -281,7 +284,7 @@
                             </div>
                             <h5 class="card-title">${bermudas.nome_produto}</h5>
                             <p class="card-text">${bermudas.descricao}</p>
-                            <p class="card-text">${bermudas.valor}</p>
+                            <p><fmt:formatNumber value="${bermudas.valor}" type="currency"/></p>
                             <p class="card-text">${bermudas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${bermudas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
 
@@ -318,20 +321,21 @@
     </main>
     <footer>
         <div class="rodape">
-            <div class="redesSociais">
-                <span>Visite nossas redes sociais</span>
-                <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
-                <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
-            </div>
-            <div class="metodoContato">
-                <span>Nosso contato para você fazer seu pedido</span>
-                <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
-                <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
-            </div>
-        </div>
-    </footer>
+        <div class="redesSociais">
+        <span>Visite nossas redes sociais</span>
+       <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
+       <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
+    </div>
+    <div class="metodoContato">
+        <span>Nosso contato para você fazer seu pedido</span>
+        <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
+        <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
+    </div>
+</div>
+    </footer>       
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/carrinho.js"></script> 
 <script src="./js/notificacoes.js"></script> 

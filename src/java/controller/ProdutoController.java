@@ -44,7 +44,15 @@ Cookie[] cookies = request.getCookies();
                     for (Cookie cookie : cookies) {   
                       if (cookie.getName().equals("continuarLogin")) {
                 usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+               int idUsuario = Integer.parseInt(cookie.getValue());
                 request.setAttribute("usuario", usuario);
+                        List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
+            request.setAttribute("produtos", produtos);
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
+        request.setAttribute("totalCarrinho", totalCarrinho);
+         List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
+        request.setAttribute("carrinhos", carrinhos);             
+
                       }
                     } 
     int id_produto = Integer.parseInt(request.getParameter("id"));
@@ -106,18 +114,63 @@ Cookie[] cookies = request.getCookies();
                       produtosDAO.diminuirQuantidadeProduto(quantDesejada, produtoId);  
                       produto(request, response);        
                     } else{
-                        out.println("<script type=\"text/javascript\">");
-            out.println("alert('Não temos tudo isso no estoque, sinto muito');");
-            out.println("window.location.href = './menu';");
-            out.println("</script>"); 
+
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Produto Adicionado</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
+
+        // Exibe o SweetAlert com a mensagem de sucesso
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'warning',");
+        out.println("  title: 'Atenção',");
+        out.println("  text: 'Quantidade indisponivel',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        
+        out.println("});");
+
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+out.println("  window.history.back();"); // Volta para a página anterior
+out.println("}, 3000);"); 
+        
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
+
                     }
                }
         
             }
-        } out.println("<script type=\"text/javascript\">");
-            out.println("alert('Faça o login para poder adicionar produtos ao carrinho');");
-            out.println("window.location.href = './loginCliente';");
-            out.println("</script>");             
+        }          
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Realizar Login</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
+
+        // Exibe o SweetAlert com a mensagem de info
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'info',");
+        out.println("  title: 'Realize login',");
+        out.println("  text: 'Para adicionar produto ao carrinho precisa estar logado em sua conta',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        out.println("});");
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+        out.println("  window.location.href = 'logar';");
+        out.println("}, 3000);"); 
+        
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");        
         }else {
             processRequest(request, response);
         } 
@@ -126,8 +179,6 @@ Cookie[] cookies = request.getCookies();
         protected void produto(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
-                 System.out.println("usuario id: "+carrinhos.getUsuarioId3());
-                 System.out.println("categoria id: "+carrinhos.getCategoriaId3());
             carrinhos.setNomeCarrinho(request.getParameter("nome_produto"));
             carrinhos.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
             carrinhos.setDescricaoCarrinho(request.getParameter("descricao"));
@@ -138,11 +189,32 @@ Cookie[] cookies = request.getCookies();
             carrinhos.setCategoriaId3(Integer.parseInt(request.getParameter("categoriaId")));
             carrinhos.setUsuarioId3(Integer.parseInt(request.getParameter("id_usuario")));
             carrinho.cadastrarProdutoCarrinho(carrinhos);
-          out.println("<script type=\"text/javascript\">");
-            out.println("alert('Produto adicionado ao carrinho com sucesso');");
-            out.println("window.location.href = './menu';");
-            out.println("</script>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Produto Adicionado</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
 
+        // Exibe o SweetAlert com a mensagem de sucesso
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'success',");
+        out.println("  title: 'Produto adicionado',");
+        out.println("  text: 'Aguarde um instante, que o produto esta sendo adicionado ao carrinho',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        out.println("});");
+
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+        out.println("  window.location.href = 'menu';");
+        out.println("}, 3000);"); 
+        
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
+out.close();
     }
    
     /*

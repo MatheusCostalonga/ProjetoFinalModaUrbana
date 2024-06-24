@@ -31,7 +31,6 @@ main{
     background-color: #D9D9D9;
     border: black solid 1px;
     overflow-x: auto;
-    display: grid;
     align-items: center;
 
 }

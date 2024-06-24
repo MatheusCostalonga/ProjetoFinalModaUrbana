@@ -1,0 +1,57 @@
+main{
+    flex: 1;
+} 
+
+#titulo{
+    text-align: center; 
+}
+
+.todasInformacoes{
+    display: grid;
+   /* justify-content: end;*/
+   height: 69vh; 
+   width: 90vw;
+   align-content: center;
+    justify-content: center;
+    justify-items: start;
+    padding-left: 5vw;
+    margin-bottom: 1vh;
+}
+#produtosClientes{
+    height: 69vh; 
+     width: 90vw; 
+    background-color: #D9D9D9;
+    border: black solid 1px;
+    overflow-x: auto;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+#informacoesProdutos{
+text-align: start;
+display: grid;
+grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr;
+width: 99.9%;
+border: #000 solid 0.25px;
+}
+img{
+    width: 10vw;
+    height: 10vh;
+}
+footer{
+    display: grid;
+    height: 10vh;
+    background-color: #2A2B33;
+    color: white;
+    margin-top: 1.5 vh;
+}
+footer .rodape{
+display: grid;
+grid-template-columns: 1fr 1fr;    
+    width: 100%;
+}
+footer .rodape .redesSociais{
+    margin-left: 0.5%;
+}
+footer .rodape .redesSociais, footer .rodape .metodoContato{
+    display: grid;
+}

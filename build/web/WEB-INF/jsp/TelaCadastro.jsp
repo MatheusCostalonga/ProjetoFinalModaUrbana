@@ -11,10 +11,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./styles/telaCadastro.css">
         <title>Pagina Cadastro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>    </head>
     <body>
         <main>
+          <div id="imgResponsiva">
           <img class="imagem" src="./assets/ModaUrbanaLogoLogin.png" alt="Logo da loja na tela de cadastro">
+        </div>
           <div id="fundo">   
                 <h1>CADASTRO</h1>
                 <form name="frmRegister" action="inserir">
@@ -55,11 +58,11 @@
                   <i id="iconeCalendario" class="fa-regular fa-calendar-days"></i>
               <input type="date"  id="data_nascimento" name="data_nascimento" required>
             </div>
-             </div>
-            
-            <div>
-                <input id="botaoCadastrar" type="button" value="PROSSEGUIR" onclick="cadastro()">
-        </div>    
+            <div id="BotaoResponsivo">
+            <input id="botaoCadastrar" type="button" value="PROSSEGUIR" onclick="cadastro()">
+            <a id="linkLogin" href="./loginCliente">Possuo Login</a>
+          </div>   
+          </div>   
         </form>
         </main> 
 

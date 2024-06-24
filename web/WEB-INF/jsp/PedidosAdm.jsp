@@ -1,16 +1,16 @@
-<%-- 
-    Document   : PedidosAdm
-    Created on : 20/06/2024, 01:13:15
-    Author     : Leandro
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Importa biblioteca para utilizar na pagina jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Definir a moeda atraves da localização -->
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" href="./styles/Pedidos.css">
         <title>Gestionar Pedidos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
                 <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>
 

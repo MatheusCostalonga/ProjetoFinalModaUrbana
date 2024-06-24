@@ -1,4 +1,3 @@
-/*Victor me passou e explicou o codigo*/
 function cadastro() {
     let nome = frmRegister.nome.value;
     let cpf = frmRegister.cpf.value;

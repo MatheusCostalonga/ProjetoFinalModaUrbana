@@ -1,14 +1,13 @@
-<%-- 
-    Document   : checkout
-    Created on : 21/05/2024, 21:39:24
-    Author     : Leandro
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Importa biblioteca para utilizar na pagina jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Definir a moeda atraves da localização -->
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./styles/checkout.css">
+        <link rel="stylesheet" href="./styles/PedidosCliente.css">
         <link rel="stylesheet" href="./styles/header.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,11 +60,10 @@
                     <li id="buttonUsuario" class="nav-item dropdown"> 
                         <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-circle-user"></i>
-                            perfil
+                            Bem Vindo <br> ${usuario.nome}
                         </a>  
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>       
                             <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
                             <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
                             <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
@@ -92,7 +90,7 @@
                                         <div class="informacoesProdutosCarrinho">
                                             <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                                             <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
-                                            <p class="card-text" class="preco">valor unit: R$${carrinho.valorCarrinho}</p>
+                                            <p>valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                                             <c:forEach items="${somaProdutos}" var="somaProduto">
                                           <!--      <p class="card-text">valor total: R$${somaProduto.totalProdutos}</p>-->
                                                </c:forEach>
@@ -104,11 +102,10 @@
                             </div>
     
                             <div id="TotalCarrinho">
-                                <!-- Luan me passou e explicou o codigo -->
+                                <h2 class="text">Valor Total do Carrinho:</h2>
                                 <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
-                                    <div class="content">
-                                        <h2 class="text">Valor Total do Carrinho:</h2>
-                                        <p class="text" id="text">R$ ${totalCarrinhos.total}</p>
+                                    <div >
+                                        <p><fmt:formatNumber class="text" value="${totalCarrinhos.total}" type="currency"/></p>
                                     </div>
                                 </c:forEach>                   
                             </div>
@@ -130,30 +127,28 @@
         <main>
             <div class="categorias">
                 <div>
-                            <b><a class="open-btn" href="#"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
-                        </div>
-                        <b> <a href="">Jaqueta</a></b>
-                            <div>
-                                <b> <a href="">Camisa</a></b>
-                            </div>
-                            <div>
-                                <b> <a href="">Camiseta</a></b>
-                            </div>
-                            <div>
-                               <input type="text" value="${usuario.nome}">
-                               <P>LOGIN ${usuario.nome}</P>
-                            </div>
-                            <div>
-                                <b> <a href="">Bermuda </a></b>
-                            </div>
-                        </div> 
+                    <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
+                </div>
+                <b> <a href="">Jaqueta</a></b>
+                <div>
+                    <b> <a href="">Camisa</a></b>
+                </div>
+                <div>
+                    <b> <a href="">Camiseta</a></b>
+                </div>
+                <div>
+                     <b> <a href="">Calça</a></b>
+                </div>
+                <div>
+                    <b> <a href="">Bermuda </a></b>
+                </div>
+            </div>   
              
                     <h1 id="TituloProdutoCarrinho">Pedidos:</h1>
-            <section class="ProdutosCarrinhoCheckout">
-        <div id="ProdutosCheckout">
-            <div id="ProdutoMainCarrinho">
+            <section class="todasInformacoes">
+        <div id="produtosClientes">
             <c:forEach items="${pedidosCliente}" var="pedidosCliente">
-                <div class="informacoesProdutosCheckout">
+                <div class="informacoesProdutos">
             <img src="${pedidosCliente.imagem_pedidos_produtos}" alt="...">
           <div class="infProd">
                 <h5 class="card-title">${pedidosCliente.nome_produtos_pedidos}</h5>
@@ -166,10 +161,11 @@
               <div class="infProd">
               <p  class="card-text">Quantidade: ${pedidosCliente.quantidade_pedidos_produtos}</p>
               <p class="card-text">Preço: R$${pedidosCliente.valor_pedidos_produtos}</p>
+              
             </div>
 </div>
                           </c:forEach>
-</div>
+
 </div>
 </section>
                     </main>
@@ -188,4 +184,5 @@
     </div>
         </footer>                                    
     </body>
+    <script src="./js/carrinho.js"></script>
 </html>

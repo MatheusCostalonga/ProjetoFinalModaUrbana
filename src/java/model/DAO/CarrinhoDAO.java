@@ -180,6 +180,24 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
             return carrinhos;
                          
 }
-
+        public int verificarCarrinho(int idUsuario){
+            int idCarrinho = 0;
+          try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;    
+        stmt = conexao.prepareStatement("SELECT id_carrinho FROM carrinho WHERE usuario_id3 = ?");
+        stmt.setInt(1, idUsuario);
+        rs = stmt.executeQuery();
+            while(rs.next()){
+          idCarrinho = rs.getInt("id_carrinho");
+            }
+            stmt.close();
+            conexao.close();
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+        return idCarrinho;
+    } 
 }
                     

@@ -9,14 +9,14 @@
           // Adiciona um evento quando o botão for clicado
           mexerEsquerda.addEventListener("click", function() {
               mexerProdutos.scrollBy({
-                  left: -300,
+                  left: -320,
                   behavior: "smooth"
               });
           });
   
           mexerDireita.addEventListener("click", function() {
               mexerProdutos.scrollBy({
-                  left: 300,
+                  left: 320,
                   behavior: "smooth" // Comportamento suave da rolagem
               });
           });

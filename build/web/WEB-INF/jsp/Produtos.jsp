@@ -1,15 +1,15 @@
-<%-- 
-    Document   : Produtos
-    Created on : 15/04/2024, 15:51:30
-    Author     : Senai
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Importa biblioteca para utilizar na pagina jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Definir a moeda atraves da localização -->
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/header.css">
     </head>
     <body>
@@ -115,7 +115,5 @@
             </div> 
     
         </header>
-        <h1>Tela de todos os Produtos</h1>
-
     </body>
 </html>

@@ -1,10 +1,9 @@
-    <%-- 
-    Document   : checkout
-    Created on : 21/05/2024, 21:39:24
-    Author     : Leandro
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Importa biblioteca para utilizar na pagina jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Definir a moeda atraves da localização -->
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="icon" href="favicon.io" type="image/x-icon">
+        <link rel="stylesheet" href="sweetalert2.min.css">
         <title>ecommerce</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -34,7 +34,6 @@
                <div id="informacaoCliente">
                             <h1>Informações Usuario</h1>
                             <div  id="${usuario.id_usuario}" class="organizar">
-                                <span>usuario id: ${usuario.id_usuario}</span>
                                 <span>Nome:</span>
                                 <input type="text" name="nome" value="${usuario.nome}" required>
                             </div>
@@ -55,8 +54,6 @@
                                     <c:forEach var="enderecosExistente" items="${enderecoExistente}">
 
                             <h1 id="enderecosExistente.id_endereco">Informações para Entrega</h1>
-                            <span>usuario: ${enderecosExistente.usuario_id1}</span>
-                            <span>enderecos: ${enderecosExistente.id_endereco}</span>
                             <div class="organizar">
                                 <span>Rua:</span>
                             <input type="text" name="rua" id="rua" value="${enderecosExistente.rua != null ? enderecosExistente.rua : ''}" >
@@ -96,7 +93,7 @@
                     <h1>Informar pagamento</h1>
                 </div>
             <!-- <img id="imgCartao" src="./assets/FiguraCartaoCredito.png" alt="imagem cartao de credito"> -->
-            <form id="formPagamento">
+            <form id="Pagamentos" method="post">
                 <input type="radio" id="PagamentoPix" name="pagamento" value="pix">
                 <label for="pagamentoPix">PIX</label><br>
                 
@@ -106,43 +103,35 @@
                 <input type="radio" id="PagamentoCartaoDebito" name="pagamento" value="cartao_debito">
                 <label for="pagamentoCartaoDebito">Cartão de Débito</label><br>
                 
+
                 <button type="submit">Forma de pagamento</button>
             </form>
-
             <div id="InformPix" style="display: none;">
                 <div id="imgpix">
-                    <span>Imagem do pix</span>
+            <img src="./assets/QRcodeGuilhermePix.jpeg" alt="QRCode para pagamento via pix">
                 </div>
             </div>
+            <div id="confirmarPagamento">
             <div id="InformCartaoCredito" style="display: none;">
             <span>Nome do titular do cartão:</span>
-        <input type="text" name="titular_cartao" >
+        <input type="text" id="titular_cartao" name="titular_cartao" required>
     <span>Numero cartao:</span>
-    <input type="number" name="numero_cartao" >
+    <input type="number" id="numero_cartao" name="numero_cartao"required >
     <span>Codigo de segurança:</span>
-    <input type="number" name="codigo_seguranca" >
+    <input type="number" id="codigo_seguranca" name="codigo_seguranca"required >
     <span>Data de validade:</span>
-    <input type="date" id="data-validade" name="data-validade" >
-    </div>
+    <input type="date" id="data-validade" name="data-validade" required>    
+</div>
 
     <div id="InformCartaoDebito" style="display: none;">
         <span>Número do Cartão de Débito:</span>
-        <input type="text" name="numeroCartaoDebito">
+        <input type="text" id="numeroCartaoDebito" name="numeroCartaoDebito" required>
         <span>Data de Validade:</span>
-        <input type="text" name="data-validade-debito">
-        <span>Código de Segurança (CVV):</span>
-        <input type="text" name="codigoSegurancaDebito">
+        <input type="text" id="data-validade-debito" name="data-validade-debito" required>
         <span>Nome do Titular do Cartão:</span>
-        <input type="text" name="nomeTitularCartaoDebito">
-        <span>CPF do Titular do Cartão:</span>
-        <input type="text" value="${usuario.cpf}" name="cpfTitularCartaoDebito">
-        <span>Endereço de Cobrança:</span>
-        <input type="text" name="enderecoCobrancaDebito">
-        <span>Senha do Cartão:</span>
-        <input type="text" name="senhaCobrancaCartao">
-    </div>           
-      
-
+        <input type="text" id="nomeTitularCartaoDebito" name="nomeTitularCartaoDebito" required>
+    </div> 
+</div>
    </div>                        
 </div>
 <form action="AdicionarItemProdutosPedidos" method="post" enctype="multipart/form-data">
@@ -177,10 +166,11 @@
                                 </form>
                                 <p class="card-text">Categoria ID: R$${carrinho.categoriaId3}</p>
                                 <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
-                                <p class="card-text">Valor Unidade: R$${carrinho.valorCarrinho}</p>
+                                <p class="card-text">Valor Unidade: <fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                             </div>
                         </div>
                         <!-- Campos escondidos para adicionar produtos aos pedidos -->
+                        <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
                         <input type="hidden" name="produtoId" value="${carrinho.produtoId3}">
                         <input type="hidden" name="descricao" value="${carrinho.descricaoCarrinho}">
                         <input type="hidden" name="nomeCarrinho" value="${carrinho.nomeCarrinho}">
@@ -190,23 +180,24 @@
                         <input type="hidden" name="categoria" value="${carrinho.categoriaId3}">
                         <input type="hidden" name="imagem" value="${carrinho.imagemCarrinho}">
                     </c:forEach>
-                    <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
+                    <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
                 </div>
             </div>
         </section>          
         <div class="totalProdutosCheckout">
             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                 <div class="valorTotal">
-                    <span class="text"> Valor Total: R$ ${totalCarrinhos.total}</span>
+                    <p class="card-text">Valor Total: <fmt:formatNumber value="${totalCarrinhos.total}" type="currency"/></p>
                 </div>
             </c:forEach>
         </div>
 <c:forEach var="enderecosExistente" items="${enderecoExistente}">
     <input type="hidden" name="id_usuario" id="id_usuario" value="${usuario.id_usuario}">
+    <input type="hidden" name="nomeUsuario" id="nomeUsuario" value="${usuario.nome}">
     <input type="hidden" name="id_endereco" id="id_endereco" value="${enderecosExistente.id_endereco}">  
 </c:forEach>
         <div id="finalizacao">
-            <button type="submit">Finalizar Compra</button>
+            <button id="finalizarCompra" type="submit">Finalizar Compra</button>
             <a href="./menu">Deseja voltar às compras? Clique aqui</a>
         </div>
     </div>
@@ -214,21 +205,22 @@
 
 </div>
                     </main>
-<footer>
-            <div class="rodape">
-            <div class="redesSociais">
-            <span>Visite nossas redes sociais</span>
-           <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
-           <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
-        </div>
-        <div class="metodoContato">
-            <span>Nosso contato para você fazer seu pedido</span>
-            <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
-            <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
-        </div>
-    </div>
-        </footer>                                    
+                    <!-- <footer>
+                        <div class="rodape">
+                        <div class="redesSociais">
+                        <span>Visite nossas redes sociais</span>
+                       <span><i class="fa-brands fa-instagram"></i>@modaUrbana</span>
+                       <span><i class="fa-brands fa-facebook"></i>@modaUrbana</span>
+                    </div>
+                    <div class="metodoContato">
+                        <span>Nosso contato para você fazer seu pedido</span>
+                        <span><i class="fa-solid fa-phone"></i>(43) 99888-8888</span>
+                        <span><i class="fa-brands fa-whatsapp"></i>+55 (43) 9999-9999</span>
+                    </div>
+                </div>
+                    </footer>                                     -->
     </body>
    <script src="./js/checkout.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
