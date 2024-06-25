@@ -170,21 +170,38 @@ font-size: xx-large;
     border-color: black solid 3px;
     -webkit-text-stroke: 1.5px #000;
 }
-
+header .buttonIcone .ajusteBotaoUsuario{
+    position: relative;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    display: grid;
+}
 main .categorias a{
     color: #2A2B33;
+    font-weight: 500;
+}
+main .categorias a:hover{
+    color: #2A2B33;
+    text-decoration: none;
+    font-weight: 500;
+}
+main .categorias .container-categorias{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 main .categorias{
     background-color:#ffffff;
     text-decoration: none;
     text-align: center;
     align-items: center;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-content: center;
     width: 100%;
     height: 22%;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+/*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
 }
 
 main .categorias{
@@ -893,12 +910,12 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
         text-decoration: none;
         text-align: center;
         align-items: center;
-        display: grid;
+        display: flex;
         justify-content: center;
         align-content: center;
         width: 100%;
         height: 22%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        margin-right: 5vw;
     }
     
     main .categorias{

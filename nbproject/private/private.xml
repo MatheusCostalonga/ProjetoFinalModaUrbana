@@ -5,7 +5,7 @@
             <url>web/WEB-INF/jsp/index.jsp</url>
             <bookmark id="1">
                 <name/>
-                <line>177</line>
+                <line>163</line>
                 <key/>
             </bookmark>
         </file>
@@ -15,24 +15,31 @@
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/ProdutoController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/CarrinhoDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/UsuarioDTO.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/ProdutosController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/PedidosAdmDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/checkout.js</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/produto.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/EnderecoDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/UsuarioDAO.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/buscaProdutos.css</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/TelaCadastro.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/LoginClienteController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/PedidosCliente.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/menu.css</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/menu.js</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/CategoriaDTO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/DAO/PedidosClienteDAO.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CadastroClienteController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/PedidosAdmController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/PedidosAdm.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/Produtos.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/carrinho.js</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/buscaProdutos.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/js/notificacoes.js</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/web.xml</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/TelaLogin.jsp</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/model/bean/ProdutoDTO.java</file>
+            <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/styles/PedidosCliente.css</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/web/WEB-INF/jsp/checkout.jsp</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CheckoutController.java</file>
             <file>file:/D:/Desktop/Nova%20pasta/ProjetoFinalModaUrbana/src/java/controller/CentralController.java</file>

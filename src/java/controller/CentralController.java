@@ -113,11 +113,12 @@ public class CentralController extends HttpServlet {
                 List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             } else {
-                busca = "%"+busca+"%";
+                busca = "%"+busca+"%";  
+                System.out.println("busca: "+busca);
                 List<ProdutoDTO> produtos = produtosDAO.buscaProdutos(busca);
                 request.setAttribute("produtos", produtos);
             }
-            String nextPage = "/WEB-INF/jsp/index.jsp";
+            String nextPage = "/WEB-INF/jsp/buscaProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
@@ -157,18 +158,18 @@ public class CentralController extends HttpServlet {
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setTamanhoId(Integer.parseInt(request.getParameter("tamanho_id")));
         newProduto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-Part filePart = request.getPart("imagem");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+Part adicionarImagem = request.getPart("imagem");
+        String fileName = Paths.get(adicionarImagem.getSubmittedFileName()).getFileName().toString();
         if (fileName != null && !fileName.isEmpty()) {
         String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
         File uploads = new File(basePath);
         if (!uploads.exists()) {
             uploads.mkdirs(); // Cria o diretório se não existir
         }
-        File file = new File(uploads, fileName);
+        File arquivo = new File(uploads, fileName);
 
-        try (InputStream input = filePart.getInputStream()) {
-            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        try (InputStream input = adicionarImagem.getInputStream()) {
+            Files.copy(input, arquivo.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace(); // Trate as exceções de forma adequada
         }

@@ -35,7 +35,7 @@ public class CategoriasDAO {
               CategoriaDTO categoriaAtual = new CategoriaDTO();
               
               categoriaAtual.setId_categoria(rs.getInt("id_categoria"));
-              categoriaAtual.setNome_categoria(rs.getString("nome"));
+              categoriaAtual.setNome_categoria(rs.getString("nome_categoria"));
           
               categorias.add(categoriaAtual);
           }          

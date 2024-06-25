@@ -122,24 +122,17 @@
         </header>
     
         <main>
-            <div class="categorias">
-                <div>
-                    <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
-                </div>
-                <b> <a href="">Jaqueta</a></b>
-                <div>
-                    <b> <a href="">Camisa</a></b>
-                </div>
-                <div>
-                    <b> <a href="">Camiseta</a></b>
-                </div>
-                <div>
-                     <b> <a href="">Calça</a></b>
-                </div>
-                <div>
-                    <b> <a href="">Bermuda </a></b>
-                </div>
-            </div>                      
+ <div class="categorias">
+
+        <div class="container-categorias">
+                        <div>
+                <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
+            </div>
+        <c:forEach items="${categoria}" var="categorias" >
+                <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
+        </c:forEach>
+    </div> 
+        </div>                           
 <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">
 
                 <c:forEach items="${produtos}" var="produto">

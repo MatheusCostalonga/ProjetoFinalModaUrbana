@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
+import model.DAO.CategoriasDAO;
 import model.DAO.ProdutosDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CarrinhoDTO;
+import model.bean.CategoriaDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
 
@@ -60,6 +62,9 @@ Cookie[] cookies = request.getCookies();
         request.setAttribute("produtos", produtos);
                 List<CarrinhoDTO> carrinhos = carrinho.lerCarrinho();
         request.setAttribute("carrinhos",carrinhos);
+               CategoriasDAO categoriasDAO = new CategoriasDAO();        
+        List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
+        request.setAttribute("categoria", categorias);
                 String url = "/WEB-INF/jsp/produto.jsp";   
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response); 
@@ -102,8 +107,7 @@ Cookie[] cookies = request.getCookies();
                     for (Cookie cookie : cookies) {
                       if (cookie.getName().equals("continuarLogin")) {
               int idUsuario = Integer.parseInt(cookie.getValue());
-
-              
+             
         if(action.equals("/enviarItemCarrinho")){
        int quantDesejada = Integer.parseInt(request.getParameter("quantidade"));
        int produtoId = Integer.parseInt(request.getParameter("idProduto"));
@@ -114,46 +118,34 @@ Cookie[] cookies = request.getCookies();
                       produtosDAO.diminuirQuantidadeProduto(quantDesejada, produtoId);  
                       produto(request, response);        
                     } else{
-
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Produto Adicionado</title>");
         out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
         out.println("</head>");
         out.println("<body>");
-
         // Exibe o SweetAlert com a mensagem de sucesso
         out.println("<script>");
         out.println("Swal.fire({");
         out.println("  icon: 'warning',");
         out.println("  title: 'Atenção',");
         out.println("  text: 'Quantidade indisponivel',");
-        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
-        
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação       
         out.println("});");
-
-
-        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+       // Redireciona automaticamente para a página inicial quando der o tempo determinado
         out.println("setTimeout(function() {");
 out.println("  window.history.back();"); // Volta para a página anterior
-out.println("}, 3000);"); 
-        
+out.println("}, 3000);");      
         out.println("</script>");
         out.println("</body>");
         out.println("</html>");
-
-                    }
-               }
-        
-            }
-        }          
+                    } }  }  }          
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Realizar Login</title>");
         out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
         out.println("</head>");
         out.println("<body>");
-
         // Exibe o SweetAlert com a mensagem de info
         out.println("<script>");
         out.println("Swal.fire({");
@@ -162,16 +154,30 @@ out.println("}, 3000);");
         out.println("  text: 'Para adicionar produto ao carrinho precisa estar logado em sua conta',");
         out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
         out.println("});");
-
         // Redireciona automaticamente para a página inicial quando der o tempo determinado
         out.println("setTimeout(function() {");
         out.println("  window.location.href = 'logar';");
-        out.println("}, 3000);"); 
-        
+        out.println("}, 3000);");       
         out.println("</script>");
         out.println("</body>");
         out.println("</html>");        
-        }else {
+        }else  if (action.equals("/buscar-produtos")) {
+            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
+            if(busca.equals("")) {
+                String categoria = request.getParameter("cat");
+                List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
+                request.setAttribute("produtos", produtos);
+            } else {
+                busca = "%"+busca+"%";  
+                System.out.println("busca: "+busca);
+                List<ProdutoDTO> produtos = produtosDAO.buscaProdutos(busca);
+                request.setAttribute("produtos", produtos);
+            }
+            String nextPage = "/WEB-INF/jsp/buscaProdutos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        processRequest(request, response);
+    }else{
             processRequest(request, response);
         } 
     }
@@ -204,13 +210,10 @@ out.println("}, 3000);");
         out.println("  text: 'Aguarde um instante, que o produto esta sendo adicionado ao carrinho',");
         out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
         out.println("});");
-
-
         // Redireciona automaticamente para a página inicial quando der o tempo determinado
         out.println("setTimeout(function() {");
         out.println("  window.location.href = 'menu';");
-        out.println("}, 3000);"); 
-        
+        out.println("}, 3000);");     
         out.println("</script>");
         out.println("</body>");
         out.println("</html>");

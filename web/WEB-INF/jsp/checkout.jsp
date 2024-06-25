@@ -35,19 +35,19 @@
                             <h1>Informações Usuario</h1>
                             <div  id="${usuario.id_usuario}" class="organizar">
                                 <span>Nome:</span>
-                                <input type="text" name="nome" value="${usuario.nome}" required>
+                                <input type="text" name="nome" value="${usuario.nome}" disabled>
                             </div>
                             <div class="organizar">
                                 <span>Usuario:</span>
-                                <input type="text" name="usuario" value="${usuario.usuario}" required>
+                                <input type="text" name="usuario" value="${usuario.usuario}" disabled>
                             </div>
                             <div class="organizar">
                                 <span>CPF:</span>
-                                <input type="text" name="cpf" value="${usuario.cpf}" required>
+                                <input type="text" name="cpf" value="${usuario.cpf}" disabled>
                             </div>
                             <div class="organizar">
                                 <span>Telefone:</span>
-                                <input type="text" name="telefone" value="${usuario.telefone}" required>
+                                <input type="text" name="telefone" value="${usuario.telefone}" disabled>
                             </div>
                             
                             <br><br>
@@ -56,15 +56,15 @@
                             <h1 id="enderecosExistente.id_endereco">Informações para Entrega</h1>
                             <div class="organizar">
                                 <span>Rua:</span>
-                            <input type="text" name="rua" id="rua" value="${enderecosExistente.rua != null ? enderecosExistente.rua : ''}" >
+                            <input  type="text" name="rua" id="rua" value="${enderecosExistente.rua != null ? enderecosExistente.rua : ''}"required >
                         </div>
                     <div class="organizar">
                         <span>Número:</span>
-                    <input type="number" name="numero" id="numero" value="${enderecosExistente.numero != null ? enderecosExistente.numero : ''}">
+                    <input type="number" name="numero" id="numero" value="${enderecosExistente.numero != null ? enderecosExistente.numero : ''}"required>
                 </div>
             <div class="organizar">
                 <span>CEP:</span>
-                <input onkeyup="CepInput(event)" maxlength="9" type="text" name="cep" id="cep" value="${enderecosExistente.cep != null ? enderecosExistente.cep : ''}">
+                <input onkeyup="CepInput(event)" maxlength="9" type="text" name="cep" id="cep" value="${enderecosExistente.cep != null ? enderecosExistente.cep : ''}"required>
         </div>
     <div class="organizar">
         <span>Complemento:</span>
@@ -114,9 +114,9 @@
             <div id="confirmarPagamento">
             <div id="InformCartaoCredito" style="display: none;">
             <span>Nome do titular do cartão:</span>
-        <input type="text" id="titular_cartao" name="titular_cartao" required>
+        <input type="number" id="titular_cartao"" name="titular_cartao" required>
     <span>Numero cartao:</span>
-    <input type="number" id="numero_cartao" name="numero_cartao"required >
+    <input type="text" id="numero_cartao" maxlength="16" name="numero_cartao"required >
     <span>Codigo de segurança:</span>
     <input type="number" id="codigo_seguranca" name="codigo_seguranca"required >
     <span>Data de validade:</span>
@@ -125,7 +125,7 @@
 
     <div id="InformCartaoDebito" style="display: none;">
         <span>Número do Cartão de Débito:</span>
-        <input type="text" id="numeroCartaoDebito" name="numeroCartaoDebito" required>
+        <input type="text" id="numeroCartaoDebito" minlength="12" maxlength="19" name="numeroCartaoDebito" required>
         <span>Data de Validade:</span>
         <input type="text" id="data-validade-debito" name="data-validade-debito" required>
         <span>Nome do Titular do Cartão:</span>

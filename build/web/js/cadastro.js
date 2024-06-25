@@ -105,10 +105,8 @@ const cpfMask = (value) => {
     return value;
 }
 
-let dataAtual = new Date();
-let dataFormatada = dataAtual.getFullYear() + '-' +
-    ('0' + (dataAtual.getMonth() + 1)).slice(-2) + '-' +
-    ('0' + dataAtual.getDate()).slice(-2);
+let hoje = new Date(); //O código pega o ano, mês, e dia mínimos para que o usuário tenha 18 anos e permitindo o cadastro do usuario
+let maxDate = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
+let maxDateString = maxDate.toISOString().substr(0, 10);
+document.getElementById('data_nascimento').setAttribute('max', maxDateString);
 
-let elementoData = document.getElementById("data_nascimento");
-elementoData.setAttribute("max", dataFormatada);

@@ -36,7 +36,7 @@
             <span for="inputSenha" class="form-label">Senha:</span>
               <div class="mb-3">             
                <i class="fa-solid fa-lock"></i>
-              <input type="password"  id="senha"  name="senha" required>
+              <input type="password"  id="senha"  name="senha" placeholder="a senha deve conter no minimo 8 digitos" required>
           </div>  
           <span for="inputCpf" class="cpfText">CPF:</span>
           <span for="inputTelefone" id="text_telefone">Telefone:</span>

@@ -40,6 +40,10 @@
         <servlet-name>PedidosAdmController</servlet-name>
         <servlet-class>controller.PedidosAdmController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CategoriaProdutosController</servlet-name>
+        <servlet-class>controller.ProdutosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>PedidosAdmController</servlet-name>
         <url-pattern>/pedidosAdm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoriaProdutosController</servlet-name>
+        <url-pattern>/Produtos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

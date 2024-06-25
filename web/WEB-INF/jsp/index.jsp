@@ -47,8 +47,9 @@
                         ADMIN
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar Produto</a></li>
-                        <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos Clientes</a></li> 
+                        <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar produto</a></li>
+                        <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos clientes</a></li> 
+                        <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar clientes</a></li>    
                     </ul>
                 </li>
             </div>
@@ -59,16 +60,16 @@
                 </c:choose>
 
             <div class="buttonIcone">   
-                <li id="buttonUsuario" class="nav-item dropdown"> 
+                <li id="buttonUsuario" class="ajusteBotaoUsuario"> 
                     <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-circle-user"></i>
-                        Bem Vindo <br> ${usuario.nome}
+                        Bem Vindo ${usuario.nome}
                     </a>  
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
-                        <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
-                        <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
+                        <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
+                        <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                        <li><a class="dropdown-item" href="./pedidosCliente">Meus pedidos</a></li> 
   
                     </ul>
                 </li>
@@ -129,31 +130,17 @@
 
     <main>
         <div class="categorias">
-            <div>
+
+        <div class="container-categorias">
+                        <div>
                 <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
             </div>
-            <b> <a href="">Jaqueta</a></b>
-            <div>
-                <b> <a href="">Camisa</a></b>
-            </div>
-            <div>
-                <b> <a href="">Camiseta</a></b>
-            </div>
-            <div>
-                 <b> <a href="">Calça</a></b>
-            </div>
-            <div>
-                <b> <a href="">Bermuda </a></b>
-            </div>
+        <c:forEach items="${categoria}" var="categorias" >
+                <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
+        </c:forEach>
+    </div> 
         </div>        
 
-        <!-- <div class="container-categorias">
-        <c:forEach items="${categoria}" var="categorias" >
-            <div class="categoria">
-                <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome}</a>
-            </div>
-        </c:forEach>
-    </div> -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -176,7 +163,7 @@
             </a>
         </div>
 
-        <h1 class="my-4">Camiseta</h1> 
+        <h1 class="my-4">Camisetas</h1> 
         <div class="grade">
             <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
             <div class="horizontal-scroll">
@@ -200,7 +187,7 @@
             <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
 
         </div> 
-        <h1>Camisa</h1> 
+        <h1>Camisas polo</h1> 
         <div class="grade">
             <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
             <div class="horizontal-scroll">
@@ -223,7 +210,7 @@
             </div>
             <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
         </div>  
-        <h1>Calça</h1>
+        <h1>Calças</h1>
         <div class="grade">
             <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
             <div class="horizontal-scroll">
@@ -295,29 +282,8 @@
             <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
 
         </div>    
-        <!--   <h1>Outro produto</h1>
-          <div class="grade">
-              <button id="scrollLeft"><i class="fa-solid fa-chevron-left"></i></button>
-               <div class="horizontal-scroll">
-                  
-              <div class="rows">
-        <c:forEach var="produto" items="${produtos}">
-                    <div class="card-body">
-                        <div class="imagemProduto">
-                            <img src="${produto.imagem}" class="card-img-top" alt="...">
-                        </div>
-                        <h5 class="card-title">${produto.nome_produto}</h5>
-                        <p class="card-text">${produto.descricao}</p>
-                        <p class="card-text">${produto.valor}</p>
-                        <a  href="./produtoSelecionado?id=${produto.idProduto}"><input id="button-Comprar" type="submit" value="comprar"></a>
-
-                </div>
-        </c:forEach>
-    </div>
-    </div>
-    <button id="scrollRight"><i class="fa-solid fa-chevron-right"></i></button>
-
-    </div> -->
+          <h1>Outro produto</h1>
+          
     </main>
     <footer>
         <div class="rodape">
