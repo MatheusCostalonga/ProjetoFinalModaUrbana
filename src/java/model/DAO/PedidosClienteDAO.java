@@ -76,4 +76,24 @@ public class PedidosClienteDAO {
             e.printStackTrace();
         }
     }
+     public List<PedidosClienteDTO> leiaTotalPedidos(int idUsuario) {
+        List<PedidosClienteDTO> Carrinho = new ArrayList<>();
+     try{
+         Connection conexao = Conexao.conectar();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         stmt = conexao.prepareStatement("SELECT SUM(p.valor_pedidos_produtos * p.quantidade_pedidos_produtos) AS total FROM pedidos_cliente p WHERE p.usuario_id4 = ?");
+         stmt.setInt(1, idUsuario);
+         rs = stmt.executeQuery();
+         if(rs.next()){
+             PedidosClienteDTO objPedidoCliente = new PedidosClienteDTO();
+             objPedidoCliente.setTotalProdutosPedidos(rs.getFloat("total"));
+             Carrinho.add(objPedidoCliente);
+         }
+     }catch(SQLException e){
+         e.printStackTrace();
+     }   
+        return Carrinho;
+    }
 }

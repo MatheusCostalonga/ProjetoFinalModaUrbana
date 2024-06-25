@@ -12,21 +12,19 @@ main{
     width: 99vw;
         flex: 1;
 }
-*, ::after, ::before{
+/* *, ::after, ::before{
     box-sizing: content-box !important;    
-}
+} */
 #TodoCheckout{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100vw !important;
 }
 #ProdutosCheckout{
-    /* height: 86vh; */
     background-color: #D9D9D9;
     border: black solid 1px;
     overflow-x: auto;
     display: grid;
-    /* max-width: 70vw; */
     height: 60vh;
     width: 40vw;
 }
@@ -83,11 +81,7 @@ h1, h2, h4, h5, h6 {
     border-right: none !important ;
      margin-bottom: 0 !important; 
      text-align: center;
-}
-p{
-    border-right: #000 solid 0.25px;
-
-}
+}   
 
 main .organizarCartao #InformCartaoCredito input{
     width: 300px;
@@ -150,6 +144,10 @@ main #finalizacao{
     justify-items: center;
     margin-left: 21%;
 } */
+ .infProd{
+    border-right: #000 solid 0.25px;
+
+ }
 main #InformPix{
     display: grid;
     margin-top: 10%;
@@ -233,6 +231,10 @@ main #TodoCheckout #informacaoCliente button[type="submit"]{
     margin-top: 3%;
 
 }
+#botaoExcluitItemCarrinho{
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+}
 .button {
   width: 50px;
   height: 50px;
@@ -248,6 +250,7 @@ main #TodoCheckout #informacaoCliente button[type="submit"]{
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .svgIcon {
@@ -278,29 +281,6 @@ main #FormasPagamentos .organizarCartao #InformPix #imgpix{
     text-align: center;
     display: grid;
 }
- /* footer{
-    display: grid;
-    height: 8vh;
-    background-color: #2A2B33;
-    color: white;
-}
-footer .rodape{
-display: grid;
-grid-template-columns: 1fr 1fr;    
-    width: 100%;
-}
-    footer .rodape .redesSociais{
-    margin-left: 0.5%;
-}
-footer .rodape .redesSociais, footer .rodape .metodoContato{
-    display: grid;
-} 
- */
-
-
-
-
-
 
 @media screen and (min-width: 600px) and (max-width: 800px){
     body{
@@ -577,6 +557,7 @@ footer .rodape .redesSociais, footer .rodape .metodoContato{
     main #FormasPagamentos .organizarCartao #InformPix #imgpix{
         background-color: rgb(19, 18, 18);
         color: white;
+        margin-top: 3vh;
         width: 15vw;
         height: 25vh;
         align-items: center;

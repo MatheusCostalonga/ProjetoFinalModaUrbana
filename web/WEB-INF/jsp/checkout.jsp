@@ -8,7 +8,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./styles/checkout.css">
-
+        <link rel="stylesheet" href="./styles/header.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -25,7 +25,7 @@
     </head>
     <body>
 <header>
-     <h1>Check-out</h1>
+     <h1 class="naomexer">Check-out</h1>
 </header>
         <main>
                         <div id="TodoCheckout">
@@ -146,28 +146,27 @@
                             <img src="${carrinho.imagemCarrinho}" alt="...">
                             <div class="infProd">
                                 <p class="card-title">${carrinho.nomeCarrinho}</p>
-                                <p class="card-title">idProduto: ${carrinho.produtoId3}</p>
                                 <p class="card-text">Descrição: ${carrinho.descricaoCarrinho}</p>
                             </div>
                             <div class="infProd">
-                                <p class="card-text">Tamanho id: ${carrinho.tamanhoId3}</p>
                                 <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
                                 <p class="card-text">Categorias: ${carrinho.nomeCategoria}</p>
                             </div>
                             <div class="infProd">
                                 <!-- Formulário separado para excluir o item do carrinho -->
-                                <form action="ExcluirItemCarrinho" method="post">
-                                <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho},${carrinho.produtoId3})">
-                                    <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
-                                </button>
-                                    <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
-                                    <input type="hidden" name="idProduto" value="${carrinho.produtoId3}">                                    
-                                    <input type="hidden" name="quantidadeCarrinho" value="${carrinho.quantidadeCarrinho}">
-                                </form>
-                                <p class="card-text">Categoria ID: R$${carrinho.categoriaId3}</p>
-                                <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
+                                <div id="botaoExcluitItemCarrinho">
+                                    <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
+                                    <form action="ExcluirItemCarrinho" method="post">
+                                        <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho},${carrinho.produtoId3})">
+                                            <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
+                                        </button>
+                                        <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">
+                                        <input type="hidden" name="idProduto" value="${carrinho.produtoId3}">                                    
+                                        <input type="hidden" name="quantidadeCarrinho" value="${carrinho.quantidadeCarrinho}">
+                                    </form>
+                                </div>
                                 <p class="card-text">Valor Unidade: <fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
-                            </div>
+                        </div>
                         </div>
                         <!-- Campos escondidos para adicionar produtos aos pedidos -->
                         <input type="hidden" name="idCarrinho" value="${carrinho.id_carrinho}">

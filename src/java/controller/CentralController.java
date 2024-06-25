@@ -8,6 +8,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -15,6 +16,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,10 +31,7 @@ import model.bean.CategoriaDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
 
-/**
- *
- * @author Senai
- */
+@WebServlet(urlPatterns = {"/deslogarSite"})
 @MultipartConfig
 public class CentralController extends HttpServlet {
 
@@ -45,12 +44,14 @@ public class CentralController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                  UsuarioDAO usuarios = new UsuarioDAO();
             UsuarioDTO usuario = new UsuarioDTO(); 
                             CarrinhoDAO carrinho = new CarrinhoDAO();
 
+                            
             Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarLogin")) {
@@ -183,8 +184,55 @@ Part adicionarImagem = request.getPart("imagem");
         ProdutosDAO produtosD = new ProdutosDAO();
         produtosD.cadastrarProduto(newProduto);
         response.sendRedirect("./menu");
-    }
+        
+                        String url = request.getServletPath();  
+                             PrintWriter out = response.getWriter();
+    if(url.equals("/deslogarSite")){
+        System.out.println("chego aqui");
+        Cookie[] cookies = request.getCookies();
 
+            for (Cookie cookie : cookies) {
+               if (cookie.getName().equals("continuarLogin")) {
+       UsuarioDTO usuario = new UsuarioDTO();
+       UsuarioDAO usuarios = new UsuarioDAO();
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+                                int idUsuario = Integer.parseInt(cookie.getValue());
+                            cookie.setValue("0");
+                    response.addCookie(cookie);
+                
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Produto Adicionado</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
+
+        // Exibe o SweetAlert com a mensagem de sucesso
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'success',");
+        out.println("  title: 'Deslogado com sucesso',");
+        out.println("  text: 'volte sempre',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        out.println("});");
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+        out.println("  window.location.href = 'menu';");
+        out.println("}, 3000);");
+
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
+    
+                }
+           
+    }
+    }
+    }
+    
+    
 
     @Override
     public String getServletInfo() {

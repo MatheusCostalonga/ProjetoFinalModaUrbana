@@ -37,9 +37,9 @@
                     </div>  
                 </form>
             </div>
-            <c:set var="admin" value="${usuario.id_usuario}"/>
+            <c:set var="usuarioLogado" value="${usuario.id_usuario}"/>
             <c:choose>
-                <c:when test="${admin == 1}">
+                <c:when test="${usuarioLogado == 1}">
             <div class="buttonADMIN">   
                 <li id="buttonUsuarioAdmin" class="nav-item dropdown">
                     <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,12 +65,26 @@
                         <i class="fa-regular fa-circle-user"></i>
                         Bem Vindo ${usuario.nome}
                     </a>  
+                    
 
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
-                        <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                        <c:choose>
+                            <c:when test="${usuarioLogado == 0}">
+                                <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                            </c:when>
+                            <c:otherwise>
+                           </c:otherwise> 
+                            </c:choose>
                         <li><a class="dropdown-item" href="./pedidosCliente">Meus pedidos</a></li> 
-  
+                        <c:choose>
+                            <c:when test="${usuarioLogado >= 1}">
+                                    <li><a type="submit" class="dropdown-item" href="./loginCliente">Deslogar</a></li>                     
+                            </c:when>
+                            <c:otherwise>
+                           </c:otherwise> 
+                            </c:choose>
+
                     </ul>
                 </li>
             </div> 

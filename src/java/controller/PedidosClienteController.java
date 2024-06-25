@@ -16,9 +16,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DAO.CarrinhoDAO;
+import model.DAO.CategoriasDAO;
 import model.DAO.PedidosClienteDAO;
+import model.DAO.ProdutosDAO;
 import model.DAO.UsuarioDAO;
+import model.bean.CarrinhoDTO;
+import model.bean.CategoriaDTO;
 import model.bean.PedidosClienteDTO;
+import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
 
 /**
@@ -32,7 +38,9 @@ public class PedidosClienteController extends HttpServlet {
        PedidosClienteDAO pedidoClienteDao = new PedidosClienteDAO();
        UsuarioDTO usuario = new UsuarioDTO();
        UsuarioDAO usuarios = new UsuarioDAO();
-    
+       ProdutosDAO produtosDAO = new ProdutosDAO();
+           CarrinhoDTO carrinhos = new CarrinhoDTO();
+    CarrinhoDAO carrinho = new CarrinhoDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -47,10 +55,19 @@ public class PedidosClienteController extends HttpServlet {
                 System.out.println("idUsuario "+idUsuario);
              List<PedidosClienteDTO> pedidosCliente = pedidoClienteDao.LerPedidosCliente(idUsuario);
                 request.setAttribute("pedidosCliente", pedidosCliente);
+                        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
+        request.setAttribute("totalCarrinho", totalCarrinho);
+         List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
+        request.setAttribute("carrinhos", carrinhos);  
+                List<PedidosClienteDTO> totalProdutosPedidos = pedidoClienteDao.leiaTotalPedidos(idUsuario);       
+        request.setAttribute("totalProdutosPedidos", totalProdutosPedidos);
+
             }
         }
         }
-        
+               CategoriasDAO categoriasDAO = new CategoriasDAO();        
+        List<CategoriaDTO> categorias = categoriasDAO.listarCategorias();
+        request.setAttribute("categoria", categorias);
         String nextPage = "/WEB-INF/jsp/PedidosCliente.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);        
@@ -82,9 +99,26 @@ public class PedidosClienteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String url = request.getServletPath();  
+   
+        if (url.equals("/buscar-produtos")) {
+            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
+            if(busca.equals("")) {
+                String categoria = request.getParameter("cat");
+                List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
+                request.setAttribute("produtos", produtos);
+            } else {
+                busca = "%"+busca+"%";  
+                System.out.println("busca: "+busca);
+                List<ProdutoDTO> produtos = produtosDAO.buscaProdutos(busca);
+                request.setAttribute("produtos", produtos);
+            }
+            String nextPage = "/WEB-INF/jsp/buscaProdutos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         processRequest(request, response);
     }
-
+    }
     /**
      * Returns a short description of the servlet.
      *

@@ -33,9 +33,9 @@
                         </div>  
                     </form>
                 </div>
-                <c:set var="admin" value="${usuario.id_usuario}"/>
+                <c:set var="usuarioLogado" value="${usuario.id_usuario}"/>
                 <c:choose>
-                    <c:when test="${admin == 1}">
+                    <c:when test="${usuarioLogado == 1}">
                 <div class="buttonADMIN">   
                     <li id="buttonUsuarioAdmin" class="nav-item dropdown">
                         <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,8 +43,9 @@
                             ADMIN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar Produto</a></li>
-                            <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos Clientes</a></li> 
+                            <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar produto</a></li>
+                            <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos clientes</a></li> 
+                            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar clientes</a></li>    
                         </ul>
                     </li>
                 </div>
@@ -55,17 +56,25 @@
                     </c:choose>
     
                 <div class="buttonIcone">   
-                    <li id="buttonUsuario" class="nav-item dropdown"> 
+                    <li id="buttonUsuario" class="ajusteBotaoUsuario"> 
                         <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-circle-user"></i>
-                            Bem Vindo <br> ${usuario.nome}
+                            Bem Vindo ${usuario.nome}
                         </a>  
+                        
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
-                            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
-                            <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
-      
+                            <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
+                            <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                            <li><a class="dropdown-item" href="./pedidosCliente">Meus pedidos</a></li> 
+                            <c:choose>
+                                <c:when test="${usuarioLogado >= 1}">
+                                        <li><a type="submit" class="dropdown-item" href="./loginCliente">Deslogar</a></li>                     
+                                </c:when>
+                                <c:otherwise>
+                               </c:otherwise> 
+                                </c:choose>
+    
                         </ul>
                     </li>
                 </div> 
@@ -86,6 +95,7 @@
                                     <c:forEach items="${carrinhos}" var="carrinho">
                                         <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
                                         <div class="informacoesProdutosCarrinho">
+                                            <input type="text" name="idCarrinho" value="${carrinho.id_carrinho}" style="display: none;">
                                             <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                                             <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
                                             <p class="card-text" class="preco">Valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
@@ -98,8 +108,9 @@
     
                                 </div>
                             </div>
+    
                             <div id="TotalCarrinho">
-                             <h2 class="text">Valor Total do Carrinho:</h2>
+                                <h2 class="text">Valor Total do Carrinho:</h2>
                                 <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
                                     <div class="content">
                                         <p class="text" id="text"><fmt:formatNumber value="${totalCarrinhos.total}" type="currency"/></p>
@@ -122,17 +133,17 @@
         </header>
     
         <main>
- <div class="categorias">
-
-        <div class="container-categorias">
-                        <div>
-                <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
-            </div>
-        <c:forEach items="${categoria}" var="categorias" >
-                <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
-        </c:forEach>
-    </div> 
-        </div>                           
+            <div class="categorias">
+    
+            <div class="container-categorias">
+                            <div>
+                    <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
+                </div>
+            <c:forEach items="${categoria}" var="categorias" >
+                    <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
+            </c:forEach>
+        </div> 
+            </div>                              
 <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">
 
                 <c:forEach items="${produtos}" var="produto">

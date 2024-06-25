@@ -25,11 +25,12 @@ public class PedidosClienteDTO {
     private int usuario_id4;
     private String nome_categoria;
     private int categoria_id4;
-
+    private float totalProdutosPedidos;
+    
     public PedidosClienteDTO() {
     }
 
-    public PedidosClienteDTO(int id_pedidosClientes, String nome_produtos_pedidos, float valor_pedidos_produtos, String imagem_pedidos_produtos, String descricao_pedidos_produtos, int quantidade_pedidos_produtos, Date data_pedido, String nome_tamanho, int tamanho_id4, int produto_id4, int usuario_id4, String nome_categoria, int categoria_id4) {
+    public PedidosClienteDTO(int id_pedidosClientes, String nome_produtos_pedidos, float valor_pedidos_produtos, String imagem_pedidos_produtos, String descricao_pedidos_produtos, int quantidade_pedidos_produtos, Date data_pedido, String nome_tamanho, int tamanho_id4, int produto_id4, int usuario_id4, String nome_categoria, int categoria_id4, float totalProdutosPedidos) {
         this.id_pedidosClientes = id_pedidosClientes;
         this.nome_produtos_pedidos = nome_produtos_pedidos;
         this.valor_pedidos_produtos = valor_pedidos_produtos;
@@ -43,6 +44,7 @@ public class PedidosClienteDTO {
         this.usuario_id4 = usuario_id4;
         this.nome_categoria = nome_categoria;
         this.categoria_id4 = categoria_id4;
+        this.totalProdutosPedidos = totalProdutosPedidos;
     }
 
     public int getId_pedidosClientes() {
@@ -149,5 +151,14 @@ public class PedidosClienteDTO {
         this.categoria_id4 = categoria_id4;
     }
 
+    public float getTotalProdutosPedidos() {
+        return totalProdutosPedidos;
+    }
+
+    public void setTotalProdutosPedidos(float totalProdutosPedidos) {
+        this.totalProdutosPedidos = totalProdutosPedidos;
+    }
+
+    
 
 }

@@ -4,8 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- Definir a moeda atraves da localização -->
 <fmt:setLocale value="pt_BR" />
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <head>
         <link rel="stylesheet" href="./styles/PedidosCliente.css">
         <link rel="stylesheet" href="./styles/header.css">
@@ -35,9 +34,9 @@
                         </div>  
                     </form>
                 </div>
-                <c:set var="admin" value="${usuario.id_usuario}"/>
+                <c:set var="usuarioLogado" value="${usuario.id_usuario}"/>
                 <c:choose>
-                    <c:when test="${admin == 1}">
+                    <c:when test="${usuarioLogado == 1}">
                 <div class="buttonADMIN">   
                     <li id="buttonUsuarioAdmin" class="nav-item dropdown">
                         <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,8 +44,9 @@
                             ADMIN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar Produto</a></li>
-                            <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos Clientes</a></li> 
+                            <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar produto</a></li>
+                            <li><a class="dropdown-item" href="./pedidosAdm">Pedidos dos clientes</a></li> 
+                            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar clientes</a></li>    
                         </ul>
                     </li>
                 </div>
@@ -57,17 +57,31 @@
                     </c:choose>
     
                 <div class="buttonIcone">   
-                    <li id="buttonUsuario" class="nav-item dropdown"> 
+                    <li id="buttonUsuario" class="ajusteBotaoUsuario"> 
                         <a id="TextUser" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-circle-user"></i>
-                            Bem Vindo <br> ${usuario.nome}
+                            Bem Vindo ${usuario.nome}
                         </a>  
+                        
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./loginCliente">Login</a></li>       
-                            <li><a class="dropdown-item" href="./CadastroClienteController">Cadastrar</a></li>    
-                            <li><a class="dropdown-item" href="./pedidosCliente">Pedidos</a></li> 
-      
+                            <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
+                            <c:choose>
+                                <c:when test="${usuarioLogado == 0}">
+                                    <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                                </c:when>
+                                <c:otherwise>
+                               </c:otherwise> 
+                                </c:choose>
+                            <li><a class="dropdown-item" href="./pedidosCliente">Meus pedidos</a></li> 
+                            <c:choose>
+                                <c:when test="${usuarioLogado >= 1}">
+                                        <li><a type="submit" class="dropdown-item" href="./loginCliente">Deslogar</a></li>                     
+                                </c:when>
+                                <c:otherwise>
+                               </c:otherwise> 
+                                </c:choose>
+    
                         </ul>
                     </li>
                 </div> 
@@ -88,9 +102,10 @@
                                     <c:forEach items="${carrinhos}" var="carrinho">
                                         <img src="${carrinho.imagemCarrinho}" class="card-img-top" alt="...">
                                         <div class="informacoesProdutosCarrinho">
+                                            <input type="text" name="idCarrinho" value="${carrinho.id_carrinho}" style="display: none;">
                                             <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
                                             <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
-                                            <p>valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
+                                            <p class="card-text" class="preco">Valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                                             <c:forEach items="${somaProdutos}" var="somaProduto">
                                           <!--      <p class="card-text">valor total: R$${somaProduto.totalProdutos}</p>-->
                                                </c:forEach>
@@ -104,8 +119,8 @@
                             <div id="TotalCarrinho">
                                 <h2 class="text">Valor Total do Carrinho:</h2>
                                 <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
-                                    <div >
-                                        <p><fmt:formatNumber class="text" value="${totalCarrinhos.total}" type="currency"/></p>
+                                    <div class="content">
+                                        <p class="text" id="text"><fmt:formatNumber value="${totalCarrinhos.total}" type="currency"/></p>
                                     </div>
                                 </c:forEach>                   
                             </div>
@@ -126,24 +141,16 @@
     
         <main>
             <div class="categorias">
-                <div>
+    
+            <div class="container-categorias">
+                            <div>
                     <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
                 </div>
-                <b> <a href="">Jaqueta</a></b>
-                <div>
-                    <b> <a href="">Camisa</a></b>
-                </div>
-                <div>
-                    <b> <a href="">Camiseta</a></b>
-                </div>
-                <div>
-                     <b> <a href="">Calça</a></b>
-                </div>
-                <div>
-                    <b> <a href="">Bermuda </a></b>
-                </div>
+            <c:forEach items="${categoria}" var="categorias" >
+                    <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
+            </c:forEach>
+        </div> 
             </div>   
-             
                     <h1 id="TituloProdutoCarrinho">Pedidos:</h1>
             <section class="todasInformacoes">
         <div id="produtosClientes">
@@ -160,14 +167,22 @@
             </div>
               <div class="infProd">
               <p  class="card-text">Quantidade: ${pedidosCliente.quantidade_pedidos_produtos}</p>
-              <p class="card-text">Preço: R$${pedidosCliente.valor_pedidos_produtos}</p>
+              <p class="card-text" class="preco">Preço unit:<fmt:formatNumber value="${pedidosCliente.valor_pedidos_produtos}" type="currency"/></p>
               
             </div>
+        </div>
+        
+    </c:forEach>
+    </div>
+    
+    <div class="totalProdutosCheckout">
+        <c:forEach items="${totalProdutosPedidos}" var="totalProdutosPedidos">
+            <div class="valorTotal">
+                <p class="card-text">Valor Total: <fmt:formatNumber value="${totalProdutosPedidos.totalProdutosPedidos}" type="currency"/></p>
+            </div>
+        </c:forEach>
+    </section>
 </div>
-                          </c:forEach>
-
-</div>
-</section>
                     </main>
 <footer>
             <div class="rodape">
