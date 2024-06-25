@@ -68,9 +68,9 @@
                     
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                         <c:choose>
                             <c:when test="${usuarioLogado == 0}">
+                                <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                                 <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
                             </c:when>
                             <c:otherwise>

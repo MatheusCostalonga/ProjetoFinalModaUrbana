@@ -64,8 +64,14 @@
                         
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
-                            <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                            <c:choose>
+                                <c:when test="${usuarioLogado == 0}">
+                                    <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
+                                    <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
+                                </c:when>
+                                <c:otherwise>
+                               </c:otherwise> 
+                                </c:choose>
                             <li><a class="dropdown-item" href="./pedidosCliente">Meus pedidos</a></li> 
                             <c:choose>
                                 <c:when test="${usuarioLogado >= 1}">
@@ -143,7 +149,7 @@
                     <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
             </c:forEach>
         </div> 
-            </div>                              
+            </div>                                
 <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">
 
                 <c:forEach items="${produtos}" var="produto">

@@ -62,9 +62,9 @@
                         
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                             <c:choose>
                                 <c:when test="${usuarioLogado == 0}">
+                                    <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                                     <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
                                 </c:when>
                                 <c:otherwise>
@@ -125,20 +125,17 @@
                                 <a href="./checkoutController">      
                                     <input type="button" value="Comprar">
     
-                                </a>
-                            </div>
-    
-                        </div>
-                    </div>
-    
-                </div>
+                          </a>
+                     </div>
+                 </div>
+              </div>
+         </div>
             </div> 
     
         </header>
     
         <main>
             <div class="categorias">
-    
             <div class="container-categorias">
                             <div>
                     <b><a class="open-btn" href="./menu"><i id="iconeCategoria" class="fa-solid fa-bars menu"></i>  Todas as Categorias</i></a></b>
