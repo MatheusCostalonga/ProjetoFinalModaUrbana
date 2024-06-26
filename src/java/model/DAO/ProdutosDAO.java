@@ -112,7 +112,7 @@ public class ProdutosDAO {
             ResultSet rs = null;  
             
             //SELECT * FROM produtos WHERE nome_produto LIKE %?% OR descricao LIKE ?
-            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome_produto LIKE %?% OR categoria LIKE ?");
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome_produto LIKE ? OR categoria_id LIKE ?");
             stmt.setString(1, busca);
             stmt.setString(2, busca);
             
@@ -151,9 +151,6 @@ public class ProdutosDAO {
                     produtos.setCategoriaId(rs.getInt("categoria_id"));
                     produtos.setNome_produto(rs.getString("nome_produto"));
                     produtos.setImagem(rs.getString("imagem"));
-                    produtos.setImagem1(rs.getString("imagem1"));
-                    produtos.setImagem2(rs.getString("imagem2"));
-                    produtos.setImagem3(rs.getString("imagem3"));
                     produtos.setDescricao(rs.getString("descricao"));               
                     produtos.setValor(rs.getFloat("valor"));
                     produto.add(produtos);
@@ -386,6 +383,75 @@ public int consultarQuantidadeProduto(int produtoId) {
     
     return quantidade;
 }
+public int diminuirQuantidadeProduto(int quantidadeDesejada, int produtoId){
+    
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+    
+    if(rs.next()){
+        int quantidadeAtual = rs.getInt("quantidade");
+        if(quantidadeAtual >= quantidadeDesejada){
+            
+            int novaQuantidade = quantidadeAtual - quantidadeDesejada;
+        stmt = conexao.prepareStatement("UPDATE produtos SET quantidade = ? WHERE id_produto = ?");
+        stmt.setInt(1, novaQuantidade);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+        
+          rs.close();
+        stmt.close();
+        conexao.close();    
+                quantidadeAtual = 0;
+        quantidadeDesejada = 0;
+        novaQuantidade = 0;
+        }
+        
+    }
+    
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+return 0;
+} 
+public int aumentarQuantidadeProduto(int produtoId, int quantidadeCarrinho){
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+    
+    if(rs.next()){
+        int quantidadeAtual = rs.getInt("quantidade");
+        
+            int novaQuantidade = quantidadeAtual + quantidadeCarrinho;
+
+        stmt = conexao.prepareStatement("UPDATE produtos SET quantidade = ? WHERE id_produto = ?");
 
 
+        stmt.setInt(1, novaQuantidade);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+       
+        rs.close();
+        stmt.close();
+        conexao.close();      
+        quantidadeAtual = 0;
+        quantidadeCarrinho = 0;
+        novaQuantidade = 0;
+    }
+    
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+return 0;
+} 
 }

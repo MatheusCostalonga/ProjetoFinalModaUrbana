@@ -21,7 +21,7 @@ import raven.toast.Notifications;
  */
 public class EnderecoDAO {
     
-    public List<EnderecosDTO> verTabela() {
+    public List<EnderecosDTO> verEndereco() {
         List<EnderecosDTO> enderecos = new ArrayList<>();
         try {
             Connection conexao = Conexao.conectar();
@@ -48,7 +48,7 @@ public class EnderecoDAO {
         }
         return enderecos;
     }
-    public void inserir(EnderecosDTO objEndereco) {
+    public void inserirEndereco(EnderecosDTO objEndereco) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -85,7 +85,7 @@ public class EnderecoDAO {
             erro.printStackTrace();
         }
     }
-        public List<EnderecosDTO> EndercoUsuarios(int id_usuarioEndereco) {
+        public List<EnderecosDTO> enderecoUsuarios(int id_usuarioEndereco) {
         List<EnderecosDTO> enderecos = new ArrayList<>();
         try {
             Connection conexao = Conexao.conectar();

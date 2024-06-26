@@ -85,8 +85,7 @@ public class LoginClienteController extends HttpServlet {
         usuario.setUsuario(request.getParameter("usuario"));
         usuario.setSenha(request.getParameter("senha"));
         PrintWriter out = response.getWriter();
-        System.out.println(usuario.getUsuario());
-        System.out.println(usuario.getSenha());
+        String cliente = request.getParameter("usuario");
         int idUsuario = usuarios.validaUsuario(usuario);
         if (usuario.getUsuario().trim().equals("") || usuario.getSenha().trim().equals("")) {
             out.println("<script type=\"text/javascript\">");
@@ -96,13 +95,12 @@ public class LoginClienteController extends HttpServlet {
         } else {
 
             if (idUsuario > 0) {
-                                System.out.println("primeiro:"+idUsuario);
                 Cookie cookie = new Cookie("continuarLogin", Integer.toString(idUsuario));
                 response.addCookie(cookie);
                 if (idUsuario == 1) {
-                    response.sendRedirect("./menu");
+                   sucesso(request, response);
                 } else {
-                    response.sendRedirect("./menu");
+                   sucesso(request, response);
                 }
             } else {
                 out.println("<script type=\"text/javascript\">");
@@ -112,11 +110,36 @@ public class LoginClienteController extends HttpServlet {
             }
         }
     }
+    protected void sucesso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+                PrintWriter out = response.getWriter();
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Produto Adicionado</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
 
+        // Exibe o SweetAlert com a mensagem de sucesso
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'success',");
+        out.println("  title: 'Login efetuado com sucesso',");
+        out.println("  text: 'Seja bem vindo',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        out.println("});");
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+        out.println("  window.location.href = 'menu';");
+        out.println("}, 3000);");
+
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
+    }
     /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
+
      */
     @Override
     public String getServletInfo() {

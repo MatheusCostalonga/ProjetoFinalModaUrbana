@@ -69,7 +69,6 @@ public class UsuarioDAO {
             stmt.close();
             conexao.close();
         } catch (SQLException e) {
-            System.out.println("Erro no insert de usuario: " + e);
         }
     }
 

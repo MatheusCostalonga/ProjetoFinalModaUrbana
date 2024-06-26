@@ -19,7 +19,7 @@ import model.bean.CarrinhoDTO;
  * @author Senai
  */
 public class CarrinhoDAO {
-    public List<CarrinhoDTO> leia() {
+    public List<CarrinhoDTO> lerCarrinho() {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{
          Connection conexao = Conexao.conectar();
@@ -46,7 +46,7 @@ public class CarrinhoDAO {
      }   
         return Carrinho;
     }
-    public void cadastrarCarrinho(CarrinhoDTO c){
+    public void cadastrarProdutoCarrinho(CarrinhoDTO c){
         try{
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -100,8 +100,7 @@ public class CarrinhoDAO {
         e.printStackTrace();
         }
     }
-        //  Luan me passou e explicou o codigo 
-         public List<CarrinhoDTO> leiaTotal(int idUsuario) {
+         public List<CarrinhoDTO> leiaTotalCarrinho(int idUsuario) {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{
          Connection conexao = Conexao.conectar();
@@ -134,7 +133,6 @@ public class CarrinhoDAO {
          rs = stmt.executeQuery();
 while(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();
-             System.out.println(rs.getFloat("total_produtos"));
              objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
              objCarrinho.setTotalProdutos(rs.getFloat("total_produtos"));
              Carrinho.add(objCarrinho);
@@ -149,7 +147,6 @@ while(rs.next()){
          
 public List<CarrinhoDTO> MostrarTudo(int idUsuario){
         List<CarrinhoDTO> carrinhos = new ArrayList<>();
-        System.out.println("id DAO Usuario"+idUsuario);
     try{
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
@@ -163,7 +160,6 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
         rs = stmt.executeQuery();
         while(rs.next()){
             CarrinhoDTO carrinho = new CarrinhoDTO();
-                        System.out.println(rs.getString("nome_produto_carrinho"));
             carrinho.setId_carrinho(rs.getInt("id_carrinho"));
             carrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
             carrinho.setValorCarrinho(rs.getFloat("valor_produto_carrinho"));
@@ -175,17 +171,33 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
             carrinho.setCategoriaId3(rs.getInt("categoria_id3"));       
             carrinho.setTamanhoId3(rs.getInt("tamanho_id3"));
             carrinho.setProdutoId3(rs.getInt("produto_id3"));
-            carrinhos.add(carrinho);
-             
-            
+            carrinhos.add(carrinho); 
         }
-        
+
     } catch(SQLException e){
         e.printStackTrace();
     }
             return carrinhos;
                          
 }
-
+        public int verificarCarrinho(int idUsuario){
+            int idCarrinho = 0;
+          try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;    
+        stmt = conexao.prepareStatement("SELECT id_carrinho FROM carrinho WHERE usuario_id3 = ?");
+        stmt.setInt(1, idUsuario);
+        rs = stmt.executeQuery();
+            while(rs.next()){
+          idCarrinho = rs.getInt("id_carrinho");
+            }
+            stmt.close();
+            conexao.close();
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+        return idCarrinho;
+    } 
 }
                     

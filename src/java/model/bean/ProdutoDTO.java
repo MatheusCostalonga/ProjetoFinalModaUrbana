@@ -15,9 +15,6 @@ public class ProdutoDTO {
      private int idProduto;
     private String nome_produto;
     private String imagem;
-    private String imagem1;
-    private String imagem2;
-    private String imagem3;
     private float valor;
     private String descricao;
     private int tamanhoId;
@@ -29,13 +26,10 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome_produto, String imagem, String imagem1, String imagem2, String imagem3, float valor, String descricao, int tamanhoId, String qual_tamanho, int categoriaId, int quantidade, String nome_categoria) {
+    public ProdutoDTO(int idProduto, String nome_produto, String imagem, float valor, String descricao, int tamanhoId, String qual_tamanho, int categoriaId, int quantidade, String nome_categoria) {
         this.idProduto = idProduto;
         this.nome_produto = nome_produto;
         this.imagem = imagem;
-        this.imagem1 = imagem1;
-        this.imagem2 = imagem2;
-        this.imagem3 = imagem3;
         this.valor = valor;
         this.descricao = descricao;
         this.tamanhoId = tamanhoId;
@@ -67,30 +61,6 @@ public class ProdutoDTO {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public String getImagem1() {
-        return imagem1;
-    }
-
-    public void setImagem1(String imagem1) {
-        this.imagem1 = imagem1;
-    }
-
-    public String getImagem2() {
-        return imagem2;
-    }
-
-    public void setImagem2(String imagem2) {
-        this.imagem2 = imagem2;
-    }
-
-    public String getImagem3() {
-        return imagem3;
-    }
-
-    public void setImagem3(String imagem3) {
-        this.imagem3 = imagem3;
     }
 
     public float getValor() {
