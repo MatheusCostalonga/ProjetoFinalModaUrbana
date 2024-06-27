@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+main{
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    height: 82vh;
+    width: 100vw;
+}
+
+#titulo{
+    text-align: center; 
+}
+
+#todasInformacoes{
+    display: grid;
+   /* justify-content: end;*/
+    width: 95vw;
+    height: 80vh;
+    justify-content: center;
+    justify-items: start;
+    padding-left: 5vw;
+}
+#produtosClientes{
+     height: 86vh; 
+     width: 90vw;
+    background-color: #D9D9D9;
+    border: black solid 1px;
+    overflow-x: auto;
+    align-items: center;
+
+}
+#informacoesProdutos{
+text-align: start;
+display: grid;
+grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr;
+width: 99.9%;
+border: #000 solid 0.25px;
+}
+img{
+    width: 10vw;
+    height: 10vh;
+}
