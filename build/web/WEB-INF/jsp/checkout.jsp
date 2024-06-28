@@ -24,10 +24,9 @@
 
     </head>
     <body>
-<header>
-     <h1 class="naomexer">Check-out</h1>
-</header>
+        
         <main>
+            <h2 class="naomexer">Check-out</h2>
                         <div id="TodoCheckout">
                        
                             <form action="modificarEndereco" method="post" enctype="multipart/form-data" >
@@ -107,9 +106,7 @@
                 <button type="submit">Forma de pagamento</button>
             </form>
             <div id="InformPix" style="display: none;">
-                <div id="imgpix">
-            <img src="./assets/QRcodeGuilhermePix.jpeg" alt="QRCode para pagamento via pix">
-                </div>
+            <img id="imgpix" src="./assets/QRcodeGuilhermePix.jpeg" alt="QRCode para pagamento via pix">
             </div>
             <div id="confirmarPagamento">
             <div id="InformCartaoCredito" style="display: none;">

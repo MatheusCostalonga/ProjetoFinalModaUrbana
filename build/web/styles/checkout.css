@@ -43,7 +43,7 @@ margin-right: 1vw;
 .ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout{
     max-height: 12.72vh;
     border-bottom: #000 solid 0.25px;
-
+    width: 7vw;
 }
 .ProdutosCarrinhoCheckout #ProdutosCheckout #ProdutoMainCarrinho .informacoesProdutosCheckout{
     text-align: start;
@@ -137,13 +137,10 @@ main #finalizacao{
     cursor: pointer;
     margin-top: 3%;
 }
-/* main #imgCartao{
-    width: 70%;
-    height: 80%;
-    align-items: center;
-    justify-items: center;
-    margin-left: 21%;
-} */
+ main #imgCartao{
+    margin-top: 10vh;
+
+} 
  .infProd{
     border-right: #000 solid 0.25px;
 

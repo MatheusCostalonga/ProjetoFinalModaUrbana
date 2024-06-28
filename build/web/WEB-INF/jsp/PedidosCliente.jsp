@@ -65,9 +65,9 @@
                         
     
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                             <c:choose>
                                 <c:when test="${usuarioLogado == 0}">
+                                    <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                                     <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
                                 </c:when>
                                 <c:otherwise>
@@ -150,7 +150,7 @@
                     <a href="./buscar-produtos?cat=${categorias.id_categoria}&busca=">${categorias.nome_categoria}</a>
             </c:forEach>
         </div> 
-            </div>   
+            </div>         
                     <h1 id="TituloProdutoCarrinho">Pedidos:</h1>
             <section class="todasInformacoes">
         <div id="produtosClientes">

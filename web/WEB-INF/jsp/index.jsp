@@ -69,7 +69,7 @@
 
                     <ul class="dropdown-menu">
                         <c:choose>
-                            <c:when test="${usuarioLogado == 0}">
+                            <c:when test="${usuarioLogado == null}">
                                 <li><a class="dropdown-item" href="./loginCliente">Realizar login</a></li>       
                                 <li><a class="dropdown-item" href="./CadastroClienteController">Realizar cadastro</a></li>    
                             </c:when>
@@ -179,9 +179,6 @@
 
         <h1 class="my-4">Camisetas</h1> 
         <div class="grade">
-            <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
-            <div class="horizontal-scroll">
-
                 <div class="rows">
                     <c:forEach var="camiseta" items="${camisetas}">
                         <div class="card-body">
@@ -198,13 +195,10 @@
                     </c:forEach>
                 </div>
             </div>
-            <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
 
         </div> 
         <h1>Camisas polo</h1> 
         <div class="grade">
-            <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
-            <div class="horizontal-scroll">
 
                 <div class="rows">
                     <c:forEach var="camisas" items="${camisa}">
@@ -222,12 +216,9 @@
                     </c:forEach>
                 </div>
             </div>
-            <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
         </div>  
         <h1>Calças</h1>
         <div class="grade">
-            <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
-            <div class="horizontal-scroll">
 
                 <div class="rows">
                     <c:forEach var="calcas" items="${calca}">
@@ -245,13 +236,9 @@
                     </c:forEach>
                 </div>
             </div>
-            <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
-
         </div> 
         <h1>Jaquetas</h1>
         <div class="grade">
-            <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
-            <div class="horizontal-scroll">
 
                 <div class="rows">
                     <c:forEach var="jaquetas" items="${jaqueta}">
@@ -269,13 +256,9 @@
                     </c:forEach>
                 </div>
             </div>
-            <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
-
         </div>  
         <h1>Bermudas</h1>
         <div class="grade">
-            <button class="mexerEsquerda"><i class="fa-solid fa-chevron-left"></i></button> 
-            <div class="horizontal-scroll">
 
                 <div class="rows">
                     <c:forEach var="bermudas" items="${bermuda}">
@@ -293,8 +276,6 @@
                     </c:forEach>
                 </div>
             </div>
-            <button class="mexerDireita"><i class="fa-solid fa-chevron-right"></i></button> 
-
         </div>    
           <h1>Outro produto</h1>
           
