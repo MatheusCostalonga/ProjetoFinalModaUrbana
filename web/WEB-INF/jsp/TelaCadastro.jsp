@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="./styles/telaCadastro.css">
         <title>Pagina Cadastro</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="sweetalert2.min.css">
         <script src="https://kit.fontawesome.com/187b9a1422.js" crossorigin="anonymous"></script>    </head>
     <body>
         <main>
@@ -67,5 +68,6 @@
         </main> 
 
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="./js/cadastro.js"></script>
 </html>

@@ -152,7 +152,7 @@
                             <div class="infProd">
                                 <!-- Formulário separado para excluir o item do carrinho -->
                                 <div id="botaoExcluitItemCarrinho">
-                                    <p class="card-text">Unidades: ${carrinho.quantidadeCarrinho}</p>
+                                    <p class="card-text">unidades: ${carrinho.quantidadeCarrinho}</p>
                                     <form action="ExcluirItemCarrinho" method="post">
                                         <button type="button" class="button" onclick="excluirItemCarrinho(${carrinho.id_carrinho},${carrinho.quantidadeCarrinho},${carrinho.produtoId3})">
                                             <i class="svgIcon fa-sharp fa-solid fa-trash"></i>
@@ -162,7 +162,7 @@
                                         <input type="hidden" name="quantidadeCarrinho" value="${carrinho.quantidadeCarrinho}">
                                     </form>
                                 </div>
-                                <p class="card-text">Valor Unidade: <fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
+                                <p class="card-text">Valor unidades: <fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                         </div>
                         </div>
                         <!-- Campos escondidos para adicionar produtos aos pedidos -->

@@ -95,6 +95,32 @@ UsuarioDTO usuario = new UsuarioDTO();
         usuario.setUsuario(request.getParameter("usuario"));
         usuario.setSenha(request.getParameter("senha"));
         usuarios.inserir(usuario);
+        
+          PrintWriter out = response.getWriter();
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Cadastro bem sucedido</title>");
+        out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
+        out.println("</head>");
+        out.println("<body>");
+
+        // Exibe o SweetAlert com a mensagem de sucesso
+        out.println("<script>");
+        out.println("Swal.fire({");
+        out.println("  icon: 'success',");
+        out.println("  title: 'Cadastro realizado co sucesso',");
+        out.println("  text: '',");
+        out.println("  showConfirmButton: false, ");// Remove o botão de confirmação
+        out.println("});");
+
+        // Redireciona automaticamente para a página inicial quando der o tempo determinado
+        out.println("setTimeout(function() {");
+        out.println("  window.location.href = 'login';");
+        out.println("}, 3000);");
+
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
         String path = "/WEB-INF/jsp/TelaLogin.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
         dispatcher.forward(request, response);

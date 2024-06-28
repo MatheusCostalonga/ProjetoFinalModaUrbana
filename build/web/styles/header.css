@@ -2,11 +2,12 @@ body{
     padding: 0;
     margin: 0;
     display: flexbox;  
-
+    font-family: inherit;
 }
 header{
     width: 100%;
     background-color: #2A2B33;
+    font-family: inherit;
 }
 h1{
     display: grid !important;
@@ -14,7 +15,7 @@ h1{
 }
 header #gridHeader{
   display: grid;
-  grid-template-columns: 8% 54% 10% 12.5% 10.5%; 
+  grid-template-columns: 8% 44% 10% 20% 17.5%; 
   height: 10vh;             
     
 }
@@ -73,6 +74,7 @@ header #gridHeader #Juntos{
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: inherit;
 }
 
 #card{
@@ -82,6 +84,7 @@ header #gridHeader #Juntos{
     display: grid;
     grid-template-rows: 1fr 14fr 1fr 2fr;
     padding: 0;
+    font-family: inherit;
     margin: 0;
 }
 
@@ -90,6 +93,7 @@ header #gridHeader #Juntos{
     background-color: #303247;
     color: white;
     text-align: center;
+    font-family: inherit;
 }
 #MainCarrinho{
     /* height: 86vh; */
@@ -97,6 +101,7 @@ header #gridHeader #Juntos{
     border: black solid 1px;
     overflow-x: auto;
     max-width: 29vw;
+    font-family: inherit;
 }
 #card #MainCarrinho #ProdutoMainCarrinho{
     display: grid;
@@ -104,6 +109,7 @@ header #gridHeader #Juntos{
     width: 100%;
     max-width: 27.3vw;
     margin-left: 5%;
+    font-family: inherit;
 }
 
 #card #MainCarrinho #ProdutoMainCarrinho img, 
@@ -111,6 +117,7 @@ header #gridHeader #Juntos{
     border: #000 solid 0.25px;
     max-height: 12.72vh;
     height: auto;
+    font-family: inherit;
 }
 #card #MainCarrinho #ProdutoMainCarrinho .informacoesProdutosCarrinho{
     text-align: start;
@@ -118,18 +125,19 @@ header #gridHeader #Juntos{
     grid-template-columns: 1fr 1fr;
     grid-area: auto;
     padding: 1px;
+    font-family: inherit;
 }
 h5 {
     font-size: 1.25rem;
     padding: 0;
     margin: 0;
+    font-family: inherit;
 }
 p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-bottom: .5rem !important;
     font-family: inherit !important;
-    font-weight: 500 !important;
     line-height: 1.2 !important;
     color: inherit !important;
 }
@@ -139,6 +147,7 @@ p {
     text-align: left;
     height: auto;
     background-color: #D9D9D9;
+    font-family: inherit;
 }
 
 #buttonCarrinho{
@@ -148,11 +157,12 @@ text-align: center;
 align-content: center;
     background-color: #303247;   
     border: black solid 1px;
+    font-family: inherit;
 }
 #TotalCarrinho span{
     font-weight: bold;
     font-size: large;
-    
+    font-family: inherit;
 }
 
 #buttonCarrinho input{
@@ -168,6 +178,7 @@ font-size: xx-large;
     cursor: pointer;
     border-color: black solid 3px;
     -webkit-text-stroke: 1.5px #000;
+    font-family: inherit;
 }
 header .buttonIcone .ajusteBotaoUsuario{
     position: relative;
@@ -176,10 +187,12 @@ header .buttonIcone .ajusteBotaoUsuario{
     justify-content: center;
     justify-items: center;
     display: grid;
+    font-family: inherit;
 }
 main .categorias a{
     color: #2A2B33;
     font-weight: 500;
+    font-family: inherit;
 }
 main .categorias a:hover{
     color: #2A2B33;
@@ -199,11 +212,13 @@ main .categorias{
     justify-content: center;
     align-content: center;
     width: 100%;
+    font-family: inherit;
 /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
 }
 
 main .categorias{
     margin-top: 0.5vh;
+    font-family: inherit;
     margin-bottom: 0.5vh;
 }
 
@@ -212,10 +227,11 @@ main .categorias{
     height: 4.5vh;
     padding-right: 83px;
     background-color: #D9D9D9;
+    font-family: inherit;
 }
 #campoPesquisa{
     display:flex;
- 
+    font-family: inherit;
     justify-content: center;
 }
 header #gridHeader #campoPesquisa button{
@@ -370,7 +386,102 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
 
 
 
-
+@media screen and (min-width: 1000px) and (max-width: 1400px){
+    main .grade .rows .card-body #button-Comprar{
+        cursor: pointer ;
+        background-color: #D9D9D9 ;
+        color: #2A2B33;
+        border: none;
+        border-radius: 0.5px;
+        }
+        
+        main .grade .rows .card-body #button-Comprar:hover{
+            background-color:#2A2B33;
+            color: #D9D9D9;
+        }
+        main .grade .rows .card-body .imagemProduto img{
+            background-size: cover;
+            background-position: center;
+           background-repeat: no-repeat; 
+           width: 14vw;
+           height: 20vh;
+        }
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 5rem;
+            cursor: pointer;
+            display: grid !important;;
+            transition: 0.5s all ease-out;
+        
+        }
+        .card-body:hover{
+            background-color:#2A2B33;
+            color: #D9D9D9;
+        }
+            .grade {
+                display: flex !important;
+                justify-content: center;
+                justify-items: center;
+                margin-right: 0 !important; 
+                 margin-left: 0 !important;
+        
+            }
+        
+        main .grade .rows{
+            text-align: center;
+            display: flex!important;
+            height: auto;
+            width: 20%;
+        
+            }
+         main .grade .horizontal-scroll{
+             width:48vw;
+             height: auto;
+             background-color: #ffffff;
+             border: none;
+             display: flex;
+             justify-content: start;
+             align-items: center;
+              overflow-x: auto;
+             scroll-behavior: smooth;
+        }  
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        main .grade .mexerEsquerda, main .grade .mexerDireita {
+            background-color: transparent;
+            border: none;
+            height: auto;
+            color: black;
+        }
+        
+        main .grade .mexerEsquerda:hover, main .grade .mexerDireita:hover{
+            color: #2A2B33;
+            cursor: pointer;
+        }
+        .fa-chevron-right, .fa-chevron-left{
+            font-size: xx-large;
+        }
+        footer{
+            display: grid;
+            height: 10vh;
+            background-color: #2A2B33;
+            color: white;
+        }
+        footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+            width: 100%;
+        }
+        footer .rodape .redesSociais{
+            margin-left: 0.5%;
+        }
+        footer .rodape .redesSociais, footer .rodape .metodoContato{
+            display: grid;
+        }
+}
 
 @media screen and (min-width: 600px) and (max-width: 800px){
     body{
@@ -390,7 +501,7 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     }
     header #gridHeader{
       display: grid;
-      grid-template-columns: 11% 51% 10% 12.5% 15.5%; 
+      grid-template-columns: 11% 51% 15% 17.5% 5.5%; 
       height: 10vh;             
         
     }
@@ -549,17 +660,14 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
         color: #2A2B33;
     }
     main .categorias{
-        background-color:#ffffff;
-        font-size: 12px;
-        margin-left: 0.7vw;
+        background-color: #ffffff;
         text-decoration: none;
         text-align: center;
         align-items: center;
-        display: grid;
+        display: flex;
         justify-content: center;
         align-content: center;
         width: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
     
     main .categorias{
@@ -725,10 +833,6 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     }
 }
 
-
-
-
-
 @media screen and (min-width: 320px) and (max-width: 767px){
     body{
         padding: 0;
@@ -745,13 +849,11 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
         display: grid !important;
         justify-content: center !important;
     }
-    header #gridHeader{
-      display: grid;
-      grid-template-columns: 11% 51% 10% 12.5% 15.5%; 
-      height: 10vh;             
-        
+    header #gridHeader {
+        display: grid;
+        grid-template-columns: 11% 51% 15% 12.5% 15.5%;
+        height: 10vh;
     }
-    
     main{
         flex: 1;
     }

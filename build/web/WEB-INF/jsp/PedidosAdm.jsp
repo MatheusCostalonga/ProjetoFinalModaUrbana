@@ -40,7 +40,7 @@
                   <p class="infProd">Rua: ${pedidoClienteAdm.ruaEndereco}</p>
             </div>
             <div class="infProd">
-                <p  class="card-text">Quantidade: ${pedidoClienteAdm.quantidade}</p>
+                <p  class="card-text">unidades: ${pedidoClienteAdm.quantidade}</p>
                 <p class="infProd">CEP: ${pedidoClienteAdm.cep}</p>
                 
             </div>

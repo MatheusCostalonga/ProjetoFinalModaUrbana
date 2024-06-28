@@ -1,4 +1,6 @@
      document.addEventListener("DOMContentLoaded", function() {
+         
+
       const grade = document.querySelectorAll(".grade");
   
       grade.forEach(grade => {
@@ -20,6 +22,15 @@
                   behavior: "smooth" // Comportamento suave da rolagem
               });
           });
+      });
+
+      Swal.fire({
+        title: "APROVEITE!",
+        text: "Promoção somente agora.",
+        imageUrl: "./assets/PopUp.png",
+        imageWidth: 400,
+        imageHeight: 400,
+        imageAlt: "Compre qualquer produto com frete gratis"
       });
   });
   

@@ -85,13 +85,12 @@ public class CentralController extends HttpServlet {
         List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotalCarrinho(idUsuario);       
         request.setAttribute("totalCarrinho", totalCarrinho);
          List<CarrinhoDTO> carrinhos = carrinho.MostrarTudo(idUsuario);       
-        request.setAttribute("carrinhos", carrinhos);             
+        request.setAttribute("carrinhos", carrinhos);
             }
         }
 
   
-        List<CarrinhoDTO> somaProdutos = carrinho.somarProdutos();       
-        request.setAttribute("somaProdutos", somaProdutos);
+       
             List<ProdutoDTO> camisetas = produtosDAO.ListarCamiseta();
             request.setAttribute("camisetas", camisetas);
             List<ProdutoDTO> camisa = produtosDAO.ListarCamisa();

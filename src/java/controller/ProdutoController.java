@@ -212,7 +212,7 @@ out.println("}, 3000);");
         out.println("});");
         // Redireciona automaticamente para a página inicial quando der o tempo determinado
         out.println("setTimeout(function() {");
-        out.println("  window.location.href = 'menu';");
+        out.println("  window.history.back();"); // Volta para a página anterior
         out.println("}, 3000);");     
         out.println("</script>");
         out.println("</body>");

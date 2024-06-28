@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="./styles/produtoSelecionado.css">
         <link rel="stylesheet" href="./styles/header.css">
 
-            <script src="sweetalert2.min.js"></script>
             <link rel="stylesheet" href="sweetalert2.min.css">
     </head>
     <body>

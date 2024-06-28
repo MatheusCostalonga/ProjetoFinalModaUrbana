@@ -38,13 +38,10 @@ main .imagemProduto h5{
         height: auto;
     }
     #TextQuantidade, #valorProduto,#TextTamanho{
-        font-weight: 700;
-        font-size: large;
-        font-family: Arial;
+        font-family: inherit;
     }
     #descricaoProduto{
-        font-family: Arial;
-        font-weight: 700;
+        font-family: inherit;
         padding-bottom: 15vh;
     }
      .produto #comprar{
@@ -64,8 +61,7 @@ main .imagemProduto h5{
     }
     main .produto .imagemProduto #tituloProduto{
         font-size: xx-large;
-        font-weight: 600;
-        font-family: Arial;
+        font-family: inherit;
         padding-bottom: 5vh;
     }
     footer{
@@ -129,10 +125,10 @@ grid-template-columns: 1fr 1fr;
             #TextQuantidade, #valorProduto,#TextTamanho{
                 font-weight: 700;
                 font-size: large;
-                font-family: Arial;
+                font-family: inherit;
             }
             #descricaoProduto{
-                font-family: Arial;
+                font-family: inherit;
                 font-weight: 700;
                 padding-bottom: 15vh;
             }
@@ -155,7 +151,7 @@ grid-template-columns: 1fr 1fr;
             main .produto .imagemProduto #tituloProduto{
                 font-size: xx-large;
                 font-weight: 600;
-                font-family: Arial;
+                font-family: inherit;
                 padding-bottom: 5vh;
             }
             footer{

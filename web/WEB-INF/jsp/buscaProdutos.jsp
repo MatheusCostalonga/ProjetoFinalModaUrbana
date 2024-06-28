@@ -101,8 +101,8 @@
                                         <div class="informacoesProdutosCarrinho">
                                             <input type="text" name="idCarrinho" value="${carrinho.id_carrinho}" style="display: none;">
                                             <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
-                                            <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
-                                            <p class="card-text" class="preco">Valor unit:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
+                                            <p class="card-text" class="quantidade">unidades: ${carrinho.quantidadeCarrinho}</p>
+                                            <p class="card-text" class="preco">Valor unidades:<fmt:formatNumber value="${carrinho.valorCarrinho}" type="currency"/></p>
                                             <c:forEach items="${somaProdutos}" var="somaProduto">
                                           <!--      <p class="card-text">valor total: R$${somaProduto.totalProdutos}</p>-->
                                                </c:forEach>
@@ -158,6 +158,7 @@
 </div>
    </c:forEach>
     </div>
-                        </main>
+    </main>
     </body>
+    <script src="./js/categoria.js"></script>
 </html>

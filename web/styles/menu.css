@@ -92,7 +92,102 @@ footer .rodape .redesSociais{
 footer .rodape .redesSociais, footer .rodape .metodoContato{
     display: grid;
 }
-
+@media screen and (min-width: 1000px) and (max-width: 1400px){
+    main .grade .rows .card-body #button-Comprar{
+        cursor: pointer ;
+        background-color: #D9D9D9 ;
+        color: #2A2B33;
+        border: none;
+        border-radius: 0.5px;
+        }
+        
+        main .grade .rows .card-body #button-Comprar:hover{
+            background-color:#2A2B33;
+            color: #D9D9D9;
+        }
+        main .grade .rows .card-body .imagemProduto img{
+            background-size: cover;
+            background-position: center;
+           background-repeat: no-repeat; 
+           width: 14vw;
+           height: 20vh;
+        }
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 5rem;
+            cursor: pointer;
+            display: grid !important;;
+            transition: 0.5s all ease-out;
+        
+        }
+        .card-body:hover{
+            background-color:#2A2B33;
+            color: #D9D9D9;
+        }
+            .grade {
+                display: flex !important;
+                justify-content: center;
+                justify-items: center;
+                margin-right: 0 !important; 
+                 margin-left: 0 !important;
+        
+            }
+        
+        main .grade .rows{
+            text-align: center;
+            display: flex!important;
+            height: auto;
+            width: 20%;
+        
+            }
+         main .grade .horizontal-scroll{
+             width:48vw;
+             height: auto;
+             background-color: #ffffff;
+             border: none;
+             display: flex;
+             justify-content: start;
+             align-items: center;
+              overflow-x: auto;
+             scroll-behavior: smooth;
+        }  
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        main .grade .mexerEsquerda, main .grade .mexerDireita {
+            background-color: transparent;
+            border: none;
+            height: auto;
+            color: black;
+        }
+        
+        main .grade .mexerEsquerda:hover, main .grade .mexerDireita:hover{
+            color: #2A2B33;
+            cursor: pointer;
+        }
+        .fa-chevron-right, .fa-chevron-left{
+            font-size: xx-large;
+        }
+        footer{
+            display: grid;
+            height: 10vh;
+            background-color: #2A2B33;
+            color: white;
+        }
+        footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+            width: 100%;
+        }
+        footer .rodape .redesSociais{
+            margin-left: 0.5%;
+        }
+        footer .rodape .redesSociais, footer .rodape .metodoContato{
+            display: grid;
+        }
+}
 @media screen and (min-width: 600px) and (max-width: 800px){
     main .grade .rows .card-body #button-Comprar{
             cursor: pointer ;

@@ -121,7 +121,7 @@ public class CarrinhoDAO {
         return Carrinho;
     }
     
-        public List<CarrinhoDTO> somarProdutos() {
+   /*     public List<CarrinhoDTO> somarProdutos(int idUsuario) {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{
          Connection conexao = Conexao.conectar();
@@ -129,19 +129,20 @@ public class CarrinhoDAO {
          ResultSet rs = null;
          
          stmt = conexao.prepareStatement("SELECT c.id_carrinho, c.nome_produto_carrinho, c.valor_produto_carrinho, c.quantidade_carrinho, (c.valor_produto_carrinho * c.quantidade_carrinho) AS total_produtos FROM carrinho c INNER JOIN produtos p ON c.produto_id3 = p.id_produto");
-       
+         stmt.setInt(1, idUsuario);       
          rs = stmt.executeQuery();
-while(rs.next()){
+        while(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();
              objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
              objCarrinho.setTotalProdutos(rs.getFloat("total_produtos"));
+             objCarrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
              Carrinho.add(objCarrinho);
          }
      }catch(SQLException e){
          e.printStackTrace();
      }   
         return Carrinho;
-    }
+    }*/
          
 
          
@@ -152,11 +153,8 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-     // sem categoria id 3   stmt = conexao.prepareStatement("SELECT carrinho.id_carrinho, carrinho.nome_produto_carrinho, carrinho.valor_produto_carrinho, carrinho.imagem_produto_carrinho, carrinho.descricao_produto_carrinho, carrinho.quantidade_carrinho, carrinho.total, categorias.nome_categoria, carrinho.usuario_id3, tamanho.tamanho_produto FROM carrinho INNER JOIN produtos ON carrinho.produto_id3 = produtos.id_produto INNER JOIN categorias ON produtos.categoria_id = categorias.id_categoria INNER JOIN tamanho ON carrinho.tamanho_id3 = tamanho.id_tamanho WHERE carrinho.usuario_id3 = ?");
-        stmt = conexao.prepareStatement("SELECT carrinho.id_carrinho, carrinho.nome_produto_carrinho, carrinho.valor_produto_carrinho, carrinho.imagem_produto_carrinho, carrinho.descricao_produto_carrinho, carrinho.quantidade_carrinho, carrinho.total, categorias.nome_categoria, carrinho.usuario_id3, carrinho.tamanho_id3, carrinho.produto_id3, carrinho.categoria_id3, tamanho.tamanho_produto FROM carrinho INNER JOIN produtos ON carrinho.produto_id3 = produtos.id_produto INNER JOIN categorias ON carrinho.categoria_id3 = categorias.id_categoria INNER JOIN tamanho ON carrinho.tamanho_id3 = tamanho.id_tamanho WHERE carrinho.usuario_id3 = ?");
-       stmt.setInt(1, idUsuario);
-
-      
+        stmt = conexao.prepareStatement("SELECT c.id_carrinho, c.nome_produto_carrinho, c.imagem_produto_carrinho, c.descricao_produto_carrinho, c.produto_id3, c.usuario_id3, c.tamanho_id3, c.total,c.valor_produto_carrinho, c.quantidade_carrinho, (c.valor_produto_carrinho * c.quantidade_carrinho) AS total_produtos FROM carrinho c INNER JOIN produtos p ON c.produto_id3 = p.id_produto WHERE c.usuario_id3 = ?;");
+             stmt.setInt(1, idUsuario);
         rs = stmt.executeQuery();
         while(rs.next()){
             CarrinhoDTO carrinho = new CarrinhoDTO();
@@ -166,11 +164,7 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
             carrinho.setImagemCarrinho(rs.getString("imagem_produto_carrinho"));
             carrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
             carrinho.setQuantidadeCarrinho(rs.getInt("quantidade_carrinho"));
-            carrinho.setTamanho(rs.getString("tamanho_produto"));
-            carrinho.setNomeCategoria(rs.getString("nome_categoria"));
-            carrinho.setCategoriaId3(rs.getInt("categoria_id3"));       
-            carrinho.setTamanhoId3(rs.getInt("tamanho_id3"));
-            carrinho.setProdutoId3(rs.getInt("produto_id3"));
+            carrinho.setTotalProdutos(rs.getFloat("total_produtos"));
             carrinhos.add(carrinho); 
         }
 
@@ -180,6 +174,43 @@ public List<CarrinhoDTO> MostrarTudo(int idUsuario){
             return carrinhos;
                          
 }
+
+public int diminuirQuantidadeProduto(int quantidadeDesejada, int produtoId){
+    
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    stmt = conexao.prepareStatement("SELECT quantidade FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+    
+    if(rs.next()){
+        int quantidadeAtual = rs.getInt("quantidade");
+        if(quantidadeAtual >= quantidadeDesejada){
+            
+            int novaQuantidade = quantidadeAtual - quantidadeDesejada;
+        stmt = conexao.prepareStatement("UPDATE produtos SET quantidade = ? WHERE id_produto = ?");
+        stmt.setInt(1, novaQuantidade);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+        
+          rs.close();
+        stmt.close();
+        conexao.close();    
+                quantidadeAtual = 0;
+        quantidadeDesejada = 0;
+        novaQuantidade = 0;
+        }
+        
+    }
+    
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+return 0;
+} 
         public int verificarCarrinho(int idUsuario){
             int idCarrinho = 0;
           try{
