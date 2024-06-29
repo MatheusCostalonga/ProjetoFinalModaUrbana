@@ -42,9 +42,9 @@
                 <c:when test="${usuarioLogado == 1}">
             <div class="buttonADMIN">   
                 <li id="buttonUsuarioAdmin" class="nav-item dropdown">
+                   
                     <a id="TextUserAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-user-tie"></i>
-                        ADMIN
+                        <i class="fa-solid fa-user-tie"></i>ADMIN
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./cadastrar-produto">Cadastrar produto</a></li>
@@ -93,7 +93,7 @@
                 <b><a id="buttonIconeCarrinho" class="open-btn" href="#"><i id="IconeCarrinho" class="fa-solid fa-cart-shopping"></i> Seu Carrinho</a></b>
 
                 <div class="offcanvas-menu">
-                    <button   class="close-btn" href="#"><i class="fa-solid fa-shield-halved"></i></button>
+                    <button   class="close-btn" href="#"><i class="fa-solid fa-chevron-right"></i></button>
 
                     <div id="card">
                         <div id="HeaderCarrinho">
@@ -107,11 +107,12 @@
                                     <div class="informacoesProdutosCarrinho">
                                         <input type="text" name="idCarrinho" value="${carrinho.id_carrinho}" style="display: none;">
                                         <h5 class="card-title">${carrinho.nomeCarrinho}</h5>
-                                        <p class="card-text" class="quantidade">unit: ${carrinho.quantidadeCarrinho}</p>
-                                        <p class="card-text" class="preco">Valor unidades:<fmt:formatNumber value="${carrinho.totalProdutos}" type="currency"/></p>
-                                        <p class="card-text">Tamanho: ${carrinho.tamanho}</p>
-                                    </div>
-                                </c:forEach>
+                                          <div id="juntarCardText">
+                                          <p class="card-text" class="quantidade">unidades: ${carrinho.quantidadeCarrinho}</p>
+                                          <p class="card-text" class="preco">Valor:<fmt:formatNumber value="${carrinho.totalProdutos}" type="currency"/></p>
+                                        </div>
+                                        </div>
+                                    </c:forEach>
 
                             </div>
                         </div>
@@ -186,7 +187,6 @@
                                 <img src="${camiseta.imagem}" class="card-img-top" alt="...">
                             </div>
                             <h5 class="card-title">${camiseta.nome_produto}</h5>
-                            <p class="card-text">${camiseta.descricao}</p>
                             <p><fmt:formatNumber value="${camiseta.valor}" type="currency"/></p>
                             <p class="card-text">${camiseta.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${camiseta.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
@@ -210,7 +210,6 @@
                                 <img src="${camisas.imagem}" class="card-img-top" alt="...">
                             </div>
                             <h5 class="card-title">${camisas.nome_produto}</h5>
-                            <p class="card-text">${camisas.descricao}</p>
                             <p><fmt:formatNumber value="${camisas.valor}" type="currency"/></p>
                             <p class="card-text">${camisas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${camisas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
@@ -233,7 +232,6 @@
                                 <img src="${calcas.imagem}" class="card-img-top" alt="...">
                             </div>
                             <h5 class="card-title">${calcas.nome_produto}</h5>
-                            <p class="card-text">${calcas.descricao}</p>
                             <p><fmt:formatNumber value="${calcas.valor}" type="currency"/></p>
                             <p class="card-text">${calcas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${calcas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
@@ -257,7 +255,6 @@
                                 <img src="${jaquetas.imagem}" class="card-img-top" alt="...">
                             </div>
                             <h5 class="card-title">${jaquetas.nome_produto}</h5>
-                            <p class="card-text">${jaquetas.descricao}</p>
                             <p><fmt:formatNumber value="${jaquetas.valor}" type="currency"/></p>
                             <p class="card-text">${jaquetas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${jaquetas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
@@ -281,7 +278,6 @@
                                 <img src="${bermudas.imagem}" class="card-img-top" alt="...">
                             </div>
                             <h5 class="card-title">${bermudas.nome_produto}</h5>
-                            <p class="card-text">${bermudas.descricao}</p>
                             <p><fmt:formatNumber value="${bermudas.valor}" type="currency"/></p>
                             <p class="card-text">${bermudas.nome_categoria}</p>
                             <a  href="./produtoSelecionado?id=${bermudas.idProduto}"><input id="button-Comprar" type="submit" value="Visualizar"></a>
