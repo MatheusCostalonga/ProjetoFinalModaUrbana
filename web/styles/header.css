@@ -1535,7 +1535,7 @@ header #buttonUsuarioAdmin .dropdown-menu a:hover{
     }
     header #gridHeader {
         display: grid;
-        grid-template-columns:  8% 44% 13% 20% 15%;
+        grid-template-columns:  8% 48% 13% 18% 13%;
         height: 10vh;
     }
     main{

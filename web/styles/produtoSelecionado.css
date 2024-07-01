@@ -82,7 +82,7 @@ grid-template-columns: 1fr 1fr;
         display: grid;
     }
 
-    @media screen and (min-width: 600px) and (max-width: 800px){
+    @media screen and (min-width: 1255px) and (max-width: 1500px){
         html{
             height: 100vh;
             max-height: 100vh;
@@ -172,3 +172,434 @@ grid-template-columns: 1fr 1fr;
                 display: grid;
             }
     }
+    
+
+    @media screen and (min-width: 1100px) and (max-width: 1254px){
+        html{
+            height: 100vh;
+            max-height: 100vh;
+        }
+        main{
+            height: fit-content;
+            justify-content: center;
+            align-content: center;
+            flex: 1;
+        } 
+        main .produto .imagemProduto{
+            display: block;
+            height: 100%;
+            text-align: center !important;
+        align-content: center !important;
+        align-items: center !important;
+        }
+        main .produto{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 76vh;
+            width: 90vw;
+            
+        }
+        main .produto .imagemProduto img {
+             vertical-align: none !important; 
+              border-style: none !important; 
+              height: 50vh;
+              text-align: center;
+              align-content: center;
+              align-items: center !important;
+            }
+        main .imagemProduto h5{
+                margin-top: 5vh;
+            }
+            #quantidade{
+                width: 7vw;
+                height: auto;
+            }
+            #TextQuantidade, #valorProduto,#TextTamanho{
+                font-weight: 700;
+                font-size: large;
+                font-family: inherit;
+            }
+            #descricaoProduto{
+                font-family: inherit;
+                font-weight: 700;
+                padding-bottom: 15vh;
+            }
+             .produto #comprar{
+                background-color: #303247;
+                color: white;
+                border-radius: 8px;
+                margin-top: 1.5vh;
+                width: 15vw;
+                font-size: 1.5vh;
+                
+             }
+             .form-control {
+                display: block;
+                width: 70%;
+                height: calc(2.25rem + 2px);
+                padding: .375rem .75rem;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+
+            main .produto .InformProduto{
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                height: auto;
+                margin-left: 5vw;
+                padding-top: 0.7vh;
+            }
+            main .produto .imagemProduto #tituloProduto{
+                font-size: xx-large;
+                font-weight: 600;
+                font-family: inherit;
+                padding-bottom: 5vh;
+            }
+            footer{
+                display: grid;
+                height: 10vh;
+                background-color: #2A2B33;
+                color: white;
+            }
+            footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+                width: 100%;
+            }
+            footer .rodape .redesSociais{
+                margin-left: 0.5%;
+            }
+            footer .rodape .redesSociais, footer .rodape .metodoContato{
+                display: grid;
+            }
+    }
+    @media screen and (min-width: 900px) and (max-width: 1099px){
+        html{
+            height: 100vh;
+            max-height: 100vh;
+        }
+        main{
+            height: fit-content;
+            justify-content: center;
+            align-content: center;
+            flex: 1;
+        } 
+        main .produto .imagemProduto{
+            display: block;
+            height: 100%;
+            text-align: center !important;
+        align-content: center !important;
+        align-items: center !important;
+        }
+        main .produto{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 76vh;
+            width: 90vw;
+            
+        }
+        main .produto .imagemProduto img {
+             vertical-align: none !important; 
+              border-style: none !important; 
+              height: 50vh;
+              text-align: center;
+              align-content: center;
+              align-items: center !important;
+            }
+        main .imagemProduto h5{
+                margin-top: 5vh;
+            }
+            #quantidade{
+                width: 7vw;
+                height: auto;
+            }
+            #TextQuantidade, #valorProduto,#TextTamanho{
+                font-weight: 700;
+                font-size: large;
+                font-family: inherit;
+            }
+            #descricaoProduto{
+                font-family: inherit;
+                font-weight: 700;
+                padding-bottom: 15vh;
+            }
+             .produto #comprar{
+                background-color: #303247;
+                color: white;
+                border-radius: 8px;
+                margin-top: 1.5vh;
+                width: 20vw;
+                font-size: 1.5vh;
+                
+             }
+             .form-control {
+                display: block;
+                width: 70%;
+                height: calc(2.25rem + 2px);
+                padding: .375rem .75rem;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+
+            main .produto .InformProduto{
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                height: auto;
+                margin-left: 5vw;
+                padding-top: 0.7vh;
+            }
+            main .produto .imagemProduto #tituloProduto{
+                font-size: xx-large;
+                font-weight: 600;
+                font-family: inherit;
+                padding-bottom: 5vh;
+            }
+            footer{
+                display: grid;
+                height: 10vh;
+                background-color: #2A2B33;
+                color: white;
+            }
+            footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+                width: 100%;
+            }
+            footer .rodape .redesSociais{
+                margin-left: 0.5%;
+            }
+            footer .rodape .redesSociais, footer .rodape .metodoContato{
+                display: grid;
+            }
+    }
+
+    @media screen and (min-width: 700px) and (max-width: 899px){
+        html{
+            height: 100vh;
+            max-height: 100vh;
+        }
+        main{
+            height: fit-content;
+            justify-content: center;
+            align-content: center;
+            flex: 1;
+        } 
+        main .produto .imagemProduto{
+            display: block;
+            height: 100%;
+            text-align: center !important;
+        align-content: center !important;
+        align-items: center !important;
+        }
+        main .produto{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 76vh;
+            width: 90vw;
+            
+        }
+        main .produto .imagemProduto img {
+             vertical-align: none !important; 
+              border-style: none !important; 
+              height: 30vh;
+              text-align: center;
+              align-content: center;
+              align-items: center !important;
+            }
+        main .imagemProduto h5{
+                margin-top: 5vh;
+            }
+            #quantidade{
+                width: 7vw;
+                height: auto;
+            }
+            #TextQuantidade, #valorProduto,#TextTamanho{
+                font-weight: 700;
+                font-size: large;
+                font-family: inherit;
+            }
+            #descricaoProduto{
+                font-family: inherit;
+                font-weight: 700;
+                padding-bottom: 15vh;
+            }
+             .produto #comprar{
+                background-color: #303247;
+                color: white;
+                border-radius: 8px;
+                margin-top: 1.5vh;
+                width: 24vw;
+                font-size: 1.5vh;
+                
+             }
+             .form-control {
+                display: block;
+                width: 70%;
+                height: calc(2.25rem + 2px);
+                padding: .375rem .75rem;
+                font-size: 0.79rem;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+
+            main .produto .InformProduto{
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                height: auto;
+                margin-left: 5vw;
+                padding-top: 0.7vh;
+            }
+            main .produto .imagemProduto #tituloProduto{
+                font-size: xx-large;
+                font-weight: 600;
+                font-family: inherit;
+                padding-bottom: 5vh;
+            }
+            footer{
+                display: grid;
+                height: 10vh;
+                background-color: #2A2B33;
+                color: white;
+            }
+            footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+                width: 100%;
+            }
+            footer .rodape .redesSociais{
+                margin-left: 0.5%;
+            }
+            footer .rodape .redesSociais, footer .rodape .metodoContato{
+                display: grid;
+            }
+    }   
+    @media screen and (min-width: 400px) and (max-width: 699px){
+        html{
+            height: 100vh;
+            max-height: 100vh;
+        }
+        main{
+            height: fit-content;
+            justify-content: center;
+            align-content: center;
+            flex: 1;
+        } 
+        main .produto .imagemProduto{
+            display: block;
+            height: 100%;
+            text-align: center !important;
+        align-content: center !important;
+        align-items: center !important;
+        }
+        main .produto{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 76vh;
+            width: 97vw;
+            
+        }
+        main .produto .imagemProduto img {
+             vertical-align: none !important; 
+              border-style: none !important; 
+              height: 25vh;
+              text-align: center;
+              align-content: center;
+              align-items: center !important;
+            }
+        main .imagemProduto h5{
+                margin-top: 5vh;
+            }
+            #quantidade{
+                width: 7vw;
+                height: auto;
+            }
+            #TextQuantidade, #valorProduto,#TextTamanho{
+                font-weight: 700;
+                font-size: large;
+                font-family: inherit;
+            }
+            #descricaoProduto{
+                font-family: inherit;
+                font-weight: 700;
+                padding-bottom: 15vh;
+            }
+             .produto #comprar{
+                background-color: #303247;
+                color: white;
+                border-radius: 8px;
+                margin-top: 1.5vh;
+                width: 28vw;
+                font-size: 1vh;
+                
+             }
+             .form-control {
+                display: block;
+                width: 70%;
+                height: calc(2.25rem + 2px);
+                padding: .375rem .75rem;
+                font-size: 0.55rem;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+
+            main .produto .InformProduto{
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                height: auto;
+                margin-left: 5vw;
+                padding-top: 0.7vh;
+            }
+            main .produto .imagemProduto #tituloProduto{
+                font-size: xx-large;
+                font-weight: 600;
+                font-family: inherit;
+                padding-bottom: 5vh;
+            }
+            footer{
+                display: grid;
+                height: 10vh;
+                background-color: #2A2B33;
+                color: white;
+            }
+            footer .rodape{
+        display: grid;
+        grid-template-columns: 1fr 1fr;    
+                width: 100%;
+            }
+            footer .rodape .redesSociais{
+                margin-left: 0.5%;
+            }
+            footer .rodape .redesSociais, footer .rodape .metodoContato{
+                display: grid;
+            }
+    }   

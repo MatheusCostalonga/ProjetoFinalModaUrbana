@@ -37,13 +37,15 @@ main .grade .card-body #button-Comprar{
         color: #D9D9D9;
     }   
 
-        @media screen and (min-width: 600px) and (max-width: 800px){
-        
+     
+        @media screen and (min-width: 1201px) and (max-width: 1500px){
             .grade{
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
                 justify-content: center;
                 justify-items: center;
+                margin-top: 0.5vh !important;
+
             }
             main .grade .card-body #button-Comprar{
                 cursor: pointer ;
@@ -63,27 +65,205 @@ main .grade .card-body #button-Comprar{
                    background-repeat: no-repeat; 
                    padding: 0.5rem;
                    height: 20vh;
+   
                 }
                .card-body {
-                    -ms-flex: 1 1 auto;
-                    flex: 1 1 auto;
+                    -ms-flex: 1 1 auto !important;
+                    flex: 1 1 auto !important;
                     padding: 5rem;
-                    cursor: pointer;
-                    display: grid !important;;
-                    transition: 0.5s all ease-out;
-                    justify-items: center;
+                    cursor: pointer !important;
+                    display: grid !important;
+                    transition: 0.5s all ease-out !important;
+                    justify-items: center !important;
                 }
                 .card-body:hover{
                     background-color:#2A2B33;
                     color: #D9D9D9;
+                }   
+                .card {
+                    position: relative;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    min-width: 0;
+                    word-wrap: break-word;
+                    background-color: #fff;
+                    background-clip: border-box;
+                    border: 1px solid rgba(0, 0, 0, .125);
+                    border-radius: .25rem;
+                    margin-top: 2vh !important;
                 }
-                   .grade {
-                        display: flex !important;
-                        justify-content: center;
-                        justify-items: center;
-                        margin-right: 0 !important; 
-                         margin-left: 0 !important;
-                
                     }
+                    @media screen and (min-width: 1001px) and (max-width: 1200px){
+                        .grade{
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+                            justify-content: center;
+                            justify-items: center;
+                            margin-top: 0.5vh !important;
             
-        }
+                        }
+                        main .grade .card-body #button-Comprar{
+                            cursor: pointer ;
+                            background-color: #D9D9D9 ;
+                            color: #2A2B33;
+                            border: none;
+                            border-radius: 0.5px;
+                            }
+                            
+                            main .grade .card-body #button-Comprar:hover{
+                                background-color:#2A2B33;
+                                color: #D9D9D9;
+                            }
+                            main .grade .card-body img{
+                                background-size: cover;
+                                background-position: center;
+                               background-repeat: no-repeat; 
+                               padding: 0.5rem;
+                               height: 20vh;
+               
+                            }
+                           .card-body {
+                                -ms-flex: 1 1 auto !important;
+                                flex: 1 1 auto !important;
+                                padding: 5rem;
+                                cursor: pointer !important;
+                                display: grid !important;
+                                transition: 0.5s all ease-out !important;
+                                justify-items: center !important;
+                            }
+                            .card-body:hover{
+                                background-color:#2A2B33;
+                                color: #D9D9D9;
+                            }   
+                            .card {
+                                position: relative;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                                min-width: 0;
+                                word-wrap: break-word;
+                                background-color: #fff;
+                                background-clip: border-box;
+                                border: 1px solid rgba(0, 0, 0, .125);
+                                border-radius: .25rem;
+                                margin-top: 2vh !important;
+                            }
+                                }
+                                @media screen and (min-width: 651px) and (max-width: 1000px){
+                                    .grade{
+                                        display: grid;
+                                        grid-template-columns: 1fr 1fr;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        margin-top: 0.5vh !important;
+                        
+                                    }
+                                    main .grade .card-body #button-Comprar{
+                                        cursor: pointer ;
+                                        background-color: #D9D9D9 ;
+                                        color: #2A2B33;
+                                        border: none;
+                                        border-radius: 0.5px;
+                                        }
+                                        
+                                        main .grade .card-body #button-Comprar:hover{
+                                            background-color:#2A2B33;
+                                            color: #D9D9D9;
+                                        }
+                                        main .grade .card-body img{
+                                            background-size: cover;
+                                            background-position: center;
+                                           background-repeat: no-repeat; 
+                                           padding: 0.5rem;
+                                           height: 17vh;
+                           
+                                        }
+                                       .card-body {
+                                            -ms-flex: 1 1 auto !important;
+                                            flex: 1 1 auto !important;
+                                            padding: 5rem;
+                                            cursor: pointer !important;
+                                            display: grid !important;
+                                            transition: 0.5s all ease-out !important;
+                                            justify-items: center !important;
+                                        }
+                                        .card-body:hover{
+                                            background-color:#2A2B33;
+                                            color: #D9D9D9;
+                                        }   
+                                        .card {
+                                            position: relative;
+                                            display: -ms-flexbox;
+                                            display: flex;
+                                            -ms-flex-direction: column;
+                                            flex-direction: column;
+                                            min-width: 0;
+                                            word-wrap: break-word;
+                                            background-color: #fff;
+                                            background-clip: border-box;
+                                            border: 1px solid rgba(0, 0, 0, .125);
+                                            border-radius: .25rem;
+                                            margin-top: 2vh !important;
+                                        }
+                                            }
+            @media screen and (min-width: 0px) and (max-width: 650px){
+                .grade{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    justify-content: center;
+                    justify-items: center;
+                    margin-top: 0.5vh !important;
+    
+                }
+                main .grade .card-body #button-Comprar{
+                    cursor: pointer ;
+                    background-color: #D9D9D9 ;
+                    color: #2A2B33;
+                    border: none;
+                    border-radius: 0.5px;
+                    }
+                    
+                    main .grade .card-body #button-Comprar:hover{
+                        background-color:#2A2B33;
+                        color: #D9D9D9;
+                    }
+                    main .grade .card-body img{
+                        background-size: cover;
+                        background-position: center;
+                       background-repeat: no-repeat; 
+                       padding: 0.5rem;
+                       height: 17vh;
+       
+                    }
+                   .card-body {
+                        -ms-flex: 1 1 auto !important;
+                        flex: 1 1 auto !important;
+                        padding: 5rem;
+                        cursor: pointer !important;
+                        display: grid !important;
+                        transition: 0.5s all ease-out !important;
+                        justify-items: center !important;
+                    }
+                    .card-body:hover{
+                        background-color:#2A2B33;
+                        color: #D9D9D9;
+                    }   
+                    .card {
+                        position: relative;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                        min-width: 0;
+                        word-wrap: break-word;
+                        background-color: #fff;
+                        background-clip: border-box;
+                        border: 1px solid rgba(0, 0, 0, .125);
+                        border-radius: .25rem;
+                        margin-top: 2vh !important;
+                    }
+                        }        
+            
